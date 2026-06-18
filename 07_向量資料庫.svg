@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1000" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="720" height="1000" fill="#FBFAFF"/>
+  <text x="360" y="46" font-size="32" font-weight="800" fill="#5B3FA0" text-anchor="middle">向量資料庫</text>
+  <text x="360" y="74" font-size="14" fill="#7C4DD1" text-anchor="middle">儲存、索引並檢索向量嵌入，達成大規模快速相似度搜尋。</text>
+
+  <!-- helper: step header -->
+  <!-- Row 1 -->
+  <g transform="translate(28,96)">
+    <!-- 1 -->
+    <g>
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">1</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">嵌入 Embedding</text>
+      <g transform="translate(0,36)">
+        <rect x="6" y="6" width="30" height="38" rx="3" fill="#fff" stroke="#aaa"/>
+        <rect x="56" y="14" width="56" height="22" rx="4" fill="#E7DAF7" stroke="#7C4DD1"/><text x="84" y="29" font-size="8.5" text-anchor="middle">嵌入模型</text>
+        <rect x="130" y="2" width="56" height="46" fill="#F4ECFB" stroke="#9b7fd0"/>
+        <text x="158" y="14" font-size="8" text-anchor="middle">0.21</text><text x="158" y="26" font-size="8" text-anchor="middle">-0.31</text><text x="158" y="38" font-size="8" text-anchor="middle">0.57</text>
+        <line x1="38" y1="24" x2="54" y2="24" stroke="#333"/><line x1="114" y1="24" x2="128" y2="24" stroke="#333"/>
+        <text x="20" y="58" font-size="8" fill="#666" text-anchor="middle">文字/資料</text>
+      </g>
+      <text x="6" y="118" font-size="10" fill="#555">把資料轉成能捕捉語意的</text>
+      <text x="6" y="131" font-size="10" fill="#555">高維度密集向量。</text>
+    </g>
+    <!-- 2 -->
+    <g transform="translate(232,0)">
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">2</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">相似度搜尋</text>
+      <g transform="translate(0,40)">
+        <circle cx="100" cy="30" r="34" fill="none" stroke="#ccc" stroke-dasharray="3"/>
+        <circle cx="100" cy="30" r="4" fill="#5B3FA0"/>
+        <circle cx="86" cy="20" r="3.5" fill="#2E9E5B"/><circle cx="114" cy="24" r="3.5" fill="#2E9E5B"/><circle cx="96" cy="44" r="3.5" fill="#2E9E5B"/>
+        <circle cx="60" cy="14" r="3" fill="#bbb"/><circle cx="140" cy="44" r="3" fill="#bbb"/><circle cx="64" cy="50" r="3" fill="#bbb"/><circle cx="136" cy="12" r="3" fill="#bbb"/>
+        <text x="100" y="80" font-size="8" fill="#666" text-anchor="middle">查詢向量</text>
+      </g>
+      <text x="6" y="118" font-size="10" fill="#555">用相似度度量，找出與查詢</text>
+      <text x="6" y="131" font-size="10" fill="#555">嵌入最相近的向量。</text>
+    </g>
+    <!-- 3 -->
+    <g transform="translate(464,0)">
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">3</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">中繼資料</text>
+      <g transform="translate(0,40)" font-size="7.5" fill="#333">
+        <rect x="6" y="0" width="180" height="58" fill="#fff" stroke="#9b7fd0"/>
+        <line x1="6" y1="14" x2="186" y2="14" stroke="#9b7fd0"/>
+        <text x="12" y="11">id</text><text x="40" y="11">text</text><text x="110" y="11">source</text><text x="150" y="11">date</text>
+        <text x="12" y="27">1</text><text x="40" y="27">什麼是AI?</text><text x="110" y="27">documentation</text>
+        <text x="12" y="41">2</text><text x="40" y="41">什麼是ML?</text><text x="110" y="41">website</text>
+        <text x="12" y="55">3</text><text x="40" y="55">深度學習</text><text x="110" y="55">research</text>
+      </g>
+      <text x="6" y="118" font-size="10" fill="#555">向量連同中繼資料一起存，</text>
+      <text x="6" y="131" font-size="10" fill="#555">以利過濾與更精準檢索。</text>
+    </g>
+  </g>
+  <line x1="28" y1="248" x2="692" y2="248" stroke="#eee"/>
+
+  <!-- Row 2 -->
+  <g transform="translate(28,266)">
+    <g>
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">4</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">索引 Indexing</text>
+      <g transform="translate(40,42)">
+        <circle cx="60" cy="6" r="6" fill="#7C4DD1"/>
+        <circle cx="30" cy="34" r="6" fill="#9b7fd0"/><circle cx="90" cy="34" r="6" fill="#9b7fd0"/>
+        <circle cx="12" cy="62" r="6" fill="#c0a8e8"/><circle cx="48" cy="62" r="6" fill="#c0a8e8"/><circle cx="78" cy="62" r="6" fill="#c0a8e8"/><circle cx="108" cy="62" r="6" fill="#c0a8e8"/>
+        <g stroke="#bbb"><line x1="60" y1="6" x2="30" y2="34"/><line x1="60" y1="6" x2="90" y2="34"/><line x1="30" y1="34" x2="12" y2="62"/><line x1="30" y1="34" x2="48" y2="62"/><line x1="90" y1="34" x2="78" y2="62"/><line x1="90" y1="34" x2="108" y2="62"/></g>
+      </g>
+      <text x="6" y="132" font-size="10" fill="#555">建立索引（如 HNSW、IVF、</text>
+      <text x="6" y="145" font-size="10" fill="#555">PQ）以快速近似最近鄰搜尋。</text>
+    </g>
+    <g transform="translate(232,0)">
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">5</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">檢索 Retrieval</text>
+      <g transform="translate(0,40)">
+        <rect x="6" y="6" width="40" height="46" fill="#F4ECFB" stroke="#9b7fd0"/><text x="26" y="22" font-size="7" text-anchor="middle">0.25</text><text x="26" y="34" font-size="7" text-anchor="middle">-0.11</text><text x="26" y="46" font-size="7" text-anchor="middle">0.68</text>
+        <rect x="62" y="14" width="54" height="30" rx="4" fill="#E7DAF7" stroke="#7C4DD1"/><text x="89" y="32" font-size="8" text-anchor="middle">向量DB</text>
+        <g font-size="7.5" fill="#333"><text x="130" y="18">id: 23 分數:0.92</text><text x="130" y="34">id: 89 分數:0.89</text><text x="130" y="50">id: 15 分數:0.86</text></g>
+        <line x1="46" y1="28" x2="60" y2="28" stroke="#333"/><line x1="116" y1="28" x2="128" y2="28" stroke="#333"/>
+        <text x="26" y="64" font-size="7.5" fill="#666" text-anchor="middle">查詢向量</text>
+      </g>
+      <text x="6" y="132" font-size="10" fill="#555">依查詢取出前 K 個最近向量</text>
+      <text x="6" y="145" font-size="10" fill="#555">及其關聯的中繼資料。</text>
+    </g>
+    <g transform="translate(464,0)">
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">6</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">過濾 Filtering</text>
+      <g transform="translate(0,40)">
+        <rect x="6" y="6" width="40" height="46" fill="#F4ECFB" stroke="#9b7fd0"/><text x="26" y="22" font-size="7" text-anchor="middle">0.25</text><text x="26" y="34" font-size="7" text-anchor="middle">-0.11</text><text x="26" y="46" font-size="7" text-anchor="middle">0.68</text>
+        <rect x="62" y="14" width="54" height="30" rx="4" fill="#E7DAF7" stroke="#7C4DD1"/><text x="89" y="32" font-size="8" text-anchor="middle">向量DB</text>
+        <g font-size="7.5" fill="#333"><text x="130" y="18">id: 23 分數:0.92</text><text x="130" y="34">id: 15 分數:0.86</text><text x="130" y="50">id: 73 分數:0.80</text></g>
+        <rect x="6" y="58" width="180" height="22" fill="#FFF6E0" stroke="#E0B040"/><text x="10" y="72" font-size="7" fill="#8a6d1f">過濾: source='documentation' date&gt;'2024'</text>
+      </g>
+      <text x="6" y="142" font-size="10" fill="#555">套用中繼資料過濾（來源、</text>
+      <text x="6" y="155" font-size="10" fill="#555">日期、分類）以縮小結果。</text>
+    </g>
+  </g>
+  <line x1="28" y1="438" x2="692" y2="438" stroke="#eee"/>
+
+  <!-- Row 3 -->
+  <g transform="translate(28,456)">
+    <g>
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">7</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">儲存 Storage</text>
+      <g transform="translate(0,38)">
+        <ellipse cx="34" cy="14" rx="22" ry="7" fill="#9CC9F0"/><rect x="12" y="14" width="44" height="50" fill="#BFDCF7"/><ellipse cx="34" cy="64" rx="22" ry="7" fill="#9CC9F0"/>
+        <line x1="12" y1="30" x2="56" y2="30" stroke="#fff"/><line x1="12" y1="46" x2="56" y2="46" stroke="#fff"/>
+        <g font-size="7.5" fill="#333"><text x="66" y="16">向量 [0.21,-0.31,…]</text><text x="66" y="40">中繼資料 {id,text,…}</text><text x="66" y="64">索引 (HNSW/IVF/PQ)</text></g>
+      </g>
+      <text x="6" y="128" font-size="10" fill="#555">向量資料庫一起存向量、中繼</text>
+      <text x="6" y="141" font-size="10" fill="#555">資料與索引，高效儲存與檢索。</text>
+    </g>
+    <g transform="translate(232,0)">
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">8</text>
+      <rect x="32" y="2" width="150" height="24" rx="12" fill="#EDE4FA"/><text x="107" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">在 RAG 中的應用</text>
+      <g transform="translate(0,40)" font-size="7.5" fill="#333">
+        <rect x="2" y="6" width="26" height="32" fill="#fff" stroke="#aaa"/><text x="15" y="50" text-anchor="middle">文件集</text>
+        <rect x="40" y="12" width="34" height="20" fill="#FBE0C0" stroke="#999"/><text x="57" y="25" text-anchor="middle">切塊</text>
+        <rect x="86" y="10" width="40" height="24" rx="3" fill="#E7DAF7" stroke="#7C4DD1"/><text x="106" y="25" text-anchor="middle">嵌入模型</text>
+        <rect x="138" y="10" width="34" height="24" rx="3" fill="#D8C4F0" stroke="#7C4DD1"/><text x="155" y="25" text-anchor="middle">向量DB</text>
+        <line x1="28" y1="22" x2="40" y2="22" stroke="#333"/><line x1="74" y1="22" x2="86" y2="22" stroke="#333"/><line x1="126" y1="22" x2="138" y2="22" stroke="#333"/>
+        <rect x="150" y="44" width="34" height="20" rx="3" fill="#FCEFA0" stroke="#C0A030"/><text x="167" y="57" text-anchor="middle">LLM答案</text>
+      </g>
+      <text x="6" y="130" font-size="10" fill="#555">透過切塊、嵌入並檢索相關脈絡</text>
+      <text x="6" y="143" font-size="10" fill="#555">提供給 LLM，驅動 RAG 系統。</text>
+    </g>
+    <g transform="translate(464,0)">
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">9</text>
+      <rect x="32" y="2" width="150" height="24" rx="12" fill="#EDE4FA"/><text x="107" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">熱門向量資料庫</text>
+      <g transform="translate(0,42)" font-size="9" fill="#333" text-anchor="middle">
+        <text x="30" y="14">Pinecone</text><text x="95" y="14">Weaviate</text><text x="158" y="14">Milvus</text>
+        <text x="30" y="44">Qdrant</text><text x="95" y="44">Chroma</text><text x="158" y="44">pgvector</text>
+      </g>
+      <text x="6" y="128" font-size="10" fill="#555">有許多開源與託管選項</text>
+      <text x="6" y="141" font-size="10" fill="#555">可供選擇。</text>
+    </g>
+  </g>
+
+  <!-- key takeaways -->
+  <g transform="translate(28,620)">
+    <rect width="664" height="70" rx="10" fill="#F3EEFB" stroke="#D5C4EE"/>
+    <text x="20" y="30" font-size="13" font-weight="800" fill="#5B3FA0">重點</text><text x="20" y="50" font-size="13" font-weight="800" fill="#5B3FA0">整理</text>
+    <g font-size="10.5" fill="#444">
+      <text x="80" y="24">✓ 向量捕捉語意</text>
+      <text x="80" y="46">✓ 相似度搜尋找出最相關結果</text>
+      <text x="320" y="24">✓ 索引讓大規模搜尋更快</text>
+      <text x="320" y="46">✓ 中繼資料與過濾提升檢索品質</text>
+      <text x="560" y="24" font-weight="700" fill="#5B3FA0">RAG、語意</text>
+      <text x="560" y="46" font-weight="700" fill="#5B3FA0">搜尋、推薦皆必備</text>
+    </g>
+  </g>
+  <text x="360" y="980" font-size="11" fill="#bbb" text-anchor="middle">中文重製版 · 依原圖風格重繪</text>
+</svg>

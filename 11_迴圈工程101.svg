@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1000" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="760" height="1000" fill="#FAFAFA"/>
+  <text x="30" y="50" font-size="34" font-weight="800" fill="#1a1a2e"><tspan fill="#2b6cb0">迴圈</tspan>工程 101</text>
+  <text x="30" y="78" font-size="14" fill="#555">在你睡覺時也能持續出貨程式的完整指南</text>
+  <text x="640" y="50" font-size="12" fill="#777">Daniel Moka</text>
+  <line x1="30" y1="92" x2="730" y2="92" stroke="#ddd"/>
+
+  <!-- LEFT COLUMN -->
+  <g transform="translate(30,108)">
+    <rect x="0" y="0" width="350" height="20" fill="#FBE8A6"/>
+    <text x="6" y="15" font-size="13" font-weight="800" fill="#1a1a2e">1. 什麼是迴圈 (Loop)？</text>
+    <text x="0" y="40" font-size="11" font-weight="700" fill="#333">迴圈是一個會自己工作、檢查、重試的代理，</text>
+    <text x="0" y="55" font-size="11" font-weight="700" fill="#333">不需要你每一步都下提示。</text>
+    <g font-size="10.5" fill="#444">
+      <text x="0" y="76">最簡形式是一個代理在循環中自我運作：</text>
+      <text x="0" y="94">1. 探索：找出需要修的東西</text>
+      <text x="0" y="110">2. 規劃：拆成清楚步驟</text>
+      <text x="0" y="126">3. 執行：完成工作</text>
+      <text x="0" y="142">4. 驗證：對照目標檢查結果</text>
+      <text x="0" y="158">5. 迭代：補洞再跑一次</text>
+    </g>
+    <rect x="0" y="170" width="350" height="50" rx="6" fill="#FFF6DA"/>
+    <text x="8" y="188" font-size="10" fill="#8a6d1f">任務在三件事為真時，就「迴圈就緒」：</text>
+    <text x="8" y="203" font-size="10" fill="#8a6d1f">夠重複而值得自動化／能客觀檢查對錯／出錯代價低。</text>
+
+    <!-- section 2 -->
+    <rect x="0" y="234" width="350" height="20" fill="#FBE8A6"/>
+    <text x="6" y="249" font-size="13" font-weight="800" fill="#1a1a2e">2. 開放迴圈 vs 封閉迴圈</text>
+    <text x="0" y="272" font-size="11" font-weight="700" fill="#C0392B">開放迴圈 = 探索型</text>
+    <g font-size="10.5" fill="#444">
+      <text x="0" y="290">• 代理自由探索、發現</text>
+      <text x="0" y="306">• 高 token 用量（50K–2M）</text>
+      <text x="0" y="322">• 可能偏離目標、產出 AI 廢話</text>
+      <text x="0" y="338">• 風險在於起點不明</text>
+    </g>
+    <text x="0" y="360" font-size="11" font-weight="700" fill="#2E9E5B">封閉迴圈 = 有界型</text>
+    <g font-size="10.5" fill="#444">
+      <text x="0" y="378">• 清楚目標、明確步驟、有驗證檢查</text>
+      <text x="0" y="394">• 在約束內運作</text>
+      <text x="0" y="410">• 可預測、有效率、更易控制</text>
+      <text x="0" y="426">• 對複雜任務更好</text>
+    </g>
+    <rect x="0" y="438" width="350" height="36" rx="6" fill="#E9F6EE"/>
+    <text x="8" y="455" font-size="10" fill="#1d6b3f">在最重要的事情上，封閉迴圈勝出。每跑一次</text>
+    <text x="8" y="468" font-size="10" fill="#1d6b3f">都讓下一次更銳利。</text>
+
+    <!-- section 3 -->
+    <rect x="0" y="488" width="350" height="20" fill="#FBE8A6"/>
+    <text x="6" y="503" font-size="13" font-weight="800" fill="#1a1a2e">3. 一個迴圈的構造</text>
+    <text x="0" y="524" font-size="10.5" fill="#444">把迴圈接線一次：讓它觸發、隔離、通知、連接、</text>
+    <text x="0" y="538" font-size="10.5" fill="#444">建構、記憶。每個好迴圈的 6 大基石：</text>
+    <g font-size="10.5" fill="#333">
+      <text x="0" y="560">① 自動化—心跳，在排程或提示時執行</text>
+      <text x="0" y="578">② 工作樹—平行代理、零檔案衝突</text>
+      <text x="0" y="596">③ 技能—專案知識：寫一次、隨處用</text>
+      <text x="0" y="614">④ 外掛與工具—接上真實工具：PR、Slack…</text>
+      <text x="0" y="632">⑤ 子代理—把製造者與檢查者分開</text>
+      <text x="0" y="650">⑥ 記憶—對話之外、跨迴圈的記憶</text>
+    </g>
+    <g font-size="10" fill="#C0392B">
+      <text x="0" y="674">✗ 別把規則與記憶只留在對話中</text>
+      <text x="0" y="690">✗ 別每跑一次都靠手動觸發</text>
+      <text x="0" y="706">✗ 別把所有零件接到不需要的地方</text>
+    </g>
+  </g>
+
+  <!-- RIGHT COLUMN -->
+  <g transform="translate(400,108)">
+    <rect x="0" y="0" width="330" height="20" fill="#FBE8A6"/>
+    <text x="6" y="15" font-size="13" font-weight="800" fill="#1a1a2e">4. 單一代理 vs 代理艦隊</text>
+    <text x="0" y="40" font-size="11" font-weight="700" fill="#333">單一代理迴圈：</text>
+    <text x="0" y="56" font-size="10.5" fill="#444">一個代理重複循環直到結果良好。簡單、便宜，</text>
+    <text x="0" y="70" font-size="10.5" fill="#444">對多數任務已足夠。</text>
+    <text x="0" y="92" font-size="11" font-weight="700" fill="#333">艦隊迴圈：</text>
+    <text x="0" y="108" font-size="10.5" fill="#444">多個專門代理在協調者下協作。當一個代理不夠</text>
+    <text x="0" y="122" font-size="10.5" fill="#444">用時採用。</text>
+
+    <rect x="0" y="140" width="330" height="20" fill="#FBE8A6"/>
+    <text x="6" y="155" font-size="13" font-weight="800" fill="#1a1a2e">5. 迴圈的實戰</text>
+    <text x="0" y="178" font-size="10.5" fill="#444">實戰中，迴圈是「從磁碟載入的目標與規則」加上</text>
+    <text x="0" y="192" font-size="10.5" fill="#444">製造者、檢查者、把關者，以及把失敗變成新規則。</text>
+    <rect x="0" y="204" width="330" height="48" rx="6" fill="#1e1e2e"/>
+    <g font-size="9" fill="#8fe0a0" font-family="monospace">
+      <text x="8" y="220">while True:</text>
+      <text x="20" y="232">work = maker.run(goal, rules)</text>
+      <text x="20" y="244">review = checker.run(work, tests)</text>
+    </g>
+    <rect x="0" y="258" width="330" height="32" rx="6" fill="#FFF6DA"/>
+    <text x="8" y="276" font-size="10" fill="#8a6d1f">把「重現—修正—驗證」苦工自動化，合併權留給你。</text>
+
+    <rect x="0" y="304" width="330" height="20" fill="#FBE8A6"/>
+    <text x="6" y="319" font-size="13" font-weight="800" fill="#1a1a2e">6. 品質把關 (The Quality Gate)</text>
+    <text x="0" y="342" font-size="10.5" fill="#444">沒有把關的迴圈出貨更快——卻是在出貨廢料。</text>
+    <text x="0" y="356" font-size="10.5" fill="#444">把關是唯一讓迴圈持續良好運作的檢查。</text>
+    <text x="0" y="378" font-size="10.5" font-weight="700" fill="#333">用這些東西建好你的把關：</text>
+    <text x="0" y="394" font-size="10" fill="#444">編譯器、型別系統、整合測試、變異測試、屬性</text>
+    <text x="0" y="408" font-size="10" fill="#444">測試、linter、分析器，以及 CI。</text>
+
+    <rect x="0" y="426" width="330" height="20" fill="#FBE8A6"/>
+    <text x="6" y="441" font-size="13" font-weight="800" fill="#1a1a2e">7. 自我學習迴圈</text>
+    <text x="0" y="464" font-size="10.5" fill="#444">迴圈只有在能「帶著教訓前進」時才會進步——</text>
+    <text x="0" y="478" font-size="10.5" fill="#444">而你要讓它對教訓負責。</text>
+    <rect x="0" y="492" width="330" height="70" rx="6" fill="#1e1e2e"/>
+    <text x="10" y="512" font-size="10" font-weight="700" fill="#fff">RULES.md 的規則：</text>
+    <g font-size="9.5" fill="#cdd">
+      <text x="10" y="530">• 每當代理重犯一個錯，就加一行</text>
+      <text x="10" y="546">• 自己策展，涵蓋住那個錯誤</text>
+      <text x="10" y="562">• 別信純文字筆記，要用確定性檢查</text>
+    </g>
+    <rect x="0" y="574" width="330" height="40" rx="6" fill="#E6F0FB"/>
+    <text x="8" y="592" font-size="10.5" fill="#1E5FA8">每個錯誤都變成迴圈無法再犯的永久檢查。</text>
+    <text x="8" y="607" font-size="10.5" fill="#1E5FA8">你的工作是設計能驅動代理的迴圈。</text>
+    <text x="0" y="700" font-size="13" font-weight="800" fill="#1a1a2e" text-anchor="middle" transform="translate(165,0)">打造「從經驗中學習」的迴圈。</text>
+  </g>
+  <text x="380" y="980" font-size="11" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪（原作：Daniel Moka · craftbettersoftware.com）</text>
+</svg>

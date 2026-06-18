@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 980" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="980" fill="#ffffff"/>
+  <text x="350" y="46" font-size="27" font-weight="800" fill="#111" text-anchor="middle">寫出「真正有效」的</text>
+  <text x="350" y="80" font-size="27" font-weight="800" fill="#111" text-anchor="middle">Claude 提示 <tspan fill="#2b6cb0">9 個技巧</tspan></text>
+  <line x1="40" y1="100" x2="660" y2="100" stroke="#eee" stroke-width="2"/>
+
+  <!-- LEFT -->
+  <g transform="translate(40,118)">
+    <!-- 1 -->
+    <circle cx="13" cy="13" r="13" fill="#2b6cb0"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <text x="34" y="18" font-size="15" font-weight="800" fill="#2b6cb0">講出「產出物」，而非任務</text>
+    <g font-size="11.5" fill="#444">
+      <text x="20" y="40">• 把「審查／幫忙／看看」換成確切任務</text>
+      <text x="20" y="58">• 指定格式—表格、條列、JSON、文件</text>
+      <text x="20" y="76">• 設定邊界—納入什麼、忽略什麼</text>
+    </g>
+    <text x="20" y="98" font-size="11.5" font-weight="700" fill="#2b6cb0">→ 含糊的動詞得到含糊的草稿。講清楚你要什麼。</text>
+    <!-- 2 -->
+    <g transform="translate(0,118)">
+      <circle cx="13" cy="13" r="13" fill="#2E9E5B"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#2E9E5B">一開始就定好長度</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 設定確切數量—「5 點」「180 字」「3 段」</text>
+        <text x="20" y="58">• 指定每行第一個字—動詞、數字或名詞</text>
+        <text x="20" y="76">• 加上「不要前言、不要複述、不要灌水」</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#2E9E5B">→ 長輸入不再等於長輸出。設定上限。</text>
+    </g>
+    <!-- 3 -->
+    <g transform="translate(0,236)">
+      <circle cx="13" cy="13" r="13" fill="#7C4DD1"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#7C4DD1">把每個「不要」翻成「要」</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 找出提示中每個「不要／避免／絕不」</text>
+        <text x="20" y="58">• 全部改寫成正向指令</text>
+        <text x="20" y="76">• 用具體字—「寫到 16 歲能朗讀」</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#7C4DD1">→ 它會照字面讀。告訴它要寫什麼，別說要躲什麼。</text>
+    </g>
+    <!-- 4 -->
+    <g transform="translate(0,354)">
+      <circle cx="13" cy="13" r="13" fill="#E0834A"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#E0834A">用「動作」開頭</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 拿掉「你可以幫我…」</text>
+        <text x="20" y="58">• 每一行用動詞開頭：寫、找、寄</text>
+        <text x="20" y="76">• 依工作發生順序堆疊動詞</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#E0834A">→ 客套耗 token，動作才出貨。</text>
+    </g>
+    <!-- 5 -->
+    <g transform="translate(0,472)">
+      <circle cx="13" cy="13" r="13" fill="#17A2B8"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#17A2B8">逼出最大推理量</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 用 Opus 並開啟「自適應思考」</text>
+        <text x="20" y="58">• 提示結尾加「回答前先思考(最大推理)」</text>
+        <text x="20" y="76">• 複雜任務請它先規劃再動手</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#17A2B8">→ 推理是隨需的，預設不會。明確要求它。</text>
+    </g>
+  </g>
+
+  <!-- RIGHT -->
+  <g transform="translate(370,118)">
+    <!-- 6 -->
+    <circle cx="13" cy="13" r="13" fill="#E0834A"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">6</text>
+    <text x="34" y="18" font-size="15" font-weight="800" fill="#E0834A">加上「超越基本要求」</text>
+    <g font-size="11.5" fill="#444">
+      <text x="20" y="40">• 每個創意任務都貼上這句話</text>
+      <text x="20" y="58">• 設標準—「像真正的客戶交付物般打磨」</text>
+      <text x="20" y="76">• 禁掉偷懶預設—「不要花俏漸層、AI 套話」</text>
+    </g>
+    <text x="20" y="98" font-size="11.5" font-weight="700" fill="#E0834A">→ 一句話讓它更深入。用它。</text>
+    <!-- 7 -->
+    <g transform="translate(0,118)">
+      <circle cx="13" cy="13" r="13" fill="#E0457B"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">7</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#E0457B">上傳你的「聲音」</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 貼 2–3 句完全照你口吻寫的文字</text>
+        <text x="20" y="58">• 告訴它：「比照這些範例的風格」</text>
+        <text x="20" y="76">• 存進 about-me 檔，永久重用</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#E0457B">→ 展示勝過描述，每一次都是。</text>
+    </g>
+    <!-- 8 -->
+    <g transform="translate(0,236)">
+      <circle cx="13" cy="13" r="13" fill="#2b6cb0"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">8</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#2b6cb0">有目的地控制工具</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 研究時—「積極用網搜，每主張 2+ 來源」</text>
+        <text x="20" y="58">• 求快時—「用訓練知識回答，不搜尋」</text>
+        <text x="20" y="76">• 指名連接器—Gmail、雲端、行事曆、Slack</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#2b6cb0">→ 它預設較少呼叫工具。重要時就覆寫它。</text>
+    </g>
+    <!-- 9 -->
+    <g transform="translate(0,354)">
+      <circle cx="13" cy="13" r="13" fill="#2E9E5B"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">9</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#2E9E5B">在任務之前先說目標</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 開頭寫「目標：［成功長什麼樣］」</text>
+        <text x="20" y="58">• 點名對象—「給 CRO 看，不是工程師」</text>
+        <text x="20" y="76">• 設定期限或成果—「週五前約好會議」</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#2E9E5B">→ 沒有目標的提示只是願望。把成功說清楚。</text>
+    </g>
+    <g transform="translate(0,472)">
+      <rect x="0" y="0" width="290" height="60" rx="8" fill="#EAF1FB"/>
+      <text x="16" y="26" font-size="13" font-weight="800" fill="#2b6cb0">更好的提示，更好的輸出，更好的結果。</text>
+      <text x="16" y="48" font-size="12" fill="#444">把這張存起來，下次用 AI 時拿出來。</text>
+    </g>
+  </g>
+  <text x="350" y="952" font-size="11" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪</text>
+</svg>

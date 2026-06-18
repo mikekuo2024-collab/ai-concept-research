@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 880" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="720" height="880" fill="#ffffff"/>
+  <g transform="translate(30,28)" fill="#F25C26">
+    <circle cx="16" cy="20" r="3.5"/>
+    <g stroke="#F25C26" stroke-width="3.5" stroke-linecap="round">
+      <line x1="16" y1="20" x2="16" y2="4"/><line x1="16" y1="20" x2="16" y2="36"/><line x1="16" y1="20" x2="2" y2="20"/><line x1="16" y1="20" x2="30" y2="20"/>
+      <line x1="16" y1="20" x2="5" y2="9"/><line x1="16" y1="20" x2="27" y2="31"/><line x1="16" y1="20" x2="27" y2="9"/><line x1="16" y1="20" x2="5" y2="31"/>
+    </g>
+  </g>
+  <text x="62" y="36" font-size="28" font-weight="800" fill="#1a1a2e">用 <tspan fill="#F25C26">Claude</tspan> 學習</text>
+  <text x="62" y="68" font-size="28" font-weight="800" fill="#1a1a2e">任何主題的四種方法</text>
+
+  <!-- method cards -->
+  <!-- Method 1 -->
+  <g transform="translate(28,96)">
+    <rect width="320" height="230" rx="10" fill="#EAF1FB" stroke="#C7D8EE"/>
+    <text x="18" y="28" font-size="11" font-weight="700" fill="#2b6cb0">方法 1</text>
+    <text x="18" y="52" font-size="17" font-weight="800" fill="#1a1a2e">建立「學習技能」</text>
+    <text x="18" y="76" font-size="11.5" fill="#444">把一組指令存成技能，每次你問該主題</text>
+    <text x="18" y="92" font-size="11.5" fill="#444">時 Claude 都會先讀。規則設一次，永久沿用。</text>
+    <text x="18" y="116" font-size="12" font-weight="700" fill="#2b6cb0">怎麼做：</text>
+    <g font-size="11" fill="#444">
+      <text x="18" y="136">1. 進入「自訂」→「技能」</text>
+      <text x="18" y="154">2. 按「+」→「建立技能」</text>
+      <text x="18" y="172">3. 描述主題與你要它怎麼教你</text>
+      <text x="18" y="190">4. Claude 建好技能，存檔並開啟</text>
+    </g>
+    <rect x="14" y="200" width="292" height="22" rx="5" fill="#D6E6F8"/>
+    <text x="160" y="215" font-size="10.5" fill="#2b6cb0" text-anchor="middle">之後該主題每次對話都照你的規則，免重講。</text>
+  </g>
+  <!-- Method 2 -->
+  <g transform="translate(372,96)">
+    <rect width="320" height="230" rx="10" fill="#E9F6EE" stroke="#C4E6D2"/>
+    <text x="18" y="28" font-size="11" font-weight="700" fill="#2E9E5B">方法 2</text>
+    <text x="18" y="52" font-size="17" font-weight="800" fill="#1a1a2e">開啟「學習模式」</text>
+    <text x="18" y="76" font-size="11.5" fill="#444">學習模式讓 Claude 不直接給答案，而是反問</text>
+    <text x="18" y="92" font-size="11.5" fill="#444">你、引導你自己得出答案，這樣才記得住。</text>
+    <text x="18" y="116" font-size="12" font-weight="700" fill="#2E9E5B">怎麼做：</text>
+    <g font-size="11" fill="#444">
+      <text x="18" y="136">1. 進入「自訂」→「技能」</text>
+      <text x="18" y="154">2. 按「+」→「瀏覽技能」</text>
+      <text x="18" y="172">3. 搜尋「Learning」並安裝</text>
+      <text x="18" y="190">4. 開任一對話，向 Claude 提問</text>
+    </g>
+    <rect x="14" y="200" width="292" height="22" rx="5" fill="#D2EEDD"/>
+    <text x="160" y="215" font-size="10.5" fill="#2E9E5B" text-anchor="middle">Claude 會引導你找到答案，而非直接告訴你。</text>
+  </g>
+  <!-- Method 3 -->
+  <g transform="translate(28,338)">
+    <rect width="320" height="240" rx="10" fill="#FFF3E9" stroke="#F2D6BF"/>
+    <text x="18" y="28" font-size="11" font-weight="700" fill="#E0834A">方法 3</text>
+    <text x="18" y="52" font-size="17" font-weight="800" fill="#1a1a2e">建立「學習專案」</text>
+    <text x="18" y="76" font-size="11.5" fill="#444">Claude Project 是私人工作區，會記住你放</text>
+    <text x="18" y="92" font-size="11.5" fill="#444">進去的一切，問問題時能從所有資料抽取。</text>
+    <text x="18" y="116" font-size="12" font-weight="700" fill="#E0834A">怎麼做：</text>
+    <g font-size="11" fill="#444">
+      <text x="18" y="136">1. 到 claude.ai/projects 按「新專案」</text>
+      <text x="18" y="154">2. 用你要學的主題命名</text>
+      <text x="18" y="172">3. 上傳你的來源：PDF、文章、筆記、書章</text>
+      <text x="18" y="190">4. 在專案內開對話，盡管問</text>
+    </g>
+    <rect x="14" y="200" width="292" height="32" rx="5" fill="#FBE3CF"/>
+    <text x="160" y="214" font-size="10.5" fill="#E0834A" text-anchor="middle">Claude 從你精選的來源回答，而非一般常識。</text>
+    <text x="160" y="227" font-size="10.5" fill="#E0834A" text-anchor="middle">隨時間累積，專案會越來越精準。</text>
+  </g>
+  <!-- Method 4 -->
+  <g transform="translate(372,338)">
+    <rect width="320" height="240" rx="10" fill="#F1EAFA" stroke="#DBC9F0"/>
+    <text x="18" y="28" font-size="11" font-weight="700" fill="#7C4DD1">方法 4</text>
+    <text x="18" y="52" font-size="17" font-weight="800" fill="#1a1a2e">跑「費曼迴圈」</text>
+    <text x="18" y="76" font-size="11.5" fill="#444">費曼技巧是最有效的深度學習法之一：你向</text>
+    <text x="18" y="92" font-size="11.5" fill="#444">Claude 解釋一個概念，它找出你的破綻。</text>
+    <text x="18" y="116" font-size="12" font-weight="700" fill="#7C4DD1">怎麼做：</text>
+    <g font-size="11" fill="#444">
+      <text x="18" y="136">1. 告訴它：「我要向你解釋［主題］，</text>
+      <text x="28" y="151">像你完全不懂，再問我問題補洞」</text>
+      <text x="18" y="170">2. 用自己的話、盡量簡單地解釋概念</text>
+      <text x="18" y="188">3. Claude 指出缺漏或不清楚處並追問</text>
+      <text x="18" y="206">4. 反覆，直到能無破綻地解釋為止</text>
+    </g>
+    <rect x="14" y="214" width="292" height="20" rx="5" fill="#E6D8F7"/>
+    <text x="160" y="228" font-size="10" fill="#7C4DD1" text-anchor="middle">若無法簡單解釋，就代表你還沒真懂——這正是重點。</text>
+  </g>
+
+  <!-- six prompts -->
+  <text x="30" y="610" font-size="16" font-weight="800" fill="#1a1a2e">六個值得收藏的提示</text>
+  <g font-size="11" fill="#444">
+    <g transform="translate(28,624)">
+      <rect width="216" height="74" rx="8" fill="#EAF1FB"/>
+      <text x="12" y="22" font-size="12.5" font-weight="700" fill="#2b6cb0">規劃我的學習</text>
+      <text x="12" y="42">「我要學［主題］，給我 20</text>
+      <text x="12" y="56">節課的計畫，每節 20% 是複習</text>
+      <text x="12" y="70">提問。每節加一個複習題。」</text>
+    </g>
+    <g transform="translate(252,624)">
+      <rect width="216" height="74" rx="8" fill="#E9F6EE"/>
+      <text x="12" y="22" font-size="12.5" font-weight="700" fill="#2E9E5B">考考我</text>
+      <text x="12" y="42">「我剛學了［主題］，出 10 題</text>
+      <text x="12" y="56">逐漸變難的題目，每題答完後</text>
+      <text x="12" y="70">告訴我對在哪、漏了什麼。」</text>
+    </g>
+    <g transform="translate(476,624)">
+      <rect width="216" height="74" rx="8" fill="#FFF3E9"/>
+      <text x="12" y="22" font-size="12.5" font-weight="700" fill="#E0834A">拆成不同難度</text>
+      <text x="12" y="42">「把［主題］拆成從完全新手</text>
+      <text x="12" y="56">到進階的五個層級，每級給我</text>
+      <text x="12" y="70">一個明確、可前進的目標。」</text>
+    </g>
+    <g transform="translate(28,706)">
+      <rect width="216" height="74" rx="8" fill="#FCE7F0"/>
+      <text x="12" y="22" font-size="12.5" font-weight="700" fill="#E0457B">找出我的盲點</text>
+      <text x="12" y="42">「我以為我懂［主題］了，問</text>
+      <text x="12" y="56">我五個問題，找出我自以為懂、</text>
+      <text x="12" y="70">其實還不懂的地方。」</text>
+    </g>
+    <g transform="translate(252,706)">
+      <rect width="216" height="74" rx="8" fill="#EDE7FA"/>
+      <text x="12" y="22" font-size="12.5" font-weight="700" fill="#7C4DD1">簡單講給我聽</text>
+      <text x="12" y="42">「用白話總結［主題］，不要</text>
+      <text x="12" y="56">術語。像對好奇的 12 歲小孩</text>
+      <text x="12" y="70">解釋，讓我也能教別人。」</text>
+    </g>
+    <g transform="translate(476,706)">
+      <rect width="216" height="74" rx="8" fill="#E6F0FB"/>
+      <text x="12" y="22" font-size="12.5" font-weight="700" fill="#2b6cb0">幫我做速查表</text>
+      <text x="12" y="42">「幫［主題］做一頁速查表：</text>
+      <text x="12" y="56">關鍵概念、常見錯誤，以及我</text>
+      <text x="12" y="70">最該牢記的重點。」</text>
+    </g>
+  </g>
+  <text x="360" y="800" font-size="11" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪</text>
+</svg>

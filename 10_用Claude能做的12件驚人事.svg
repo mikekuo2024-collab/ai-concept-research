@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 800" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="680" height="800" fill="#BEE8F0"/>
+  <rect x="0" y="0" width="680" height="92" fill="#D4F06A"/>
+  <text x="30" y="44" font-size="27" font-weight="800" fill="#E0457B">用 Claude 能做的</text>
+  <text x="30" y="78" font-size="27" font-weight="800" fill="#7C4DD1">12 件驚人的事</text>
+
+  <!-- left column cards -->
+  <g>
+    <!-- 01 -->
+    <rect x="24" y="104" width="300" height="78" rx="8" fill="#A7E0F0" stroke="#fff" stroke-width="2"/>
+    <text x="36" y="126" font-size="14" font-weight="800" fill="#1a1a2e">免寫程式建立網站</text>
+    <text x="36" y="146" font-size="10.5" fill="#333">用 Claude Code 以白話建出完整網站。</text>
+    <rect x="36" y="154" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="44" y="168" font-size="10" fill="#7a2748">連 GitHub、打字描述、推上線。</text>
+    <text x="300" y="148" font-size="11" fill="#E0457B" font-weight="700">01</text>
+    <!-- 03 -->
+    <rect x="24" y="194" width="300" height="78" rx="8" fill="#A7E0F0" stroke="#fff" stroke-width="2"/>
+    <text x="36" y="216" font-size="14" font-weight="800" fill="#1a1a2e">用 /指令 建立技能</text>
+    <text x="36" y="236" font-size="10.5" fill="#333">教 Claude 可重複的工作流程。</text>
+    <rect x="36" y="244" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="44" y="258" font-size="10" fill="#7a2748">打 /linkedin 或 /brief 就自動觸發、可分享。</text>
+    <text x="300" y="238" font-size="11" fill="#E0457B" font-weight="700">03</text>
+    <!-- 05 -->
+    <rect x="24" y="284" width="300" height="78" rx="8" fill="#FBE3EC" stroke="#fff" stroke-width="2"/>
+    <text x="36" y="306" font-size="14" font-weight="800" fill="#1a1a2e">自動化排程任務</text>
+    <text x="36" y="326" font-size="10.5" fill="#333">設定每週簡報、競品研究等週期任務。</text>
+    <rect x="36" y="334" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="44" y="348" font-size="10" fill="#7a2748">每週一早上 7 點自動執行。</text>
+    <text x="300" y="328" font-size="11" fill="#E0457B" font-weight="700">05</text>
+    <!-- 07 -->
+    <rect x="24" y="374" width="300" height="78" rx="8" fill="#F6E04A" stroke="#fff" stroke-width="2"/>
+    <text x="36" y="396" font-size="14" font-weight="800" fill="#1a1a2e">連接你的工具</text>
+    <text x="36" y="416" font-size="10.5" fill="#333">用連接器接上 Slack、Gmail、雲端、Notion</text>
+    <rect x="36" y="424" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="44" y="438" font-size="10" fill="#7a2748">及 50+ App，能讀、能寫、能在裡面操作。</text>
+    <text x="300" y="418" font-size="11" fill="#E0457B" font-weight="700">07</text>
+    <!-- 09 -->
+    <rect x="24" y="464" width="300" height="78" rx="8" fill="#F6E04A" stroke="#fff" stroke-width="2"/>
+    <text x="36" y="486" font-size="14" font-weight="800" fill="#1a1a2e">用「有記憶的專案」工作</text>
+    <text x="36" y="506" font-size="10.5" fill="#333">Cowork 專案會記住過去的工作階段。</text>
+    <rect x="36" y="514" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="44" y="528" font-size="10" fill="#7a2748">說「根據上週的報告」它就懂你的意思。</text>
+    <text x="300" y="508" font-size="11" fill="#E0457B" font-weight="700">09</text>
+    <!-- 11 -->
+    <rect x="24" y="554" width="300" height="78" rx="8" fill="#A7E0F0" stroke="#fff" stroke-width="2"/>
+    <text x="36" y="576" font-size="14" font-weight="800" fill="#1a1a2e">讓 AI 反問你</text>
+    <text x="36" y="596" font-size="10.5" fill="#333">用 AskUserQuestion，Claude 產生可點選表單。</text>
+    <rect x="36" y="604" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="44" y="618" font-size="10" fill="#7a2748">它問對問題，你就拿到對的輸出，免寫長提示。</text>
+    <text x="300" y="598" font-size="11" fill="#E0457B" font-weight="700">11</text>
+  </g>
+  <!-- right column cards -->
+  <g>
+    <!-- 02 -->
+    <rect x="356" y="104" width="300" height="78" rx="8" fill="#FBE3EC" stroke="#fff" stroke-width="2"/>
+    <text x="368" y="126" font-size="14" font-weight="800" fill="#1a1a2e">讓 Claude 用你的電腦</text>
+    <text x="368" y="146" font-size="10.5" fill="#333">你離開時，Claude 在你的 Mac 上點選、瀏覽、工作。</text>
+    <rect x="368" y="154" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="376" y="168" font-size="10" fill="#7a2748">用手機透過 Dispatch 控制它。</text>
+    <text x="632" y="148" font-size="11" fill="#E0457B" font-weight="700">02</text>
+    <!-- 04 -->
+    <rect x="356" y="194" width="300" height="78" rx="8" fill="#F6E04A" stroke="#fff" stroke-width="2"/>
+    <text x="368" y="216" font-size="14" font-weight="800" fill="#1a1a2e">產生帶研究的簡報</text>
+    <text x="368" y="236" font-size="10.5" fill="#333">Claude 研究你的主題、建出結構化簡報，</text>
+    <rect x="368" y="244" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="376" y="258" font-size="10" fill="#7a2748">產出精美 Gamma 簡報，全來自一個提示。</text>
+    <text x="632" y="238" font-size="11" fill="#E0457B" font-weight="700">04</text>
+    <!-- 06 -->
+    <rect x="356" y="284" width="300" height="78" rx="8" fill="#FBE3EC" stroke="#fff" stroke-width="2"/>
+    <text x="368" y="306" font-size="14" font-weight="800" fill="#1a1a2e">用提示產生 Excel 檔</text>
+    <text x="368" y="326" font-size="10.5" fill="#333">描述你需要的試算表。</text>
+    <rect x="368" y="334" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="376" y="348" font-size="10" fill="#7a2748">Claude 幾秒內建出財務模型、儀表板、資料分析。</text>
+    <text x="632" y="328" font-size="11" fill="#E0457B" font-weight="700">06</text>
+    <!-- 08 -->
+    <rect x="356" y="374" width="300" height="78" rx="8" fill="#FBE3EC" stroke="#fff" stroke-width="2"/>
+    <text x="368" y="396" font-size="14" font-weight="800" fill="#1a1a2e">把 Cowork 當 AI 員工</text>
+    <text x="368" y="416" font-size="10.5" fill="#333">把 Claude 指向你的資料夾。</text>
+    <rect x="368" y="424" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="376" y="438" font-size="10" fill="#7a2748">它讀你的檔、問你問題，交付真正的文件與報告。</text>
+    <text x="632" y="418" font-size="11" fill="#E0457B" font-weight="700">08</text>
+    <!-- 10 -->
+    <rect x="356" y="464" width="300" height="78" rx="8" fill="#F6E04A" stroke="#fff" stroke-width="2"/>
+    <text x="368" y="486" font-size="14" font-weight="800" fill="#1a1a2e">為你的職務安裝外掛</text>
+    <text x="368" y="506" font-size="10.5" fill="#333">業務、行銷、法務、財務都有現成外掛。</text>
+    <rect x="368" y="514" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="376" y="528" font-size="10" fill="#7a2748">每個外掛給 Claude 專屬工作流程與 /指令。</text>
+    <text x="632" y="508" font-size="11" fill="#E0457B" font-weight="700">10</text>
+    <!-- 12 -->
+    <rect x="356" y="554" width="300" height="78" rx="8" fill="#F4A9C8" stroke="#fff" stroke-width="2"/>
+    <text x="368" y="576" font-size="14" font-weight="800" fill="#1a1a2e">用 Claude Design 設計一切</text>
+    <text x="368" y="596" font-size="10.5" fill="#333">描述著陸頁、簡報或 App 原型，Claude 即時建出。</text>
+    <rect x="368" y="604" width="276" height="20" rx="4" fill="#E0457B"/><text x="376" y="618" font-size="10" fill="#fff">匯出到 Canva、PDF，或直送 Claude Code。</text>
+    <text x="632" y="598" font-size="11" fill="#fff" font-weight="700">12</text>
+  </g>
+  <text x="340" y="660" font-size="11" fill="#555" text-anchor="middle">中文重製版 · 依原圖風格重繪</text>
+</svg>

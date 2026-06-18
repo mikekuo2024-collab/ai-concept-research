@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 820" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="680" height="820" fill="#F2EDE6"/>
+  <text x="340" y="58" font-size="34" font-weight="800" fill="#1a1a1a" text-anchor="middle">為 Claude Cowork</text>
+  <text x="340" y="98" font-size="34" font-weight="800" fill="#C6553F" text-anchor="middle">做一次性設定</text>
+  <text x="340" y="128" font-size="16" fill="#555" text-anchor="middle">別再浪費時間與 token。</text>
+
+  <!-- columns headers -->
+  <g text-anchor="middle">
+    <circle cx="115" cy="172" r="14" fill="none" stroke="#C6553F" stroke-width="2"/><text x="115" y="178" font-size="14" font-weight="700" fill="#C6553F">1</text>
+    <text x="115" y="210" font-size="22" font-weight="800" fill="#1a1a1a">設定</text>
+    <circle cx="340" cy="172" r="14" fill="none" stroke="#C6553F" stroke-width="2"/><text x="340" y="178" font-size="14" font-weight="700" fill="#C6553F">2</text>
+    <text x="340" y="210" font-size="22" font-weight="800" fill="#1a1a1a">建立</text>
+    <circle cx="565" cy="172" r="14" fill="none" stroke="#C6553F" stroke-width="2"/><text x="565" y="178" font-size="14" font-weight="700" fill="#C6553F">3</text>
+    <text x="565" y="210" font-size="22" font-weight="800" fill="#1a1a1a">運作</text>
+  </g>
+
+  <!-- Column 1 chips -->
+  <g font-size="11.5" fill="#3a2b26" text-anchor="middle">
+    <rect x="20" y="226" width="92" height="34" rx="5" fill="#F3C9BC"/><text x="66" y="242">下載 Claude</text><text x="66" y="255">App</text>
+    <rect x="118" y="226" width="92" height="34" rx="5" fill="#F3C9BC"/><text x="164" y="242">取得 Pro 方案</text><text x="164" y="255">($20/月)</text>
+    <rect x="20" y="268" width="190" height="34" rx="5" fill="#F7DDD3"/><text x="115" y="284">開啟 Cowork 分頁</text><text x="115" y="297">(在 Chat 與 Code 之間)</text>
+    <rect x="20" y="310" width="190" height="34" rx="5" fill="#F7DDD3"/><text x="115" y="326">建立一個資料夾</text><text x="115" y="339">命名「Claude Cowork」</text>
+    <rect x="20" y="352" width="190" height="26" rx="5" fill="#F7DDD3"/><text x="115" y="369">新增子資料夾：</text>
+    <rect x="50" y="382" width="130" height="22" rx="4" fill="#3a3a3a"/><text x="115" y="397" fill="#fff">about-me</text>
+    <rect x="50" y="408" width="130" height="22" rx="4" fill="#3a3a3a"/><text x="115" y="423" fill="#fff">outputs</text>
+    <rect x="50" y="434" width="130" height="22" rx="4" fill="#3a3a3a"/><text x="115" y="449" fill="#fff">templates</text>
+    <rect x="20" y="464" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="115" y="480">把 Cowork 指向</text><text x="115" y="493">這個資料夾</text>
+    <rect x="20" y="506" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="115" y="522">困難任務選用</text><text x="115" y="535">Opus 4.8</text>
+    <rect x="20" y="548" width="190" height="26" rx="5" fill="#F3C9BC"/><text x="115" y="565">開啟「延伸思考」</text>
+    <rect x="20" y="582" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="115" y="598">空出 20 分鐘</text><text x="115" y="611">完成設定</text>
+  </g>
+
+  <!-- Column 2 chips -->
+  <g font-size="11.5" fill="#3a2b26" text-anchor="middle">
+    <rect x="245" y="226" width="190" height="26" rx="5" fill="#F7DDD3"/><text x="340" y="243">開啟全新 Cowork 工作階段</text>
+    <rect x="245" y="258" width="190" height="26" rx="5" fill="#F7DDD3"/><text x="340" y="275">請 Claude 訪談你</text>
+    <rect x="245" y="290" width="190" height="34" rx="5" fill="#F7DDD3"/><text x="340" y="306">用 AskUserQuestion</text><text x="340" y="319">工具回答</text>
+    <rect x="245" y="332" width="92" height="40" rx="5" fill="#F7DDD3"/><text x="291" y="348">用答案編寫</text><text x="291" y="362">about-me 檔</text>
+    <rect x="343" y="332" width="92" height="40" rx="5" fill="#C6553F"/><text x="389" y="348" fill="#fff">「壓在</text><text x="389" y="362" fill="#fff">2000 token 內」</text>
+    <rect x="245" y="378" width="92" height="40" rx="5" fill="#F7DDD3"/><text x="291" y="394">撰寫「反 AI</text><text x="291" y="408">寫作風格」檔</text>
+    <rect x="343" y="378" width="92" height="40" rx="5" fill="#C6553F"/><text x="389" y="394" fill="#fff">封鎖你討厭</text><text x="389" y="408" fill="#fff">的字</text>
+    <rect x="245" y="424" width="92" height="40" rx="5" fill="#F7DDD3"/><text x="291" y="440">撰寫 my-</text><text x="291" y="454">company 檔</text>
+    <rect x="343" y="424" width="92" height="40" rx="5" fill="#C6553F"/><text x="389" y="440" fill="#fff">段落上限</text><text x="389" y="454" fill="#fff">3 句</text>
+    <rect x="343" y="470" width="92" height="40" rx="5" fill="#C6553F"/><text x="389" y="486" fill="#fff">加入你的目標</text><text x="389" y="500" fill="#fff">與底線</text>
+    <rect x="245" y="516" width="190" height="40" rx="5" fill="#EFE6DD"/><text x="340" y="532">若某行不會改變 Claude</text><text x="340" y="546">的行為，就刪掉它</text>
+  </g>
+
+  <!-- Column 3 chips -->
+  <g font-size="11.5" fill="#3a2b26" text-anchor="middle">
+    <rect x="470" y="226" width="190" height="26" rx="5" fill="#F7DDD3"/><text x="565" y="243">開啟 設定 → Cowork</text>
+    <rect x="470" y="258" width="190" height="26" rx="5" fill="#F7DDD3"/><text x="565" y="275">編輯全域指令</text>
+    <rect x="470" y="290" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="565" y="306">叫它一律先讀</text><text x="565" y="319">ABOUT ME 檔</text>
+    <rect x="470" y="332" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="565" y="348">絕不自動讀取</text><text x="565" y="361">OUTPUTS／TEMPLATES</text>
+    <rect x="470" y="374" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="565" y="390">安裝 Wispr Flow</text><text x="565" y="403">(免費)</text>
+    <rect x="470" y="416" width="190" height="40" rx="5" fill="#F3C9BC"/><text x="565" y="432">用講的別用打的，提示</text><text x="565" y="446">結尾加「問我問題」</text>
+    <rect x="470" y="462" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="565" y="478">指出它的錯誤，</text><text x="565" y="491">別照單全收</text>
+    <rect x="470" y="504" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="565" y="520">每 20 則訊息就</text><text x="565" y="533">開新工作階段</text>
+    <rect x="470" y="546" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="565" y="562">把最好的成果</text><text x="565" y="575">存成範本</text>
+  </g>
+  <text x="340" y="800" font-size="11" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪（原作：@Saema AI Lab）</text>
+</svg>

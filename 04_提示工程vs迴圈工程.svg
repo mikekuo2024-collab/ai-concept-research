@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 940" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="760" height="940" fill="#ffffff"/>
+  <text x="190" y="60" font-size="30" font-weight="800" fill="#111" text-anchor="middle">提示工程</text>
+  <text x="190" y="96" font-size="30" font-weight="800" fill="#111" text-anchor="middle">(Prompt Eng.)</text>
+  <circle cx="380" cy="70" r="30" fill="#222"/><text x="380" y="79" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">VS</text>
+  <text x="575" y="60" font-size="30" font-weight="800" fill="#111" text-anchor="middle">迴圈工程</text>
+  <text x="575" y="96" font-size="30" font-weight="800" fill="#111" text-anchor="middle">(Loop Eng.)</text>
+  <line x1="380" y1="120" x2="380" y2="860" stroke="#ccc" stroke-width="1.5"/>
+
+  <!-- styles -->
+  <!-- LEFT column boxes -->
+  <g font-size="15" fill="#111">
+    <!-- step1 -->
+    <circle cx="40" cy="180" r="15" fill="#111"/><text x="40" y="186" font-size="14" fill="#fff" text-anchor="middle">1</text>
+    <rect x="66" y="158" width="270" height="44" rx="8" fill="#DCE9FB" stroke="#9BB8E0"/><text x="120" y="185">人類撰寫提示</text>
+    <line x1="200" y1="202" x2="200" y2="228" stroke="#111" stroke-width="2"/><polygon points="200,234 195,224 205,224" fill="#111"/>
+    <!-- step2 -->
+    <circle cx="40" cy="258" r="15" fill="#111"/><text x="40" y="264" font-size="14" fill="#fff" text-anchor="middle">2</text>
+    <rect x="66" y="236" width="270" height="44" rx="8" fill="#F5A97A" stroke="#E0834A"/><text x="120" y="263">代理回應</text>
+    <line x1="200" y1="280" x2="200" y2="306" stroke="#111" stroke-width="2"/><polygon points="200,312 195,302 205,302" fill="#111"/>
+    <!-- step3 -->
+    <circle cx="40" cy="336" r="15" fill="#111"/><text x="40" y="342" font-size="14" fill="#fff" text-anchor="middle">3</text>
+    <rect x="66" y="314" width="270" height="44" rx="8" fill="#DCE9FB" stroke="#9BB8E0"/><text x="120" y="341">人類審查</text>
+    <line x1="200" y1="358" x2="200" y2="384" stroke="#111" stroke-width="2"/><polygon points="200,390 195,380 205,380" fill="#111"/>
+    <!-- step4 -->
+    <circle cx="40" cy="416" r="15" fill="#111"/><text x="40" y="422" font-size="14" fill="#fff" text-anchor="middle">4</text>
+    <rect x="66" y="392" width="270" height="48" rx="8" fill="#DCE9FB" stroke="#9BB8E0"/><text x="120" y="422">人類撰寫下一個提示</text>
+    <line x1="200" y1="440" x2="200" y2="466" stroke="#111" stroke-width="2"/><polygon points="200,472 195,462 205,462" fill="#111"/>
+    <!-- step5 -->
+    <circle cx="40" cy="496" r="15" fill="#111"/><text x="40" y="502" font-size="14" fill="#fff" text-anchor="middle">5</text>
+    <rect x="66" y="474" width="270" height="44" rx="8" fill="#F5A97A" stroke="#E0834A"/><text x="120" y="501">代理回應</text>
+    <line x1="200" y1="518" x2="200" y2="544" stroke="#111" stroke-width="2"/><polygon points="200,550 195,540 205,540" fill="#111"/>
+    <!-- step6 -->
+    <circle cx="40" cy="574" r="15" fill="#111"/><text x="40" y="580" font-size="14" fill="#fff" text-anchor="middle">6</text>
+    <rect x="66" y="552" width="270" height="44" rx="8" fill="#DCE9FB" stroke="#9BB8E0"/><text x="120" y="579">人類審查</text>
+    <text x="200" y="628" font-size="24" text-anchor="middle" fill="#111">⋯</text>
+    <rect x="80" y="648" width="240" height="40" rx="6" fill="#fff" stroke="#999"/><text x="200" y="673" font-size="15" font-weight="700" text-anchor="middle">每一步都由「人」推動</text>
+  </g>
+
+  <!-- RIGHT column -->
+  <g font-size="15" fill="#111">
+    <circle cx="424" cy="180" r="15" fill="#111"/><text x="424" y="186" font-size="14" fill="#fff" text-anchor="middle">1</text>
+    <rect x="450" y="158" width="270" height="44" rx="8" fill="#DCE9FB" stroke="#9BB8E0"/><text x="504" y="185">人類設定目標</text>
+    <line x1="585" y1="202" x2="585" y2="228" stroke="#111" stroke-width="2"/><polygon points="585,234 580,224 590,224" fill="#111"/>
+    <circle cx="424" cy="258" r="15" fill="#111"/><text x="424" y="264" font-size="14" fill="#fff" text-anchor="middle">2</text>
+    <rect x="450" y="236" width="270" height="44" rx="8" fill="#A8E0A8" stroke="#74C074"/><text x="504" y="263">觸發器啟動</text>
+    <line x1="585" y1="280" x2="585" y2="306" stroke="#111" stroke-width="2"/><polygon points="585,312 580,302 590,302" fill="#111"/>
+    <circle cx="424" cy="336" r="15" fill="#111"/><text x="424" y="342" font-size="14" fill="#fff" text-anchor="middle">3</text>
+    <rect x="450" y="314" width="270" height="44" rx="8" fill="#F5A97A" stroke="#E0834A"/><text x="504" y="341">代理執行動作</text>
+    <line x1="585" y1="358" x2="585" y2="384" stroke="#111" stroke-width="2"/><polygon points="585,390 580,380 590,380" fill="#111"/>
+    <!-- diamond -->
+    <circle cx="500" cy="430" r="15" fill="#111"/><text x="500" y="436" font-size="14" fill="#fff" text-anchor="middle">4</text>
+    <polygon points="600,400 660,440 600,480 540,440" fill="#fff" stroke="#111" stroke-width="1.5"/>
+    <text x="600" y="436" font-size="13" text-anchor="middle">達成</text><text x="600" y="452" font-size="13" text-anchor="middle">目標？</text>
+    <text x="512" y="476" font-size="13" fill="#111">否 NO</text>
+    <text x="668" y="436" font-size="13" fill="#111">是 YES</text>
+    <!-- loop back arrow -->
+    <path d="M540 440 C470 440, 470 360, 466 348" fill="none" stroke="#111" stroke-width="2"/><polygon points="466,342 461,353 471,353" fill="#111"/>
+    <!-- yes down -->
+    <path d="M660 440 L690 440 L690 520" fill="none" stroke="#111" stroke-width="2"/><polygon points="690,526 685,516 695,516" fill="#111"/>
+    <circle cx="424" cy="552" r="15" fill="#111"/><text x="424" y="558" font-size="14" fill="#fff" text-anchor="middle">5</text>
+    <rect x="450" y="528" width="270" height="48" rx="8" fill="#DCE9FB" stroke="#9BB8E0"/><text x="504" y="558">人類審查產出</text>
+    <rect x="465" y="648" width="240" height="40" rx="6" fill="#fff" stroke="#999"/><text x="585" y="673" font-size="15" font-weight="700" text-anchor="middle">每一步都由「代理」推動</text>
+  </g>
+  <text x="380" y="900" font-size="12" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪（資料來源：Data Science Dojo）</text>
+</svg>

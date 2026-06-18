@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 980" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="760" height="980" fill="#F7F6F2"/>
+  <text x="30" y="48" font-size="32" font-weight="800" fill="#1a1a2e">Claude <tspan fill="#F25C26">技能</tspan>速查表</text>
+  <line x1="30" y1="62" x2="500" y2="62" stroke="#1a1a2e" stroke-width="2.5"/>
+
+  <!-- left column -->
+  <g transform="translate(30,86)">
+    <!-- 1 -->
+    <circle cx="14" cy="14" r="13" fill="#F2B705"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <text x="36" y="19" font-size="16" font-weight="800" fill="#1a1a2e">核心問題</text>
+    <text x="10" y="44" font-size="12.5" fill="#333">長流程常因「脈絡視窗超載」而出問題。</text>
+    <text x="10" y="70" font-size="12.5" font-weight="700" fill="#C0392B">脈絡視窗超載</text>
+    <g font-size="11.5" fill="#444">
+      <text x="14" y="90">• 關鍵指令被埋沒或被截斷</text>
+      <text x="14" y="108">• 模型把注意力浪費在無關內容</text>
+      <text x="14" y="126">• 回應變得前後不一、流程錯亂</text>
+    </g>
+    <rect x="6" y="138" width="330" height="92" rx="8" fill="#FFF3E0" stroke="#F2B705"/>
+    <text x="16" y="158" font-size="12" font-weight="700" fill="#E67E22">技能用「外部化與模組化</text>
+    <text x="16" y="174" font-size="12" font-weight="700" fill="#E67E22">程序知識」來解決：</text>
+    <g font-size="11" fill="#444">
+      <text x="16" y="194">• 一開始只載入中繼資料（名稱、描述）</text>
+      <text x="16" y="210">• 只在需要時帶入該任務專屬指令</text>
+      <text x="16" y="226">• 保持脈絡輕量，留空間給推理與資料</text>
+    </g>
+    <!-- 2 -->
+    <g transform="translate(0,248)">
+      <circle cx="14" cy="14" r="13" fill="#F2B705"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+      <text x="36" y="19" font-size="16" font-weight="800" fill="#1a1a2e">技能如何運作</text>
+      <g font-size="11.5">
+        <text x="10" y="42" font-weight="700" fill="#E0457B">動態載入：</text><text x="92" y="42" fill="#444">掃描可用技能，需要時才啟用</text>
+        <text x="10" y="62" font-weight="700" fill="#E0457B">漸進揭露：</text><text x="92" y="62" fill="#444">先載中繼資料，用到才載全文</text>
+        <text x="10" y="82" font-weight="700" fill="#E0457B">可組合：</text><text x="82" y="82" fill="#444">多個技能可堆疊協作</text>
+        <text x="10" y="102" font-weight="700" fill="#E0457B">可攜帶：</text><text x="82" y="102" fill="#444">App、Code、API 通用</text>
+        <text x="10" y="122" font-weight="700" fill="#E0457B">可執行：</text><text x="82" y="122" fill="#444">可在沙盒中跑程式，結果可重現</text>
+      </g>
+    </g>
+    <!-- 3 -->
+    <g transform="translate(0,392)">
+      <circle cx="14" cy="14" r="13" fill="#F2B705"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+      <text x="36" y="19" font-size="16" font-weight="800" fill="#1a1a2e">技能結構</text>
+      <text x="10" y="42" font-size="12" fill="#333">每個技能就是一個資料夾，包含：</text>
+      <rect x="10" y="54" width="100" height="58" rx="6" fill="#fff" stroke="#ccc"/>
+      <text x="60" y="76" font-size="11" font-weight="700" fill="#333" text-anchor="middle">SKILL.md</text>
+      <text x="60" y="92" font-size="9.5" fill="#666" text-anchor="middle">中繼資料＋</text>
+      <text x="60" y="104" font-size="9.5" fill="#666" text-anchor="middle">指令(YAML)</text>
+      <rect x="118" y="54" width="100" height="58" rx="6" fill="#fff" stroke="#ccc"/>
+      <text x="168" y="76" font-size="11" font-weight="700" fill="#333" text-anchor="middle">resources/</text>
+      <text x="168" y="92" font-size="9.5" fill="#666" text-anchor="middle">範本、品牌</text>
+      <text x="168" y="104" font-size="9.5" fill="#666" text-anchor="middle">資產、資料</text>
+      <rect x="226" y="54" width="104" height="58" rx="6" fill="#fff" stroke="#ccc"/>
+      <text x="278" y="76" font-size="11" font-weight="700" fill="#333" text-anchor="middle">scripts/</text>
+      <text x="278" y="92" font-size="9.5" fill="#666" text-anchor="middle">選用的可執行</text>
+      <text x="278" y="104" font-size="9.5" fill="#666" text-anchor="middle">程式 (py,js)</text>
+      <text x="10" y="132" font-size="10.5" fill="#666">必填 YAML：name／description／version／dependencies</text>
+    </g>
+  </g>
+
+  <!-- right column -->
+  <g transform="translate(400,86)">
+    <!-- 4 -->
+    <circle cx="14" cy="14" r="13" fill="#2E9E5B"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+    <text x="36" y="19" font-size="15" font-weight="800" fill="#1a1a2e">與其他 Claude 功能比較</text>
+    <g font-size="11.5">
+      <text x="10" y="44" font-weight="700" fill="#2E9E5B">Projects</text><text x="100" y="44" fill="#444">→ 工作區的背景脈絡</text>
+      <text x="10" y="64" font-weight="700" fill="#2E9E5B">MCP</text><text x="100" y="64" fill="#444">→ 外部工具與資料存取</text>
+      <text x="10" y="84" font-weight="700" fill="#2E9E5B">自訂指令</text><text x="100" y="84" fill="#444">→ 全域人設與偏好</text>
+      <text x="10" y="104" font-weight="700" fill="#2E9E5B">技能</text><text x="100" y="104" fill="#444">→ 隨需取用的程序知識</text>
+    </g>
+    <!-- 5 -->
+    <g transform="translate(0,124)">
+      <circle cx="14" cy="14" r="13" fill="#2E9E5B"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+      <text x="36" y="19" font-size="15" font-weight="800" fill="#1a1a2e">內建 Anthropic 技能</text>
+      <rect x="8" y="32" width="100" height="60" rx="6" fill="#fff" stroke="#ccc"/>
+      <text x="58" y="68" font-size="11" fill="#333" text-anchor="middle">Excel 強化</text><text x="58" y="84" font-size="11" fill="#333" text-anchor="middle">操作</text>
+      <rect x="116" y="32" width="100" height="60" rx="6" fill="#fff" stroke="#ccc"/>
+      <text x="166" y="68" font-size="11" fill="#333" text-anchor="middle">PowerPoint</text><text x="166" y="84" font-size="11" fill="#333" text-anchor="middle">簡報產生</text>
+      <rect x="224" y="32" width="106" height="60" rx="6" fill="#fff" stroke="#ccc"/>
+      <text x="277" y="62" font-size="11" fill="#333" text-anchor="middle">Word 與 PDF</text><text x="277" y="78" font-size="11" fill="#333" text-anchor="middle">文件建立</text>
+    </g>
+    <!-- 6 -->
+    <g transform="translate(0,232)">
+      <circle cx="14" cy="14" r="13" fill="#2E9E5B"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">6</text>
+      <text x="36" y="19" font-size="15" font-weight="800" fill="#1a1a2e">自訂技能範例</text>
+      <g font-size="10.5" fill="#444" text-anchor="middle">
+        <rect x="6" y="32" width="62" height="58" rx="6" fill="#fff" stroke="#ccc"/><text x="37" y="66">CRM</text><text x="37" y="80">自動化</text>
+        <rect x="74" y="32" width="62" height="58" rx="6" fill="#fff" stroke="#ccc"/><text x="105" y="66">法律條款</text><text x="105" y="80">審查</text>
+        <rect x="142" y="32" width="62" height="58" rx="6" fill="#fff" stroke="#ccc"/><text x="173" y="66">SEO 內容</text><text x="173" y="80">結構化</text>
+        <rect x="210" y="32" width="58" height="58" rx="6" fill="#fff" stroke="#ccc"/><text x="239" y="62">衝刺規劃</text><text x="239" y="76">與速度</text><text x="239" y="88">估算</text>
+        <rect x="274" y="32" width="56" height="58" rx="6" fill="#fff" stroke="#ccc"/><text x="302" y="62">財務模型</text><text x="302" y="76">DCF／</text><text x="302" y="88">Comps</text>
+      </g>
+    </g>
+    <!-- 7 -->
+    <g transform="translate(0,340)">
+      <circle cx="14" cy="14" r="13" fill="#2E9E5B"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">7</text>
+      <text x="36" y="19" font-size="15" font-weight="800" fill="#1a1a2e">最佳實務</text>
+      <g font-size="11" fill="#444">
+        <text x="10" y="42">• 從簡單的 Markdown 指令開始，之後再加程式</text>
+        <text x="10" y="60">• 寫具體的 description（觸發精準度很關鍵）</text>
+        <text x="10" y="78">• 用多種提示措辭測試</text>
+        <text x="10" y="96">• 一個流程只做一個聚焦的技能</text>
+        <text x="10" y="114">• 為清楚起見納入輸入／輸出範例</text>
+        <text x="10" y="132">• 每次發布版本化，方便回溯</text>
+      </g>
+    </g>
+    <!-- 8 -->
+    <g transform="translate(0,486)">
+      <circle cx="14" cy="14" r="13" fill="#2E9E5B"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">8</text>
+      <text x="36" y="19" font-size="15" font-weight="800" fill="#1a1a2e">安全與風險</text>
+      <text x="10" y="42" font-size="11.5" fill="#444">在安全沙盒環境中執行（不持久保存）。</text>
+      <text x="10" y="64" font-size="11.5" font-weight="700" fill="#C0392B">風險：</text><text x="60" y="64" font-size="11.5" fill="#444">提示注入、惡意套件、資料外洩</text>
+      <text x="10" y="86" font-size="11.5" font-weight="700" fill="#2E9E5B">緩解：</text>
+      <g font-size="11" fill="#444">
+        <text x="14" y="104">• 啟用前稽核所有第三方技能</text>
+        <text x="14" y="122">• 檢查所有技能來源</text>
+        <text x="14" y="140">• 絕不在技能中放入密鑰或憑證</text>
+      </g>
+    </g>
+  </g>
+  <text x="380" y="966" font-size="11" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪</text>
+</svg>
