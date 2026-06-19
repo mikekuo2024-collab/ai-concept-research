@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 概念研究 · 中文圖解單頁集</title>
+<style>
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header.hero{background:linear-gradient(135deg,#1a1a2e,#2b3a67);color:#fff;padding:54px 0 46px}
+.hero .wrap{display:flex;flex-direction:column;gap:14px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;width:fit-content}
+.hero h1{margin:0;font-size:34px;letter-spacing:.5px}
+.hero p{margin:0;color:#c8d0e0;max-width:760px}
+.meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:6px;font-size:13px;color:#aeb8cf}
+nav.toc{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+nav.toc .wrap{display:flex;gap:8px;overflow-x:auto;padding:12px 20px}
+nav.toc a{flex:0 0 auto;font-size:12.5px;color:#374151;text-decoration:none;background:#f1f3f6;padding:7px 12px;border-radius:8px;white-space:nowrap;transition:.15s}
+nav.toc a:hover{background:var(--blue);color:#fff}
+nav.toc a b{color:var(--acc)}
+nav.toc a:hover b{color:#fff}
+main{padding:30px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin:22px 0;box-shadow:0 4px 18px rgba(20,20,40,.05)}
+.card-head{display:flex;gap:16px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:18px}
+.num{flex:0 0 auto;width:46px;height:46px;background:var(--ink);color:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800}
+.cat{display:inline-block;font-size:12px;font-weight:700;color:var(--acc);background:#fff2ec;padding:2px 10px;border-radius:999px;margin-bottom:6px}
+.card-head h2{margin:2px 0 2px;font-size:21px}
+.card-head .en{margin:0;color:var(--mut);font-size:13px;font-style:italic}
+.card-body{display:grid;grid-template-columns:1.35fr 1fr;gap:24px;align-items:start}
+.figure{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+.figure svg{width:100%;height:auto;display:block}
+.text .intro{font-size:15px;font-weight:600;color:#222;margin:2px 0 14px;padding-left:12px;border-left:3px solid var(--acc)}
+.text ul{margin:0;padding-left:20px}
+.text li{margin-bottom:11px;font-size:14px;color:#333}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 0 50px}
+@media(max-width:860px){.card-body{grid-template-columns:1fr}.hero h1{font-size:26px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="badge">AI 概念研究</span>
+  <h1>AI 核心概念 · 中文圖解單頁集</h1>
+  <p>本頁將 11 張英文 AI 概念資訊圖，比照原風格重繪為精準中文向量圖（SVG），並附上每張的重點翻譯整理。涵蓋提示工程、技能、代理迴圈、向量資料庫等主題。</p>
+  <div class="meta"><span>共 11 張圖解</span><span>格式：單頁式 HTML（圖形內嵌，可離線開啟）</span><span>中文重製 · 依原圖風格</span></div>
+</div></header>
+<nav class="toc"><div class="wrap"><a href="#s1"><b>01</b> Claude 提示框架</a><a href="#s2"><b>02</b> Claude 技能速查表</a><a href="#s3"><b>03</b> AI 常用的資料庫</a><a href="#s4"><b>04</b> 提示工程 vs 迴圈工程</a><a href="#s5"><b>05</b> Claude Cowork 一次性設定</a><a href="#s6"><b>06</b> 用 Claude 學習任何主題的四種方法</a><a href="#s7"><b>07</b> 向量資料庫（9 步驟）</a><a href="#s8"><b>08</b> 寫出有效 Claude 提示的 9 個技巧</a><a href="#s9"><b>09</b> 使用者專業度分級</a><a href="#s10"><b>10</b> 用 Claude 能做的 12 件驚人的事</a><a href="#s11"><b>11</b> 迴圈工程 101</a></div></nav>
+<main><div class="wrap">
+    <section class="card" id="s1">
+      <div class="card-head">
+        <span class="num">01</span>
+        <div>
+          <span class="cat">提示工程</span>
+          <h2>Claude 提示框架</h2>
+          <p class="en">The Claude Prompt Framework</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 820" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="820" fill="#ffffff"/>
+  <!-- Title -->
+  <g transform="translate(30,30)">
+    <g transform="translate(0,5)" fill="#F25C26">
+      <circle cx="20" cy="22" r="4"/>
+      <g stroke="#F25C26" stroke-width="4" stroke-linecap="round">
+        <line x1="20" y1="22" x2="20" y2="2"/><line x1="20" y1="22" x2="20" y2="42"/>
+        <line x1="20" y1="22" x2="2" y2="22"/><line x1="20" y1="22" x2="38" y2="22"/>
+        <line x1="20" y1="22" x2="7" y2="9"/><line x1="20" y1="22" x2="33" y2="35"/>
+        <line x1="20" y1="22" x2="33" y2="9"/><line x1="20" y1="22" x2="7" y2="35"/>
+      </g>
+    </g>
+    <text x="55" y="22" font-size="34" font-weight="800" fill="#1a1a2e">Claude</text>
+    <text x="55" y="58" font-size="34" font-weight="800" fill="#1a1a2e">提示框架</text>
+    <line x1="55" y1="72" x2="430" y2="72" stroke="#2b6cb0" stroke-width="3"/>
+    <circle cx="55" cy="72" r="5" fill="#F25C26"/>
+  </g>
+
+  <!-- 1 Core formula -->
+  <g transform="translate(30,120)">
+    <rect width="640" height="120" rx="12" fill="#FFF3E9"/>
+    <circle cx="28" cy="28" r="16" fill="#F25C26"/><text x="28" y="34" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <rect x="52" y="14" width="36" height="44" rx="4" fill="#F25C26"/>
+    <g stroke="#fff" stroke-width="2.5"><line x1="60" y1="26" x2="80" y2="26"/><line x1="60" y1="34" x2="80" y2="34"/><line x1="60" y1="42" x2="74" y2="42"/></g>
+    <text x="104" y="32" font-size="17" font-weight="800" fill="#F25C26">核心提示公式</text>
+    <rect x="104" y="44" width="510" height="30" rx="6" fill="#fff" stroke="#F0C9AE"/>
+    <text x="116" y="64" font-size="13.5" fill="#333">［動作動詞］［具體交付物］，以便［對象完成 X 達到 Y］。</text>
+    <g font-size="12" fill="#333">
+      <text x="104" y="96" font-weight="700" fill="#F25C26">範圍：</text><text x="150" y="96">納入什麼／排除什麼</text>
+      <text x="320" y="96" font-weight="700" fill="#F25C26">長度：</text><text x="366" y="96">精確—約 150 字</text>
+      <text x="510" y="96" font-weight="700" fill="#F25C26">格式：</text><text x="510" y="112">表格／條列</text>
+    </g>
+  </g>
+
+  <!-- 2 and 3 -->
+  <g transform="translate(30,260)">
+    <rect width="312" height="120" rx="12" fill="#FCE7F0"/>
+    <circle cx="26" cy="26" r="15" fill="#E0457B"/><text x="26" y="32" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+    <text x="50" y="24" font-size="13.5" font-weight="800" fill="#E0457B">回應前先完整</text>
+    <text x="50" y="42" font-size="13.5" font-weight="800" fill="#E0457B">讀完這些檔案：</text>
+    <g font-size="11.5" fill="#333">
+      <circle cx="26" cy="62" r="2.5" fill="#E0457B"/><text x="36" y="66">［檔名.md］—內容說明</text>
+      <circle cx="26" cy="86" r="2.5" fill="#E0457B"/><text x="36" y="90">［檔名.md］—內容說明</text>
+    </g>
+  </g>
+  <g transform="translate(358,260)">
+    <rect width="312" height="120" rx="12" fill="#EDE7FA"/>
+    <circle cx="26" cy="26" r="15" fill="#7C4DD1"/><text x="26" y="32" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+    <text x="50" y="24" font-size="13.5" font-weight="800" fill="#7C4DD1">對齊這個參考範例</text>
+    <text x="50" y="42" font-size="13.5" font-weight="800" fill="#7C4DD1">的節奏：</text>
+    <text x="20" y="64" font-size="11.5" fill="#333">貼上參考範例，或以 markdown 上傳</text>
+    <text x="20" y="84" font-size="11.5" font-weight="700" fill="#333">套用這些模式（只取正向規則）：</text>
+    <text x="20" y="104" font-size="11" fill="#333">• 永遠［模式1 — 結構］  • 永遠［模式2 — 語氣］</text>
+  </g>
+
+  <!-- 4 Output + voice -->
+  <g transform="translate(30,400)">
+    <rect width="640" height="120" rx="12" fill="#E6F0FB"/>
+    <circle cx="26" cy="26" r="15" fill="#2b6cb0"/><text x="26" y="32" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+    <text x="50" y="32" font-size="15" font-weight="800" fill="#2b6cb0">輸出＋語氣細節</text>
+    <g font-size="11.5" fill="#333">
+      <circle cx="26" cy="58" r="2.5" fill="#2b6cb0"/><text x="36" y="62" font-weight="700" fill="#2b6cb0">輸出＋長度：</text><text x="120" y="62">精確字數／條列／段數</text>
+      <circle cx="26" cy="80" r="2.5" fill="#2b6cb0"/><text x="36" y="84" font-weight="700" fill="#2b6cb0">對象反應：</text><text x="112" y="84">他們會回覆／核准／預約</text>
+      <circle cx="26" cy="102" r="2.5" fill="#2b6cb0"/><text x="36" y="106" font-weight="700" fill="#2b6cb0">語氣對齊：</text><text x="112" y="106">貼 2–3 句你想要的語氣</text>
+      <circle cx="350" cy="58" r="2.5" fill="#2b6cb0"/><text x="360" y="62" font-weight="700" fill="#2b6cb0">語氣：</text><text x="406" y="62">直接、溫暖、自信、技術性</text>
+      <circle cx="350" cy="80" r="2.5" fill="#2b6cb0"/><text x="360" y="84" font-weight="700" fill="#2b6cb0">聽起來像：</text><text x="430" y="84">清楚、具體三特質</text>
+      <circle cx="350" cy="102" r="2.5" fill="#2b6cb0"/><text x="360" y="106" font-weight="700" fill="#2b6cb0">成功定義：</text><text x="430" y="106">對象採取的那一個行動</text>
+    </g>
+  </g>
+
+  <!-- 5 and 6 -->
+  <g transform="translate(30,540)">
+    <rect width="312" height="110" rx="12" fill="#E6F6EC"/>
+    <circle cx="26" cy="26" r="15" fill="#2E9E5B"/><text x="26" y="32" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+    <text x="50" y="32" font-size="14" font-weight="800" fill="#2E9E5B">寫作指引</text>
+    <g font-size="11" fill="#333">
+      <circle cx="24" cy="54" r="2.2" fill="#2E9E5B"/><text x="33" y="58">用 16 歲也能朗讀的白話寫</text>
+      <circle cx="24" cy="74" r="2.2" fill="#2E9E5B"/><text x="33" y="78">用簡短、具體、真實的字</text>
+      <circle cx="24" cy="94" r="2.2" fill="#2E9E5B"/><text x="33" y="98">把「善用」「運用」改成「用」</text>
+    </g>
+  </g>
+  <g transform="translate(358,540)">
+    <rect width="312" height="110" rx="12" fill="#FFF3E9"/>
+    <circle cx="26" cy="26" r="15" fill="#F25C26"/><text x="26" y="32" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">6</text>
+    <text x="50" y="32" font-size="14" font-weight="800" fill="#F25C26">明確地使用工具：</text>
+    <g font-size="11" fill="#333">
+      <circle cx="24" cy="58" r="2.2" fill="#F25C26"/><text x="33" y="62" font-weight="700">網路搜尋：</text><text x="100" y="62">每個主張用 2 個以上來源查證</text>
+      <circle cx="24" cy="86" r="2.2" fill="#F25C26"/><text x="33" y="90" font-weight="700">Gmail／雲端／行事曆：</text>
+      <text x="33" y="104">指名確切的動作與聯絡人</text>
+    </g>
+  </g>
+
+  <!-- 7 8 9 -->
+  <g transform="translate(30,668)">
+    <circle cx="14" cy="20" r="14" fill="#E0457B"/><text x="14" y="26" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">7</text>
+    <text x="34" y="16" font-size="12.5" font-weight="800" fill="#E0457B">執行前：</text>
+    <g font-size="10.5" fill="#333">
+      <circle cx="6" cy="38" r="2" fill="#E0457B"/><text x="14" y="42">任何不清楚處用 AskUserQuestion</text>
+      <circle cx="6" cy="58" r="2" fill="#E0457B"/><text x="14" y="62">完全照我的答案執行</text>
+      <circle cx="6" cy="78" r="2" fill="#E0457B"/><text x="14" y="82">不要默默補上空缺</text>
+    </g>
+  </g>
+  <g transform="translate(250,668)">
+    <circle cx="14" cy="20" r="14" fill="#2b6cb0"/><text x="14" y="26" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">8</text>
+    <text x="34" y="16" font-size="12.5" font-weight="800" fill="#2b6cb0">先列出 3 條規則：</text>
+    <g font-size="10.5" fill="#333">
+      <circle cx="6" cy="38" r="2" fill="#2b6cb0"/><text x="14" y="42">從我的脈絡檔中挑出</text>
+      <text x="14" y="56">對此任務最重要的</text>
+      <circle cx="6" cy="72" r="2" fill="#2b6cb0"/><text x="14" y="76">再用 5 步給我執行計畫</text>
+    </g>
+  </g>
+  <g transform="translate(470,668)">
+    <circle cx="14" cy="20" r="14" fill="#7C4DD1"/><text x="14" y="26" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">9</text>
+    <text x="34" y="16" font-size="12.5" font-weight="800" fill="#7C4DD1">對齊之後：</text>
+    <g font-size="10.5" fill="#333">
+      <circle cx="6" cy="38" r="2" fill="#7C4DD1"/><text x="14" y="42">超越基本要求</text>
+      <circle cx="6" cy="58" r="2" fill="#7C4DD1"/><text x="14" y="62">當成真正的客戶交付物</text>
+      <circle cx="6" cy="78" r="2" fill="#7C4DD1"/><text x="14" y="82">回答前先思考</text>
+    </g>
+  </g>
+  <text x="350" y="800" font-size="11" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪</text>
+</svg></div>
+        <div class="text">
+          <p class="intro">一套把模糊請求轉成精準成果的 9 步驟提示骨架，從「核心公式」到「對齊後再放手」。</p>
+          <ul><li>核心公式：［動作動詞］＋［具體交付物］＋［對象要完成什麼 X 達到 Y］。</li><li>明確指定範圍、長度、格式，並要求回應前先完整讀完指定檔案。</li><li>定義輸出語氣、對象反應與成功定義；用白話寫、把贅詞改成簡單字。</li><li>執行前先用提問釐清、列出最重要的 3 條規則，再給 5 步執行計畫。</li></ul>
+        </div>
+      </div>
+    </section>
+    <section class="card" id="s2">
+      <div class="card-head">
+        <span class="num">02</span>
+        <div>
+          <span class="cat">技能 Skills</span>
+          <h2>Claude 技能速查表</h2>
+          <p class="en">The Claude Skills Cheatsheet</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 980" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="760" height="980" fill="#F7F6F2"/>
+  <text x="30" y="48" font-size="32" font-weight="800" fill="#1a1a2e">Claude <tspan fill="#F25C26">技能</tspan>速查表</text>
+  <line x1="30" y1="62" x2="500" y2="62" stroke="#1a1a2e" stroke-width="2.5"/>
+
+  <!-- left column -->
+  <g transform="translate(30,86)">
+    <!-- 1 -->
+    <circle cx="14" cy="14" r="13" fill="#F2B705"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <text x="36" y="19" font-size="16" font-weight="800" fill="#1a1a2e">核心問題</text>
+    <text x="10" y="44" font-size="12.5" fill="#333">長流程常因「脈絡視窗超載」而出問題。</text>
+    <text x="10" y="70" font-size="12.5" font-weight="700" fill="#C0392B">脈絡視窗超載</text>
+    <g font-size="11.5" fill="#444">
+      <text x="14" y="90">• 關鍵指令被埋沒或被截斷</text>
+      <text x="14" y="108">• 模型把注意力浪費在無關內容</text>
+      <text x="14" y="126">• 回應變得前後不一、流程錯亂</text>
+    </g>
+    <rect x="6" y="138" width="330" height="92" rx="8" fill="#FFF3E0" stroke="#F2B705"/>
+    <text x="16" y="158" font-size="12" font-weight="700" fill="#E67E22">技能用「外部化與模組化</text>
+    <text x="16" y="174" font-size="12" font-weight="700" fill="#E67E22">程序知識」來解決：</text>
+    <g font-size="11" fill="#444">
+      <text x="16" y="194">• 一開始只載入中繼資料（名稱、描述）</text>
+      <text x="16" y="210">• 只在需要時帶入該任務專屬指令</text>
+      <text x="16" y="226">• 保持脈絡輕量，留空間給推理與資料</text>
+    </g>
+    <!-- 2 -->
+    <g transform="translate(0,248)">
+      <circle cx="14" cy="14" r="13" fill="#F2B705"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+      <text x="36" y="19" font-size="16" font-weight="800" fill="#1a1a2e">技能如何運作</text>
+      <g font-size="11.5">
+        <text x="10" y="42" font-weight="700" fill="#E0457B">動態載入：</text><text x="92" y="42" fill="#444">掃描可用技能，需要時才啟用</text>
+        <text x="10" y="62" font-weight="700" fill="#E0457B">漸進揭露：</text><text x="92" y="62" fill="#444">先載中繼資料，用到才載全文</text>
+        <text x="10" y="82" font-weight="700" fill="#E0457B">可組合：</text><text x="82" y="82" fill="#444">多個技能可堆疊協作</text>
+        <text x="10" y="102" font-weight="700" fill="#E0457B">可攜帶：</text><text x="82" y="102" fill="#444">App、Code、API 通用</text>
+        <text x="10" y="122" font-weight="700" fill="#E0457B">可執行：</text><text x="82" y="122" fill="#444">可在沙盒中跑程式，結果可重現</text>
+      </g>
+    </g>
+    <!-- 3 -->
+    <g transform="translate(0,392)">
+      <circle cx="14" cy="14" r="13" fill="#F2B705"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+      <text x="36" y="19" font-size="16" font-weight="800" fill="#1a1a2e">技能結構</text>
+      <text x="10" y="42" font-size="12" fill="#333">每個技能就是一個資料夾，包含：</text>
+      <rect x="10" y="54" width="100" height="58" rx="6" fill="#fff" stroke="#ccc"/>
+      <text x="60" y="76" font-size="11" font-weight="700" fill="#333" text-anchor="middle">SKILL.md</text>
+      <text x="60" y="92" font-size="9.5" fill="#666" text-anchor="middle">中繼資料＋</text>
+      <text x="60" y="104" font-size="9.5" fill="#666" text-anchor="middle">指令(YAML)</text>
+      <rect x="118" y="54" width="100" height="58" rx="6" fill="#fff" stroke="#ccc"/>
+      <text x="168" y="76" font-size="11" font-weight="700" fill="#333" text-anchor="middle">resources/</text>
+      <text x="168" y="92" font-size="9.5" fill="#666" text-anchor="middle">範本、品牌</text>
+      <text x="168" y="104" font-size="9.5" fill="#666" text-anchor="middle">資產、資料</text>
+      <rect x="226" y="54" width="104" height="58" rx="6" fill="#fff" stroke="#ccc"/>
+      <text x="278" y="76" font-size="11" font-weight="700" fill="#333" text-anchor="middle">scripts/</text>
+      <text x="278" y="92" font-size="9.5" fill="#666" text-anchor="middle">選用的可執行</text>
+      <text x="278" y="104" font-size="9.5" fill="#666" text-anchor="middle">程式 (py,js)</text>
+      <text x="10" y="132" font-size="10.5" fill="#666">必填 YAML：name／description／version／dependencies</text>
+    </g>
+  </g>
+
+  <!-- right column -->
+  <g transform="translate(400,86)">
+    <!-- 4 -->
+    <circle cx="14" cy="14" r="13" fill="#2E9E5B"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+    <text x="36" y="19" font-size="15" font-weight="800" fill="#1a1a2e">與其他 Claude 功能比較</text>
+    <g font-size="11.5">
+      <text x="10" y="44" font-weight="700" fill="#2E9E5B">Projects</text><text x="100" y="44" fill="#444">→ 工作區的背景脈絡</text>
+      <text x="10" y="64" font-weight="700" fill="#2E9E5B">MCP</text><text x="100" y="64" fill="#444">→ 外部工具與資料存取</text>
+      <text x="10" y="84" font-weight="700" fill="#2E9E5B">自訂指令</text><text x="100" y="84" fill="#444">→ 全域人設與偏好</text>
+      <text x="10" y="104" font-weight="700" fill="#2E9E5B">技能</text><text x="100" y="104" fill="#444">→ 隨需取用的程序知識</text>
+    </g>
+    <!-- 5 -->
+    <g transform="translate(0,124)">
+      <circle cx="14" cy="14" r="13" fill="#2E9E5B"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+      <text x="36" y="19" font-size="15" font-weight="800" fill="#1a1a2e">內建 Anthropic 技能</text>
+      <rect x="8" y="32" width="100" height="60" rx="6" fill="#fff" stroke="#ccc"/>
+      <text x="58" y="68" font-size="11" fill="#333" text-anchor="middle">Excel 強化</text><text x="58" y="84" font-size="11" fill="#333" text-anchor="middle">操作</text>
+      <rect x="116" y="32" width="100" height="60" rx="6" fill="#fff" stroke="#ccc"/>
+      <text x="166" y="68" font-size="11" fill="#333" text-anchor="middle">PowerPoint</text><text x="166" y="84" font-size="11" fill="#333" text-anchor="middle">簡報產生</text>
+      <rect x="224" y="32" width="106" height="60" rx="6" fill="#fff" stroke="#ccc"/>
+      <text x="277" y="62" font-size="11" fill="#333" text-anchor="middle">Word 與 PDF</text><text x="277" y="78" font-size="11" fill="#333" text-anchor="middle">文件建立</text>
+    </g>
+    <!-- 6 -->
+    <g transform="translate(0,232)">
+      <circle cx="14" cy="14" r="13" fill="#2E9E5B"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">6</text>
+      <text x="36" y="19" font-size="15" font-weight="800" fill="#1a1a2e">自訂技能範例</text>
+      <g font-size="10.5" fill="#444" text-anchor="middle">
+        <rect x="6" y="32" width="62" height="58" rx="6" fill="#fff" stroke="#ccc"/><text x="37" y="66">CRM</text><text x="37" y="80">自動化</text>
+        <rect x="74" y="32" width="62" height="58" rx="6" fill="#fff" stroke="#ccc"/><text x="105" y="66">法律條款</text><text x="105" y="80">審查</text>
+        <rect x="142" y="32" width="62" height="58" rx="6" fill="#fff" stroke="#ccc"/><text x="173" y="66">SEO 內容</text><text x="173" y="80">結構化</text>
+        <rect x="210" y="32" width="58" height="58" rx="6" fill="#fff" stroke="#ccc"/><text x="239" y="62">衝刺規劃</text><text x="239" y="76">與速度</text><text x="239" y="88">估算</text>
+        <rect x="274" y="32" width="56" height="58" rx="6" fill="#fff" stroke="#ccc"/><text x="302" y="62">財務模型</text><text x="302" y="76">DCF／</text><text x="302" y="88">Comps</text>
+      </g>
+    </g>
+    <!-- 7 -->
+    <g transform="translate(0,340)">
+      <circle cx="14" cy="14" r="13" fill="#2E9E5B"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">7</text>
+      <text x="36" y="19" font-size="15" font-weight="800" fill="#1a1a2e">最佳實務</text>
+      <g font-size="11" fill="#444">
+        <text x="10" y="42">• 從簡單的 Markdown 指令開始，之後再加程式</text>
+        <text x="10" y="60">• 寫具體的 description（觸發精準度很關鍵）</text>
+        <text x="10" y="78">• 用多種提示措辭測試</text>
+        <text x="10" y="96">• 一個流程只做一個聚焦的技能</text>
+        <text x="10" y="114">• 為清楚起見納入輸入／輸出範例</text>
+        <text x="10" y="132">• 每次發布版本化，方便回溯</text>
+      </g>
+    </g>
+    <!-- 8 -->
+    <g transform="translate(0,486)">
+      <circle cx="14" cy="14" r="13" fill="#2E9E5B"/><text x="14" y="19" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">8</text>
+      <text x="36" y="19" font-size="15" font-weight="800" fill="#1a1a2e">安全與風險</text>
+      <text x="10" y="42" font-size="11.5" fill="#444">在安全沙盒環境中執行（不持久保存）。</text>
+      <text x="10" y="64" font-size="11.5" font-weight="700" fill="#C0392B">風險：</text><text x="60" y="64" font-size="11.5" fill="#444">提示注入、惡意套件、資料外洩</text>
+      <text x="10" y="86" font-size="11.5" font-weight="700" fill="#2E9E5B">緩解：</text>
+      <g font-size="11" fill="#444">
+        <text x="14" y="104">• 啟用前稽核所有第三方技能</text>
+        <text x="14" y="122">• 檢查所有技能來源</text>
+        <text x="14" y="140">• 絕不在技能中放入密鑰或憑證</text>
+      </g>
+    </g>
+  </g>
+  <text x="380" y="966" font-size="11" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪</text>
+</svg></div>
+        <div class="text">
+          <p class="intro">技能 (Skills) 把「程序知識」外部化、模組化，解決長流程的脈絡視窗超載問題。</p>
+          <ul><li>核心問題：關鍵指令被埋沒、注意力被無關內容稀釋、回應前後不一。</li><li>運作方式：動態載入、漸進揭露、可組合、可攜帶、可在沙盒執行。</li><li>技能就是一個資料夾：SKILL.md（指令）＋ resources ＋ scripts。</li><li>最佳實務：描述要具體、一技能一流程、版本化；並稽核第三方技能避免提示注入。</li></ul>
+        </div>
+      </div>
+    </section>
+    <section class="card" id="s3">
+      <div class="card-head">
+        <span class="num">03</span>
+        <div>
+          <span class="cat">資料基礎</span>
+          <h2>AI 常用的資料庫</h2>
+          <p class="en">Databases used in AI</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 940" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="760" height="940" fill="#ffffff"/>
+  <rect x="28" y="22" width="300" height="52" rx="6" fill="#9CD0F5"/>
+  <text x="40" y="62" font-size="40" font-weight="800" fill="#111">AI 常用</text>
+  <text x="345" y="62" font-size="40" font-weight="800" fill="#111">資料庫</text>
+
+  <!-- card helper boxes -->
+  <!-- Graph -->
+  <g transform="translate(28,96)">
+    <rect width="346" height="248" rx="10" fill="#fff" stroke="#222" stroke-width="1.5"/>
+    <rect x="18" y="16" width="150" height="30" rx="6" fill="#BDE8C8"/>
+    <text x="30" y="37" font-size="17" font-weight="800" fill="#1E7A3D">圖形資料庫</text>
+    <text x="18" y="66" font-size="11.5" fill="#444">將資料以「實體」及彼此「關聯」的</text>
+    <text x="18" y="82" font-size="11.5" fill="#444">形式儲存，節點之間互相連結。</text>
+    <text x="18" y="104" font-size="11" font-weight="700" fill="#16a34a">Neo4j　ArangoDB</text>
+    <g>
+      <line x1="70" y1="170" x2="150" y2="150" stroke="#888"/><line x1="150" y1="150" x2="240" y2="135" stroke="#888"/>
+      <line x1="150" y1="150" x2="120" y2="210" stroke="#888"/><line x1="150" y1="150" x2="250" y2="200" stroke="#888"/>
+      <line x1="70" y1="170" x2="240" y2="135" stroke="#E2574C"/>
+      <circle cx="70" cy="170" r="13" fill="#A7C7F2"/><text x="70" y="195" font-size="9" text-anchor="middle">Nike</text>
+      <circle cx="150" cy="150" r="13" fill="#F2C879"/><text x="150" y="150" font-size="9" text-anchor="middle">Matt</text>
+      <circle cx="150" cy="120" r="13" fill="#F2B0C0"/><text x="150" y="105" font-size="9" text-anchor="middle">Gerad</text>
+      <circle cx="240" cy="135" r="13" fill="#333"/><text x="262" y="138" font-size="9">Ivan</text>
+      <circle cx="120" cy="210" r="13" fill="#E8923A"/><text x="120" y="232" font-size="9" text-anchor="middle">Sarah</text>
+      <circle cx="250" cy="200" r="13" fill="#8FD4E8"/><text x="272" y="203" font-size="9">David</text>
+      <text x="180" y="128" font-size="8" fill="#777">好友關係</text>
+    </g>
+  </g>
+  <!-- Relational -->
+  <g transform="translate(386,96)">
+    <rect width="346" height="248" rx="10" fill="#fff" stroke="#222" stroke-width="1.5"/>
+    <rect x="18" y="16" width="180" height="30" rx="6" fill="#F6D98C"/>
+    <text x="30" y="37" font-size="17" font-weight="800" fill="#B7791F">關聯式資料庫</text>
+    <text x="18" y="66" font-size="11.5" fill="#444">以資料表儲存與組織彼此相關的</text>
+    <text x="18" y="82" font-size="11.5" fill="#444">資料點（列與欄）。</text>
+    <text x="18" y="104" font-size="11" font-weight="700" fill="#2563eb">MySQL　SQLite</text>
+    <g font-size="9" fill="#333">
+      <rect x="20" y="120" width="120" height="100" fill="#EAF1FB" stroke="#88a"/>
+      <line x1="80" y1="120" x2="80" y2="220" stroke="#88a"/>
+      <text x="30" y="135">姓名</text><text x="92" y="135">追蹤數</text>
+      <line x1="20" y1="140" x2="140" y2="140" stroke="#88a"/>
+      <text x="30" y="156">Rohit</text><text x="100" y="156">28</text>
+      <text x="30" y="174">Alex</text><text x="100" y="174">32</text>
+      <text x="30" y="192">John</text><text x="100" y="192">45</text>
+      <text x="30" y="210">Anshu</text><text x="100" y="210">50</text>
+      <rect x="210" y="120" width="120" height="50" fill="#fff" stroke="#88a"/><line x1="270" y1="120" x2="270" y2="170" stroke="#88a"/>
+      <text x="220" y="135">Rohit</text><text x="285" y="135">28</text><line x1="210" y1="140" x2="330" y2="140" stroke="#88a"/><text x="220" y="158">Alex</text><text x="285" y="158">32</text>
+      <rect x="210" y="180" width="120" height="50" fill="#fff" stroke="#88a"/><line x1="270" y1="180" x2="270" y2="230" stroke="#88a"/>
+      <text x="220" y="196">John</text><text x="285" y="196">45</text><line x1="210" y1="200" x2="330" y2="200" stroke="#88a"/><text x="220" y="218">Anshu</text><text x="285" y="218">50</text>
+      <path d="M140 160 C175 145, 180 145, 210 145" fill="none" stroke="#333"/>
+      <path d="M140 185 C175 205, 180 205, 210 205" fill="none" stroke="#333"/>
+    </g>
+  </g>
+  <!-- Time series -->
+  <g transform="translate(28,358)">
+    <rect width="346" height="248" rx="10" fill="#fff" stroke="#222" stroke-width="1.5"/>
+    <rect x="18" y="16" width="200" height="30" rx="6" fill="#F6B8C8"/>
+    <text x="30" y="37" font-size="17" font-weight="800" fill="#B83D5E">時間序列資料庫</text>
+    <text x="18" y="66" font-size="11.5" fill="#444">為儲存與查詢「隨時間蒐集的時間</text>
+    <text x="18" y="82" font-size="11.5" fill="#444">戳記資料點」而最佳化。</text>
+    <text x="18" y="104" font-size="11" font-weight="700" fill="#0ea5e9">InfluxDB　Timescale</text>
+    <g>
+      <rect x="40" y="120" width="280" height="90" fill="#FFF7E6"/>
+      <polyline points="40,180 80,175 120,160 160,150 200,158 240,168 280,165 320,170" fill="none" stroke="#E8923A" stroke-width="2"/>
+      <polygon points="40,180 80,175 120,160 160,150 200,158 240,168 280,165 320,170 320,210 40,210" fill="#F8C98A" opacity="0.5"/>
+      <text x="180" y="234" font-size="10" font-weight="700" fill="#B7791F" text-anchor="middle">範例：天氣資料 · 股價 · 物聯網(IoT)</text>
+    </g>
+  </g>
+  <!-- Vector -->
+  <g transform="translate(386,358)">
+    <rect width="346" height="248" rx="10" fill="#fff" stroke="#222" stroke-width="1.5"/>
+    <rect x="18" y="16" width="170" height="30" rx="6" fill="#9CD0F5"/>
+    <text x="30" y="37" font-size="17" font-weight="800" fill="#1E5FA8">向量資料庫</text>
+    <text x="18" y="66" font-size="11.5" fill="#444">設計來儲存、索引與查詢「高維度</text>
+    <text x="18" y="82" font-size="11.5" fill="#444">資料點」（向量嵌入）。</text>
+    <text x="18" y="104" font-size="11" font-weight="700" fill="#7C4DD1">Pinecone　Weaviate</text>
+    <g font-size="11" fill="#333">
+      <text x="18" y="138" font-weight="700">文件</text><text x="80" y="138">📄📄</text>
+      <text x="18" y="170" font-weight="700">切塊</text>
+      <rect x="80" y="158" width="46" height="16" fill="#FBE0C0" stroke="#999"/><text x="103" y="170" font-size="8" text-anchor="middle">區塊1</text>
+      <rect x="130" y="158" width="46" height="16" fill="#FBE0C0" stroke="#999"/><text x="153" y="170" font-size="8" text-anchor="middle">區塊2</text>
+      <text x="18" y="204" font-weight="700">嵌入</text>
+      <rect x="80" y="192" width="130" height="16" fill="#fff" stroke="#999"/><text x="84" y="204" font-size="8">[0.12,-0.85,0.33,...]</text>
+      <line x1="48" y1="142" x2="48" y2="160" stroke="#333"/><line x1="48" y1="176" x2="48" y2="194" stroke="#333"/>
+      <ellipse cx="285" cy="150" rx="36" ry="12" fill="#D8C4F0" stroke="#7C4DD1"/>
+      <rect x="249" y="150" width="72" height="50" fill="#E8DCF7" stroke="#7C4DD1"/>
+      <ellipse cx="285" cy="200" rx="36" ry="12" fill="#C4A8E8" stroke="#7C4DD1"/>
+      <text x="285" y="132" font-size="10" font-weight="700" fill="#1E5FA8" text-anchor="middle">向量 DB</text>
+    </g>
+  </g>
+  <!-- Document -->
+  <g transform="translate(28,620)">
+    <rect width="346" height="280" rx="10" fill="#fff" stroke="#222" stroke-width="1.5"/>
+    <rect x="18" y="16" width="180" height="30" rx="6" fill="#9CD0F5"/>
+    <text x="30" y="37" font-size="17" font-weight="800" fill="#1E5FA8">文件資料庫</text>
+    <text x="18" y="66" font-size="11.5" fill="#444">以彈性的 JSON 式文件儲存資料，</text>
+    <text x="18" y="82" font-size="11.5" fill="#444">結構動態，適合非結構化資料。</text>
+    <text x="18" y="104" font-size="11" font-weight="700" fill="#16a34a">MongoDB　CouchDB</text>
+    <g font-size="9" fill="#333">
+      <rect x="130" y="120" width="90" height="60" fill="#DCE9FB" stroke="#88a"/><text x="175" y="135" text-anchor="middle" font-weight="700">Person</text>
+      <text x="138" y="152">-Name</text><text x="138" y="166">-Age</text><text x="138" y="178">-Setname()</text>
+      <rect x="30" y="210" width="90" height="60" fill="#DCE9FB" stroke="#88a"/><text x="75" y="225" text-anchor="middle" font-weight="700">Student</text>
+      <text x="38" y="242">-Rollno</text><text x="38" y="256">-Branch</text><text x="38" y="268">-Setmarks()</text>
+      <rect x="228" y="210" width="100" height="60" fill="#DCE9FB" stroke="#88a"/><text x="278" y="225" text-anchor="middle" font-weight="700">Engineer</text>
+      <text x="236" y="242">-E_ID</text><text x="236" y="256">-Department</text><text x="236" y="268">-Countpage()</text>
+      <path d="M120 230 C150 210,150 200,160 182" fill="none" stroke="#333"/>
+      <path d="M228 230 C200 210,195 200,190 182" fill="none" stroke="#333"/>
+    </g>
+  </g>
+  <!-- Key-Value -->
+  <g transform="translate(386,620)">
+    <rect width="346" height="280" rx="10" fill="#fff" stroke="#222" stroke-width="1.5"/>
+    <rect x="18" y="16" width="200" height="30" rx="6" fill="#9CD0F5"/>
+    <text x="30" y="37" font-size="17" font-weight="800" fill="#1E5FA8">鍵值資料庫</text>
+    <text x="18" y="66" font-size="11.5" fill="#444">一種非關聯式 (NoSQL) 資料庫，以</text>
+    <text x="18" y="82" font-size="11.5" fill="#444">「鍵-值」對的集合來儲存資料。</text>
+    <text x="18" y="104" font-size="11" font-weight="700" fill="#dc2626">Redis　DynamoDB</text>
+    <g font-size="10" fill="#333">
+      <rect x="30" y="120" width="60" height="22" rx="4" fill="#7DCFA0"/><text x="60" y="135" text-anchor="middle" font-weight="700" fill="#fff">Key</text>
+      <rect x="150" y="120" width="60" height="22" rx="4" fill="#CFE0F5"/><text x="180" y="135" text-anchor="middle">Value</text>
+      <rect x="260" y="120" width="60" height="22" rx="4" fill="#CFE0F5"/><text x="290" y="135" text-anchor="middle">Value</text>
+      <line x1="30" y1="156" x2="320" y2="156" stroke="#bbb" stroke-dasharray="4"/>
+      <rect x="30" y="166" width="50" height="22" rx="4" fill="#BFE6FA"/><text x="55" y="181" text-anchor="middle">K1</text>
+      <rect x="150" y="166" width="60" height="22" rx="4" fill="#BFE6FA"/><text x="180" y="181" text-anchor="middle">AA</text>
+      <rect x="260" y="166" width="60" height="22" rx="4" fill="#BFE6FA"/><text x="290" y="181" text-anchor="middle">AAA</text>
+      <rect x="30" y="196" width="50" height="22" rx="4" fill="#BFE6FA"/><text x="55" y="211" text-anchor="middle">K2</text>
+      <rect x="150" y="196" width="60" height="22" rx="4" fill="#BFE6FA"/><text x="180" y="211" text-anchor="middle">B</text>
+      <rect x="30" y="226" width="50" height="22" rx="4" fill="#BFE6FA"/><text x="55" y="241" text-anchor="middle">K3</text>
+      <rect x="150" y="226" width="60" height="22" rx="4" fill="#BFE6FA"/><text x="180" y="241" text-anchor="middle">CCC</text>
+      <rect x="260" y="226" width="60" height="22" rx="4" fill="#BFE6FA"/><text x="290" y="241" text-anchor="middle">CCCC</text>
+      <line x1="80" y1="177" x2="150" y2="177" stroke="#333"/><line x1="80" y1="207" x2="150" y2="207" stroke="#333"/><line x1="80" y1="237" x2="150" y2="237" stroke="#333"/>
+    </g>
+  </g>
+  <text x="380" y="928" font-size="11" fill="#bbb" text-anchor="middle">中文重製版 · 依原圖風格重繪</text>
+</svg></div>
+        <div class="text">
+          <p class="intro">AI 系統依資料形態選用不同資料庫，六大類各有適用場景。</p>
+          <ul><li>圖形資料庫（Neo4j）：以實體與關聯儲存，適合社群/知識圖譜。</li><li>關聯式（MySQL）：資料表結構；文件式（MongoDB）：彈性 JSON。</li><li>時間序列（InfluxDB）：時間戳資料；鍵值（Redis）：高速鍵-值對。</li><li>向量資料庫（Pinecone）：儲存高維度嵌入，做語意相似度搜尋。</li></ul>
+        </div>
+      </div>
+    </section>
+    <section class="card" id="s4">
+      <div class="card-head">
+        <span class="num">04</span>
+        <div>
+          <span class="cat">代理 Agent</span>
+          <h2>提示工程 vs 迴圈工程</h2>
+          <p class="en">Prompt Engineering vs Loop Engineering</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 940" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="760" height="940" fill="#ffffff"/>
+  <text x="190" y="60" font-size="30" font-weight="800" fill="#111" text-anchor="middle">提示工程</text>
+  <text x="190" y="96" font-size="30" font-weight="800" fill="#111" text-anchor="middle">(Prompt Eng.)</text>
+  <circle cx="380" cy="70" r="30" fill="#222"/><text x="380" y="79" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">VS</text>
+  <text x="575" y="60" font-size="30" font-weight="800" fill="#111" text-anchor="middle">迴圈工程</text>
+  <text x="575" y="96" font-size="30" font-weight="800" fill="#111" text-anchor="middle">(Loop Eng.)</text>
+  <line x1="380" y1="120" x2="380" y2="860" stroke="#ccc" stroke-width="1.5"/>
+
+  <!-- styles -->
+  <!-- LEFT column boxes -->
+  <g font-size="15" fill="#111">
+    <!-- step1 -->
+    <circle cx="40" cy="180" r="15" fill="#111"/><text x="40" y="186" font-size="14" fill="#fff" text-anchor="middle">1</text>
+    <rect x="66" y="158" width="270" height="44" rx="8" fill="#DCE9FB" stroke="#9BB8E0"/><text x="120" y="185">人類撰寫提示</text>
+    <line x1="200" y1="202" x2="200" y2="228" stroke="#111" stroke-width="2"/><polygon points="200,234 195,224 205,224" fill="#111"/>
+    <!-- step2 -->
+    <circle cx="40" cy="258" r="15" fill="#111"/><text x="40" y="264" font-size="14" fill="#fff" text-anchor="middle">2</text>
+    <rect x="66" y="236" width="270" height="44" rx="8" fill="#F5A97A" stroke="#E0834A"/><text x="120" y="263">代理回應</text>
+    <line x1="200" y1="280" x2="200" y2="306" stroke="#111" stroke-width="2"/><polygon points="200,312 195,302 205,302" fill="#111"/>
+    <!-- step3 -->
+    <circle cx="40" cy="336" r="15" fill="#111"/><text x="40" y="342" font-size="14" fill="#fff" text-anchor="middle">3</text>
+    <rect x="66" y="314" width="270" height="44" rx="8" fill="#DCE9FB" stroke="#9BB8E0"/><text x="120" y="341">人類審查</text>
+    <line x1="200" y1="358" x2="200" y2="384" stroke="#111" stroke-width="2"/><polygon points="200,390 195,380 205,380" fill="#111"/>
+    <!-- step4 -->
+    <circle cx="40" cy="416" r="15" fill="#111"/><text x="40" y="422" font-size="14" fill="#fff" text-anchor="middle">4</text>
+    <rect x="66" y="392" width="270" height="48" rx="8" fill="#DCE9FB" stroke="#9BB8E0"/><text x="120" y="422">人類撰寫下一個提示</text>
+    <line x1="200" y1="440" x2="200" y2="466" stroke="#111" stroke-width="2"/><polygon points="200,472 195,462 205,462" fill="#111"/>
+    <!-- step5 -->
+    <circle cx="40" cy="496" r="15" fill="#111"/><text x="40" y="502" font-size="14" fill="#fff" text-anchor="middle">5</text>
+    <rect x="66" y="474" width="270" height="44" rx="8" fill="#F5A97A" stroke="#E0834A"/><text x="120" y="501">代理回應</text>
+    <line x1="200" y1="518" x2="200" y2="544" stroke="#111" stroke-width="2"/><polygon points="200,550 195,540 205,540" fill="#111"/>
+    <!-- step6 -->
+    <circle cx="40" cy="574" r="15" fill="#111"/><text x="40" y="580" font-size="14" fill="#fff" text-anchor="middle">6</text>
+    <rect x="66" y="552" width="270" height="44" rx="8" fill="#DCE9FB" stroke="#9BB8E0"/><text x="120" y="579">人類審查</text>
+    <text x="200" y="628" font-size="24" text-anchor="middle" fill="#111">⋯</text>
+    <rect x="80" y="648" width="240" height="40" rx="6" fill="#fff" stroke="#999"/><text x="200" y="673" font-size="15" font-weight="700" text-anchor="middle">每一步都由「人」推動</text>
+  </g>
+
+  <!-- RIGHT column -->
+  <g font-size="15" fill="#111">
+    <circle cx="424" cy="180" r="15" fill="#111"/><text x="424" y="186" font-size="14" fill="#fff" text-anchor="middle">1</text>
+    <rect x="450" y="158" width="270" height="44" rx="8" fill="#DCE9FB" stroke="#9BB8E0"/><text x="504" y="185">人類設定目標</text>
+    <line x1="585" y1="202" x2="585" y2="228" stroke="#111" stroke-width="2"/><polygon points="585,234 580,224 590,224" fill="#111"/>
+    <circle cx="424" cy="258" r="15" fill="#111"/><text x="424" y="264" font-size="14" fill="#fff" text-anchor="middle">2</text>
+    <rect x="450" y="236" width="270" height="44" rx="8" fill="#A8E0A8" stroke="#74C074"/><text x="504" y="263">觸發器啟動</text>
+    <line x1="585" y1="280" x2="585" y2="306" stroke="#111" stroke-width="2"/><polygon points="585,312 580,302 590,302" fill="#111"/>
+    <circle cx="424" cy="336" r="15" fill="#111"/><text x="424" y="342" font-size="14" fill="#fff" text-anchor="middle">3</text>
+    <rect x="450" y="314" width="270" height="44" rx="8" fill="#F5A97A" stroke="#E0834A"/><text x="504" y="341">代理執行動作</text>
+    <line x1="585" y1="358" x2="585" y2="384" stroke="#111" stroke-width="2"/><polygon points="585,390 580,380 590,380" fill="#111"/>
+    <!-- diamond -->
+    <circle cx="500" cy="430" r="15" fill="#111"/><text x="500" y="436" font-size="14" fill="#fff" text-anchor="middle">4</text>
+    <polygon points="600,400 660,440 600,480 540,440" fill="#fff" stroke="#111" stroke-width="1.5"/>
+    <text x="600" y="436" font-size="13" text-anchor="middle">達成</text><text x="600" y="452" font-size="13" text-anchor="middle">目標？</text>
+    <text x="512" y="476" font-size="13" fill="#111">否 NO</text>
+    <text x="668" y="436" font-size="13" fill="#111">是 YES</text>
+    <!-- loop back arrow -->
+    <path d="M540 440 C470 440, 470 360, 466 348" fill="none" stroke="#111" stroke-width="2"/><polygon points="466,342 461,353 471,353" fill="#111"/>
+    <!-- yes down -->
+    <path d="M660 440 L690 440 L690 520" fill="none" stroke="#111" stroke-width="2"/><polygon points="690,526 685,516 695,516" fill="#111"/>
+    <circle cx="424" cy="552" r="15" fill="#111"/><text x="424" y="558" font-size="14" fill="#fff" text-anchor="middle">5</text>
+    <rect x="450" y="528" width="270" height="48" rx="8" fill="#DCE9FB" stroke="#9BB8E0"/><text x="504" y="558">人類審查產出</text>
+    <rect x="465" y="648" width="240" height="40" rx="6" fill="#fff" stroke="#999"/><text x="585" y="673" font-size="15" font-weight="700" text-anchor="middle">每一步都由「代理」推動</text>
+  </g>
+  <text x="380" y="900" font-size="12" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪（資料來源：Data Science Dojo）</text>
+</svg></div>
+        <div class="text">
+          <p class="intro">兩種人機協作模式的根本差異：誰在推動每一步。</p>
+          <ul><li>提示工程：人寫提示→代理回應→人審查→人再寫提示…每一步由「人」推動。</li><li>迴圈工程：人設定目標→觸發器啟動→代理執行→判斷是否達標，未達標就自我迭代。</li><li>迴圈工程加入「達成目標？」的判斷節點，形成自動循環直到完成。</li><li>結論：迴圈工程讓代理驅動整個流程，人只需設定目標與最後審查。</li></ul>
+        </div>
+      </div>
+    </section>
+    <section class="card" id="s5">
+      <div class="card-head">
+        <span class="num">05</span>
+        <div>
+          <span class="cat">Cowork</span>
+          <h2>Claude Cowork 一次性設定</h2>
+          <p class="en">One-time Setup for Claude Cowork</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 820" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="680" height="820" fill="#F2EDE6"/>
+  <text x="340" y="58" font-size="34" font-weight="800" fill="#1a1a1a" text-anchor="middle">為 Claude Cowork</text>
+  <text x="340" y="98" font-size="34" font-weight="800" fill="#C6553F" text-anchor="middle">做一次性設定</text>
+  <text x="340" y="128" font-size="16" fill="#555" text-anchor="middle">別再浪費時間與 token。</text>
+
+  <!-- columns headers -->
+  <g text-anchor="middle">
+    <circle cx="115" cy="172" r="14" fill="none" stroke="#C6553F" stroke-width="2"/><text x="115" y="178" font-size="14" font-weight="700" fill="#C6553F">1</text>
+    <text x="115" y="210" font-size="22" font-weight="800" fill="#1a1a1a">設定</text>
+    <circle cx="340" cy="172" r="14" fill="none" stroke="#C6553F" stroke-width="2"/><text x="340" y="178" font-size="14" font-weight="700" fill="#C6553F">2</text>
+    <text x="340" y="210" font-size="22" font-weight="800" fill="#1a1a1a">建立</text>
+    <circle cx="565" cy="172" r="14" fill="none" stroke="#C6553F" stroke-width="2"/><text x="565" y="178" font-size="14" font-weight="700" fill="#C6553F">3</text>
+    <text x="565" y="210" font-size="22" font-weight="800" fill="#1a1a1a">運作</text>
+  </g>
+
+  <!-- Column 1 chips -->
+  <g font-size="11.5" fill="#3a2b26" text-anchor="middle">
+    <rect x="20" y="226" width="92" height="34" rx="5" fill="#F3C9BC"/><text x="66" y="242">下載 Claude</text><text x="66" y="255">App</text>
+    <rect x="118" y="226" width="92" height="34" rx="5" fill="#F3C9BC"/><text x="164" y="242">取得 Pro 方案</text><text x="164" y="255">($20/月)</text>
+    <rect x="20" y="268" width="190" height="34" rx="5" fill="#F7DDD3"/><text x="115" y="284">開啟 Cowork 分頁</text><text x="115" y="297">(在 Chat 與 Code 之間)</text>
+    <rect x="20" y="310" width="190" height="34" rx="5" fill="#F7DDD3"/><text x="115" y="326">建立一個資料夾</text><text x="115" y="339">命名「Claude Cowork」</text>
+    <rect x="20" y="352" width="190" height="26" rx="5" fill="#F7DDD3"/><text x="115" y="369">新增子資料夾：</text>
+    <rect x="50" y="382" width="130" height="22" rx="4" fill="#3a3a3a"/><text x="115" y="397" fill="#fff">about-me</text>
+    <rect x="50" y="408" width="130" height="22" rx="4" fill="#3a3a3a"/><text x="115" y="423" fill="#fff">outputs</text>
+    <rect x="50" y="434" width="130" height="22" rx="4" fill="#3a3a3a"/><text x="115" y="449" fill="#fff">templates</text>
+    <rect x="20" y="464" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="115" y="480">把 Cowork 指向</text><text x="115" y="493">這個資料夾</text>
+    <rect x="20" y="506" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="115" y="522">困難任務選用</text><text x="115" y="535">Opus 4.8</text>
+    <rect x="20" y="548" width="190" height="26" rx="5" fill="#F3C9BC"/><text x="115" y="565">開啟「延伸思考」</text>
+    <rect x="20" y="582" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="115" y="598">空出 20 分鐘</text><text x="115" y="611">完成設定</text>
+  </g>
+
+  <!-- Column 2 chips -->
+  <g font-size="11.5" fill="#3a2b26" text-anchor="middle">
+    <rect x="245" y="226" width="190" height="26" rx="5" fill="#F7DDD3"/><text x="340" y="243">開啟全新 Cowork 工作階段</text>
+    <rect x="245" y="258" width="190" height="26" rx="5" fill="#F7DDD3"/><text x="340" y="275">請 Claude 訪談你</text>
+    <rect x="245" y="290" width="190" height="34" rx="5" fill="#F7DDD3"/><text x="340" y="306">用 AskUserQuestion</text><text x="340" y="319">工具回答</text>
+    <rect x="245" y="332" width="92" height="40" rx="5" fill="#F7DDD3"/><text x="291" y="348">用答案編寫</text><text x="291" y="362">about-me 檔</text>
+    <rect x="343" y="332" width="92" height="40" rx="5" fill="#C6553F"/><text x="389" y="348" fill="#fff">「壓在</text><text x="389" y="362" fill="#fff">2000 token 內」</text>
+    <rect x="245" y="378" width="92" height="40" rx="5" fill="#F7DDD3"/><text x="291" y="394">撰寫「反 AI</text><text x="291" y="408">寫作風格」檔</text>
+    <rect x="343" y="378" width="92" height="40" rx="5" fill="#C6553F"/><text x="389" y="394" fill="#fff">封鎖你討厭</text><text x="389" y="408" fill="#fff">的字</text>
+    <rect x="245" y="424" width="92" height="40" rx="5" fill="#F7DDD3"/><text x="291" y="440">撰寫 my-</text><text x="291" y="454">company 檔</text>
+    <rect x="343" y="424" width="92" height="40" rx="5" fill="#C6553F"/><text x="389" y="440" fill="#fff">段落上限</text><text x="389" y="454" fill="#fff">3 句</text>
+    <rect x="343" y="470" width="92" height="40" rx="5" fill="#C6553F"/><text x="389" y="486" fill="#fff">加入你的目標</text><text x="389" y="500" fill="#fff">與底線</text>
+    <rect x="245" y="516" width="190" height="40" rx="5" fill="#EFE6DD"/><text x="340" y="532">若某行不會改變 Claude</text><text x="340" y="546">的行為，就刪掉它</text>
+  </g>
+
+  <!-- Column 3 chips -->
+  <g font-size="11.5" fill="#3a2b26" text-anchor="middle">
+    <rect x="470" y="226" width="190" height="26" rx="5" fill="#F7DDD3"/><text x="565" y="243">開啟 設定 → Cowork</text>
+    <rect x="470" y="258" width="190" height="26" rx="5" fill="#F7DDD3"/><text x="565" y="275">編輯全域指令</text>
+    <rect x="470" y="290" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="565" y="306">叫它一律先讀</text><text x="565" y="319">ABOUT ME 檔</text>
+    <rect x="470" y="332" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="565" y="348">絕不自動讀取</text><text x="565" y="361">OUTPUTS／TEMPLATES</text>
+    <rect x="470" y="374" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="565" y="390">安裝 Wispr Flow</text><text x="565" y="403">(免費)</text>
+    <rect x="470" y="416" width="190" height="40" rx="5" fill="#F3C9BC"/><text x="565" y="432">用講的別用打的，提示</text><text x="565" y="446">結尾加「問我問題」</text>
+    <rect x="470" y="462" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="565" y="478">指出它的錯誤，</text><text x="565" y="491">別照單全收</text>
+    <rect x="470" y="504" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="565" y="520">每 20 則訊息就</text><text x="565" y="533">開新工作階段</text>
+    <rect x="470" y="546" width="190" height="34" rx="5" fill="#F3C9BC"/><text x="565" y="562">把最好的成果</text><text x="565" y="575">存成範本</text>
+  </g>
+  <text x="340" y="800" font-size="11" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪（原作：@Saema AI Lab）</text>
+</svg></div>
+        <div class="text">
+          <p class="intro">用「設定 → 建立 → 運作」三步驟，一次設定好就別再浪費時間與 token。</p>
+          <ul><li>設定：建立 Claude Cowork 資料夾與 about-me／outputs／templates 子資料夾。</li><li>建立：請 Claude 訪談你，用答案寫成精簡（&lt;2000 token）的個人脈絡檔。</li><li>運作：在全域指令叫它先讀 ABOUT ME、不自動讀大檔，用講的並要它反問。</li><li>小訣竅：指出它的錯別照單全收，每 20 則訊息開新階段，好成果存成範本。</li></ul>
+        </div>
+      </div>
+    </section>
+    <section class="card" id="s6">
+      <div class="card-head">
+        <span class="num">06</span>
+        <div>
+          <span class="cat">學習法</span>
+          <h2>用 Claude 學習任何主題的四種方法</h2>
+          <p class="en">Four ways to learn any topic with Claude</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 880" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="720" height="880" fill="#ffffff"/>
+  <g transform="translate(30,28)" fill="#F25C26">
+    <circle cx="16" cy="20" r="3.5"/>
+    <g stroke="#F25C26" stroke-width="3.5" stroke-linecap="round">
+      <line x1="16" y1="20" x2="16" y2="4"/><line x1="16" y1="20" x2="16" y2="36"/><line x1="16" y1="20" x2="2" y2="20"/><line x1="16" y1="20" x2="30" y2="20"/>
+      <line x1="16" y1="20" x2="5" y2="9"/><line x1="16" y1="20" x2="27" y2="31"/><line x1="16" y1="20" x2="27" y2="9"/><line x1="16" y1="20" x2="5" y2="31"/>
+    </g>
+  </g>
+  <text x="62" y="36" font-size="28" font-weight="800" fill="#1a1a2e">用 <tspan fill="#F25C26">Claude</tspan> 學習</text>
+  <text x="62" y="68" font-size="28" font-weight="800" fill="#1a1a2e">任何主題的四種方法</text>
+
+  <!-- method cards -->
+  <!-- Method 1 -->
+  <g transform="translate(28,96)">
+    <rect width="320" height="230" rx="10" fill="#EAF1FB" stroke="#C7D8EE"/>
+    <text x="18" y="28" font-size="11" font-weight="700" fill="#2b6cb0">方法 1</text>
+    <text x="18" y="52" font-size="17" font-weight="800" fill="#1a1a2e">建立「學習技能」</text>
+    <text x="18" y="76" font-size="11.5" fill="#444">把一組指令存成技能，每次你問該主題</text>
+    <text x="18" y="92" font-size="11.5" fill="#444">時 Claude 都會先讀。規則設一次，永久沿用。</text>
+    <text x="18" y="116" font-size="12" font-weight="700" fill="#2b6cb0">怎麼做：</text>
+    <g font-size="11" fill="#444">
+      <text x="18" y="136">1. 進入「自訂」→「技能」</text>
+      <text x="18" y="154">2. 按「+」→「建立技能」</text>
+      <text x="18" y="172">3. 描述主題與你要它怎麼教你</text>
+      <text x="18" y="190">4. Claude 建好技能，存檔並開啟</text>
+    </g>
+    <rect x="14" y="200" width="292" height="22" rx="5" fill="#D6E6F8"/>
+    <text x="160" y="215" font-size="10.5" fill="#2b6cb0" text-anchor="middle">之後該主題每次對話都照你的規則，免重講。</text>
+  </g>
+  <!-- Method 2 -->
+  <g transform="translate(372,96)">
+    <rect width="320" height="230" rx="10" fill="#E9F6EE" stroke="#C4E6D2"/>
+    <text x="18" y="28" font-size="11" font-weight="700" fill="#2E9E5B">方法 2</text>
+    <text x="18" y="52" font-size="17" font-weight="800" fill="#1a1a2e">開啟「學習模式」</text>
+    <text x="18" y="76" font-size="11.5" fill="#444">學習模式讓 Claude 不直接給答案，而是反問</text>
+    <text x="18" y="92" font-size="11.5" fill="#444">你、引導你自己得出答案，這樣才記得住。</text>
+    <text x="18" y="116" font-size="12" font-weight="700" fill="#2E9E5B">怎麼做：</text>
+    <g font-size="11" fill="#444">
+      <text x="18" y="136">1. 進入「自訂」→「技能」</text>
+      <text x="18" y="154">2. 按「+」→「瀏覽技能」</text>
+      <text x="18" y="172">3. 搜尋「Learning」並安裝</text>
+      <text x="18" y="190">4. 開任一對話，向 Claude 提問</text>
+    </g>
+    <rect x="14" y="200" width="292" height="22" rx="5" fill="#D2EEDD"/>
+    <text x="160" y="215" font-size="10.5" fill="#2E9E5B" text-anchor="middle">Claude 會引導你找到答案，而非直接告訴你。</text>
+  </g>
+  <!-- Method 3 -->
+  <g transform="translate(28,338)">
+    <rect width="320" height="240" rx="10" fill="#FFF3E9" stroke="#F2D6BF"/>
+    <text x="18" y="28" font-size="11" font-weight="700" fill="#E0834A">方法 3</text>
+    <text x="18" y="52" font-size="17" font-weight="800" fill="#1a1a2e">建立「學習專案」</text>
+    <text x="18" y="76" font-size="11.5" fill="#444">Claude Project 是私人工作區，會記住你放</text>
+    <text x="18" y="92" font-size="11.5" fill="#444">進去的一切，問問題時能從所有資料抽取。</text>
+    <text x="18" y="116" font-size="12" font-weight="700" fill="#E0834A">怎麼做：</text>
+    <g font-size="11" fill="#444">
+      <text x="18" y="136">1. 到 claude.ai/projects 按「新專案」</text>
+      <text x="18" y="154">2. 用你要學的主題命名</text>
+      <text x="18" y="172">3. 上傳你的來源：PDF、文章、筆記、書章</text>
+      <text x="18" y="190">4. 在專案內開對話，盡管問</text>
+    </g>
+    <rect x="14" y="200" width="292" height="32" rx="5" fill="#FBE3CF"/>
+    <text x="160" y="214" font-size="10.5" fill="#E0834A" text-anchor="middle">Claude 從你精選的來源回答，而非一般常識。</text>
+    <text x="160" y="227" font-size="10.5" fill="#E0834A" text-anchor="middle">隨時間累積，專案會越來越精準。</text>
+  </g>
+  <!-- Method 4 -->
+  <g transform="translate(372,338)">
+    <rect width="320" height="240" rx="10" fill="#F1EAFA" stroke="#DBC9F0"/>
+    <text x="18" y="28" font-size="11" font-weight="700" fill="#7C4DD1">方法 4</text>
+    <text x="18" y="52" font-size="17" font-weight="800" fill="#1a1a2e">跑「費曼迴圈」</text>
+    <text x="18" y="76" font-size="11.5" fill="#444">費曼技巧是最有效的深度學習法之一：你向</text>
+    <text x="18" y="92" font-size="11.5" fill="#444">Claude 解釋一個概念，它找出你的破綻。</text>
+    <text x="18" y="116" font-size="12" font-weight="700" fill="#7C4DD1">怎麼做：</text>
+    <g font-size="11" fill="#444">
+      <text x="18" y="136">1. 告訴它：「我要向你解釋［主題］，</text>
+      <text x="28" y="151">像你完全不懂，再問我問題補洞」</text>
+      <text x="18" y="170">2. 用自己的話、盡量簡單地解釋概念</text>
+      <text x="18" y="188">3. Claude 指出缺漏或不清楚處並追問</text>
+      <text x="18" y="206">4. 反覆，直到能無破綻地解釋為止</text>
+    </g>
+    <rect x="14" y="214" width="292" height="20" rx="5" fill="#E6D8F7"/>
+    <text x="160" y="228" font-size="10" fill="#7C4DD1" text-anchor="middle">若無法簡單解釋，就代表你還沒真懂——這正是重點。</text>
+  </g>
+
+  <!-- six prompts -->
+  <text x="30" y="610" font-size="16" font-weight="800" fill="#1a1a2e">六個值得收藏的提示</text>
+  <g font-size="11" fill="#444">
+    <g transform="translate(28,624)">
+      <rect width="216" height="74" rx="8" fill="#EAF1FB"/>
+      <text x="12" y="22" font-size="12.5" font-weight="700" fill="#2b6cb0">規劃我的學習</text>
+      <text x="12" y="42">「我要學［主題］，給我 20</text>
+      <text x="12" y="56">節課的計畫，每節 20% 是複習</text>
+      <text x="12" y="70">提問。每節加一個複習題。」</text>
+    </g>
+    <g transform="translate(252,624)">
+      <rect width="216" height="74" rx="8" fill="#E9F6EE"/>
+      <text x="12" y="22" font-size="12.5" font-weight="700" fill="#2E9E5B">考考我</text>
+      <text x="12" y="42">「我剛學了［主題］，出 10 題</text>
+      <text x="12" y="56">逐漸變難的題目，每題答完後</text>
+      <text x="12" y="70">告訴我對在哪、漏了什麼。」</text>
+    </g>
+    <g transform="translate(476,624)">
+      <rect width="216" height="74" rx="8" fill="#FFF3E9"/>
+      <text x="12" y="22" font-size="12.5" font-weight="700" fill="#E0834A">拆成不同難度</text>
+      <text x="12" y="42">「把［主題］拆成從完全新手</text>
+      <text x="12" y="56">到進階的五個層級，每級給我</text>
+      <text x="12" y="70">一個明確、可前進的目標。」</text>
+    </g>
+    <g transform="translate(28,706)">
+      <rect width="216" height="74" rx="8" fill="#FCE7F0"/>
+      <text x="12" y="22" font-size="12.5" font-weight="700" fill="#E0457B">找出我的盲點</text>
+      <text x="12" y="42">「我以為我懂［主題］了，問</text>
+      <text x="12" y="56">我五個問題，找出我自以為懂、</text>
+      <text x="12" y="70">其實還不懂的地方。」</text>
+    </g>
+    <g transform="translate(252,706)">
+      <rect width="216" height="74" rx="8" fill="#EDE7FA"/>
+      <text x="12" y="22" font-size="12.5" font-weight="700" fill="#7C4DD1">簡單講給我聽</text>
+      <text x="12" y="42">「用白話總結［主題］，不要</text>
+      <text x="12" y="56">術語。像對好奇的 12 歲小孩</text>
+      <text x="12" y="70">解釋，讓我也能教別人。」</text>
+    </g>
+    <g transform="translate(476,706)">
+      <rect width="216" height="74" rx="8" fill="#E6F0FB"/>
+      <text x="12" y="22" font-size="12.5" font-weight="700" fill="#2b6cb0">幫我做速查表</text>
+      <text x="12" y="42">「幫［主題］做一頁速查表：</text>
+      <text x="12" y="56">關鍵概念、常見錯誤，以及我</text>
+      <text x="12" y="70">最該牢記的重點。」</text>
+    </g>
+  </g>
+  <text x="360" y="800" font-size="11" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪</text>
+</svg></div>
+        <div class="text">
+          <p class="intro">四種把 Claude 變成學習夥伴的方法，外加六個可收藏的學習提示。</p>
+          <ul><li>建立學習技能：把教學規則存成技能，之後該主題每次對話都沿用。</li><li>開啟學習模式：讓它反問你、引導你自己得出答案，才記得住。</li><li>建立學習專案：上傳 PDF/文章/筆記，讓它從你的來源回答。</li><li>跑費曼迴圈：你向它解釋概念，它找出你的破綻，反覆到能無破綻解釋。</li></ul>
+        </div>
+      </div>
+    </section>
+    <section class="card" id="s7">
+      <div class="card-head">
+        <span class="num">07</span>
+        <div>
+          <span class="cat">資料基礎</span>
+          <h2>向量資料庫（9 步驟）</h2>
+          <p class="en">Vector Databases</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1000" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="720" height="1000" fill="#FBFAFF"/>
+  <text x="360" y="46" font-size="32" font-weight="800" fill="#5B3FA0" text-anchor="middle">向量資料庫</text>
+  <text x="360" y="74" font-size="14" fill="#7C4DD1" text-anchor="middle">儲存、索引並檢索向量嵌入，達成大規模快速相似度搜尋。</text>
+
+  <!-- helper: step header -->
+  <!-- Row 1 -->
+  <g transform="translate(28,96)">
+    <!-- 1 -->
+    <g>
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">1</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">嵌入 Embedding</text>
+      <g transform="translate(0,36)">
+        <rect x="6" y="6" width="30" height="38" rx="3" fill="#fff" stroke="#aaa"/>
+        <rect x="56" y="14" width="56" height="22" rx="4" fill="#E7DAF7" stroke="#7C4DD1"/><text x="84" y="29" font-size="8.5" text-anchor="middle">嵌入模型</text>
+        <rect x="130" y="2" width="56" height="46" fill="#F4ECFB" stroke="#9b7fd0"/>
+        <text x="158" y="14" font-size="8" text-anchor="middle">0.21</text><text x="158" y="26" font-size="8" text-anchor="middle">-0.31</text><text x="158" y="38" font-size="8" text-anchor="middle">0.57</text>
+        <line x1="38" y1="24" x2="54" y2="24" stroke="#333"/><line x1="114" y1="24" x2="128" y2="24" stroke="#333"/>
+        <text x="20" y="58" font-size="8" fill="#666" text-anchor="middle">文字/資料</text>
+      </g>
+      <text x="6" y="118" font-size="10" fill="#555">把資料轉成能捕捉語意的</text>
+      <text x="6" y="131" font-size="10" fill="#555">高維度密集向量。</text>
+    </g>
+    <!-- 2 -->
+    <g transform="translate(232,0)">
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">2</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">相似度搜尋</text>
+      <g transform="translate(0,40)">
+        <circle cx="100" cy="30" r="34" fill="none" stroke="#ccc" stroke-dasharray="3"/>
+        <circle cx="100" cy="30" r="4" fill="#5B3FA0"/>
+        <circle cx="86" cy="20" r="3.5" fill="#2E9E5B"/><circle cx="114" cy="24" r="3.5" fill="#2E9E5B"/><circle cx="96" cy="44" r="3.5" fill="#2E9E5B"/>
+        <circle cx="60" cy="14" r="3" fill="#bbb"/><circle cx="140" cy="44" r="3" fill="#bbb"/><circle cx="64" cy="50" r="3" fill="#bbb"/><circle cx="136" cy="12" r="3" fill="#bbb"/>
+        <text x="100" y="80" font-size="8" fill="#666" text-anchor="middle">查詢向量</text>
+      </g>
+      <text x="6" y="118" font-size="10" fill="#555">用相似度度量，找出與查詢</text>
+      <text x="6" y="131" font-size="10" fill="#555">嵌入最相近的向量。</text>
+    </g>
+    <!-- 3 -->
+    <g transform="translate(464,0)">
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">3</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">中繼資料</text>
+      <g transform="translate(0,40)" font-size="7.5" fill="#333">
+        <rect x="6" y="0" width="180" height="58" fill="#fff" stroke="#9b7fd0"/>
+        <line x1="6" y1="14" x2="186" y2="14" stroke="#9b7fd0"/>
+        <text x="12" y="11">id</text><text x="40" y="11">text</text><text x="110" y="11">source</text><text x="150" y="11">date</text>
+        <text x="12" y="27">1</text><text x="40" y="27">什麼是AI?</text><text x="110" y="27">documentation</text>
+        <text x="12" y="41">2</text><text x="40" y="41">什麼是ML?</text><text x="110" y="41">website</text>
+        <text x="12" y="55">3</text><text x="40" y="55">深度學習</text><text x="110" y="55">research</text>
+      </g>
+      <text x="6" y="118" font-size="10" fill="#555">向量連同中繼資料一起存，</text>
+      <text x="6" y="131" font-size="10" fill="#555">以利過濾與更精準檢索。</text>
+    </g>
+  </g>
+  <line x1="28" y1="248" x2="692" y2="248" stroke="#eee"/>
+
+  <!-- Row 2 -->
+  <g transform="translate(28,266)">
+    <g>
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">4</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">索引 Indexing</text>
+      <g transform="translate(40,42)">
+        <circle cx="60" cy="6" r="6" fill="#7C4DD1"/>
+        <circle cx="30" cy="34" r="6" fill="#9b7fd0"/><circle cx="90" cy="34" r="6" fill="#9b7fd0"/>
+        <circle cx="12" cy="62" r="6" fill="#c0a8e8"/><circle cx="48" cy="62" r="6" fill="#c0a8e8"/><circle cx="78" cy="62" r="6" fill="#c0a8e8"/><circle cx="108" cy="62" r="6" fill="#c0a8e8"/>
+        <g stroke="#bbb"><line x1="60" y1="6" x2="30" y2="34"/><line x1="60" y1="6" x2="90" y2="34"/><line x1="30" y1="34" x2="12" y2="62"/><line x1="30" y1="34" x2="48" y2="62"/><line x1="90" y1="34" x2="78" y2="62"/><line x1="90" y1="34" x2="108" y2="62"/></g>
+      </g>
+      <text x="6" y="132" font-size="10" fill="#555">建立索引（如 HNSW、IVF、</text>
+      <text x="6" y="145" font-size="10" fill="#555">PQ）以快速近似最近鄰搜尋。</text>
+    </g>
+    <g transform="translate(232,0)">
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">5</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">檢索 Retrieval</text>
+      <g transform="translate(0,40)">
+        <rect x="6" y="6" width="40" height="46" fill="#F4ECFB" stroke="#9b7fd0"/><text x="26" y="22" font-size="7" text-anchor="middle">0.25</text><text x="26" y="34" font-size="7" text-anchor="middle">-0.11</text><text x="26" y="46" font-size="7" text-anchor="middle">0.68</text>
+        <rect x="62" y="14" width="54" height="30" rx="4" fill="#E7DAF7" stroke="#7C4DD1"/><text x="89" y="32" font-size="8" text-anchor="middle">向量DB</text>
+        <g font-size="7.5" fill="#333"><text x="130" y="18">id: 23 分數:0.92</text><text x="130" y="34">id: 89 分數:0.89</text><text x="130" y="50">id: 15 分數:0.86</text></g>
+        <line x1="46" y1="28" x2="60" y2="28" stroke="#333"/><line x1="116" y1="28" x2="128" y2="28" stroke="#333"/>
+        <text x="26" y="64" font-size="7.5" fill="#666" text-anchor="middle">查詢向量</text>
+      </g>
+      <text x="6" y="132" font-size="10" fill="#555">依查詢取出前 K 個最近向量</text>
+      <text x="6" y="145" font-size="10" fill="#555">及其關聯的中繼資料。</text>
+    </g>
+    <g transform="translate(464,0)">
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">6</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">過濾 Filtering</text>
+      <g transform="translate(0,40)">
+        <rect x="6" y="6" width="40" height="46" fill="#F4ECFB" stroke="#9b7fd0"/><text x="26" y="22" font-size="7" text-anchor="middle">0.25</text><text x="26" y="34" font-size="7" text-anchor="middle">-0.11</text><text x="26" y="46" font-size="7" text-anchor="middle">0.68</text>
+        <rect x="62" y="14" width="54" height="30" rx="4" fill="#E7DAF7" stroke="#7C4DD1"/><text x="89" y="32" font-size="8" text-anchor="middle">向量DB</text>
+        <g font-size="7.5" fill="#333"><text x="130" y="18">id: 23 分數:0.92</text><text x="130" y="34">id: 15 分數:0.86</text><text x="130" y="50">id: 73 分數:0.80</text></g>
+        <rect x="6" y="58" width="180" height="22" fill="#FFF6E0" stroke="#E0B040"/><text x="10" y="72" font-size="7" fill="#8a6d1f">過濾: source='documentation' date&gt;'2024'</text>
+      </g>
+      <text x="6" y="142" font-size="10" fill="#555">套用中繼資料過濾（來源、</text>
+      <text x="6" y="155" font-size="10" fill="#555">日期、分類）以縮小結果。</text>
+    </g>
+  </g>
+  <line x1="28" y1="438" x2="692" y2="438" stroke="#eee"/>
+
+  <!-- Row 3 -->
+  <g transform="translate(28,456)">
+    <g>
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">7</text>
+      <rect x="32" y="2" width="120" height="24" rx="12" fill="#EDE4FA"/><text x="92" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">儲存 Storage</text>
+      <g transform="translate(0,38)">
+        <ellipse cx="34" cy="14" rx="22" ry="7" fill="#9CC9F0"/><rect x="12" y="14" width="44" height="50" fill="#BFDCF7"/><ellipse cx="34" cy="64" rx="22" ry="7" fill="#9CC9F0"/>
+        <line x1="12" y1="30" x2="56" y2="30" stroke="#fff"/><line x1="12" y1="46" x2="56" y2="46" stroke="#fff"/>
+        <g font-size="7.5" fill="#333"><text x="66" y="16">向量 [0.21,-0.31,…]</text><text x="66" y="40">中繼資料 {id,text,…}</text><text x="66" y="64">索引 (HNSW/IVF/PQ)</text></g>
+      </g>
+      <text x="6" y="128" font-size="10" fill="#555">向量資料庫一起存向量、中繼</text>
+      <text x="6" y="141" font-size="10" fill="#555">資料與索引，高效儲存與檢索。</text>
+    </g>
+    <g transform="translate(232,0)">
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">8</text>
+      <rect x="32" y="2" width="150" height="24" rx="12" fill="#EDE4FA"/><text x="107" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">在 RAG 中的應用</text>
+      <g transform="translate(0,40)" font-size="7.5" fill="#333">
+        <rect x="2" y="6" width="26" height="32" fill="#fff" stroke="#aaa"/><text x="15" y="50" text-anchor="middle">文件集</text>
+        <rect x="40" y="12" width="34" height="20" fill="#FBE0C0" stroke="#999"/><text x="57" y="25" text-anchor="middle">切塊</text>
+        <rect x="86" y="10" width="40" height="24" rx="3" fill="#E7DAF7" stroke="#7C4DD1"/><text x="106" y="25" text-anchor="middle">嵌入模型</text>
+        <rect x="138" y="10" width="34" height="24" rx="3" fill="#D8C4F0" stroke="#7C4DD1"/><text x="155" y="25" text-anchor="middle">向量DB</text>
+        <line x1="28" y1="22" x2="40" y2="22" stroke="#333"/><line x1="74" y1="22" x2="86" y2="22" stroke="#333"/><line x1="126" y1="22" x2="138" y2="22" stroke="#333"/>
+        <rect x="150" y="44" width="34" height="20" rx="3" fill="#FCEFA0" stroke="#C0A030"/><text x="167" y="57" text-anchor="middle">LLM答案</text>
+      </g>
+      <text x="6" y="130" font-size="10" fill="#555">透過切塊、嵌入並檢索相關脈絡</text>
+      <text x="6" y="143" font-size="10" fill="#555">提供給 LLM，驅動 RAG 系統。</text>
+    </g>
+    <g transform="translate(464,0)">
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#7C4DD1" stroke-width="2"/><text x="14" y="19" font-size="12" font-weight="700" fill="#7C4DD1" text-anchor="middle">9</text>
+      <rect x="32" y="2" width="150" height="24" rx="12" fill="#EDE4FA"/><text x="107" y="18" font-size="12.5" font-weight="700" fill="#5B3FA0" text-anchor="middle">熱門向量資料庫</text>
+      <g transform="translate(0,42)" font-size="9" fill="#333" text-anchor="middle">
+        <text x="30" y="14">Pinecone</text><text x="95" y="14">Weaviate</text><text x="158" y="14">Milvus</text>
+        <text x="30" y="44">Qdrant</text><text x="95" y="44">Chroma</text><text x="158" y="44">pgvector</text>
+      </g>
+      <text x="6" y="128" font-size="10" fill="#555">有許多開源與託管選項</text>
+      <text x="6" y="141" font-size="10" fill="#555">可供選擇。</text>
+    </g>
+  </g>
+
+  <!-- key takeaways -->
+  <g transform="translate(28,620)">
+    <rect width="664" height="70" rx="10" fill="#F3EEFB" stroke="#D5C4EE"/>
+    <text x="20" y="30" font-size="13" font-weight="800" fill="#5B3FA0">重點</text><text x="20" y="50" font-size="13" font-weight="800" fill="#5B3FA0">整理</text>
+    <g font-size="10.5" fill="#444">
+      <text x="80" y="24">✓ 向量捕捉語意</text>
+      <text x="80" y="46">✓ 相似度搜尋找出最相關結果</text>
+      <text x="320" y="24">✓ 索引讓大規模搜尋更快</text>
+      <text x="320" y="46">✓ 中繼資料與過濾提升檢索品質</text>
+      <text x="560" y="24" font-weight="700" fill="#5B3FA0">RAG、語意</text>
+      <text x="560" y="46" font-weight="700" fill="#5B3FA0">搜尋、推薦皆必備</text>
+    </g>
+  </g>
+  <text x="360" y="980" font-size="11" fill="#bbb" text-anchor="middle">中文重製版 · 依原圖風格重繪</text>
+</svg></div>
+        <div class="text">
+          <p class="intro">向量資料庫如何儲存、索引與檢索嵌入，達成大規模快速相似度搜尋。</p>
+          <ul><li>嵌入→相似度搜尋→中繼資料：把資料轉成捕捉語意的高維向量並標註欄位。</li><li>索引（HNSW/IVF/PQ）→檢索 Top-K→中繼資料過濾，縮小並精準化結果。</li><li>儲存：向量、中繼資料、索引一起存，兼顧效率與檢索品質。</li><li>在 RAG 中應用：切塊→嵌入→檢索相關脈絡→餵給 LLM 生成答案。</li></ul>
+        </div>
+      </div>
+    </section>
+    <section class="card" id="s8">
+      <div class="card-head">
+        <span class="num">08</span>
+        <div>
+          <span class="cat">提示工程</span>
+          <h2>寫出有效 Claude 提示的 9 個技巧</h2>
+          <p class="en">9 Tips to Write a Claude Prompt That Actually Works</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 980" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="980" fill="#ffffff"/>
+  <text x="350" y="46" font-size="27" font-weight="800" fill="#111" text-anchor="middle">寫出「真正有效」的</text>
+  <text x="350" y="80" font-size="27" font-weight="800" fill="#111" text-anchor="middle">Claude 提示 <tspan fill="#2b6cb0">9 個技巧</tspan></text>
+  <line x1="40" y1="100" x2="660" y2="100" stroke="#eee" stroke-width="2"/>
+
+  <!-- LEFT -->
+  <g transform="translate(40,118)">
+    <!-- 1 -->
+    <circle cx="13" cy="13" r="13" fill="#2b6cb0"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <text x="34" y="18" font-size="15" font-weight="800" fill="#2b6cb0">講出「產出物」，而非任務</text>
+    <g font-size="11.5" fill="#444">
+      <text x="20" y="40">• 把「審查／幫忙／看看」換成確切任務</text>
+      <text x="20" y="58">• 指定格式—表格、條列、JSON、文件</text>
+      <text x="20" y="76">• 設定邊界—納入什麼、忽略什麼</text>
+    </g>
+    <text x="20" y="98" font-size="11.5" font-weight="700" fill="#2b6cb0">→ 含糊的動詞得到含糊的草稿。講清楚你要什麼。</text>
+    <!-- 2 -->
+    <g transform="translate(0,118)">
+      <circle cx="13" cy="13" r="13" fill="#2E9E5B"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#2E9E5B">一開始就定好長度</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 設定確切數量—「5 點」「180 字」「3 段」</text>
+        <text x="20" y="58">• 指定每行第一個字—動詞、數字或名詞</text>
+        <text x="20" y="76">• 加上「不要前言、不要複述、不要灌水」</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#2E9E5B">→ 長輸入不再等於長輸出。設定上限。</text>
+    </g>
+    <!-- 3 -->
+    <g transform="translate(0,236)">
+      <circle cx="13" cy="13" r="13" fill="#7C4DD1"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#7C4DD1">把每個「不要」翻成「要」</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 找出提示中每個「不要／避免／絕不」</text>
+        <text x="20" y="58">• 全部改寫成正向指令</text>
+        <text x="20" y="76">• 用具體字—「寫到 16 歲能朗讀」</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#7C4DD1">→ 它會照字面讀。告訴它要寫什麼，別說要躲什麼。</text>
+    </g>
+    <!-- 4 -->
+    <g transform="translate(0,354)">
+      <circle cx="13" cy="13" r="13" fill="#E0834A"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#E0834A">用「動作」開頭</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 拿掉「你可以幫我…」</text>
+        <text x="20" y="58">• 每一行用動詞開頭：寫、找、寄</text>
+        <text x="20" y="76">• 依工作發生順序堆疊動詞</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#E0834A">→ 客套耗 token，動作才出貨。</text>
+    </g>
+    <!-- 5 -->
+    <g transform="translate(0,472)">
+      <circle cx="13" cy="13" r="13" fill="#17A2B8"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#17A2B8">逼出最大推理量</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 用 Opus 並開啟「自適應思考」</text>
+        <text x="20" y="58">• 提示結尾加「回答前先思考(最大推理)」</text>
+        <text x="20" y="76">• 複雜任務請它先規劃再動手</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#17A2B8">→ 推理是隨需的，預設不會。明確要求它。</text>
+    </g>
+  </g>
+
+  <!-- RIGHT -->
+  <g transform="translate(370,118)">
+    <!-- 6 -->
+    <circle cx="13" cy="13" r="13" fill="#E0834A"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">6</text>
+    <text x="34" y="18" font-size="15" font-weight="800" fill="#E0834A">加上「超越基本要求」</text>
+    <g font-size="11.5" fill="#444">
+      <text x="20" y="40">• 每個創意任務都貼上這句話</text>
+      <text x="20" y="58">• 設標準—「像真正的客戶交付物般打磨」</text>
+      <text x="20" y="76">• 禁掉偷懶預設—「不要花俏漸層、AI 套話」</text>
+    </g>
+    <text x="20" y="98" font-size="11.5" font-weight="700" fill="#E0834A">→ 一句話讓它更深入。用它。</text>
+    <!-- 7 -->
+    <g transform="translate(0,118)">
+      <circle cx="13" cy="13" r="13" fill="#E0457B"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">7</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#E0457B">上傳你的「聲音」</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 貼 2–3 句完全照你口吻寫的文字</text>
+        <text x="20" y="58">• 告訴它：「比照這些範例的風格」</text>
+        <text x="20" y="76">• 存進 about-me 檔，永久重用</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#E0457B">→ 展示勝過描述，每一次都是。</text>
+    </g>
+    <!-- 8 -->
+    <g transform="translate(0,236)">
+      <circle cx="13" cy="13" r="13" fill="#2b6cb0"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">8</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#2b6cb0">有目的地控制工具</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 研究時—「積極用網搜，每主張 2+ 來源」</text>
+        <text x="20" y="58">• 求快時—「用訓練知識回答，不搜尋」</text>
+        <text x="20" y="76">• 指名連接器—Gmail、雲端、行事曆、Slack</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#2b6cb0">→ 它預設較少呼叫工具。重要時就覆寫它。</text>
+    </g>
+    <!-- 9 -->
+    <g transform="translate(0,354)">
+      <circle cx="13" cy="13" r="13" fill="#2E9E5B"/><text x="13" y="18" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">9</text>
+      <text x="34" y="18" font-size="15" font-weight="800" fill="#2E9E5B">在任務之前先說目標</text>
+      <g font-size="11.5" fill="#444">
+        <text x="20" y="40">• 開頭寫「目標：［成功長什麼樣］」</text>
+        <text x="20" y="58">• 點名對象—「給 CRO 看，不是工程師」</text>
+        <text x="20" y="76">• 設定期限或成果—「週五前約好會議」</text>
+      </g>
+      <text x="20" y="98" font-size="11.5" font-weight="700" fill="#2E9E5B">→ 沒有目標的提示只是願望。把成功說清楚。</text>
+    </g>
+    <g transform="translate(0,472)">
+      <rect x="0" y="0" width="290" height="60" rx="8" fill="#EAF1FB"/>
+      <text x="16" y="26" font-size="13" font-weight="800" fill="#2b6cb0">更好的提示，更好的輸出，更好的結果。</text>
+      <text x="16" y="48" font-size="12" fill="#444">把這張存起來，下次用 AI 時拿出來。</text>
+    </g>
+  </g>
+  <text x="350" y="952" font-size="11" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪</text>
+</svg></div>
+        <div class="text">
+          <p class="intro">九個立刻可用的提示撰寫技巧，從命名產出到先說目標。</p>
+          <ul><li>講出「產出物」而非任務；一開始就定好長度；把每個「不要」翻成「要」。</li><li>用動作動詞開頭；選 Opus＋自適應思考逼出最大推理量。</li><li>加「超越基本要求」一句；上傳你的口吻範例；有目的地控制工具（搜尋與否）。</li><li>在任務前先說目標與對象——沒有目標的提示只是願望。</li></ul>
+        </div>
+      </div>
+    </section>
+    <section class="card" id="s9">
+      <div class="card-head">
+        <span class="num">09</span>
+        <div>
+          <span class="cat">評估</span>
+          <h2>使用者專業度分級</h2>
+          <p class="en">User Expertise Classifier</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 880" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="760" height="880" fill="#F4F6F2"/>
+  <text x="30" y="40" font-size="20" font-weight="800" fill="#1a1a2e">使用者專業度分級（分類器如何判讀）</text>
+  <!-- header row -->
+  <g>
+    <rect x="28" y="56" width="120" height="40" fill="#E3E8DF" stroke="#ccd"/>
+    <rect x="148" y="56" width="240" height="40" fill="#E3E8DF" stroke="#ccd"/>
+    <rect x="388" y="56" width="344" height="40" fill="#E3E8DF" stroke="#ccd"/>
+    <text x="40" y="81" font-size="13" font-weight="700" fill="#333">專業度</text>
+    <text x="160" y="81" font-size="13" font-weight="700" fill="#333">分類器觀察的訊號</text>
+    <text x="400" y="81" font-size="13" font-weight="700" fill="#333">一段對話中的代表性提問</text>
+  </g>
+  <!-- rows -->
+  <!-- L1 -->
+  <g>
+    <rect x="28" y="96" width="120" height="130" fill="#fff" stroke="#ddd"/>
+    <rect x="148" y="96" width="240" height="130" fill="#fff" stroke="#ddd"/>
+    <rect x="388" y="96" width="344" height="130" fill="#fff" stroke="#ddd"/>
+    <text x="40" y="120" font-size="13" font-weight="700" fill="#1a1a2e">1（新手）</text>
+    <g font-size="10.5" fill="#444"><text x="158" y="118">提問沒有領域專門術語。</text><text x="158" y="136">查證請求即使有也很籠統</text><text x="158" y="154">（如「再檢查一下」）。</text><text x="158" y="172">使用者認不出 Claude 的錯。</text></g>
+    <g font-size="10.5" fill="#444"><text x="398" y="118"><tspan font-weight="700" fill="#111">第1問：</tspan>你能分析這份資料並做成圖表嗎？</text><text x="398" y="140"><tspan font-weight="700" fill="#111">第3問：</tspan>也能讓它顯示隨時間的趨勢嗎？</text><text x="398" y="162"><tspan font-weight="700" fill="#111">第6問：</tspan>這不是我要的，請再檢查你做了什麼。</text></g>
+  </g>
+  <!-- L2 -->
+  <g>
+    <rect x="28" y="226" width="120" height="120" fill="#FBFCFA" stroke="#ddd"/>
+    <rect x="148" y="226" width="240" height="120" fill="#FBFCFA" stroke="#ddd"/>
+    <rect x="388" y="226" width="344" height="120" fill="#FBFCFA" stroke="#ddd"/>
+    <text x="40" y="250" font-size="13" font-weight="700" fill="#1a1a2e">2（初級）</text>
+    <g font-size="10.5" fill="#444"><text x="158" y="248">提問帶有一些領域術語。</text><text x="158" y="266">查證請求沒有針對性。</text><text x="158" y="284">使用者只在明顯錯誤上</text><text x="158" y="302">才反駁。</text></g>
+    <g font-size="10.5" fill="#444"><text x="398" y="248"><tspan font-weight="700" fill="#111">第1問：</tspan>BigQuery 是什麼</text><text x="398" y="270"><tspan font-weight="700" fill="#111">第2問：</tspan>能幫我做個小測試、帶我一步步走嗎？</text><text x="398" y="292"><tspan font-weight="700" fill="#111">第5問：</tspan>我怎麼知道有沒有核准？</text><text x="398" y="314"><tspan font-weight="700" fill="#111">第12問：</tspan>等等，你用了我同事的確切規格嗎？</text></g>
+  </g>
+  <!-- L3 -->
+  <g>
+    <rect x="28" y="346" width="120" height="140" fill="#fff" stroke="#ddd"/>
+    <rect x="148" y="346" width="240" height="140" fill="#fff" stroke="#ddd"/>
+    <rect x="388" y="346" width="344" height="140" fill="#fff" stroke="#ddd"/>
+    <text x="40" y="370" font-size="13" font-weight="700" fill="#1a1a2e">3（中級）</text>
+    <g font-size="10.5" fill="#444"><text x="158" y="368">提問帶有一些領域具體性，</text><text x="158" y="386">但未深入方法論或取捨。</text><text x="158" y="404">會要求一些非籠統的檢查，</text><text x="158" y="422">也可能注意到 Claude 的錯。</text></g>
+    <g font-size="10" fill="#444"><text x="398" y="368"><tspan font-weight="700" fill="#111">第1問：</tspan>你能確認這個分支可以合併嗎？</text><text x="398" y="388"><tspan font-weight="700" fill="#111">第7問：</tspan>我們是否該為頁面每一段拆分擷取器，</text><text x="398" y="402">這樣就能對各區段做快取最佳化？</text><text x="398" y="424"><tspan font-weight="700" fill="#111">第19問：</tspan>目前都好—快取進度到哪了？你覺得</text><text x="398" y="438">你的改動會不會拖垮 egress？</text></g>
+  </g>
+  <!-- L4 -->
+  <g>
+    <rect x="28" y="486" width="120" height="150" fill="#FBFCFA" stroke="#ddd"/>
+    <rect x="148" y="486" width="240" height="150" fill="#FBFCFA" stroke="#ddd"/>
+    <rect x="388" y="486" width="344" height="150" fill="#FBFCFA" stroke="#ddd"/>
+    <text x="40" y="510" font-size="13" font-weight="700" fill="#1a1a2e">4（進階）</text>
+    <g font-size="10.5" fill="#444"><text x="158" y="508">展現領域知識，會主動預判</text><text x="158" y="526">一些取捨。查證請求有針對</text><text x="158" y="544">性。至少抓到一個 Claude 的</text><text x="158" y="562">領域錯誤。</text></g>
+    <g font-size="10" fill="#444"><text x="398" y="508"><tspan font-weight="700" fill="#111">第2問：</tspan>進到 stage 3 之前該怎麼測這一階段？</text><text x="398" y="528"><tspan font-weight="700" fill="#111">第5問：</tspan>agent console 跟一般對話差在哪？我</text><text x="398" y="542">蠻確定只能透過這個 session console 跟它互動</text><text x="398" y="564"><tspan font-weight="700" fill="#111">第88問：</tspan>看來解析修正沒成功—檔案行數還是 742</text><text x="398" y="586"><tspan font-weight="700" fill="#111">第106問：</tspan>比起 regex，有沒有更穩的方式抽 user turn？</text></g>
+  </g>
+  <!-- L5 -->
+  <g>
+    <rect x="28" y="636" width="120" height="170" fill="#fff" stroke="#ddd"/>
+    <rect x="148" y="636" width="240" height="170" fill="#fff" stroke="#ddd"/>
+    <rect x="388" y="636" width="344" height="170" fill="#fff" stroke="#ddd"/>
+    <text x="40" y="660" font-size="13" font-weight="700" fill="#1a1a2e">5（專家）</text>
+    <g font-size="10.5" fill="#444"><text x="158" y="658">使用精密的領域行話，預判</text><text x="158" y="676">複雜取捨與設計決策。查證</text><text x="158" y="694">精準、針對弱點。會糾正</text><text x="158" y="712">Claude，而 Claude 幾乎不需</text><text x="158" y="730">糾正使用者。</text></g>
+    <g font-size="9.5" fill="#444"><text x="398" y="658"><tspan font-weight="700" fill="#111">第1問：</tspan>我要深入查［使用者］回報的這個問題：［url］</text><text x="398" y="672">上一個 release 的 PR 修法不夠，有其他想法嗎？</text><text x="398" y="694"><tspan font-weight="700" fill="#111">第3問：</tspan>程式清過後就不該再回傳那段了</text><text x="398" y="716"><tspan font-weight="700" fill="#111">第64問：</tspan>對，也該注意我們可能得把硬重新整理進</text><text x="398" y="730">一步拆成 managed 與 unmanaged slot，每 30 分刷一次</text><text x="398" y="752"><tspan font-weight="700" fill="#111">第108問：</tspan>該用重試而非盡力而為嗎？同步需可靠</text><text x="398" y="766">記住原始 bug：值過期導致無限迴圈設 pin</text></g>
+  </g>
+  <text x="380" y="836" font-size="11" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪</text>
+</svg></div>
+        <div class="text">
+          <p class="intro">從提問用語與查證行為，把使用者的領域專業度分成五級。</p>
+          <ul><li>第1級新手：無專業術語、查證籠統、認不出 AI 的錯。</li><li>第2–3級初/中級：開始用術語與領域具體性，但未深入方法論與取捨。</li><li>第4級進階：展現領域知識、預判取捨、查證有針對性、能抓到錯誤。</li><li>第5級專家：用精密行話、預判設計決策、精準針對弱點，會反過來糾正 AI。</li></ul>
+        </div>
+      </div>
+    </section>
+    <section class="card" id="s10">
+      <div class="card-head">
+        <span class="num">10</span>
+        <div>
+          <span class="cat">應用總覽</span>
+          <h2>用 Claude 能做的 12 件驚人的事</h2>
+          <p class="en">12 Insane Things You Can Do With Claude</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 800" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="680" height="800" fill="#BEE8F0"/>
+  <rect x="0" y="0" width="680" height="92" fill="#D4F06A"/>
+  <text x="30" y="44" font-size="27" font-weight="800" fill="#E0457B">用 Claude 能做的</text>
+  <text x="30" y="78" font-size="27" font-weight="800" fill="#7C4DD1">12 件驚人的事</text>
+
+  <!-- left column cards -->
+  <g>
+    <!-- 01 -->
+    <rect x="24" y="104" width="300" height="78" rx="8" fill="#A7E0F0" stroke="#fff" stroke-width="2"/>
+    <text x="36" y="126" font-size="14" font-weight="800" fill="#1a1a2e">免寫程式建立網站</text>
+    <text x="36" y="146" font-size="10.5" fill="#333">用 Claude Code 以白話建出完整網站。</text>
+    <rect x="36" y="154" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="44" y="168" font-size="10" fill="#7a2748">連 GitHub、打字描述、推上線。</text>
+    <text x="300" y="148" font-size="11" fill="#E0457B" font-weight="700">01</text>
+    <!-- 03 -->
+    <rect x="24" y="194" width="300" height="78" rx="8" fill="#A7E0F0" stroke="#fff" stroke-width="2"/>
+    <text x="36" y="216" font-size="14" font-weight="800" fill="#1a1a2e">用 /指令 建立技能</text>
+    <text x="36" y="236" font-size="10.5" fill="#333">教 Claude 可重複的工作流程。</text>
+    <rect x="36" y="244" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="44" y="258" font-size="10" fill="#7a2748">打 /linkedin 或 /brief 就自動觸發、可分享。</text>
+    <text x="300" y="238" font-size="11" fill="#E0457B" font-weight="700">03</text>
+    <!-- 05 -->
+    <rect x="24" y="284" width="300" height="78" rx="8" fill="#FBE3EC" stroke="#fff" stroke-width="2"/>
+    <text x="36" y="306" font-size="14" font-weight="800" fill="#1a1a2e">自動化排程任務</text>
+    <text x="36" y="326" font-size="10.5" fill="#333">設定每週簡報、競品研究等週期任務。</text>
+    <rect x="36" y="334" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="44" y="348" font-size="10" fill="#7a2748">每週一早上 7 點自動執行。</text>
+    <text x="300" y="328" font-size="11" fill="#E0457B" font-weight="700">05</text>
+    <!-- 07 -->
+    <rect x="24" y="374" width="300" height="78" rx="8" fill="#F6E04A" stroke="#fff" stroke-width="2"/>
+    <text x="36" y="396" font-size="14" font-weight="800" fill="#1a1a2e">連接你的工具</text>
+    <text x="36" y="416" font-size="10.5" fill="#333">用連接器接上 Slack、Gmail、雲端、Notion</text>
+    <rect x="36" y="424" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="44" y="438" font-size="10" fill="#7a2748">及 50+ App，能讀、能寫、能在裡面操作。</text>
+    <text x="300" y="418" font-size="11" fill="#E0457B" font-weight="700">07</text>
+    <!-- 09 -->
+    <rect x="24" y="464" width="300" height="78" rx="8" fill="#F6E04A" stroke="#fff" stroke-width="2"/>
+    <text x="36" y="486" font-size="14" font-weight="800" fill="#1a1a2e">用「有記憶的專案」工作</text>
+    <text x="36" y="506" font-size="10.5" fill="#333">Cowork 專案會記住過去的工作階段。</text>
+    <rect x="36" y="514" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="44" y="528" font-size="10" fill="#7a2748">說「根據上週的報告」它就懂你的意思。</text>
+    <text x="300" y="508" font-size="11" fill="#E0457B" font-weight="700">09</text>
+    <!-- 11 -->
+    <rect x="24" y="554" width="300" height="78" rx="8" fill="#A7E0F0" stroke="#fff" stroke-width="2"/>
+    <text x="36" y="576" font-size="14" font-weight="800" fill="#1a1a2e">讓 AI 反問你</text>
+    <text x="36" y="596" font-size="10.5" fill="#333">用 AskUserQuestion，Claude 產生可點選表單。</text>
+    <rect x="36" y="604" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="44" y="618" font-size="10" fill="#7a2748">它問對問題，你就拿到對的輸出，免寫長提示。</text>
+    <text x="300" y="598" font-size="11" fill="#E0457B" font-weight="700">11</text>
+  </g>
+  <!-- right column cards -->
+  <g>
+    <!-- 02 -->
+    <rect x="356" y="104" width="300" height="78" rx="8" fill="#FBE3EC" stroke="#fff" stroke-width="2"/>
+    <text x="368" y="126" font-size="14" font-weight="800" fill="#1a1a2e">讓 Claude 用你的電腦</text>
+    <text x="368" y="146" font-size="10.5" fill="#333">你離開時，Claude 在你的 Mac 上點選、瀏覽、工作。</text>
+    <rect x="368" y="154" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="376" y="168" font-size="10" fill="#7a2748">用手機透過 Dispatch 控制它。</text>
+    <text x="632" y="148" font-size="11" fill="#E0457B" font-weight="700">02</text>
+    <!-- 04 -->
+    <rect x="356" y="194" width="300" height="78" rx="8" fill="#F6E04A" stroke="#fff" stroke-width="2"/>
+    <text x="368" y="216" font-size="14" font-weight="800" fill="#1a1a2e">產生帶研究的簡報</text>
+    <text x="368" y="236" font-size="10.5" fill="#333">Claude 研究你的主題、建出結構化簡報，</text>
+    <rect x="368" y="244" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="376" y="258" font-size="10" fill="#7a2748">產出精美 Gamma 簡報，全來自一個提示。</text>
+    <text x="632" y="238" font-size="11" fill="#E0457B" font-weight="700">04</text>
+    <!-- 06 -->
+    <rect x="356" y="284" width="300" height="78" rx="8" fill="#FBE3EC" stroke="#fff" stroke-width="2"/>
+    <text x="368" y="306" font-size="14" font-weight="800" fill="#1a1a2e">用提示產生 Excel 檔</text>
+    <text x="368" y="326" font-size="10.5" fill="#333">描述你需要的試算表。</text>
+    <rect x="368" y="334" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="376" y="348" font-size="10" fill="#7a2748">Claude 幾秒內建出財務模型、儀表板、資料分析。</text>
+    <text x="632" y="328" font-size="11" fill="#E0457B" font-weight="700">06</text>
+    <!-- 08 -->
+    <rect x="356" y="374" width="300" height="78" rx="8" fill="#FBE3EC" stroke="#fff" stroke-width="2"/>
+    <text x="368" y="396" font-size="14" font-weight="800" fill="#1a1a2e">把 Cowork 當 AI 員工</text>
+    <text x="368" y="416" font-size="10.5" fill="#333">把 Claude 指向你的資料夾。</text>
+    <rect x="368" y="424" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="376" y="438" font-size="10" fill="#7a2748">它讀你的檔、問你問題，交付真正的文件與報告。</text>
+    <text x="632" y="418" font-size="11" fill="#E0457B" font-weight="700">08</text>
+    <!-- 10 -->
+    <rect x="356" y="464" width="300" height="78" rx="8" fill="#F6E04A" stroke="#fff" stroke-width="2"/>
+    <text x="368" y="486" font-size="14" font-weight="800" fill="#1a1a2e">為你的職務安裝外掛</text>
+    <text x="368" y="506" font-size="10.5" fill="#333">業務、行銷、法務、財務都有現成外掛。</text>
+    <rect x="368" y="514" width="276" height="20" rx="4" fill="#F4A9C8"/><text x="376" y="528" font-size="10" fill="#7a2748">每個外掛給 Claude 專屬工作流程與 /指令。</text>
+    <text x="632" y="508" font-size="11" fill="#E0457B" font-weight="700">10</text>
+    <!-- 12 -->
+    <rect x="356" y="554" width="300" height="78" rx="8" fill="#F4A9C8" stroke="#fff" stroke-width="2"/>
+    <text x="368" y="576" font-size="14" font-weight="800" fill="#1a1a2e">用 Claude Design 設計一切</text>
+    <text x="368" y="596" font-size="10.5" fill="#333">描述著陸頁、簡報或 App 原型，Claude 即時建出。</text>
+    <rect x="368" y="604" width="276" height="20" rx="4" fill="#E0457B"/><text x="376" y="618" font-size="10" fill="#fff">匯出到 Canva、PDF，或直送 Claude Code。</text>
+    <text x="632" y="598" font-size="11" fill="#fff" font-weight="700">12</text>
+  </g>
+  <text x="340" y="660" font-size="11" fill="#555" text-anchor="middle">中文重製版 · 依原圖風格重繪</text>
+</svg></div>
+        <div class="text">
+          <p class="intro">從建網站到設計，十二個展現 Claude 實作能力的應用場景。</p>
+          <ul><li>免寫程式建網站、讓 Claude 操作你的電腦、用 /指令 建立可分享技能。</li><li>產生帶研究的簡報、用提示生成 Excel、自動化每週排程任務。</li><li>用連接器接上 50+ App、把 Cowork 當 AI 員工交付真實文件。</li><li>用有記憶的專案工作、為職務安裝外掛、用 Claude Design 即時設計。</li></ul>
+        </div>
+      </div>
+    </section>
+    <section class="card" id="s11">
+      <div class="card-head">
+        <span class="num">11</span>
+        <div>
+          <span class="cat">代理 Agent</span>
+          <h2>迴圈工程 101</h2>
+          <p class="en">Loop Engineering 101</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1000" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="760" height="1000" fill="#FAFAFA"/>
+  <text x="30" y="50" font-size="34" font-weight="800" fill="#1a1a2e"><tspan fill="#2b6cb0">迴圈</tspan>工程 101</text>
+  <text x="30" y="78" font-size="14" fill="#555">在你睡覺時也能持續出貨程式的完整指南</text>
+  <text x="640" y="50" font-size="12" fill="#777">Daniel Moka</text>
+  <line x1="30" y1="92" x2="730" y2="92" stroke="#ddd"/>
+
+  <!-- LEFT COLUMN -->
+  <g transform="translate(30,108)">
+    <rect x="0" y="0" width="350" height="20" fill="#FBE8A6"/>
+    <text x="6" y="15" font-size="13" font-weight="800" fill="#1a1a2e">1. 什麼是迴圈 (Loop)？</text>
+    <text x="0" y="40" font-size="11" font-weight="700" fill="#333">迴圈是一個會自己工作、檢查、重試的代理，</text>
+    <text x="0" y="55" font-size="11" font-weight="700" fill="#333">不需要你每一步都下提示。</text>
+    <g font-size="10.5" fill="#444">
+      <text x="0" y="76">最簡形式是一個代理在循環中自我運作：</text>
+      <text x="0" y="94">1. 探索：找出需要修的東西</text>
+      <text x="0" y="110">2. 規劃：拆成清楚步驟</text>
+      <text x="0" y="126">3. 執行：完成工作</text>
+      <text x="0" y="142">4. 驗證：對照目標檢查結果</text>
+      <text x="0" y="158">5. 迭代：補洞再跑一次</text>
+    </g>
+    <rect x="0" y="170" width="350" height="50" rx="6" fill="#FFF6DA"/>
+    <text x="8" y="188" font-size="10" fill="#8a6d1f">任務在三件事為真時，就「迴圈就緒」：</text>
+    <text x="8" y="203" font-size="10" fill="#8a6d1f">夠重複而值得自動化／能客觀檢查對錯／出錯代價低。</text>
+
+    <!-- section 2 -->
+    <rect x="0" y="234" width="350" height="20" fill="#FBE8A6"/>
+    <text x="6" y="249" font-size="13" font-weight="800" fill="#1a1a2e">2. 開放迴圈 vs 封閉迴圈</text>
+    <text x="0" y="272" font-size="11" font-weight="700" fill="#C0392B">開放迴圈 = 探索型</text>
+    <g font-size="10.5" fill="#444">
+      <text x="0" y="290">• 代理自由探索、發現</text>
+      <text x="0" y="306">• 高 token 用量（50K–2M）</text>
+      <text x="0" y="322">• 可能偏離目標、產出 AI 廢話</text>
+      <text x="0" y="338">• 風險在於起點不明</text>
+    </g>
+    <text x="0" y="360" font-size="11" font-weight="700" fill="#2E9E5B">封閉迴圈 = 有界型</text>
+    <g font-size="10.5" fill="#444">
+      <text x="0" y="378">• 清楚目標、明確步驟、有驗證檢查</text>
+      <text x="0" y="394">• 在約束內運作</text>
+      <text x="0" y="410">• 可預測、有效率、更易控制</text>
+      <text x="0" y="426">• 對複雜任務更好</text>
+    </g>
+    <rect x="0" y="438" width="350" height="36" rx="6" fill="#E9F6EE"/>
+    <text x="8" y="455" font-size="10" fill="#1d6b3f">在最重要的事情上，封閉迴圈勝出。每跑一次</text>
+    <text x="8" y="468" font-size="10" fill="#1d6b3f">都讓下一次更銳利。</text>
+
+    <!-- section 3 -->
+    <rect x="0" y="488" width="350" height="20" fill="#FBE8A6"/>
+    <text x="6" y="503" font-size="13" font-weight="800" fill="#1a1a2e">3. 一個迴圈的構造</text>
+    <text x="0" y="524" font-size="10.5" fill="#444">把迴圈接線一次：讓它觸發、隔離、通知、連接、</text>
+    <text x="0" y="538" font-size="10.5" fill="#444">建構、記憶。每個好迴圈的 6 大基石：</text>
+    <g font-size="10.5" fill="#333">
+      <text x="0" y="560">① 自動化—心跳，在排程或提示時執行</text>
+      <text x="0" y="578">② 工作樹—平行代理、零檔案衝突</text>
+      <text x="0" y="596">③ 技能—專案知識：寫一次、隨處用</text>
+      <text x="0" y="614">④ 外掛與工具—接上真實工具：PR、Slack…</text>
+      <text x="0" y="632">⑤ 子代理—把製造者與檢查者分開</text>
+      <text x="0" y="650">⑥ 記憶—對話之外、跨迴圈的記憶</text>
+    </g>
+    <g font-size="10" fill="#C0392B">
+      <text x="0" y="674">✗ 別把規則與記憶只留在對話中</text>
+      <text x="0" y="690">✗ 別每跑一次都靠手動觸發</text>
+      <text x="0" y="706">✗ 別把所有零件接到不需要的地方</text>
+    </g>
+  </g>
+
+  <!-- RIGHT COLUMN -->
+  <g transform="translate(400,108)">
+    <rect x="0" y="0" width="330" height="20" fill="#FBE8A6"/>
+    <text x="6" y="15" font-size="13" font-weight="800" fill="#1a1a2e">4. 單一代理 vs 代理艦隊</text>
+    <text x="0" y="40" font-size="11" font-weight="700" fill="#333">單一代理迴圈：</text>
+    <text x="0" y="56" font-size="10.5" fill="#444">一個代理重複循環直到結果良好。簡單、便宜，</text>
+    <text x="0" y="70" font-size="10.5" fill="#444">對多數任務已足夠。</text>
+    <text x="0" y="92" font-size="11" font-weight="700" fill="#333">艦隊迴圈：</text>
+    <text x="0" y="108" font-size="10.5" fill="#444">多個專門代理在協調者下協作。當一個代理不夠</text>
+    <text x="0" y="122" font-size="10.5" fill="#444">用時採用。</text>
+
+    <rect x="0" y="140" width="330" height="20" fill="#FBE8A6"/>
+    <text x="6" y="155" font-size="13" font-weight="800" fill="#1a1a2e">5. 迴圈的實戰</text>
+    <text x="0" y="178" font-size="10.5" fill="#444">實戰中，迴圈是「從磁碟載入的目標與規則」加上</text>
+    <text x="0" y="192" font-size="10.5" fill="#444">製造者、檢查者、把關者，以及把失敗變成新規則。</text>
+    <rect x="0" y="204" width="330" height="48" rx="6" fill="#1e1e2e"/>
+    <g font-size="9" fill="#8fe0a0" font-family="monospace">
+      <text x="8" y="220">while True:</text>
+      <text x="20" y="232">work = maker.run(goal, rules)</text>
+      <text x="20" y="244">review = checker.run(work, tests)</text>
+    </g>
+    <rect x="0" y="258" width="330" height="32" rx="6" fill="#FFF6DA"/>
+    <text x="8" y="276" font-size="10" fill="#8a6d1f">把「重現—修正—驗證」苦工自動化，合併權留給你。</text>
+
+    <rect x="0" y="304" width="330" height="20" fill="#FBE8A6"/>
+    <text x="6" y="319" font-size="13" font-weight="800" fill="#1a1a2e">6. 品質把關 (The Quality Gate)</text>
+    <text x="0" y="342" font-size="10.5" fill="#444">沒有把關的迴圈出貨更快——卻是在出貨廢料。</text>
+    <text x="0" y="356" font-size="10.5" fill="#444">把關是唯一讓迴圈持續良好運作的檢查。</text>
+    <text x="0" y="378" font-size="10.5" font-weight="700" fill="#333">用這些東西建好你的把關：</text>
+    <text x="0" y="394" font-size="10" fill="#444">編譯器、型別系統、整合測試、變異測試、屬性</text>
+    <text x="0" y="408" font-size="10" fill="#444">測試、linter、分析器，以及 CI。</text>
+
+    <rect x="0" y="426" width="330" height="20" fill="#FBE8A6"/>
+    <text x="6" y="441" font-size="13" font-weight="800" fill="#1a1a2e">7. 自我學習迴圈</text>
+    <text x="0" y="464" font-size="10.5" fill="#444">迴圈只有在能「帶著教訓前進」時才會進步——</text>
+    <text x="0" y="478" font-size="10.5" fill="#444">而你要讓它對教訓負責。</text>
+    <rect x="0" y="492" width="330" height="70" rx="6" fill="#1e1e2e"/>
+    <text x="10" y="512" font-size="10" font-weight="700" fill="#fff">RULES.md 的規則：</text>
+    <g font-size="9.5" fill="#cdd">
+      <text x="10" y="530">• 每當代理重犯一個錯，就加一行</text>
+      <text x="10" y="546">• 自己策展，涵蓋住那個錯誤</text>
+      <text x="10" y="562">• 別信純文字筆記，要用確定性檢查</text>
+    </g>
+    <rect x="0" y="574" width="330" height="40" rx="6" fill="#E6F0FB"/>
+    <text x="8" y="592" font-size="10.5" fill="#1E5FA8">每個錯誤都變成迴圈無法再犯的永久檢查。</text>
+    <text x="8" y="607" font-size="10.5" fill="#1E5FA8">你的工作是設計能驅動代理的迴圈。</text>
+    <text x="0" y="700" font-size="13" font-weight="800" fill="#1a1a2e" text-anchor="middle" transform="translate(165,0)">打造「從經驗中學習」的迴圈。</text>
+  </g>
+  <text x="380" y="980" font-size="11" fill="#999" text-anchor="middle">中文重製版 · 依原圖風格重繪（原作：Daniel Moka · craftbettersoftware.com）</text>
+</svg></div>
+        <div class="text">
+          <p class="intro">打造能自我工作、檢查、重試的代理迴圈，在你睡覺時也持續出貨。</p>
+          <ul><li>迴圈＝探索→規劃→執行→驗證→迭代的自我循環；任務需可重複、可客觀檢查。</li><li>封閉迴圈（有界、有驗證）勝過開放迴圈（探索、易偏離）。</li><li>六大基石：自動化、工作樹、技能、外掛工具、子代理、記憶。</li><li>品質把關（編譯/測試/CI）＋自我學習迴圈（RULES.md）讓錯誤不再重犯。</li></ul>
+        </div>
+      </div>
+    </section></div></main>
+<footer>AI 概念研究 · 中文圖解單頁集 — 全部圖形以 SVG 重繪，文字 100% 可選取、可縮放。原始英文資訊圖版權屬各原作者，此為學習用途之中文重製。</footer>
+</body></html>
