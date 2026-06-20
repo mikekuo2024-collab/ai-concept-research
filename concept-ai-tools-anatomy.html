@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 工具與代理結構 · 中文圖解單頁集</title>
+<meta name="description" content="提示框架、AI 編碼工具比較、AI 代理解剖結構的中文重繪圖解。">
+<style>
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+header.hero{background:linear-gradient(135deg,#1a1a2e,#2b3a67);color:#fff;padding:54px 0 40px}
+.hero .wrap{display:flex;flex-direction:column;gap:12px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;width:fit-content}
+.hero h1{margin:0;font-size:34px;letter-spacing:.5px}
+.hero p{margin:0;color:#c8d0e0;font-size:15px;max-width:680px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;font-size:13px;color:#aeb8cf}
+.home{color:#ffd9c6;text-decoration:none;font-size:13.5px;font-weight:600}
+nav.toc{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:8px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+nav.toc a{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--ink);text-decoration:none;background:#eef0f3;border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+nav.toc a:hover{background:#fff2ec;border-color:#f2c3ad}
+nav.toc .n{font-weight:800;color:var(--acc)}
+main{padding:26px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin:22px 0;box-shadow:0 4px 18px rgba(20,20,40,.05)}
+.card-head{display:flex;align-items:center;justify-content:space-between}
+.cat{font-size:12.5px;font-weight:700;color:var(--blue);background:#eaf1f9;padding:4px 11px;border-radius:999px}
+.idx{font-size:12.5px;color:var(--mut);font-weight:700}
+.card h2{margin:14px 0 2px;font-size:23px}
+.en{margin:0;color:var(--mut);font-size:13.5px;font-style:italic}
+.lead{margin:12px 0 6px;font-size:15px;color:#333}
+.points{margin:6px 0 16px;padding-left:20px}
+.points li{margin:5px 0;font-size:14.5px;color:#222}
+.figure{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+.figure svg{width:100%;height:auto;display:block}
+.src{margin:12px 0 0;font-size:12px;color:#9aa3af}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:24px 0 50px}
+@media(max-width:600px){.hero h1{font-size:26px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="badge">AI 概念研究</span>
+  <h1>AI 工具與代理結構 · 中文圖解</h1>
+  <p>三張英文 AI 概念資訊圖的中文重繪：常用提示框架、AI 編碼工具比較、AI 代理的解剖結構。</p>
+  <div class="meta"><span>產生日期：2026-06-20</span><span>共 3 張圖</span><span>格式：單頁式 HTML</span></div>
+  <a class="home" href="index.html">← 回索引入口</a>
+</div></header>
+<nav class="toc"><div class="wrap"><a href="#sec1"><span class="n">01</span>常用提示框架四式</a><a href="#sec2"><span class="n">02</span>Claude Code ｜ Cursor ｜ Codex 比較</a><a href="#sec3"><span class="n">03</span>AI 代理的解剖結構</a></div></nav>
+<main><div class="wrap">
+
+  <section class="card" id="sec1">
+    <div class="card-head">
+      <span class="cat">提示工程</span>
+      <span class="idx">01 / 03</span>
+    </div>
+    <h2>常用提示框架四式</h2>
+    <p class="en">Popular Prompting Frameworks</p>
+    <p class="lead">四種好記的提問結構，幫你把需求講清楚，讓 AI 一次到位。</p>
+    <ul class="points"><li>TAG＝任務 → 行動 → 目標，最精簡的提問骨架。</li><li>CARE 加入情境與範例；RACE 強調角色；RISE 著重輸入與步驟。</li><li>四種框架由簡到繁，視任務複雜度選用。</li><li>每個框架都附一個真實商業情境的範例提示。</li></ul>
+    <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 1040" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="1040" fill="#ffffff"/>
+  <!-- Title -->
+  <g transform="translate(30,30)">
+    <rect x="0" y="2" width="40" height="40" rx="9" fill="#F25C26"/>
+    <text x="20" y="30" font-size="22" font-weight="800" fill="#fff" text-anchor="middle">✦</text>
+    <text x="55" y="22" font-size="32" font-weight="800" fill="#1a1a2e">常用提示框架</text>
+    <text x="55" y="55" font-size="16" font-weight="600" fill="#6b7280">Popular Prompting Frameworks · 四種好記的提問結構</text>
+    <line x1="55" y1="68" x2="555" y2="68" stroke="#2b6cb0" stroke-width="3"/>
+    <circle cx="55" cy="68" r="5" fill="#F25C26"/>
+  </g>
+
+  <!-- TAG -->
+  <g transform="translate(30,118)">
+    <rect width="640" height="210" rx="14" fill="#FFF3E9" stroke="#F25C26" stroke-width="1.5"/>
+    <rect width="640" height="44" rx="14" fill="#F25C26"/>
+    <rect y="30" width="640" height="14" fill="#F25C26"/>
+    <text x="20" y="29" font-size="20" font-weight="800" fill="#fff">T · A · G</text>
+    <text x="120" y="29" font-size="14" font-weight="600" fill="#ffe2d2">任務 → 行動 → 目標</text>
+    <g transform="translate(20,58)" font-size="13.5" fill="#1a1a2e">
+      <text x="0" y="14" font-weight="700" fill="#F25C26">T  任務 Task</text><text x="150" y="14">定義要做的事</text>
+      <text x="0" y="36" font-weight="700" fill="#F25C26">A  行動 Action</text><text x="150" y="36">陳述具體要採取的動作</text>
+      <text x="0" y="58" font-weight="700" fill="#F25C26">G  目標 Goal</text><text x="150" y="58">講清楚最終想要的成果</text>
+    </g>
+    <g transform="translate(20,130)">
+      <rect width="600" height="62" rx="9" fill="#ffffff" stroke="#f0c9b3"/>
+      <text x="12" y="20" font-size="12" font-weight="700" fill="#2b6cb0">範例提示</text>
+      <text x="12" y="40" font-size="12.5" fill="#333">任務：為我準備明天的 Tesco Scotch 季度業務檢討（QBR）。</text>
+      <text x="12" y="56" font-size="12.5" fill="#333">行動＋目標：彙整品類趨勢、促銷表現、競品動態與客戶風險，給我 3 個談話重點、2 個風險、1 個商業提案。</text>
+    </g>
+  </g>
+
+  <!-- CARE -->
+  <g transform="translate(30,348)">
+    <rect width="640" height="210" rx="14" fill="#EAF1F9" stroke="#2b6cb0" stroke-width="1.5"/>
+    <rect width="640" height="44" rx="14" fill="#2b6cb0"/>
+    <rect y="30" width="640" height="14" fill="#2b6cb0"/>
+    <text x="20" y="29" font-size="20" font-weight="800" fill="#fff">C · A · R · E</text>
+    <text x="150" y="29" font-size="14" font-weight="600" fill="#cfe0f3">情境 → 行動 → 結果 → 範例</text>
+    <g transform="translate(20,58)" font-size="13.5" fill="#1a1a2e">
+      <text x="0" y="14" font-weight="700" fill="#2b6cb0">C  情境 Context</text><text x="180" y="14">提供背景與身分</text>
+      <text x="0" y="36" font-weight="700" fill="#2b6cb0">A  行動 Action</text><text x="180" y="36">描述要執行的任務</text>
+      <text x="0" y="58" font-weight="700" fill="#2b6cb0">R  結果 Result</text><text x="180" y="58">釐清想要的產出形式</text>
+      <text x="320" y="14" font-weight="700" fill="#2b6cb0">E  範例 Example</text><text x="470" y="14">給一個示範樣板</text>
+    </g>
+    <g transform="translate(20,130)">
+      <rect width="600" height="62" rx="9" fill="#ffffff" stroke="#bcd2ea"/>
+      <text x="12" y="20" font-size="12" font-weight="700" fill="#2b6cb0">範例提示</text>
+      <text x="12" y="40" font-size="12.5" fill="#333">情境：你協助 Tanqueray 洞察主管準備關於印度都會琴酒飲用者的領導層提問。行動：彙整近期消費者評論主題。</text>
+      <text x="12" y="56" font-size="12.5" fill="#333">結果：一頁洞察簡報，含張力、場合與意涵。範例：使用條列並附上佐證片段。</text>
+    </g>
+  </g>
+
+  <!-- RACE -->
+  <g transform="translate(30,578)">
+    <rect width="640" height="200" rx="14" fill="#F0F7EC" stroke="#4f9d4f" stroke-width="1.5"/>
+    <rect width="640" height="44" rx="14" fill="#4f9d4f"/>
+    <rect y="30" width="640" height="14" fill="#4f9d4f"/>
+    <text x="20" y="29" font-size="20" font-weight="800" fill="#fff">R · A · C · E</text>
+    <text x="150" y="29" font-size="14" font-weight="600" fill="#d5ecd0">角色 → 行動 → 情境 → 期望</text>
+    <g transform="translate(20,58)" font-size="13.5" fill="#1a1a2e">
+      <text x="0" y="14" font-weight="700" fill="#3f853f">R  角色 Role</text><text x="180" y="14">指定要扮演的身分</text>
+      <text x="0" y="36" font-weight="700" fill="#3f853f">A  行動 Action</text><text x="180" y="36">描述要執行的動作</text>
+      <text x="320" y="14" font-weight="700" fill="#3f853f">C  情境 Context</text><text x="500" y="14">提供背景</text>
+      <text x="320" y="36" font-weight="700" fill="#3f853f">E  期望 Expectation</text><text x="500" y="36">說明期望品質</text>
+    </g>
+    <g transform="translate(20,108)">
+      <rect width="600" height="74" rx="9" fill="#ffffff" stroke="#c7e0c1"/>
+      <text x="12" y="20" font-size="12" font-weight="700" fill="#2b6cb0">範例提示</text>
+      <text x="12" y="40" font-size="12.5" fill="#333">角色：擔任英國大客戶經理（KAM）。行動：草擬一份可直接交給客戶的簡報。</text>
+      <text x="12" y="58" font-size="12.5" fill="#333">情境：Johnnie Walker 上一季在 Tesco 的表現。期望：簡潔、商業導向、可執行。</text>
+    </g>
+  </g>
+
+  <!-- RISE -->
+  <g transform="translate(30,798)">
+    <rect width="640" height="200" rx="14" fill="#F3EEFA" stroke="#7c5cbf" stroke-width="1.5"/>
+    <rect width="640" height="44" rx="14" fill="#7c5cbf"/>
+    <rect y="30" width="640" height="14" fill="#7c5cbf"/>
+    <text x="20" y="29" font-size="20" font-weight="800" fill="#fff">R · I · S · E</text>
+    <text x="150" y="29" font-size="14" font-weight="600" fill="#e0d6f3">角色 → 輸入 → 步驟 → 期望</text>
+    <g transform="translate(20,58)" font-size="13.5" fill="#1a1a2e">
+      <text x="0" y="14" font-weight="700" fill="#6a4dad">R  角色 Role</text><text x="180" y="14">指定扮演的身分</text>
+      <text x="0" y="36" font-weight="700" fill="#6a4dad">I  輸入 Input</text><text x="180" y="36">提供素材與資料</text>
+      <text x="320" y="14" font-weight="700" fill="#6a4dad">S  步驟 Steps</text><text x="500" y="14">要求拆解流程</text>
+      <text x="320" y="36" font-weight="700" fill="#6a4dad">E  期望 Expectation</text><text x="500" y="36">指定產出形式</text>
+    </g>
+    <g transform="translate(20,108)">
+      <rect width="600" height="74" rx="9" fill="#ffffff" stroke="#d6c9ee"/>
+      <text x="12" y="20" font-size="12" font-weight="700" fill="#2b6cb0">範例提示</text>
+      <text x="12" y="40" font-size="12.5" fill="#333">角色：擔任品牌經理。輸入：Baileys 冬季行銷簡報。</text>
+      <text x="12" y="58" font-size="12.5" fill="#333">步驟：壓力測試簡報、找出模糊處、提出 3 個創意方向。期望：以可審閱的表格呈現。</text>
+    </g>
+  </g>
+
+  <text x="30" y="1024" font-size="11.5" fill="#9aa3af">中文重製版 · 依原圖內容重繪（原作：Analytics Vidhya · Popular Prompting Frameworks）</text>
+</svg>
+</div>
+    <p class="src">原作：Analytics Vidhya　·　中文重製版依原圖內容重繪</p>
+  </section>
+  <section class="card" id="sec2">
+    <div class="card-head">
+      <span class="cat">AI 編碼工具</span>
+      <span class="idx">02 / 03</span>
+    </div>
+    <h2>Claude Code ｜ Cursor ｜ Codex 比較</h2>
+    <p class="en">Claude Code vs Cursor vs Codex</p>
+    <p class="lead">三種 AI 編碼工具的誠實對比 —— 沒有品牌偏好，只看誰適合什麼任務。</p>
+    <ul class="points"><li>Claude Code：終端機自主代理，最適合長多步任務、MCP 整合最廣。</li><li>Cursor：VS Code 型 AI 編輯器，IDE 體驗最佳、上手最快。</li><li>Codex：雲端非同步代理，原生 GitHub、輸出即可合併的 PR。</li><li>重點不是哪個最好，而是哪個最適合該任務——三者並用。</li></ul>
+    <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 900" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="900" fill="#ffffff"/>
+  <!-- Title -->
+  <g transform="translate(28,28)">
+    <text x="0" y="22" font-size="30" font-weight="800" fill="#1a1a2e">Claude Code ｜ Cursor ｜ Codex</text>
+    <text x="0" y="48" font-size="14.5" font-weight="600" fill="#6b7280">三種工具，同一件事 — 誠實對比，沒有品牌偏好</text>
+    <line x1="0" y1="60" x2="600" y2="60" stroke="#2b6cb0" stroke-width="3"/>
+    <circle cx="0" cy="60" r="5" fill="#F25C26"/>
+  </g>
+
+  <!-- ===== Column headers ===== -->
+  <g>
+    <rect x="24" y="106" width="212" height="58" rx="11" fill="#F25C26"/>
+    <text x="130" y="132" font-size="17" font-weight="800" fill="#fff" text-anchor="middle">Claude Code</text>
+    <text x="130" y="152" font-size="10.5" fill="#ffe2d2" text-anchor="middle">Anthropic · 終端機自主代理</text>
+
+    <rect x="244" y="106" width="212" height="58" rx="11" fill="#2b6cb0"/>
+    <text x="350" y="132" font-size="17" font-weight="800" fill="#fff" text-anchor="middle">Cursor</text>
+    <text x="350" y="152" font-size="10.5" fill="#cfe0f3" text-anchor="middle">VS Code 型 AI 編輯器</text>
+
+    <rect x="464" y="106" width="212" height="58" rx="11" fill="#4f9d4f"/>
+    <text x="570" y="132" font-size="17" font-weight="800" fill="#fff" text-anchor="middle">Codex</text>
+    <text x="570" y="152" font-size="10.5" fill="#d5ecd0" text-anchor="middle">OpenAI · 雲端非同步代理</text>
+  </g>
+
+  <!-- ===== Column bodies ===== -->
+  <!-- Claude Code -->
+  <g transform="translate(24,176)" font-size="11" fill="#333">
+    <rect x="0" y="0" width="212" height="430" rx="11" fill="#FFF7F2" stroke="#f3d3c0"/>
+    <g transform="translate(12,8)">
+      <text y="14" font-size="11.5" font-weight="800" fill="#F25C26">定義</text>
+      <text y="30">終端機型 AI 編碼代理，由</text>
+      <text y="44">Anthropic 打造，可自主橫</text>
+      <text y="58">跨整個程式庫工作。</text>
+      <text y="80" font-size="11.5" font-weight="800" fill="#F25C26">運作方式</text>
+      <text y="96">• 白話打出目標即執行</text>
+      <text y="110">• 自動寫／改／刪／跑檔案</text>
+      <text y="124">• MCP 連 200+ 外部工具</text>
+      <text y="146" font-size="11.5" font-weight="800" fill="#F25C26">適用情境</text>
+      <text y="162">• 一段話做出 MVP</text>
+      <text y="176">• 整個功能交給它完成</text>
+      <text y="190">• 自動化重複工作流程</text>
+      <text y="212" font-size="11.5" font-weight="800" fill="#1a9e6a">優點</text>
+      <text y="228">• 最自主、最少人工盯場</text>
+      <text y="242">• 端到端、不需切換脈絡</text>
+      <text y="256">• 最適合長多步代理任務</text>
+      <text y="278" font-size="11.5" font-weight="800" fill="#d14545">缺點</text>
+      <text y="294">• 終端介面、新手較難</text>
+      <text y="308">• 無視覺化 IDE 介面</text>
+      <text y="322">• 訂閱規模化成本累積</text>
+      <text y="344" font-size="11.5" font-weight="800" fill="#2b6cb0">快速上手</text>
+      <text y="360">• npm i -g 安裝 CLI</text>
+      <text y="374">• 放 CLAUDE.md 寫規則</text>
+      <text y="388">• 先規劃，再部署</text>
+    </g>
+  </g>
+
+  <!-- Cursor -->
+  <g transform="translate(244,176)" font-size="11" fill="#333">
+    <rect x="0" y="0" width="212" height="430" rx="11" fill="#F3F8FE" stroke="#c4d9f0"/>
+    <g transform="translate(12,8)">
+      <text y="14" font-size="11.5" font-weight="800" fill="#2b6cb0">定義</text>
+      <text y="30">基於 VS Code 的 AI 原生編</text>
+      <text y="44">輯器；補全／聊天／編輯</text>
+      <text y="58">都在熟悉的編輯器內。</text>
+      <text y="80" font-size="11.5" font-weight="800" fill="#2b6cb0">運作方式</text>
+      <text y="96">• 專案丟進像 VS Code</text>
+      <text y="110">• 邊打邊建議、Tab 接受</text>
+      <text y="124">• Composer 跨檔修改</text>
+      <text y="146" font-size="11.5" font-weight="800" fill="#2b6cb0">適用情境</text>
+      <text y="162">• 白話描述寫出元件</text>
+      <text y="176">• 團隊共用規則檔協作</text>
+      <text y="190">• 非技術者首次讀懂碼</text>
+      <text y="212" font-size="11.5" font-weight="800" fill="#1a9e6a">優點</text>
+      <text y="228">• 最佳 IDE 體驗</text>
+      <text y="242">• 行內建議像超能編輯器</text>
+      <text y="256">• 上手最快、易於協作</text>
+      <text y="278" font-size="11.5" font-weight="800" fill="#d14545">缺點</text>
+      <text y="294">• 自主性低於 Claude Code</text>
+      <text y="308">• 很長多步任務較吃力</text>
+      <text y="322">• 團隊規模化訂閱成本</text>
+      <text y="344" font-size="11.5" font-weight="800" fill="#2b6cb0">快速上手</text>
+      <text y="360">• cursor.com 下載</text>
+      <text y="374">• 加 .cursorrules 規範</text>
+      <text y="388">• 多檔任務用 Composer</text>
+    </g>
+  </g>
+
+  <!-- Codex -->
+  <g transform="translate(464,176)" font-size="11" fill="#333">
+    <rect x="0" y="0" width="212" height="430" rx="11" fill="#F2FAF2" stroke="#c4e3c4"/>
+    <g transform="translate(12,8)">
+      <text y="14" font-size="11.5" font-weight="800" fill="#3f853f">定義</text>
+      <text y="30">OpenAI 雲端 AI 編碼代理；</text>
+      <text y="44">隔離雲端非同步執行，免</text>
+      <text y="58">本機設定與終端機。</text>
+      <text y="80" font-size="11.5" font-weight="800" fill="#3f853f">運作方式</text>
+      <text y="96">• 直接連 GitHub 倉庫</text>
+      <text y="110">• 指派任務、自動寫測試</text>
+      <text y="124">• 沙箱跑完開 PR 供審查</text>
+      <text y="146" font-size="11.5" font-weight="800" fill="#3f853f">適用情境</text>
+      <text y="162">• 夜間修 bug、早上審 PR</text>
+      <text y="176">• 與 Claude Code 平行跑</text>
+      <text y="190">• 開 issue 讓它自動解</text>
+      <text y="212" font-size="11.5" font-weight="800" fill="#1a9e6a">優點</text>
+      <text y="228">• 完全非同步、睡覺也跑</text>
+      <text y="242">• 原生 GitHub、輸出即 PR</text>
+      <text y="256">• 免本機設定、可平行</text>
+      <text y="278" font-size="11.5" font-weight="800" fill="#d14545">缺點</text>
+      <text y="294">• 無本機檔案、限於 repo</text>
+      <text y="308">• 複雜程式庫脈絡較弱</text>
+      <text y="322">• 僅 PR、無即時行內建議</text>
+      <text y="344" font-size="11.5" font-weight="800" fill="#2b6cb0">快速上手</text>
+      <text y="360">• 連 GitHub repo</text>
+      <text y="374">• 寫清楚 issue 當文件</text>
+      <text y="388">• 依任務大小選工具</text>
+    </g>
+  </g>
+
+  <!-- ===== Quick reference table ===== -->
+  <g transform="translate(24,628)">
+    <text x="0" y="0" font-size="14" font-weight="800" fill="#1a1a2e">快速對照 · 各項目誰勝出</text>
+    <g transform="translate(0,12)" font-size="12">
+      <!-- header row -->
+      <rect x="0" y="0" width="652" height="28" fill="#1a1a2e"/>
+      <text x="12" y="19" fill="#fff" font-weight="700">項目</text>
+      <text x="240" y="19" fill="#ffd9c6" font-weight="700" text-anchor="middle">Claude Code</text>
+      <text x="410" y="19" fill="#cfe0f3" font-weight="700" text-anchor="middle">Cursor</text>
+      <text x="580" y="19" fill="#d5ecd0" font-weight="700" text-anchor="middle">Codex</text>
+      <!-- rows -->
+      <g fill="#333">
+        <rect x="0" y="28"  width="652" height="26" fill="#f6f7f9"/>
+        <rect x="0" y="80"  width="652" height="26" fill="#f6f7f9"/>
+        <rect x="0" y="132" width="652" height="26" fill="#f6f7f9"/>
+        <text x="12" y="46"  font-weight="600">自主性</text><text x="240" y="46"  text-anchor="middle" fill="#1a9e6a" font-weight="700">最佳</text><text x="410" y="46"  text-anchor="middle">中</text><text x="580" y="46"  text-anchor="middle">高</text>
+        <text x="12" y="72"  font-weight="600">IDE 體驗</text><text x="240" y="72"  text-anchor="middle">—</text><text x="410" y="72"  text-anchor="middle" fill="#1a9e6a" font-weight="700">最佳</text><text x="580" y="72"  text-anchor="middle">—</text>
+        <text x="12" y="98"  font-weight="600">新手友善</text><text x="240" y="98"  text-anchor="middle">中</text><text x="410" y="98"  text-anchor="middle" fill="#1a9e6a" font-weight="700">最佳</text><text x="580" y="98"  text-anchor="middle">容易</text>
+        <text x="12" y="124" font-weight="600">長代理任務</text><text x="240" y="124" text-anchor="middle" fill="#1a9e6a" font-weight="700">最佳</text><text x="410" y="124" text-anchor="middle">有限</text><text x="580" y="124" text-anchor="middle">高</text>
+        <text x="12" y="150" font-weight="600">團隊協作</text><text x="240" y="150" text-anchor="middle">中</text><text x="410" y="150" text-anchor="middle" fill="#1a9e6a" font-weight="700">最佳</text><text x="580" y="150" text-anchor="middle">良</text>
+        <text x="12" y="176" font-weight="600">工具整合</text><text x="240" y="176" text-anchor="middle" fill="#1a9e6a" font-weight="700">最佳（MCP）</text><text x="410" y="176" text-anchor="middle">中</text><text x="580" y="176" text-anchor="middle">僅 GitHub</text>
+      </g>
+      <rect x="0" y="0" width="652" height="184" fill="none" stroke="#d9dde3"/>
+      <line x1="160" y1="0" x2="160" y2="184" stroke="#d9dde3"/>
+      <line x1="320" y1="0" x2="320" y2="184" stroke="#d9dde3"/>
+      <line x1="490" y1="0" x2="490" y2="184" stroke="#d9dde3"/>
+    </g>
+  </g>
+
+  <g transform="translate(24,838)">
+    <rect width="652" height="30" rx="8" fill="#FFF3E9"/>
+    <text x="14" y="20" font-size="12.5" font-weight="700" fill="#1a1a2e">重點：問題不是「哪個工具最好」，而是「哪個工具最適合這項任務」— 三者並用。</text>
+  </g>
+  <text x="28" y="888" font-size="11.5" fill="#9aa3af">中文重製版 · 依原圖內容重繪（原作：@Saema AI Lab）</text>
+</svg>
+</div>
+    <p class="src">原作：@Saema AI Lab　·　中文重製版依原圖內容重繪</p>
+  </section>
+  <section class="card" id="sec3">
+    <div class="card-head">
+      <span class="cat">AI 代理</span>
+      <span class="idx">03 / 03</span>
+    </div>
+    <h2>AI 代理的解剖結構</h2>
+    <p class="en">The Anatomy of an AI Agent</p>
+    <p class="lead">每個 AI 產品的層級都相似，真正的差別在於：哪些層是你「擁有」的。</p>
+    <ul class="points"><li>擁有權分四種：自有、租用、混合、假擁有。</li><li>行銷標籤（AI Agent／Copilot／Vertical AI）常掩蓋底層只是「編排＋租用模型」。</li><li>護城河＝專有資料＋工作流執行＋系統整合＋從結果學習＋信任驗證。</li><li>關鍵提問：若模型供應商變成競爭對手，你哪些部分還能存活？</li></ul>
+    <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 1180" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="1180" fill="#ffffff"/>
+  <!-- Title -->
+  <g transform="translate(28,28)">
+    <text x="0" y="22" font-size="30" font-weight="800" fill="#1a1a2e">AI 代理的解剖結構</text>
+    <text x="0" y="46" font-size="14.5" font-weight="600" fill="#6b7280">The Anatomy of an AI Agent — 不要評斷「魔法」，要評斷「解剖結構」</text>
+    <text x="0" y="68" font-size="13" fill="#444">每個 AI 產品都由相似的層級組成，真正的差別在於：哪些層是你「擁有」的。</text>
+    <line x1="0" y1="80" x2="600" y2="80" stroke="#2b6cb0" stroke-width="3"/>
+    <circle cx="0" cy="80" r="5" fill="#F25C26"/>
+  </g>
+
+  <!-- 1 Ownership layers -->
+  <g transform="translate(28,124)">
+    <text x="0" y="0" font-size="15" font-weight="800" fill="#1a1a2e">① 擁有權的四種層級</text>
+    <g transform="translate(0,12)">
+      <rect x="0"   y="0" width="156" height="72" rx="10" fill="#EAF7F0" stroke="#1a9e6a"/>
+      <text x="12" y="22" font-size="13.5" font-weight="800" fill="#1a9e6a">Owned 自有</text>
+      <text x="12" y="42" font-size="11.5" fill="#333">內部自行打造</text>
+      <text x="12" y="58" font-size="11.5" fill="#333">並完全掌控</text>
+
+      <rect x="166" y="0" width="156" height="72" rx="10" fill="#FFF3E9" stroke="#F25C26"/>
+      <text x="178" y="22" font-size="13.5" font-weight="800" fill="#F25C26">Rented 租用</text>
+      <text x="178" y="42" font-size="11.5" fill="#333">由外部平台</text>
+      <text x="178" y="58" font-size="11.5" fill="#333">所提供</text>
+
+      <rect x="332" y="0" width="156" height="72" rx="10" fill="#EAF1F9" stroke="#2b6cb0"/>
+      <text x="344" y="22" font-size="13.5" font-weight="800" fill="#2b6cb0">Hybrid 混合</text>
+      <text x="344" y="42" font-size="11.5" fill="#333">內部與外部</text>
+      <text x="344" y="58" font-size="11.5" fill="#333">資產混用</text>
+
+      <rect x="498" y="0" width="156" height="72" rx="10" fill="#F4F1EE" stroke="#9a7b63"/>
+      <text x="510" y="22" font-size="12.5" font-weight="800" fill="#9a6b4a">Pretend 假擁有</text>
+      <text x="510" y="42" font-size="11.5" fill="#333">宣稱自有，</text>
+      <text x="510" y="58" font-size="11.5" fill="#333">實則高度依賴</text>
+    </g>
+  </g>
+
+  <!-- 2 The Agent Stack -->
+  <g transform="translate(28,244)">
+    <text x="0" y="0" font-size="15" font-weight="800" fill="#1a1a2e">② Agent 技術堆疊 — 每一層都可能是自有或租用</text>
+    <g transform="translate(0,14)" font-size="12" fill="#1a1a2e">
+      <rect x="0" y="0" width="654" height="110" rx="10" fill="#FAFBFC" stroke="#e3e6ea"/>
+      <g transform="translate(16,26)">
+        <text y="0" font-weight="700">• 使用者輸入</text>
+        <text y="26" font-weight="700">• 使用者介面</text>
+        <text y="52" font-weight="700">• 資料來源</text>
+        <text y="78" font-weight="700">• 基礎模型</text>
+      </g>
+      <g transform="translate(180,26)">
+        <text y="0" font-weight="700">• 系統存取權</text>
+        <text y="26" font-weight="700">• 任務執行</text>
+        <text y="52" font-weight="700">• 編排 Orchestration</text>
+        <text y="78" font-weight="700">• 記憶 Memory</text>
+      </g>
+      <g transform="translate(400,26)">
+        <text y="0" font-weight="700">• 驗證 Validation</text>
+        <text y="26" font-weight="700">• 散布 Distribution</text>
+        <text y="58" font-size="11.5" fill="#6b7280">同樣的層、不同的擁有權，</text>
+        <text y="76" font-size="11.5" fill="#6b7280">決定了產品的真實價值。</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 3 Marketing vs reality -->
+  <g transform="translate(28,396)">
+    <text x="0" y="0" font-size="15" font-weight="800" fill="#1a1a2e">③ 行銷標籤 vs 底層架構</text>
+    <g transform="translate(0,12)" font-size="12">
+      <rect x="0" y="0" width="654" height="26" fill="#1a1a2e"/>
+      <text x="14" y="18" fill="#fff" font-weight="700">行銷上的名稱</text>
+      <text x="330" y="18" fill="#ffd9c6" font-weight="700">實際的底層架構</text>
+      <g fill="#333">
+        <rect x="0" y="26" width="654" height="26" fill="#f6f7f9"/>
+        <rect x="0" y="78" width="654" height="26" fill="#f6f7f9"/>
+        <text x="14" y="44">AI Agent（AI 代理）</text><text x="330" y="44">常只是「編排 ＋ 租用模型」</text>
+        <text x="14" y="70">AI Copilot（AI 副駕）</text><text x="330" y="70">多半是工作流程的捷徑</text>
+        <text x="14" y="96">Vertical AI（垂直 AI）</text><text x="330" y="96">真正價值在於資料、專業與信任的串連</text>
+      </g>
+      <rect x="0" y="0" width="654" height="104" fill="none" stroke="#d9dde3"/>
+      <line x1="320" y1="0" x2="320" y2="104" stroke="#d9dde3"/>
+    </g>
+  </g>
+
+  <!-- 4 Defensibility checklist -->
+  <g transform="translate(28,540)">
+    <text x="0" y="0" font-size="15" font-weight="800" fill="#1a1a2e">④ 防禦力檢查清單　<tspan fill="#6b7280" font-size="12" font-weight="600">真正的產品＝資料 ＋ 專業 ＋ 信任</tspan></text>
+    <g transform="translate(0,12)">
+      <rect x="0" y="0" width="654" height="92" rx="10" fill="#F0F7EC" stroke="#4f9d4f"/>
+      <g font-size="12" fill="#1a1a2e">
+        <g transform="translate(16,24)">
+          <text y="0">✔ 專有資料</text>
+          <text y="24">✔ 資料隨使用而變好</text>
+          <text y="48">✔ 工作流程執行</text>
+        </g>
+        <g transform="translate(240,24)">
+          <text y="0">✔ 長期記憶</text>
+          <text y="24">✔ 關鍵系統整合</text>
+          <text y="48">✔ 驗證與合規</text>
+        </g>
+        <g transform="translate(470,24)">
+          <text y="0">✔ 信任機制</text>
+          <text y="34" font-size="11.5" fill="#3f853f">→ 介面背後的</text>
+          <text y="52" font-size="11.5" fill="#3f853f">「智慧鏈」才是重點</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- 5 Wrapper vs Moat -->
+  <g transform="translate(28,684)">
+    <text x="0" y="0" font-size="15" font-weight="800" fill="#1a1a2e">⑤ 包裝層 Wrapper　vs　護城河 Moat</text>
+    <g transform="translate(0,12)" font-size="12">
+      <rect x="0" y="0" width="318" height="150" rx="10" fill="#FBECEC" stroke="#d14545"/>
+      <text x="16" y="24" font-size="13.5" font-weight="800" fill="#d14545">WRAPPER 包裝層</text>
+      <g transform="translate(16,44)" fill="#333">
+        <text y="0">• 租用模型</text>
+        <text y="22">• 無專有資料</text>
+        <text y="44">• 無記憶</text>
+        <text y="66">• 只有聊天介面</text>
+        <text y="90" font-weight="700" fill="#d14545">→ 容易被取代</text>
+      </g>
+
+      <rect x="336" y="0" width="318" height="150" rx="10" fill="#EAF7F0" stroke="#1a9e6a"/>
+      <text x="352" y="24" font-size="13.5" font-weight="800" fill="#1a9e6a">MOAT 護城河</text>
+      <g transform="translate(352,44)" fill="#333">
+        <text y="0">• 專有資料 ＋ 工作流執行</text>
+        <text y="22">• 系統整合</text>
+        <text y="44">• 從結果中學習</text>
+        <text y="66">• 信任與驗證</text>
+        <text y="90" font-weight="700" fill="#1a9e6a">→ 難以被取代</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 6 Cursor example -->
+  <g transform="translate(28,886)">
+    <text x="0" y="0" font-size="15" font-weight="800" fill="#1a1a2e">⑥ Cursor 範例 — 價值建立在「租用的模型」之外</text>
+    <g transform="translate(0,12)" font-size="12">
+      <rect x="0" y="0" width="200" height="116" rx="10" fill="#FFF3E9" stroke="#F25C26"/>
+      <text x="16" y="24" font-size="13" font-weight="800" fill="#F25C26">租用 RENTS</text>
+      <text x="16" y="50" fill="#333">• 基礎模型</text>
+      <text x="16" y="84" font-size="11" fill="#9a6b4a">模型是租來的，</text>
+      <text x="16" y="100" font-size="11" fill="#9a6b4a">但價值不在這裡。</text>
+
+      <rect x="216" y="0" width="438" height="116" rx="10" fill="#EAF7F0" stroke="#1a9e6a"/>
+      <text x="232" y="24" font-size="13" font-weight="800" fill="#1a9e6a">自有 OWNS（真正的護城河）</text>
+      <g transform="translate(232,44)" fill="#333">
+        <text y="0">• 編輯器體驗　　　• 程式檢索系統</text>
+        <text y="22">• 多檔工作流程　　• 代理執行迴圈</text>
+        <text y="44">• 對整個程式庫的理解</text>
+        <text y="66" font-weight="700" fill="#1a9e6a">→ 護城河比模型本身更深</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Key question -->
+  <g transform="translate(28,1042)">
+    <rect x="0" y="0" width="654" height="74" rx="12" fill="#1a1a2e"/>
+    <text x="24" y="30" font-size="14" font-weight="800" fill="#ffd9c6">最終提問 · The Key Question</text>
+    <text x="24" y="56" font-size="14.5" font-weight="700" fill="#ffffff">如果模型供應商哪天變成你的直接競爭對手 —— 你的哪些部分還能存活？</text>
+  </g>
+
+  <text x="28" y="1156" font-size="11.5" fill="#9aa3af">中文重製版 · 依原圖內容重繪（原作：AIPlanetX.com · The Anatomy of an AI Agent）</text>
+</svg>
+</div>
+    <p class="src">原作：AIPlanetX.com　·　中文重製版依原圖內容重繪</p>
+  </section>
+</div></main>
+<footer>AI 概念研究 · 由 concept-localize-publish 產出 · 各圖為依原圖內容重繪之中文版，著作權歸原作者</footer>
+</body>
+</html>
