@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>駕馭工程 Harness Engineering · 中文圖解</title>
+<meta name="description" content="Harness Engineering（駕馭工程）的中文重繪：五大核心維度，以及提示詞／上下文／駕馭工程三層對比。">
+<style>
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+header.hero{background:linear-gradient(135deg,#1a1a2e,#2b3a67);color:#fff;padding:54px 0 40px}
+.hero .wrap{display:flex;flex-direction:column;gap:12px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;width:fit-content}
+.hero h1{margin:0;font-size:34px;letter-spacing:.5px}
+.hero p{margin:0;color:#c8d0e0;font-size:15px;max-width:680px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;font-size:13px;color:#aeb8cf}
+.home{color:#ffd9c6;text-decoration:none;font-size:13.5px;font-weight:600}
+main{padding:26px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin:22px 0;box-shadow:0 4px 18px rgba(20,20,40,.05)}
+.card-head{display:flex;align-items:center;justify-content:space-between}
+.cat{font-size:12.5px;font-weight:700;color:var(--blue);background:#eaf1f9;padding:4px 11px;border-radius:999px}
+.idx{font-size:12.5px;color:var(--mut);font-weight:700}
+.card h2{margin:14px 0 2px;font-size:23px}
+.en{margin:0;color:var(--mut);font-size:13.5px;font-style:italic}
+.lead{margin:12px 0 6px;font-size:15px;color:#333}
+.points{margin:6px 0 16px;padding-left:20px}
+.points li{margin:5px 0;font-size:14.5px;color:#222}
+.figure{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+.figure svg{width:100%;height:auto;display:block}
+.src{margin:12px 0 0;font-size:12px;color:#9aa3af}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:24px 0 50px}
+@media(max-width:600px){.hero h1{font-size:26px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="badge">AI 概念研究</span>
+  <h1>駕馭工程 Harness Engineering · 中文圖解</h1>
+  <p>把 AI 從「聊天機器人」推向「自動化生產力工具」的關鍵架構：兩張中文圖解，先看五大核心維度，再用一個 Bug 修復情境對比提示詞／上下文／駕馭工程的差別。</p>
+  <div class="meta"><span>產生日期：2026-06-21</span><span>共 2 張圖</span><span>格式：單頁式 HTML</span></div>
+  <a class="home" href="index.html">← 回索引入口</a>
+</div></header>
+<main><div class="wrap">
+
+  <section class="card">
+    <div class="card-head">
+      <span class="cat">AI 代理 · 架構工程</span>
+      <span class="idx">01 / 02</span>
+    </div>
+    <h2>駕馭工程的五大核心維度</h2>
+    <p class="en">Harness Engineering — Five Core Dimensions</p>
+    <p class="lead">Harness（馬具）是圍繞自主 AI 代理設計執行環境、工具邊界、約束與回饋迴路的系統科學。模型是馬、Harness 是控制方向與安全的整套裝備——它不提高智商，但決定產出的可靠性與工程可控性。</p>
+    <ul class="points">
+      <li>核心比喻：模型＝馬（提供推理引擎與力量）；Harness＝韁繩／馬鞍／馬嚼子的整套裝備，控制方向、速度並確保安全。</li>
+      <li>工程重心演進：提示詞工程（戰術）→ 上下文工程（餵對資料）→ 駕馭工程（封閉系統與自動驗證的架構層面）。</li>
+      <li>五大維度：指令管理、動態上下文與工具箱（MCP）、狀態持久化、自動驗證迴路、生命週期與防爆護欄。</li>
+      <li>核心洞察：模型越強、自主權越大，出錯代價越高——Harness 越重要，為其畫紅線、確保熵增可控。</li>
+    </ul>
+    <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 1180" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="1180" fill="#ffffff"/>
+
+  <!-- Title -->
+  <g transform="translate(28,28)">
+    <text x="0" y="22" font-size="29" font-weight="800" fill="#1a1a2e">駕馭工程 Harness Engineering</text>
+    <text x="0" y="46" font-size="14" font-weight="600" fill="#6b7280">圍繞自主 AI 代理，設計執行環境、工具邊界、約束條件與回饋迴路的系統科學</text>
+    <text x="0" y="68" font-size="13" fill="#444">它不提高模型的智商，但決定了 AI 產出的「可靠性」與「工程可控性」。</text>
+    <line x1="0" y1="80" x2="644" y2="80" stroke="#2b6cb0" stroke-width="3"/>
+    <circle cx="0" cy="80" r="5" fill="#F25C26"/>
+  </g>
+
+  <!-- 1 Metaphor -->
+  <g transform="translate(28,128)">
+    <text x="0" y="0" font-size="15" font-weight="800" fill="#1a1a2e">① 核心比喻：模型是馬，Harness 是整套馬具</text>
+    <g transform="translate(0,12)">
+      <rect x="0" y="0" width="314" height="92" rx="10" fill="#FFF3E9" stroke="#F25C26"/>
+      <text x="16" y="26" font-size="14" font-weight="800" fill="#F25C26">🐎 AI 模型＝馬</text>
+      <text x="16" y="50" font-size="12.5" fill="#333">提供強大的推理引擎與「力量」</text>
+      <text x="16" y="72" font-size="12.5" fill="#333">本身奔放，但方向與安全無保障</text>
+
+      <rect x="330" y="0" width="314" height="92" rx="10" fill="#EAF1F9" stroke="#2b6cb0"/>
+      <text x="346" y="26" font-size="14" font-weight="800" fill="#2b6cb0">🦮 Harness＝馬具</text>
+      <text x="346" y="50" font-size="12.5" fill="#333">韁繩、馬鞍、馬嚼子的整套裝備</text>
+      <text x="346" y="72" font-size="12.5" fill="#333">控制方向、速度，並確保安全拉車</text>
+    </g>
+  </g>
+
+  <!-- 2 Evolution -->
+  <g transform="translate(28,260)">
+    <text x="0" y="0" font-size="15" font-weight="800" fill="#1a1a2e">② 從 Prompt 到 Harness：AI 工程重心的演進</text>
+    <g transform="translate(0,14)">
+      <rect x="0" y="0" width="204" height="96" rx="10" fill="#FFF7F0" stroke="#F25C26"/>
+      <text x="16" y="24" font-size="13.5" font-weight="800" fill="#F25C26">提示詞工程</text>
+      <text x="16" y="42" font-size="10.5" font-weight="700" fill="#9a6b4a">PROMPT ENGINEERING</text>
+      <text x="16" y="64" font-size="12" fill="#333">優化單次對話的</text>
+      <text x="16" y="82" font-size="12" fill="#333">輸入品質（戰術層面）</text>
+
+      <rect x="220" y="0" width="204" height="96" rx="10" fill="#F3EEFE" stroke="#8b5cf6"/>
+      <text x="236" y="24" font-size="13.5" font-weight="800" fill="#7c3aed">上下文工程</text>
+      <text x="236" y="42" font-size="10.5" font-weight="700" fill="#8b5cf6">CONTEXT ENGINEERING</text>
+      <text x="236" y="64" font-size="12" fill="#333">動態挑選並餵給 AI</text>
+      <text x="236" y="82" font-size="12" fill="#333">正確的背景／RAG 資料</text>
+
+      <rect x="440" y="0" width="204" height="96" rx="10" fill="#EAF1F9" stroke="#2b6cb0"/>
+      <text x="456" y="24" font-size="13.5" font-weight="800" fill="#2b6cb0">駕馭工程</text>
+      <text x="456" y="42" font-size="10.5" font-weight="700" fill="#2b6cb0">HARNESS ENGINEERING</text>
+      <text x="456" y="64" font-size="12" fill="#333">封閉執行系統、沙盒</text>
+      <text x="456" y="82" font-size="12" fill="#333">與自動驗證（架構層面）</text>
+    </g>
+    <text x="208" y="80" font-size="16" fill="#9aa3af">→</text>
+    <text x="428" y="80" font-size="16" fill="#9aa3af">→</text>
+  </g>
+
+  <!-- 3 Five dimensions -->
+  <g transform="translate(28,392)">
+    <text x="0" y="0" font-size="15" font-weight="800" fill="#1a1a2e">③ Harness 的五大核心維度</text>
+    <g transform="translate(0,12)" font-size="12.5">
+      <rect x="0" y="0" width="644" height="58" rx="9" fill="#FAFBFC" stroke="#e3e6ea"/>
+      <rect x="0" y="0" width="6" height="58" rx="3" fill="#1a9e6a"/>
+      <text x="20" y="24" font-size="13.5" font-weight="800" fill="#1a9e6a">1　任務與指令管理 Instructions</text>
+      <text x="20" y="46" fill="#333">精準限制任務範圍，採漸進式披露引導代理先規劃、後執行，不一次承擔過多指令。</text>
+
+      <rect x="0" y="68" width="644" height="58" rx="9" fill="#FAFBFC" stroke="#e3e6ea"/>
+      <rect x="0" y="68" width="6" height="58" rx="3" fill="#2b6cb0"/>
+      <text x="20" y="92" font-size="13.5" font-weight="800" fill="#2b6cb0">2　動態上下文與工具箱 Scope &amp; MCP</text>
+      <text x="20" y="114" fill="#333">透過 MCP 等協議，嚴格限制可存取的資料庫、文件夾與外部 API，防止越權行為。</text>
+
+      <rect x="0" y="136" width="644" height="58" rx="9" fill="#FAFBFC" stroke="#e3e6ea"/>
+      <rect x="0" y="136" width="6" height="58" rx="3" fill="#8b5cf6"/>
+      <text x="20" y="160" font-size="13.5" font-weight="800" fill="#7c3aed">3　狀態追蹤與持久化 State</text>
+      <text x="20" y="182" fill="#333">持久化記錄進度與執行軌跡，中途中斷時新 Session 能完美接續前一次的狀態。</text>
+
+      <rect x="0" y="204" width="644" height="58" rx="9" fill="#FAFBFC" stroke="#e3e6ea"/>
+      <rect x="0" y="204" width="6" height="58" rx="3" fill="#d97706"/>
+      <text x="20" y="228" font-size="13.5" font-weight="800" fill="#c2410c">4　自動驗證與回饋迴路 Verification</text>
+      <text x="20" y="250" fill="#333">把 Linter／測試／編譯器接到輸出端，未通過不算過關，以技術反壓逼 AI 自我修正。</text>
+
+      <rect x="0" y="272" width="644" height="58" rx="9" fill="#FAFBFC" stroke="#e3e6ea"/>
+      <rect x="0" y="272" width="6" height="58" rx="3" fill="#d14545"/>
+      <text x="20" y="296" font-size="13.5" font-weight="800" fill="#d14545">5　生命週期與防爆機制 Lifecycle &amp; Guardrails</text>
+      <text x="20" y="318" fill="#333">管理啟動與清理，設定 Token 預算與最大循環次數，觸發熔斷即時介入，防止失控。</text>
+    </g>
+  </g>
+
+  <!-- 4 Cost comparison -->
+  <g transform="translate(28,756)">
+    <text x="0" y="0" font-size="15" font-weight="800" fill="#1a1a2e">④ 為什麼 Harness 越強，AI 開發越省成本？</text>
+    <g transform="translate(0,12)" font-size="12">
+      <rect x="0" y="0" width="644" height="26" fill="#1a1a2e"/>
+      <text x="14" y="18" fill="#fff" font-weight="700">優化維度</text>
+      <text x="232" y="18" fill="#ffd9c6" font-weight="700">僅依賴強模型</text>
+      <text x="446" y="18" fill="#b9f6ca" font-weight="700">搭配 Full Harness 架構</text>
+
+      <rect x="0" y="26" width="644" height="50" fill="#f6f7f9"/>
+      <rect x="0" y="76" width="644" height="50" fill="#ffffff"/>
+      <rect x="0" y="126" width="644" height="50" fill="#f6f7f9"/>
+
+      <g fill="#333">
+        <text x="14" y="46" font-weight="700">生產環境失敗率</text>
+        <text x="232" y="46">高達 60％，常胡言亂語</text>
+        <text x="232" y="64" font-size="11" fill="#6b7280">或未完成任務</text>
+        <text x="446" y="46" fill="#1a9e6a" font-weight="700">低</text>
+        <text x="446" y="64" font-size="11" fill="#6b7280">由驗證迴路與狀態管理把關</text>
+
+        <text x="14" y="96" font-weight="700">成本策略</text>
+        <text x="232" y="96">全程用最貴模型</text>
+        <text x="232" y="114" font-size="11" fill="#6b7280">Token 隨上下文暴增</text>
+        <text x="446" y="96">前期規劃用輕量模型</text>
+        <text x="446" y="114" font-size="11" fill="#6b7280">最後優化才交給旗艦模型</text>
+
+        <text x="14" y="146" font-weight="700">自主權與護欄</text>
+        <text x="232" y="146">缺乏限制</text>
+        <text x="232" y="164" font-size="11" fill="#6b7280">可能誤刪資料或無限衍生</text>
+        <text x="446" y="146">嚴格沙盒化</text>
+        <text x="446" y="164" font-size="11" fill="#6b7280">超預算或高風險即熔斷</text>
+      </g>
+      <rect x="0" y="0" width="644" height="176" fill="none" stroke="#d9dde3"/>
+      <line x1="222" y1="0" x2="222" y2="176" stroke="#d9dde3"/>
+      <line x1="436" y1="0" x2="436" y2="176" stroke="#d9dde3"/>
+    </g>
+  </g>
+
+  <!-- 5 Key insight -->
+  <g transform="translate(28,1014)">
+    <rect x="0" y="0" width="644" height="96" rx="12" fill="#1a1a2e"/>
+    <text x="24" y="30" font-size="14" font-weight="800" fill="#ffd9c6">💡 核心洞察 · 模型越強，Harness 越重要</text>
+    <text x="24" y="56" font-size="13.5" fill="#ffffff">能力越高、自主權越大，出錯的潛在代價也越高。此時更需要高度精準、</text>
+    <text x="24" y="78" font-size="13.5" fill="#ffffff">具「可觀測性」的 Harness 為其畫紅線，確保技術熵增落在人類可控範圍內。</text>
+  </g>
+
+  <text x="28" y="1158" font-size="11.5" fill="#9aa3af">中文重製版 · 依原文重繪（來源：Harness Engineering 概念整理 · martinfowler.com／oakmega.com 等）</text>
+</svg></div>
+    <p class="src">中文重製版 · 依原文重繪（來源：Harness Engineering 概念整理 · martinfowler.com／oakmega.com 等）</p>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <span class="cat">AI 工程 · 概念對比</span>
+      <span class="idx">02 / 02</span>
+    </div>
+    <h2>提示詞 × 上下文 × 駕馭工程：一個情境看懂三者</h2>
+    <p class="en">Prompt vs. Context vs. Harness Engineering</p>
+    <p class="lead">以「讓 AI 自動修復開源專案 Bug 並確保程式碼正確執行」同一情境，對比三種工程做法的核心本質、實際作法與各自的局限——三者層層遞進，並非互斥。</p>
+    <ul class="points">
+      <li>提示詞工程：教 AI「如何思考與回答」；看不到的檔案會讓它瞎猜（幻覺）。</li>
+      <li>上下文工程：自動檢索並塞入正確背景資料；但無法保證產出的程式碼跑起來不弄壞其他功能。</li>
+      <li>駕馭工程：給沙盒、工具與監視器，讓 AI 自己改、自己測，透過自動回饋迴路逼它修到測試全綠。</li>
+      <li>交付結果遞進：建議文字 → 含背景的解答 → 通過自動測試、可直接 Merge 的程式碼。</li>
+    </ul>
+    <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 1300" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="1300" fill="#ffffff"/>
+
+  <!-- Title -->
+  <g transform="translate(28,28)">
+    <text x="0" y="22" font-size="26" font-weight="800" fill="#1a1a2e">提示詞 × 上下文 × 駕馭工程：一個情境看懂三者</text>
+    <text x="0" y="46" font-size="14" font-weight="600" fill="#6b7280">同一個任務「讓 AI 自動修復開源專案的 Bug，並確保程式碼能正確執行」的三種做法</text>
+    <line x1="0" y1="58" x2="644" y2="58" stroke="#2b6cb0" stroke-width="3"/>
+    <circle cx="0" cy="58" r="5" fill="#F25C26"/>
+  </g>
+
+  <!-- Scenario -->
+  <g transform="translate(28,104)">
+    <rect x="0" y="0" width="644" height="58" rx="10" fill="#FAFBFC" stroke="#e3e6ea"/>
+    <text x="16" y="24" font-size="13.5" font-weight="800" fill="#1a1a2e">🎯 場景設定</text>
+    <text x="16" y="46" font-size="12.5" fill="#333">任務目標：修復資料庫連接逾時（Timeout）的 Bug　｜　專案背景：50 萬行、多模組的大型 Python 專案</text>
+  </g>
+
+  <!-- 1 Prompt -->
+  <g transform="translate(28,184)">
+    <rect x="0" y="0" width="644" height="172" rx="12" fill="#FFF7F0" stroke="#F25C26" stroke-width="1.3"/>
+    <circle cx="34" cy="34" r="17" fill="#F25C26"/>
+    <text x="34" y="40" font-size="18" font-weight="800" fill="#fff" text-anchor="middle">1</text>
+    <text x="62" y="28" font-size="17" font-weight="800" fill="#1a1a2e">✍️ 提示詞工程 Prompt Engineering</text>
+    <text x="62" y="46" font-size="11" font-weight="700" fill="#9a6b4a">教 AI「如何思考與回答」</text>
+    <text x="20" y="74" font-size="12.5" fill="#333"><tspan font-weight="700" fill="#F25C26">核心本質：</tspan>優化與 AI 的對話語氣、結構與邏輯。</text>
+    <text x="20" y="96" font-size="12.5" fill="#333"><tspan font-weight="700" fill="#F25C26">實際作法：</tspan>工程師人工複製貼上部分程式碼，撰寫結構嚴謹的 Prompt（角色、任務、限制、輸出格式）。</text>
+    <rect x="20" y="110" width="604" height="48" rx="8" fill="#fff" stroke="#f0d6c4"/>
+    <text x="32" y="130" font-size="11.5" fill="#d14545"><tspan font-weight="700">⚠ 局限：</tspan>若 Bug 根因其實在另一個檔案（如 config.yaml 設定太小），AI 看不到那個檔案，</text>
+    <text x="32" y="148" font-size="11.5" fill="#d14545">只憑這段 Prompt 就會開始瞎猜（產生幻覺）。</text>
+  </g>
+
+  <!-- 2 Context -->
+  <g transform="translate(28,372)">
+    <rect x="0" y="0" width="644" height="172" rx="12" fill="#F3EEFE" stroke="#8b5cf6" stroke-width="1.3"/>
+    <circle cx="34" cy="34" r="17" fill="#8b5cf6"/>
+    <text x="34" y="40" font-size="18" font-weight="800" fill="#fff" text-anchor="middle">2</text>
+    <text x="62" y="28" font-size="17" font-weight="800" fill="#1a1a2e">🧠 上下文工程 Context Engineering</text>
+    <text x="62" y="46" font-size="11" font-weight="700" fill="#7c3aed">解決 AI「該看哪些資料才能破案」</text>
+    <text x="20" y="74" font-size="12.5" fill="#333"><tspan font-weight="700" fill="#7c3aed">核心本質：</tspan>動態尋找並塞入正確的背景資料。</text>
+    <text x="20" y="96" font-size="12.5" fill="#333"><tspan font-weight="700" fill="#7c3aed">實際作法：</tspan>自動向量檢索找出最相關的程式碼片段，抓取最新錯誤日誌與 config.yaml，</text>
+    <text x="20" y="114" font-size="12.5" fill="#333">　　　　　　拼裝成一個超大的「上下文包裹」再送給 AI。</text>
+    <rect x="20" y="126" width="604" height="32" rx="8" fill="#fff" stroke="#ddd0f0"/>
+    <text x="32" y="146" font-size="11.5" fill="#d14545"><tspan font-weight="700">⚠ 局限：</tspan>AI 雖看懂並吐出「看似正確」的程式碼，但沒人知道直接跑起來會不會弄壞其他功能。</text>
+  </g>
+
+  <!-- 3 Harness -->
+  <g transform="translate(28,560)">
+    <rect x="0" y="0" width="644" height="248" rx="12" fill="#EAF1F9" stroke="#2b6cb0" stroke-width="1.3"/>
+    <circle cx="34" cy="34" r="17" fill="#2b6cb0"/>
+    <text x="34" y="40" font-size="18" font-weight="800" fill="#fff" text-anchor="middle">3</text>
+    <text x="62" y="28" font-size="17" font-weight="800" fill="#1a1a2e">🛡️ 駕馭工程 Harness Engineering</text>
+    <text x="62" y="46" font-size="11" font-weight="700" fill="#2b6cb0">解決 AI「如何安全落地並自我修正」</text>
+    <text x="20" y="74" font-size="12.5" fill="#333"><tspan font-weight="700" fill="#2b6cb0">核心本質：</tspan>建構封閉、安全且具自動回饋的執行環境（沙盒），給 AI 工具與監視器去自己改、自己測。</text>
+
+    <rect x="20" y="88" width="198" height="64" rx="8" fill="#fff" stroke="#cfe0f2"/>
+    <text x="32" y="108" font-size="12.5" font-weight="800" fill="#2b6cb0">邊界限制 Guardrails</text>
+    <text x="32" y="128" font-size="11.5" fill="#333">隔離 Docker 容器，</text>
+    <text x="32" y="144" font-size="11.5" fill="#333">只能讀寫本專案資料夾</text>
+
+    <rect x="223" y="88" width="198" height="64" rx="8" fill="#fff" stroke="#cfe0f2"/>
+    <text x="235" y="108" font-size="12.5" font-weight="800" fill="#2b6cb0">工具賦能 Tools</text>
+    <text x="235" y="128" font-size="11.5" fill="#333">透過 MCP 給予 view_file()</text>
+    <text x="235" y="144" font-size="11.5" fill="#333">write_patch()、run_pytest()</text>
+
+    <rect x="426" y="88" width="198" height="64" rx="8" fill="#fff" stroke="#cfe0f2"/>
+    <text x="438" y="108" font-size="12.5" font-weight="800" fill="#2b6cb0">防爆機制 Lifecycle</text>
+    <text x="438" y="128" font-size="11.5" fill="#333">最大循環 5 次，改不過</text>
+    <text x="438" y="144" font-size="11.5" fill="#333">就自動熔斷找人介入</text>
+
+    <rect x="20" y="162" width="604" height="72" rx="8" fill="#E7F6FA" stroke="#0891b2"/>
+    <text x="32" y="182" font-size="12.5" font-weight="800" fill="#0e7490">🔁 自動回饋迴路 Verification Loop</text>
+    <text x="32" y="202" font-size="11.5" fill="#333">① AI 改 database.py → ② Harness 自動跑 pytest → ③ 測試失敗，錯誤訊息直接塞回給 AI（不驚動人類）</text>
+    <text x="32" y="222" font-size="11.5" fill="#333">→ ④ AI 依回饋再次修正並重測，直到所有測試亮綠燈（Pass）才算過關。</text>
+  </g>
+
+  <!-- Summary table -->
+  <g transform="translate(28,832)">
+    <text x="0" y="0" font-size="15" font-weight="800" fill="#1a1a2e">📊 一分鐘對比總結</text>
+    <g transform="translate(0,12)" font-size="11.5">
+      <rect x="0" y="0" width="644" height="28" fill="#1a1a2e"/>
+      <text x="14" y="19" fill="#fff" font-weight="700">維度</text>
+      <text x="120" y="19" fill="#ffd9c6" font-weight="700">提示詞工程</text>
+      <text x="296" y="19" fill="#e6d6ff" font-weight="700">上下文工程</text>
+      <text x="476" y="19" fill="#cfe0f2" font-weight="700">駕馭工程</text>
+
+      <rect x="0" y="28" width="644" height="48" fill="#f6f7f9"/>
+      <rect x="0" y="76" width="644" height="48" fill="#ffffff"/>
+      <rect x="0" y="124" width="644" height="48" fill="#f6f7f9"/>
+      <rect x="0" y="172" width="644" height="54" fill="#ffffff"/>
+
+      <g fill="#333">
+        <text x="14" y="48" font-weight="700">比喻</text>
+        <text x="120" y="48">給馬兒下達</text>
+        <text x="120" y="65" font-size="11" fill="#6b7280">清晰的口令</text>
+        <text x="296" y="48">給馬兒看</text>
+        <text x="296" y="65" font-size="11" fill="#6b7280">正確的地圖</text>
+        <text x="476" y="48">套上韁繩、馬車</text>
+        <text x="476" y="65" font-size="11" fill="#6b7280">與導航安全鎖</text>
+
+        <text x="14" y="96" font-weight="700">主要關注</text>
+        <text x="120" y="96">話怎麼說、</text>
+        <text x="120" y="113" font-size="11" fill="#6b7280">角色怎麼設定</text>
+        <text x="296" y="96">給哪些資訊、</text>
+        <text x="296" y="113" font-size="11" fill="#6b7280">資料怎麼撈</text>
+        <text x="476" y="96">環境怎麼隔離、</text>
+        <text x="476" y="113" font-size="11" fill="#6b7280">錯了怎麼自動修正</text>
+
+        <text x="14" y="144" font-weight="700">AI 的角色</text>
+        <text x="120" y="144">只能回答的</text>
+        <text x="120" y="161" font-size="11" fill="#6b7280">顧問</text>
+        <text x="296" y="144">資訊充足的</text>
+        <text x="296" y="161" font-size="11" fill="#6b7280">智囊團</text>
+        <text x="476" y="144">在護欄內工作的</text>
+        <text x="476" y="161" font-size="11" fill="#6b7280">AI 員工（Agent）</text>
+
+        <text x="14" y="194" font-weight="700">交付結果</text>
+        <text x="120" y="194">一段</text>
+        <text x="120" y="211" font-size="11" fill="#6b7280">建議文字</text>
+        <text x="296" y="194">含背景知識的</text>
+        <text x="296" y="211" font-size="11" fill="#6b7280">解答</text>
+        <text x="476" y="194" font-weight="700" fill="#1a9e6a">通過自動測試、</text>
+        <text x="476" y="211" font-size="11" fill="#3f853f">可直接 Merge 的程式碼</text>
+      </g>
+      <rect x="0" y="0" width="644" height="226" fill="none" stroke="#d9dde3"/>
+      <line x1="110" y1="0" x2="110" y2="226" stroke="#d9dde3"/>
+      <line x1="286" y1="0" x2="286" y2="226" stroke="#d9dde3"/>
+      <line x1="466" y1="0" x2="466" y2="226" stroke="#d9dde3"/>
+    </g>
+  </g>
+
+  <!-- Bottom note -->
+  <g transform="translate(28,1086)">
+    <rect x="0" y="0" width="644" height="74" rx="12" fill="#1a1a2e"/>
+    <text x="24" y="30" font-size="14" font-weight="800" fill="#ffd9c6">層層遞進，並非互斥</text>
+    <text x="24" y="56" font-size="13.5" fill="#ffffff">三者層層疊加；Harness Engineering 正是把 AI 從「聊天機器人」推向「自動化生產力工具」的關鍵架構。</text>
+  </g>
+
+  <text x="28" y="1188" font-size="11.5" fill="#9aa3af">中文重製版 · 依原文重繪（來源：Prompt／Context／Harness Engineering 實例比較整理）</text>
+</svg></div>
+    <p class="src">中文重製版 · 依原文重繪（來源：Prompt／Context／Harness Engineering 實例比較整理）</p>
+  </section>
+
+</div></main>
+<footer>AI 概念研究 · 由 concept-localize-publish 產出 · 依原文重繪、標註出處</footer>
+</body>
+</html>
