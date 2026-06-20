@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude 提示框架九步驟 · 中文圖解</title>
+<meta name="description" content="The Claude Prompt Framework（原作 Redgate）的中文重繪：從核心公式到對齊共識的九步驟提示法。">
+<style>
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+header.hero{background:linear-gradient(135deg,#1a1a2e,#2b3a67);color:#fff;padding:54px 0 40px}
+.hero .wrap{display:flex;flex-direction:column;gap:12px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;width:fit-content}
+.hero h1{margin:0;font-size:34px;letter-spacing:.5px}
+.hero p{margin:0;color:#c8d0e0;font-size:15px;max-width:680px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;font-size:13px;color:#aeb8cf}
+.home{color:#ffd9c6;text-decoration:none;font-size:13.5px;font-weight:600}
+main{padding:26px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin:22px 0;box-shadow:0 4px 18px rgba(20,20,40,.05)}
+.card-head{display:flex;align-items:center;justify-content:space-between}
+.cat{font-size:12.5px;font-weight:700;color:var(--blue);background:#eaf1f9;padding:4px 11px;border-radius:999px}
+.idx{font-size:12.5px;color:var(--mut);font-weight:700}
+.card h2{margin:14px 0 2px;font-size:23px}
+.en{margin:0;color:var(--mut);font-size:13.5px;font-style:italic}
+.lead{margin:12px 0 6px;font-size:15px;color:#333}
+.points{margin:6px 0 16px;padding-left:20px}
+.points li{margin:5px 0;font-size:14.5px;color:#222}
+.figure{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+.figure svg{width:100%;height:auto;display:block}
+.src{margin:12px 0 0;font-size:12px;color:#9aa3af}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:24px 0 50px}
+@media(max-width:600px){.hero h1{font-size:26px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="badge">AI 概念研究</span>
+  <h1>Claude 提示框架九步驟 · 中文圖解</h1>
+  <p>The Claude Prompt Framework（原作 Redgate）的中文重繪：一套從「核心公式」到「對齊共識」的九步驟提示法，把模糊請求變成像真正客戶交付品般的成果。</p>
+  <div class="meta"><span>產生日期：2026-06-20</span><span>共 1 張圖</span><span>格式：單頁式 HTML</span></div>
+  <a class="home" href="index.html">← 回索引入口</a>
+</div></header>
+<main><div class="wrap">
+
+  <section class="card" id="sec1">
+    <div class="card-head">
+      <span class="cat">提示工程</span>
+      <span class="idx">01 / 01</span>
+    </div>
+    <h2>Claude 提示框架九步驟</h2>
+    <p class="en">The Claude Prompt Framework</p>
+    <p class="lead">九個編號步驟，依序帶你寫出精準、可交付的提示——先定核心公式，再餵參考檔案、對齊語氣，最後在執行前確認規則與共識。</p>
+    <ul class="points">
+      <li>核心公式：〔動作動詞〕＋〔明確交付物〕＋〔以便收件人在期限前完成 X〕，並標明範圍、長度、格式。</li>
+      <li>先讓 Claude 完整讀參考檔案、比照其結構與語氣的「節奏」，再開始回應。</li>
+      <li>明確指定輸出長度、收件人預期反應、要動用的工具（搜尋／Gmail／Drive／Calendar）。</li>
+      <li>執行前先請它列出最關鍵的 3 條規則與 5 步計畫；不清楚就提問，不要默默補空白。</li>
+    </ul>
+    <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1322" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+<rect width="760" height="1322" fill="#ffffff"/>
+<g transform="translate(28,30)">
+  <text x="0" y="24" font-size="31" font-weight="800" fill="#1a1a2e">Claude 提示框架</text>
+  <text x="0" y="49" font-size="14.5" font-weight="600" fill="#6b7280">The Claude Prompt Framework — 九步驟打造精準、可交付的提示</text>
+  <text x="0" y="70" font-size="13" fill="#444">從一條核心公式到對齊共識；把模糊請求變成像真正客戶交付品般的成果。</text>
+  <line x1="0" y1="82" x2="704" y2="82" stroke="#2b6cb0" stroke-width="3"/>
+  <circle cx="0" cy="82" r="5" fill="#F25C26"/>
+</g>
+<g transform="translate(28,126)">
+<rect x="0" y="0" width="704" height="136" rx="12" fill="#FFF3E9" stroke="#F25C26" stroke-width="1.3"/>
+<circle cx="30" cy="30" r="17" fill="#F25C26"/>
+<text x="30" y="36" font-size="19" font-weight="800" fill="#ffffff" text-anchor="middle">1</text>
+<text x="60" y="26" font-size="17.5" font-weight="800" fill="#1a1a2e">核心提示公式</text>
+<text x="60" y="44" font-size="11" font-weight="700" fill="#F25C26" letter-spacing="0.3">CORE PROMPT FORMULA</text>
+<text x="20" y="56" font-size="13" font-weight="700" fill="#F25C26">〔動作動詞〕〔明確交付物〕，以便〔收件人在 Y 時間前完成 X〕。</text>
+<text x="20" y="77" font-size="13" fill="#333">範圍 Scope：〔哪些包含／哪些排除〕</text>
+<text x="20" y="98" font-size="13" fill="#333">長度 Length：〔精確字數，例如 150 字〕</text>
+<text x="20" y="119" font-size="13" fill="#333">格式 Format：〔表格／條列〕</text>
+</g>
+<g transform="translate(28,276)">
+<rect x="0" y="0" width="704" height="115" rx="12" fill="#EAF1F9" stroke="#2b6cb0" stroke-width="1.3"/>
+<circle cx="30" cy="30" r="17" fill="#2b6cb0"/>
+<text x="30" y="36" font-size="19" font-weight="800" fill="#ffffff" text-anchor="middle">2</text>
+<text x="60" y="26" font-size="17.5" font-weight="800" fill="#1a1a2e">先完整讀這些檔案，再回應</text>
+<text x="60" y="44" font-size="11" font-weight="700" fill="#2b6cb0" letter-spacing="0.3">READ THESE FILES COMPLETELY BEFORE RESPONDING</text>
+<text x="20" y="56" font-size="13" fill="#333">• 〔filename.md〕— 〔內容說明〕</text>
+<text x="20" y="77" font-size="13" fill="#333">• 〔filename.md〕— 〔內容說明〕</text>
+<text x="20" y="98" font-size="12" fill="#6b7280">貼上參考資料，或以 markdown 上傳。</text>
+</g>
+<g transform="translate(28,405)">
+<rect x="0" y="0" width="704" height="116" rx="12" fill="#EAF7F0" stroke="#1a9e6a" stroke-width="1.3"/>
+<circle cx="30" cy="30" r="17" fill="#1a9e6a"/>
+<text x="30" y="36" font-size="19" font-weight="800" fill="#ffffff" text-anchor="middle">3</text>
+<text x="60" y="26" font-size="17.5" font-weight="800" fill="#1a1a2e">比照這份參考的節奏</text>
+<text x="60" y="44" font-size="11" font-weight="700" fill="#1a9e6a" letter-spacing="0.3">MATCH THE RHYTHM OF THIS REFERENCE</text>
+<text x="20" y="56" font-size="13" font-weight="700" fill="#1a1a2e">套用這些模式（只給正面規則）：</text>
+<text x="20" y="78" font-size="13" fill="#333">• 總是〔模式 1 — 結構〕</text>
+<text x="20" y="99" font-size="13" fill="#333">• 總是〔模式 2 — 語氣〕</text>
+</g>
+<g transform="translate(28,535)">
+<rect x="0" y="0" width="704" height="115" rx="12" fill="#F3EEFE" stroke="#8b5cf6" stroke-width="1.3"/>
+<circle cx="30" cy="30" r="17" fill="#8b5cf6"/>
+<text x="30" y="36" font-size="19" font-weight="800" fill="#ffffff" text-anchor="middle">4</text>
+<text x="60" y="26" font-size="17.5" font-weight="800" fill="#1a1a2e">輸出與聲音細節</text>
+<text x="60" y="44" font-size="11" font-weight="700" fill="#8b5cf6" letter-spacing="0.3">OUTPUT + VOICE DETAILS</text>
+<text x="20" y="56" font-size="13" fill="#333">輸出＋長度：〔精確的字數／條列數／段落數〕</text>
+<text x="20" y="77" font-size="13" fill="#333">收件人的反應：〔回覆／核准／簽署／預約會議〕</text>
+<text x="20" y="98" font-size="13" fill="#333">聲音比對：〔貼上 2–3 句你想要的語氣範例〕</text>
+</g>
+<g transform="translate(28,664)">
+<rect x="0" y="0" width="704" height="136" rx="12" fill="#FEF6E7" stroke="#d97706" stroke-width="1.3"/>
+<circle cx="30" cy="30" r="17" fill="#d97706"/>
+<text x="30" y="36" font-size="19" font-weight="800" fill="#ffffff" text-anchor="middle">5</text>
+<text x="60" y="26" font-size="17.5" font-weight="800" fill="#1a1a2e">寫作指引</text>
+<text x="60" y="44" font-size="11" font-weight="700" fill="#d97706" letter-spacing="0.3">WRITING GUIDANCE</text>
+<text x="20" y="56" font-size="13" fill="#333">用 16 歲能朗讀的白話書寫；用簡短具體的字：簡單、明確、真實。</text>
+<text x="20" y="77" font-size="13" fill="#333">語氣：〔挑 2 個 — 直接、溫暖、自信、輕鬆、技術〕</text>
+<text x="20" y="98" font-size="13" fill="#333">聽起來像：〔你要的 3 個正面特質〕</text>
+<text x="20" y="119" font-size="13" fill="#333">成功代表：〔收件人採取的那一個行動〕</text>
+</g>
+<g transform="translate(28,814)">
+<rect x="0" y="0" width="704" height="115" rx="12" fill="#E7F6FA" stroke="#0891b2" stroke-width="1.3"/>
+<circle cx="30" cy="30" r="17" fill="#0891b2"/>
+<text x="30" y="36" font-size="19" font-weight="800" fill="#ffffff" text-anchor="middle">6</text>
+<text x="60" y="26" font-size="17.5" font-weight="800" fill="#1a1a2e">明確指定要用的工具</text>
+<text x="60" y="44" font-size="11" font-weight="700" fill="#0891b2" letter-spacing="0.3">USE THEM EXPLICITLY</text>
+<text x="20" y="56" font-size="13" fill="#333">網路搜尋：〔每個論點用 2 個以上來源查證〕</text>
+<text x="20" y="77" font-size="13" fill="#333">Gmail／Drive／Calendar：〔指明確切動作與聯絡人〕</text>
+<text x="20" y="98" font-size="12" fill="#6b7280">把「leverage」換成「use」；把「utilize」換成「use」。</text>
+</g>
+<g transform="translate(28,943)">
+<rect x="0" y="0" width="704" height="94" rx="12" fill="#FCEAF3" stroke="#db2777" stroke-width="1.3"/>
+<circle cx="30" cy="30" r="17" fill="#db2777"/>
+<text x="30" y="36" font-size="19" font-weight="800" fill="#ffffff" text-anchor="middle">7</text>
+<text x="60" y="26" font-size="17.5" font-weight="800" fill="#1a1a2e">執行之前</text>
+<text x="60" y="44" font-size="11" font-weight="700" fill="#db2777" letter-spacing="0.3">BEFORE EXECUTING</text>
+<text x="20" y="56" font-size="13" fill="#333">先列出我情境檔中，對此任務最重要的 3 條規則。</text>
+<text x="20" y="77" font-size="13" fill="#333">接著給我最多 5 步的執行計畫。</text>
+</g>
+<g transform="translate(28,1051)">
+<rect x="0" y="0" width="704" height="94" rx="12" fill="#EEF1F5" stroke="#475569" stroke-width="1.3"/>
+<circle cx="30" cy="30" r="17" fill="#475569"/>
+<text x="30" y="36" font-size="19" font-weight="800" fill="#ffffff" text-anchor="middle">8</text>
+<text x="60" y="26" font-size="17.5" font-weight="800" fill="#1a1a2e">把標準拉高</text>
+<text x="60" y="44" font-size="11" font-weight="700" fill="#475569" letter-spacing="0.3">GO BEYOND THE BASICS</text>
+<text x="20" y="56" font-size="13" fill="#333">超越基本要求，像真正的客戶交付品般完成它。</text>
+<text x="20" y="77" font-size="13" fill="#333">回答前，先思考。</text>
+</g>
+<g transform="translate(28,1159)">
+<rect x="0" y="0" width="704" height="115" rx="12" fill="#EAF7EE" stroke="#16a34a" stroke-width="1.3"/>
+<circle cx="30" cy="30" r="17" fill="#16a34a"/>
+<text x="30" y="36" font-size="19" font-weight="800" fill="#ffffff" text-anchor="middle">9</text>
+<text x="60" y="26" font-size="17.5" font-weight="800" fill="#1a1a2e">一旦對齊共識</text>
+<text x="60" y="44" font-size="11" font-weight="700" fill="#16a34a" letter-spacing="0.3">ONCE ALIGNED</text>
+<text x="20" y="56" font-size="13" fill="#333">• 任何不清楚的，用 AskUserQuestion 詢問。</text>
+<text x="20" y="77" font-size="13" fill="#333">• 完全照我的回答做。</text>
+<text x="20" y="98" font-size="13" fill="#333">• 不要默默補上空白。</text>
+</g>
+<text x="28" y="1304" font-size="11.5" fill="#9aa0a6">中文重製版 · 依原圖風格重繪（原作：Redgate，The Claude Prompt Framework）</text>
+</svg>
+</div>
+    <p class="src">原作：Redgate — The Claude Prompt Framework。中文重製版，依原圖風格重繪。</p>
+  </section>
+
+</div></main>
+<footer>AI 概念研究 · 中文重繪圖解 · 2026-06-20</footer>
+</body>
+</html>
