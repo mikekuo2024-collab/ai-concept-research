@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI概念研究專有名詞索引</title>
+<meta name="description" content="AI 技術與應用核心概念的專有名詞深度研究索引，收錄每次研究工作流程產出的完整報告。">
+<style>
+:root {
+  --bg: #0f1117;
+  --surface: #1a1f2e;
+  --surface2: #222840;
+  --border: rgba(255,255,255,0.08);
+  --border-hover: rgba(99,179,237,0.35);
+  --ink: #e8edf5;
+  --muted: #8899bb;
+  --acc: #3b82f6;
+  --acc2: #0d9488;
+  --tag-bg: rgba(59,130,246,0.12);
+  --tag-ink: #93c5fd;
+  --count-bg: rgba(13,148,136,0.15);
+  --count-ink: #5eead4;
+  --glow: rgba(59,130,246,0.18);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ── Hero ── */
+.hero {
+  background: linear-gradient(135deg, #0c1022 0%, #1a2340 50%, #0e1928 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 64px 0 52px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 600px 300px at 20% 50%, rgba(59,130,246,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 200px at 80% 30%, rgba(13,148,136,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; }
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(59,130,246,0.15);
+  border: 1px solid rgba(59,130,246,0.3);
+  color: #93c5fd;
+  font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+  padding: 5px 14px; border-radius: 999px;
+  margin-bottom: 18px;
+}
+.badge svg { width: 12px; height: 12px; }
+h1 {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #fff;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.hero-sub {
+  color: #8899bb;
+  font-size: 15px;
+  max-width: 640px;
+  margin-bottom: 28px;
+}
+.hero-stats {
+  display: flex; gap: 28px; flex-wrap: wrap;
+}
+.stat {
+  display: flex; flex-direction: column;
+}
+.stat-num {
+  font-size: 28px; font-weight: 800; color: #fff;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 12px; color: var(--muted); margin-top: 3px;
+}
+
+/* ── Search ── */
+.search-bar {
+  padding: 28px 0 0;
+}
+.search-input-wrap {
+  position: relative; max-width: 480px;
+}
+.search-input-wrap svg {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  width: 16px; height: 16px; color: var(--muted); pointer-events: none;
+}
+#searchInput {
+  width: 100%; padding: 11px 16px 11px 42px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--ink);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+#searchInput:focus {
+  border-color: rgba(59,130,246,0.5);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+}
+#searchInput::placeholder { color: var(--muted); }
+
+/* ── Main ── */
+main { padding: 40px 0 80px; }
+
+.section-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px;
+}
+.section-title {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; color: var(--muted);
+  text-transform: uppercase;
+}
+.total-count {
+  font-size: 13px; color: var(--muted);
+}
+#visibleCount { color: var(--acc); font-weight: 700; }
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+
+/* ── Card ── */
+.card {
+  display: flex; flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--acc), var(--acc2));
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 40px var(--glow), 0 4px 16px rgba(0,0,0,0.3);
+}
+.card:hover::before { opacity: 1; }
+
+.card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 12px;
+  margin-bottom: 14px;
+}
+.card-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--acc), var(--acc2));
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.card-meta { text-align: right; }
+.card-date {
+  font-size: 12px; color: var(--muted);
+  background: var(--surface2);
+  padding: 3px 9px; border-radius: 999px;
+  display: inline-block;
+}
+.card-sources {
+  font-size: 11px; color: var(--count-ink);
+  margin-top: 4px;
+}
+
+.card-title {
+  font-size: 19px; font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.card-en {
+  font-size: 12px; color: var(--muted);
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
+}
+.card-desc {
+  font-size: 13.5px; color: #8fa5c0;
+  flex: 1;
+  margin-bottom: 14px;
+  line-height: 1.65;
+}
+.card-tags {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-bottom: 14px;
+}
+.tag {
+  font-size: 11.5px; color: var(--tag-ink);
+  background: var(--tag-bg);
+  padding: 3px 10px; border-radius: 999px;
+  border: 1px solid rgba(59,130,246,0.15);
+}
+.card-cta {
+  font-size: 13px; font-weight: 700;
+  color: var(--acc);
+  display: flex; align-items: center; gap: 6px;
+  margin-top: auto;
+  transition: gap 0.15s;
+}
+.card:hover .card-cta { gap: 10px; }
+
+/* ── Empty ── */
+.empty {
+  display: none;
+  text-align: center;
+  color: var(--muted);
+  padding: 60px 24px;
+  grid-column: 1 / -1;
+}
+.empty svg { width: 40px; height: 40px; margin-bottom: 12px; opacity: 0.4; }
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 24px 0 48px;
+  border-top: 1px solid var(--border);
+}
+footer a { color: var(--acc); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  h1 { font-size: 26px; }
+  .hero { padding: 44px 0 36px; }
+  .grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 18px; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="badge">
+      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="4.5"/><path d="M6 3v3l2 1"/></svg>
+      AI 概念研究 · 深度研究工作流程
+    </div>
+    <h1>AI概念研究<br>專有名詞索引</h1>
+    <p class="hero-sub">收錄每次使用「專有名詞深度研究」技能所產出的三頁式互動報告。點擊任意卡片即可開啟對應的深度研究網頁。</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num" id="totalTerms">6</span>
+        <span class="stat-label">已研究專有名詞</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">51</span>
+        <span class="stat-label">累計參考來源</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">2026-06-21</span>
+        <span class="stat-label">最後更新日期</span>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <div class="search-input-wrap">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6.5" cy="6.5" r="4.5"/><path d="m10 10 3 3"/></svg>
+        <input type="text" id="searchInput" placeholder="搜尋專有名詞或關鍵字…" autocomplete="off">
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-title">專有名詞索引</span>
+      <span class="total-count"><span id="visibleCount">6</span> / 6 個項目</span>
+    </div>
+
+    <div class="grid" id="grid">
+
+      <!-- ① Agentic AI -->
+      <a class="card" href="Agentic AI參考資料/Agentic_AI_摘要報告.html"
+         data-keywords="agentic ai 代理 自主 agent 任務 規劃 執行">
+        <div class="card-top">
+          <div class="card-icon">🤖</div>
+          <div class="card-meta">
+            <span class="card-date">2026-06-21</span>
+            <div class="card-sources">8 篇參考來源</div>
+          </div>
+        </div>
+        <div class="card-title">Agentic AI</div>
+        <div class="card-en">Agentic Artificial Intelligence</div>
+        <p class="card-desc">自主規劃、分解任務並連續執行的 AI 代理系統。涵蓋核心架構設計、企業應用案例、風險治理框架，以及與傳統 AI 的本質差異。</p>
+        <div class="card-tags">
+          <span class="tag">代理系統</span>
+          <span class="tag">自主執行</span>
+          <span class="tag">任務規劃</span>
+          <span class="tag">企業應用</span>
+        </div>
+        <span class="card-cta">開啟深度研究報告 →</span>
+      </a>
+
+      <!-- ② Context Engineering -->
+      <a class="card" href="Context Engineering參考資料/Context_Engineering_摘要報告.html"
+         data-keywords="context engineering 上下文 context 工程 提示 記憶 rag">
+        <div class="card-top">
+          <div class="card-icon">🧠</div>
+          <div class="card-meta">
+            <span class="card-date">2026-06-21</span>
+            <div class="card-sources">10 篇參考來源</div>
+          </div>
+        </div>
+        <div class="card-title">Context Engineering</div>
+        <div class="card-en">上下文工程</div>
+        <p class="card-desc">系統性設計與管理 AI 工作流程中的上下文資訊，超越單次提示詞優化，涵蓋記憶架構、RAG 整合、Agent 記憶管理，以及與提示工程的本質差異。</p>
+        <div class="card-tags">
+          <span class="tag">上下文管理</span>
+          <span class="tag">提示工程</span>
+          <span class="tag">RAG</span>
+          <span class="tag">記憶架構</span>
+        </div>
+        <span class="card-cta">開啟深度研究報告 →</span>
+      </a>
+
+      <!-- ③ Loop Engineering -->
+      <a class="card" href="Loop engineering參考資料/Loop_Engineering_摘要報告.html"
+         data-keywords="loop engineering 迴圈 loop 代理 循環 工作流程 自主">
+        <div class="card-top">
+          <div class="card-icon">🔄</div>
+          <div class="card-meta">
+            <span class="card-date">2026-06-21</span>
+            <div class="card-sources">6 篇參考來源</div>
+          </div>
+        </div>
+        <div class="card-title">Loop Engineering</div>
+        <div class="card-en">迴圈工程</div>
+        <p class="card-desc">AI 代理自主執行的迴圈設計模式，涵蓋 perceive-plan-act 循環、人機互動審核點設計、防止無限迴圈的護欄機制，以及實際工作流程實作要點。</p>
+        <div class="card-tags">
+          <span class="tag">迴圈設計</span>
+          <span class="tag">代理模式</span>
+          <span class="tag">自主循環</span>
+          <span class="tag">工作流程</span>
+        </div>
+        <span class="card-cta">開啟深度研究報告 →</span>
+      </a>
+
+      <!-- ④ MCP -->
+      <a class="card" href="MCP參考資料/MCP_摘要報告.html"
+         data-keywords="mcp model context protocol 協定 工具 anthropic 連接 安全">
+        <div class="card-top">
+          <div class="card-icon">🔌</div>
+          <div class="card-meta">
+            <span class="card-date">2026-06-21</span>
+            <div class="card-sources">9 篇參考來源</div>
+          </div>
+        </div>
+        <div class="card-title">MCP</div>
+        <div class="card-en">Model Context Protocol</div>
+        <p class="card-desc">Anthropic 制定的開放標準協定，讓 AI 模型安全、標準化地連接外部工具、資料庫與服務。涵蓋 Client-Server 架構、安全風險分析，以及各大雲端平台的支援現況。</p>
+        <div class="card-tags">
+          <span class="tag">協定標準</span>
+          <span class="tag">工具連接</span>
+          <span class="tag">Anthropic</span>
+          <span class="tag">安全架構</span>
+        </div>
+        <span class="card-cta">開啟深度研究報告 →</span>
+      </a>
+
+      <!-- ⑤ ReAct -->
+      <a class="card" href="ReAct參考資料/ReAct_摘要報告.html"
+         data-keywords="react reasoning acting 推理 行動 代理 langchain 思考鏈 chain of thought">
+        <div class="card-top">
+          <div class="card-icon">⚡</div>
+          <div class="card-meta">
+            <span class="card-date">2026-06-21</span>
+            <div class="card-sources">8 篇參考來源</div>
+          </div>
+        </div>
+        <div class="card-title">ReAct</div>
+        <div class="card-en">Reasoning + Acting</div>
+        <p class="card-desc">交替推理（Reasoning）與行動（Acting）的代理框架，讓 LLM 在思考過程中動態調用工具。涵蓋論文原理、與 CoT 的比較、LangChain 實作，以及現代 Agent 框架的演進。</p>
+        <div class="card-tags">
+          <span class="tag">推理行動</span>
+          <span class="tag">代理框架</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">思考鏈</span>
+        </div>
+        <span class="card-cta">開啟深度研究報告 →</span>
+      </a>
+
+      <!-- ⑥ Vibe Coding -->
+      <a class="card" href="Vibe Coding參考資料/Vibe_Coding_摘要報告.html"
+         data-keywords="vibe coding 自然語言 程式設計 ai 工具 karpathy cursor 生產力">
+        <div class="card-top">
+          <div class="card-icon">🎵</div>
+          <div class="card-meta">
+            <span class="card-date">2026-06-21</span>
+            <div class="card-sources">10 篇參考來源</div>
+          </div>
+        </div>
+        <div class="card-title">Vibe Coding</div>
+        <div class="card-en">氛圍式程式設計</div>
+        <p class="card-desc">Andrej Karpathy 提出的 AI 輔助程式設計新典範：以自然語言描述意圖、AI 生成程式碼、人工審核邏輯。涵蓋主流工具比較、安全風險、學術研究，以及 2026 年產業現況統計。</p>
+        <div class="card-tags">
+          <span class="tag">自然語言程式設計</span>
+          <span class="tag">AI 工具</span>
+          <span class="tag">Karpathy</span>
+          <span class="tag">生產力</span>
+        </div>
+        <span class="card-cta">開啟深度研究報告 →</span>
+      </a>
+
+      <!-- Empty state (hidden by default) -->
+      <div class="empty" id="emptyState">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/>
+        </svg>
+        <p>找不到符合的專有名詞</p>
+        <p style="font-size:12px;margin-top:6px;">請嘗試不同的關鍵字</p>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>AI 概念研究 · 專有名詞深度研究索引 &nbsp;|&nbsp; 最後更新：2026-06-21 &nbsp;|&nbsp;
+      <a href="index.html">← 返回概念圖解索引</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+const cards = document.querySelectorAll('.card[data-keywords]');
+const input = document.getElementById('searchInput');
+const empty = document.getElementById('emptyState');
+const visibleCount = document.getElementById('visibleCount');
+
+input.addEventListener('input', () => {
+  const q = input.value.trim().toLowerCase();
+  let count = 0;
+  cards.forEach(card => {
+    const kw = card.dataset.keywords || '';
+    const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
+    const desc = card.querySelector('.card-desc')?.textContent.toLowerCase() || '';
+    const tags = Array.from(card.querySelectorAll('.tag')).map(t => t.textContent.toLowerCase()).join(' ');
+    const match = !q || kw.includes(q) || title.includes(q) || desc.includes(q) || tags.includes(q);
+    card.style.display = match ? '' : 'none';
+    if (match) count++;
+  });
+  visibleCount.textContent = count;
+  empty.style.display = count === 0 ? 'block' : 'none';
+});
+</script>
+
+</body>
+</html>

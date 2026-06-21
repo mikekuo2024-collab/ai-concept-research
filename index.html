@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI 概念研究 · 索引入口</title>
-<meta name="description" content="AI 技術與應用核心概念 · 中文圖解／文章單頁集索引">
+<meta name="description" content="AI 技術與應用核心概念 · 中文圖解／專有名詞深度研究索引">
 <style>
-:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec;--racc:#0d9488;--rblue:#1e6fbf}
 *{box-sizing:border-box}
 body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
 .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
@@ -18,7 +18,10 @@ header.hero{background:linear-gradient(135deg,#1a1a2e,#2b3a67);color:#fff;paddin
 .meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;font-size:13px;color:#aeb8cf}
 main{padding:34px 0 60px}
 .section-title{font-size:15px;font-weight:700;color:var(--mut);letter-spacing:2px;margin:0 0 4px}
+.section-sub{font-size:13px;color:var(--mut);margin:4px 0 12px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:20px;margin-top:18px}
+.featured-grid{grid-template-columns:1fr;max-width:520px;margin-top:14px}
+/* Base card */
 .card{display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;text-decoration:none;color:inherit;box-shadow:0 4px 18px rgba(20,20,40,.05);transition:.18s}
 .card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(20,20,40,.12);border-color:#cdd3db}
 .card-top{display:flex;align-items:center;justify-content:space-between}
@@ -30,20 +33,36 @@ main{padding:34px 0 60px}
 .tag{font-size:12px;color:var(--blue);background:#eaf1f9;padding:3px 9px;border-radius:999px}
 .count{font-size:12px;color:var(--acc);background:#fff2ec;padding:3px 9px;border-radius:999px;font-weight:700}
 .go{margin-top:6px;font-size:13.5px;font-weight:700;color:var(--acc)}
-.empty{color:var(--mut);background:#fff;border:1px dashed var(--line);border-radius:16px;padding:40px;text-align:center}
+/* Research card overrides */
+.rcard{border-left:3px solid var(--rblue)}
+.rcard:hover{border-color:var(--racc);box-shadow:0 12px 30px rgba(13,148,136,.12)}
+.ridx{border-left:3px solid var(--racc);background:linear-gradient(135deg,#f0fdf9,#fff)}
+.rnum{background:linear-gradient(135deg,var(--rblue),var(--racc));font-size:20px}
+.rtag{color:var(--rblue);background:#e6f4f1}
+.rsrc{font-size:12px;color:var(--racc);background:#e6f4f1;padding:3px 9px;border-radius:999px;font-weight:700}
+.rgo{color:var(--rblue)}
+/* Divider */
+.divider{display:flex;align-items:center;gap:16px;margin:44px 0 0}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--line)}
+.divider-label{font-size:14px;font-weight:700;color:var(--mut);letter-spacing:2px;white-space:nowrap}
 footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 0 50px}
-@media(max-width:600px){.hero h1{font-size:30px}.grid{grid-template-columns:1fr}}
+@media(max-width:600px){.hero h1{font-size:30px}.grid,.featured-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header class="hero"><div class="wrap">
   <span class="badge">AI 概念研究</span>
   <h1>AI 概念研究</h1>
-  <p>本站收錄每一次「概念研究」產出的單頁式網頁。每張索引標籤標示產生日期與主題，點擊即可前往該次的完整中文圖解／文章。新研究產出時，索引會自動加入並更新。</p>
-  <div class="meta"><span>共 5 篇概念研究</span><span>最後更新：2026-06-21</span><span>格式：單頁式 HTML</span></div>
+  <p>本站收錄兩大類研究成果：「概念圖解」為英文 AI 資訊圖的中文重繪單頁集；「專有名詞深度研究」為系統性深度研究報告，每個名詞涵蓋 6–10 篇多元來源。點擊任意卡片即可開啟完整頁面。</p>
+  <div class="meta">
+    <span>概念圖解 5 篇</span>
+    <span>專有名詞研究 6 個</span>
+    <span>最後更新：2026-06-21</span>
+  </div>
 </div></header>
 <main><div class="wrap">
-  <p class="section-title">概念索引</p>
+  <p class="section-title">概念圖解索引</p>
+  <p class="section-sub">英文 AI 資訊圖的中文重繪單頁集，共 5 篇</p>
   <div class="grid">
       <a class="card" href="concept-ai-models-and-prompting.html">
         <div class="card-top">
@@ -96,8 +115,91 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 0 50px}
         <span class="go">開啟單頁網頁 →</span>
       </a>
   </div>
-  
+
+  <!-- 專有名詞深度研究分隔線 -->
+  <div class="divider">
+    <span class="divider-label">専有名詞深度研究</span>
+  </div>
+
+  <!-- 索引入口卡片（特色卡） -->
+  <div class="grid featured-grid">
+      <a class="card rcard ridx" href="AI概念研究專有名詞索引.html">
+        <div class="card-top">
+          <span class="num rnum">🔖</span>
+          <time class="date">2026-06-21</time>
+        </div>
+        <h2 class="topic">AI概念研究專有名詞索引</h2>
+        <p class="desc">收錄所有專有名詞深度研究報告的總索引頁，支援即時關鍵字搜尋，可快速導覽至各研究報告。</p>
+        <div class="tags"><span class="tag rtag">索引頁</span><span class="tag rtag">專有名詞</span><span class="tag rtag">深度研究</span><span class="rsrc">6 篇來源</span></div>
+        <span class="go rgo">開啟專有名詞索引頁 →</span>
+      </a>
+  </div>
+
+  <p class="section-sub">共 6 個專有名詞 · 每篇含三頁式互動式 HTML 報告</p>
+  <div class="grid">
+      <a class="card rcard" href="Agentic AI參考資料/Agentic_AI_摘要報告.html">
+        <div class="card-top">
+          <span class="num rnum">01</span>
+          <time class="date">2026-06-21</time>
+        </div>
+        <h2 class="topic">Agentic AI</h2>
+        <p class="desc">自主規劃、分解任務並連續執行的 AI 代理系統。涵蓋核心架構設計、企業應用案例、風險治理框架，以及與傳統 AI 的本質差異。</p>
+        <div class="tags"><span class="tag rtag">代理系統</span><span class="tag rtag">自主執行</span><span class="tag rtag">任務規劃</span><span class="tag rtag">企業應用</span><span class="rsrc">8 篇來源</span></div>
+        <span class="go rgo">開啟深度研究報告 →</span>
+      </a>
+      <a class="card rcard" href="Context Engineering參考資料/Context_Engineering_摘要報告.html">
+        <div class="card-top">
+          <span class="num rnum">02</span>
+          <time class="date">2026-06-21</time>
+        </div>
+        <h2 class="topic">Context Engineering</h2>
+        <p class="desc">系統性設計與管理 AI 工作流程中的上下文資訊，超越單次提示詞優化，涵蓋記憶架構、RAG 整合、Agent 記憶管理及與提示工程的本質差異。</p>
+        <div class="tags"><span class="tag rtag">上下文管理</span><span class="tag rtag">提示工程</span><span class="tag rtag">RAG</span><span class="tag rtag">記憶架構</span><span class="rsrc">10 篇來源</span></div>
+        <span class="go rgo">開啟深度研究報告 →</span>
+      </a>
+      <a class="card rcard" href="Loop engineering參考資料/Loop_Engineering_摘要報告.html">
+        <div class="card-top">
+          <span class="num rnum">03</span>
+          <time class="date">2026-06-21</time>
+        </div>
+        <h2 class="topic">Loop Engineering</h2>
+        <p class="desc">AI 代理自主執行的迴圈設計模式，涵蓋 perceive-plan-act 循環、人機互動審核點設計、防止無限迴圈的護欄機制。</p>
+        <div class="tags"><span class="tag rtag">迴圈設計</span><span class="tag rtag">代理模式</span><span class="tag rtag">自主循環</span><span class="tag rtag">工作流程</span><span class="rsrc">6 篇來源</span></div>
+        <span class="go rgo">開啟深度研究報告 →</span>
+      </a>
+      <a class="card rcard" href="MCP參考資料/MCP_摘要報告.html">
+        <div class="card-top">
+          <span class="num rnum">04</span>
+          <time class="date">2026-06-21</time>
+        </div>
+        <h2 class="topic">MCP（Model Context Protocol）</h2>
+        <p class="desc">Anthropic 制定的開放標準協定，讓 AI 模型安全、標準化地連接外部工具、資料庫與服務，涵蓋架構設計、安全風險分析及各大平台支援現況。</p>
+        <div class="tags"><span class="tag rtag">協定標準</span><span class="tag rtag">工具連接</span><span class="tag rtag">Anthropic</span><span class="tag rtag">安全架構</span><span class="rsrc">9 篇來源</span></div>
+        <span class="go rgo">開啟深度研究報告 →</span>
+      </a>
+      <a class="card rcard" href="ReAct參考資料/ReAct_摘要報告.html">
+        <div class="card-top">
+          <span class="num rnum">05</span>
+          <time class="date">2026-06-21</time>
+        </div>
+        <h2 class="topic">ReAct（Reasoning + Acting）</h2>
+        <p class="desc">交替推理與行動的代理框架，讓 LLM 在思考過程中動態調用工具，涵蓋論文原理、與 CoT 的比較、LangChain 實作及現代 Agent 框架演進。</p>
+        <div class="tags"><span class="tag rtag">推理行動</span><span class="tag rtag">代理框架</span><span class="tag rtag">LangChain</span><span class="tag rtag">思考鏈</span><span class="rsrc">8 篇來源</span></div>
+        <span class="go rgo">開啟深度研究報告 →</span>
+      </a>
+      <a class="card rcard" href="Vibe Coding參考資料/Vibe_Coding_摘要報告.html">
+        <div class="card-top">
+          <span class="num rnum">06</span>
+          <time class="date">2026-06-21</time>
+        </div>
+        <h2 class="topic">Vibe Coding</h2>
+        <p class="desc">Andrej Karpathy 提出的 AI 輔助程式設計新典範：以自然語言描述意圖、AI 生成程式碼、人工審核邏輯，涵蓋工具比較、安全風險及產業現況。</p>
+        <div class="tags"><span class="tag rtag">自然語言程式設計</span><span class="tag rtag">AI 工具</span><span class="tag rtag">Karpathy</span><span class="tag rtag">生產力</span><span class="rsrc">10 篇來源</span></div>
+        <span class="go rgo">開啟深度研究報告 →</span>
+      </a>
+  </div>
+
 </div></main>
-<footer>AI 概念研究 · 索引入口 · 由 concept-localize-publish 產出的單頁網頁集合</footer>
+<footer>AI 概念研究 · 索引入口 · 概念圖解由 concept-localize-publish 產出；專有名詞研究由 proper-noun-deep-research 產出</footer>
 </body>
 </html>
