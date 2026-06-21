@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 詞彙 × 模型選型 × RAG × 提示分級 · 中文圖解</title>
+<meta name="description" content="四張英文 AI 資訊圖的中文重繪：20 個必懂 AI 詞彙、RAG 與 Agentic RAG、八大 AI 模型、提示的六個層次。">
+<style>
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+header.hero{background:linear-gradient(135deg,#1a1a2e,#2b3a67);color:#fff;padding:54px 0 40px}
+.hero .wrap{display:flex;flex-direction:column;gap:12px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;width:fit-content}
+.hero h1{margin:0;font-size:32px;letter-spacing:.5px}
+.hero p{margin:0;color:#c8d0e0;font-size:15px;max-width:680px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;font-size:13px;color:#aeb8cf}
+.home{color:#ffd9c6;text-decoration:none;font-size:13.5px;font-weight:600}
+main{padding:26px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin:22px 0;box-shadow:0 4px 18px rgba(20,20,40,.05)}
+.card-head{display:flex;align-items:center;justify-content:space-between}
+.cat{font-size:12.5px;font-weight:700;color:var(--blue);background:#eaf1f9;padding:4px 11px;border-radius:999px}
+.idx{font-size:12.5px;color:var(--mut);font-weight:700}
+.card h2{margin:14px 0 2px;font-size:23px}
+.en{margin:0;color:var(--mut);font-size:13.5px;font-style:italic}
+.lead{margin:12px 0 6px;font-size:15px;color:#333}
+.points{margin:6px 0 16px;padding-left:20px}
+.points li{margin:5px 0;font-size:14.5px;color:#222}
+.figure{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+.figure svg{width:100%;height:auto;display:block}
+.src{margin:12px 0 0;font-size:12px;color:#9aa3af}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:24px 0 50px}
+@media(max-width:600px){.hero h1{font-size:25px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="badge">AI 概念研究</span>
+  <h1>AI 詞彙 × 模型選型 × RAG × 提示分級 · 中文圖解</h1>
+  <p>四張英文 AI 資訊圖的中文重繪：先建立 20 個必懂詞彙，再看 RAG 與 Agentic RAG 的差別、八大 AI 模型怎麼選，最後用六個層次把提示能力一路升級。</p>
+  <div class="meta"><span>產生日期：2026-06-21</span><span>共 4 張圖</span><span>格式：單頁式 HTML</span></div>
+  <a class="home" href="index.html">← 回索引入口</a>
+</div></header>
+<main><div class="wrap">
+
+  <section class="card">
+    <div class="card-head">
+      <span class="cat">AI 基礎 · 詞彙</span>
+      <span class="idx">01 / 04</span>
+    </div>
+    <h2>每個團隊都該懂的 20 個 AI 詞彙</h2>
+    <p class="en">AI Vocabulary Every Team Must Understand (2025–26)</p>
+    <p class="lead">一張表把團隊協作會用到的 20 個 AI 關鍵字講清楚，從人工智慧、機器學習、深度學習，到 AI 代理、代理型 AI、提示、微調與 AI 倫理。</p>
+    <ul class="points">
+      <li>基礎概念：人工智慧、機器學習、深度學習、神經網路、生成式 AI。</li>
+      <li>語言與代理：大型語言模型 LLM、AI 代理、代理型 AI、聊天機器人、提示。</li>
+      <li>資料與模型：微調、資料訓練、資料集、模型、自動化。</li>
+      <li>感知與責任：電腦視覺、自然語言處理 NLP、語音 AI、個人化、AI 倫理。</li>
+    </ul>
+    <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 760" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="760" fill="#ffffff"/>
+  <g transform="translate(28,28)">
+    <text x="0" y="22" font-size="28" font-weight="800" fill="#1a1a2e">每個團隊都該懂的 20 個 AI 詞彙</text>
+    <text x="0" y="46" font-size="14" font-weight="600" fill="#6b7280">AI Vocabulary Every Team Must Understand（2025–26）</text>
+    <line x1="0" y1="58" x2="644" y2="58" stroke="#2b6cb0" stroke-width="3"/>
+    <circle cx="0" cy="58" r="5" fill="#F25C26"/>
+  </g>
+  <g transform="translate(28,108)" font-size="12">
+    <!-- helper rows: each cell 52 tall -->
+    <!-- LEFT COLUMN -->
+    <g transform="translate(0,0)">
+      <g transform="translate(0,0)"><circle cx="14" cy="14" r="13" fill="#F25C26"/><text x="14" y="19" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">1</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">人工智慧 AI</text><text x="36" y="32" fill="#444">像人類一樣思考與行動的機器</text></g>
+      <g transform="translate(0,52)"><circle cx="14" cy="14" r="13" fill="#F25C26"/><text x="14" y="19" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">2</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">機器學習 ML</text><text x="36" y="32" fill="#444">從資料中學習並自動改進</text></g>
+      <g transform="translate(0,104)"><circle cx="14" cy="14" r="13" fill="#F25C26"/><text x="14" y="19" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">3</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">深度學習</text><text x="36" y="32" fill="#444">處理複雜任務的神經網路</text></g>
+      <g transform="translate(0,156)"><circle cx="14" cy="14" r="13" fill="#F25C26"/><text x="14" y="19" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">4</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">神經網路</text><text x="36" y="32" fill="#444">仿大腦的模式辨識</text></g>
+      <g transform="translate(0,208)"><circle cx="14" cy="14" r="13" fill="#F25C26"/><text x="14" y="19" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">5</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">生成式 AI</text><text x="36" y="32" fill="#444">生成文字、圖像或影片</text></g>
+      <g transform="translate(0,260)"><circle cx="14" cy="14" r="13" fill="#2b6cb0"/><text x="14" y="19" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">6</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">大型語言模型 LLM</text><text x="36" y="32" fill="#444">理解並生成語言</text></g>
+      <g transform="translate(0,312)"><circle cx="14" cy="14" r="13" fill="#2b6cb0"/><text x="14" y="19" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">7</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">AI 代理</text><text x="36" y="32" fill="#444">執行任務並做決策</text></g>
+      <g transform="translate(0,364)"><circle cx="14" cy="14" r="13" fill="#2b6cb0"/><text x="14" y="19" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">8</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">代理型 AI</text><text x="36" y="32" fill="#444">自主規劃、推理與執行</text></g>
+      <g transform="translate(0,416)"><circle cx="14" cy="14" r="13" fill="#2b6cb0"/><text x="14" y="19" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">9</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">聊天機器人</text><text x="36" y="32" fill="#444">以自然語言對話的 AI</text></g>
+      <g transform="translate(0,468)"><circle cx="14" cy="14" r="13" fill="#2b6cb0"/><text x="14" y="19" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">10</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">提示 Prompt</text><text x="36" y="32" fill="#444">給 AI 的指令</text></g>
+    </g>
+    <!-- RIGHT COLUMN -->
+    <g transform="translate(332,0)">
+      <g transform="translate(0,0)"><circle cx="14" cy="14" r="13" fill="#8b5cf6"/><text x="14" y="19" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">11</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">微調 Fine-Tuning</text><text x="36" y="32" fill="#444">為特定任務專門化模型</text></g>
+      <g transform="translate(0,52)"><circle cx="14" cy="14" r="13" fill="#8b5cf6"/><text x="14" y="19" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">12</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">資料訓練</text><text x="36" y="32" fill="#444">教系統辨識模式的資料</text></g>
+      <g transform="translate(0,104)"><circle cx="14" cy="14" r="13" fill="#8b5cf6"/><text x="14" y="19" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">13</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">資料集 Dataset</text><text x="36" y="32" fill="#444">用來訓練或測試模型的資料</text></g>
+      <g transform="translate(0,156)"><circle cx="14" cy="14" r="13" fill="#8b5cf6"/><text x="14" y="19" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">14</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">模型 Model</text><text x="36" y="32" fill="#444">能預測或生成的已訓練系統</text></g>
+      <g transform="translate(0,208)"><circle cx="14" cy="14" r="13" fill="#8b5cf6"/><text x="14" y="19" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">15</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">自動化</text><text x="36" y="32" fill="#444">無需人力的重複性任務</text></g>
+      <g transform="translate(0,260)"><circle cx="14" cy="14" r="13" fill="#1a9e6a"/><text x="14" y="19" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">16</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">電腦視覺</text><text x="36" y="32" fill="#444">AI 理解影像或影片</text></g>
+      <g transform="translate(0,312)"><circle cx="14" cy="14" r="13" fill="#1a9e6a"/><text x="14" y="19" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">17</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">自然語言處理 NLP</text><text x="36" y="32" fill="#444">AI 理解語言</text></g>
+      <g transform="translate(0,364)"><circle cx="14" cy="14" r="13" fill="#1a9e6a"/><text x="14" y="19" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">18</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">語音 AI</text><text x="36" y="32" fill="#444">辨識並回應語音</text></g>
+      <g transform="translate(0,416)"><circle cx="14" cy="14" r="13" fill="#1a9e6a"/><text x="14" y="19" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">19</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">個人化</text><text x="36" y="32" fill="#444">量身打造內容或體驗</text></g>
+      <g transform="translate(0,468)"><circle cx="14" cy="14" r="13" fill="#1a9e6a"/><text x="14" y="19" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">20</text><text x="36" y="13" font-size="13.5" font-weight="800" fill="#1a1a2e">AI 倫理</text><text x="36" y="32" fill="#444">公平、透明、負責任的 AI 使用</text></g>
+    </g>
+  </g>
+  <text x="28" y="742" font-size="11.5" fill="#9aa3af">中文重製版 · 依原圖內容重繪（原作：AI For Leaders.com · AI Vocabulary Every Team Must Understand）</text>
+</svg></div>
+    <p class="src">中文重製版 · 依原圖內容重繪（原作：AI For Leaders.com）</p>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <span class="cat">AI 架構 · 檢索增強</span>
+      <span class="idx">02 / 04</span>
+    </div>
+    <h2>RAG 與 Agentic RAG 的差別</h2>
+    <p class="en">RAG vs. Agentic RAG</p>
+    <p class="lead">傳統 RAG 是一條單向流水線；Agentic RAG 則讓模型能自問「資訊夠不夠？」、改寫查詢、挑選來源，並反覆驗證答案是否夠相關，直到輸出最終回應。</p>
+    <ul class="points">
+      <li>傳統 RAG：查詢 → 編碼 → 向量資料庫索引 → 相似度搜尋 → 檢索內容＋查詢 → LLM → 回應。</li>
+      <li>Agentic RAG 多了決策節點：「需要更多資訊嗎？」「該用哪個來源？」「答案夠相關嗎？」</li>
+      <li>可在向量資料庫、工具與 API、網際網路之間動態選擇來源。</li>
+      <li>核心差異：從一次走完，變成能自我修正、反覆檢索的迴圈。</li>
+    </ul>
+    <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 880" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="880" fill="#ffffff"/>
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6b7280"/></marker>
+  </defs>
+  <g transform="translate(28,28)">
+    <text x="0" y="22" font-size="28" font-weight="800" fill="#1a1a2e">RAG 與 Agentic RAG 的差別</text>
+    <text x="0" y="46" font-size="14" font-weight="600" fill="#6b7280">檢索增強生成如何隨「代理」進化 — 從單向流程到能自我判斷的迴圈</text>
+    <line x1="0" y1="58" x2="644" y2="58" stroke="#2b6cb0" stroke-width="3"/>
+    <circle cx="0" cy="58" r="5" fill="#F25C26"/>
+  </g>
+
+  <!-- LEFT: RAG -->
+  <g transform="translate(28,104)">
+    <rect x="0" y="0" width="314" height="710" rx="14" fill="#FBFCFD" stroke="#cfd8e3"/>
+    <rect x="0" y="0" width="314" height="40" rx="14" fill="#2b6cb0"/>
+    <rect x="0" y="20" width="314" height="20" fill="#2b6cb0"/>
+    <text x="157" y="26" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">RAG（傳統檢索增強生成）</text>
+    <g font-size="12.5" text-anchor="middle">
+      <rect x="82" y="58" width="150" height="40" rx="9" fill="#EAF1F9" stroke="#2b6cb0"/><text x="157" y="83" fill="#1a1a2e" font-weight="700">使用者查詢 Query</text>
+      <line x1="157" y1="98" x2="157" y2="118" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="82" y="120" width="150" height="40" rx="9" fill="#fff" stroke="#cfd8e3"/><text x="157" y="145" fill="#333">編碼 Encode</text>
+      <line x1="157" y1="160" x2="157" y2="180" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="62" y="182" width="190" height="46" rx="9" fill="#F3EEFE" stroke="#8b5cf6"/><text x="157" y="203" fill="#1a1a2e" font-weight="700">向量資料庫</text><text x="157" y="220" font-size="11" fill="#6b7280">建立索引 Index</text>
+      <line x1="157" y1="228" x2="157" y2="248" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="62" y="250" width="190" height="46" rx="9" fill="#fff" stroke="#cfd8e3"/><text x="157" y="271" fill="#333" font-weight="700">相似度搜尋</text><text x="157" y="288" font-size="11" fill="#6b7280">找出相似文件 Similar docs</text>
+      <line x1="157" y1="296" x2="157" y2="316" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="52" y="318" width="210" height="46" rx="9" fill="#FFF3E9" stroke="#F25C26"/><text x="157" y="339" fill="#1a1a2e" font-weight="700">檢索內容 ＋ 查詢</text><text x="157" y="356" font-size="11" fill="#9a6b4a">Retrieved Context + Query</text>
+      <line x1="157" y1="364" x2="157" y2="384" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="82" y="386" width="150" height="44" rx="9" fill="#EAF7F0" stroke="#1a9e6a"/><text x="157" y="413" fill="#1a9e6a" font-weight="800">LLM 生成</text>
+      <line x1="157" y1="430" x2="157" y2="450" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="82" y="452" width="150" height="40" rx="9" fill="#1a1a2e"/><text x="157" y="477" fill="#fff" font-weight="700">回應 Response</text>
+    </g>
+    <text x="157" y="690" font-size="12" fill="#6b7280" text-anchor="middle">特點：一次走完、單向流程，</text>
+    <text x="157" y="690" font-size="12" fill="#6b7280" text-anchor="middle" dy="18">不檢查答案是否足夠。</text>
+  </g>
+
+  <!-- RIGHT: Agentic RAG -->
+  <g transform="translate(358,104)">
+    <rect x="0" y="0" width="314" height="710" rx="14" fill="#FBFCFD" stroke="#cfd8e3"/>
+    <rect x="0" y="0" width="314" height="40" rx="14" fill="#F25C26"/>
+    <rect x="0" y="20" width="314" height="20" fill="#F25C26"/>
+    <text x="157" y="26" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">Agentic RAG（代理型）</text>
+    <g font-size="12.5" text-anchor="middle">
+      <rect x="82" y="58" width="150" height="40" rx="9" fill="#FFF3E9" stroke="#F25C26"/><text x="157" y="83" fill="#1a1a2e" font-weight="700">使用者查詢 Query</text>
+      <line x1="157" y1="98" x2="157" y2="116" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="82" y="118" width="150" height="40" rx="9" fill="#EAF7F0" stroke="#1a9e6a"/><text x="157" y="143" fill="#1a9e6a" font-weight="800">LLM</text>
+      <line x1="157" y1="158" x2="157" y2="176" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="47" y="178" width="220" height="46" rx="23" fill="#FEF6E7" stroke="#d97706"/><text x="157" y="199" fill="#c2410c" font-weight="800">需要更多資訊嗎？</text><text x="157" y="216" font-size="11" fill="#9a6b4a">是 → 改寫查詢；否 → 直接作答</text>
+      <line x1="157" y1="224" x2="157" y2="242" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="72" y="244" width="170" height="40" rx="9" fill="#fff" stroke="#cfd8e3"/><text x="157" y="269" fill="#333" font-weight="700">改寫查詢 Rewrite</text>
+      <line x1="157" y1="284" x2="157" y2="302" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="32" y="304" width="250" height="58" rx="9" fill="#F3EEFE" stroke="#8b5cf6"/><text x="157" y="324" fill="#7c3aed" font-weight="800">選擇來源 Which Source？</text><text x="157" y="342" font-size="11" fill="#444">向量 DB ｜ 工具與 API ｜ 網際網路</text><text x="157" y="357" font-size="10.5" fill="#9aa3af">挑出最能回答問題的來源</text>
+      <line x1="157" y1="362" x2="157" y2="380" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="42" y="382" width="230" height="44" rx="9" fill="#FFF3E9" stroke="#F25C26"/><text x="157" y="402" fill="#1a1a2e" font-weight="700">檢索內容 ＋ 更新後查詢</text><text x="157" y="418" font-size="11" fill="#9a6b4a">Retrieved Context + Updated Query</text>
+      <line x1="157" y1="426" x2="157" y2="444" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="82" y="446" width="150" height="40" rx="9" fill="#EAF7F0" stroke="#1a9e6a"/><text x="157" y="471" fill="#1a9e6a" font-weight="800">提示 → LLM</text>
+      <line x1="157" y1="486" x2="157" y2="504" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="47" y="506" width="220" height="46" rx="23" fill="#FEF6E7" stroke="#d97706"/><text x="157" y="527" fill="#c2410c" font-weight="800">答案夠相關嗎？</text><text x="157" y="544" font-size="11" fill="#9a6b4a">否 → 回到改寫迴圈；是 → 輸出</text>
+      <line x1="157" y1="552" x2="157" y2="570" stroke="#6b7280" stroke-width="1.5" marker-end="url(#ar)"/>
+      <rect x="72" y="572" width="170" height="40" rx="9" fill="#1a1a2e"/><text x="157" y="597" fill="#fff" font-weight="700">最終回應 Final</text>
+    </g>
+    <!-- loop back arrow -->
+    <path d="M30,529 C8,529 8,266 30,266" fill="none" stroke="#d97706" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+    <text x="157" y="640" font-size="12" fill="#6b7280" text-anchor="middle">特點：能自問自答、改寫查詢、</text>
+    <text x="157" y="658" font-size="12" fill="#6b7280" text-anchor="middle">挑選來源並反覆驗證到答案夠好。</text>
+  </g>
+
+  <text x="28" y="862" font-size="11.5" fill="#9aa3af">中文重製版 · 依原圖內容重繪（原作：datasciencedojo · RAG vs Agentic RAG）</text>
+</svg></div>
+    <p class="src">中文重製版 · 依原圖內容重繪（原作：datasciencedojo）</p>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <span class="cat">AI 工具 · 模型選型</span>
+      <span class="idx">03 / 04</span>
+    </div>
+    <h2>八大 AI 模型，助你聰明工作</h2>
+    <p class="en">Top 8 Models To Help You Work Smarter</p>
+    <p class="lead">把 ChatGPT、Claude、Gemini、DeepSeek、Grok、Perplexity、Mixtral、Llama 八家模型的特色與適用情境並列，協助你依任務選對工具。</p>
+    <ul class="points">
+      <li>通用與生態：ChatGPT（多模態＋插件）、Gemini（深整合 Google）。</li>
+      <li>長文與可靠：Claude（超長上下文、重安全對齊、擅長文件審閱）。</li>
+      <li>開源與技術：DeepSeek、Mixtral、Llama（開源、省算力、可自建工具）。</li>
+      <li>即時與研究：Grok（連動 X、即時趨勢）、Perplexity（搜尋附來源引用）。</li>
+    </ul>
+    <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 980" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="980" fill="#ffffff"/>
+  <g transform="translate(28,28)">
+    <text x="0" y="22" font-size="28" font-weight="800" fill="#1a1a2e">八大 AI 模型，助你聰明工作</text>
+    <text x="0" y="46" font-size="14" font-weight="600" fill="#6b7280">Top 8 Models To Help You Work Smarter — 各家特色與適用情境一覽</text>
+    <line x1="0" y1="58" x2="644" y2="58" stroke="#2b6cb0" stroke-width="3"/>
+    <circle cx="0" cy="58" r="5" fill="#F25C26"/>
+  </g>
+
+  <g transform="translate(28,104)" font-size="11.5">
+    <!-- card template: width 312 height 200 -->
+    <!-- 1 ChatGPT -->
+    <g transform="translate(0,0)">
+      <rect x="0" y="0" width="312" height="200" rx="11" fill="#FFF7F0" stroke="#F25C26"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#F25C26">1 ChatGPT</text><text x="16" y="42" font-size="10.5" fill="#9a6b4a">OpenAI</text>
+      <text x="16" y="64" font-weight="700" fill="#1a1a2e">特色</text>
+      <text x="16" y="82" fill="#333">• 自然對話有記憶、強推理與寫程式</text>
+      <text x="16" y="100" fill="#333">• 多模態、龐大插件與 GPTs 生態</text>
+      <text x="16" y="124" font-weight="700" fill="#1a1a2e">適用</text>
+      <text x="16" y="142" fill="#333">• 日常生產力、寫作編輯與規劃</text>
+      <text x="16" y="160" fill="#333">• 寫程式除錯、建客服聊天機器人</text>
+    </g>
+    <!-- 2 Claude -->
+    <g transform="translate(332,0)">
+      <rect x="0" y="0" width="312" height="200" rx="11" fill="#EAF1F9" stroke="#2b6cb0"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#2b6cb0">2 Claude</text><text x="16" y="42" font-size="10.5" fill="#6b7280">Anthropic</text>
+      <text x="16" y="64" font-weight="700" fill="#1a1a2e">特色</text>
+      <text x="16" y="82" fill="#333">• 超長上下文（數百頁）、重安全對齊</text>
+      <text x="16" y="100" fill="#333">• 擅長摘要與文件審閱、語氣自然有禮</text>
+      <text x="16" y="124" font-weight="700" fill="#1a1a2e">適用</text>
+      <text x="16" y="142" fill="#333">• 分析長文件、敏感商業任務</text>
+      <text x="16" y="160" fill="#333">• 長文寫作、重可靠性的工作</text>
+    </g>
+    <!-- 3 Gemini -->
+    <g transform="translate(0,216)">
+      <rect x="0" y="0" width="312" height="200" rx="11" fill="#EAF7F0" stroke="#1a9e6a"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#1a9e6a">3 Gemini</text><text x="16" y="42" font-size="10.5" fill="#6b7280">Google DeepMind</text>
+      <text x="16" y="64" font-weight="700" fill="#1a1a2e">特色</text>
+      <text x="16" y="82" fill="#333">• 多模態：文字／圖／影片／程式</text>
+      <text x="16" y="100" fill="#333">• 強推理與編碼、深整合 Google 工具</text>
+      <text x="16" y="124" font-weight="700" fill="#1a1a2e">適用</text>
+      <text x="16" y="142" fill="#333">• 圖文影整合、嵌入 Workspace</text>
+      <text x="16" y="160" fill="#333">• 為搜尋與資訊檢索最佳化</text>
+    </g>
+    <!-- 4 DeepSeek -->
+    <g transform="translate(332,216)">
+      <rect x="0" y="0" width="312" height="200" rx="11" fill="#F3EEFE" stroke="#8b5cf6"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#7c3aed">4 DeepSeek</text>
+      <text x="16" y="64" font-weight="700" fill="#1a1a2e">特色</text>
+      <text x="16" y="82" fill="#333">• 高效推理省算力、開源彈性可調</text>
+      <text x="16" y="100" fill="#333">• 擅長數學邏輯技術、為速度與規模調校</text>
+      <text x="16" y="124" font-weight="700" fill="#1a1a2e">適用</text>
+      <text x="16" y="142" fill="#333">• 技術與邏輯問題、科學運算</text>
+      <text x="16" y="160" fill="#333">• 需開源工具、低成本部署</text>
+    </g>
+    <!-- 5 Grok -->
+    <g transform="translate(0,432)">
+      <rect x="0" y="0" width="312" height="200" rx="11" fill="#FEF6E7" stroke="#d97706"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#c2410c">5 Grok</text><text x="16" y="42" font-size="10.5" fill="#9a6b4a">xAI</text>
+      <text x="16" y="64" font-weight="700" fill="#1a1a2e">特色</text>
+      <text x="16" y="82" fill="#333">• 即時連動 X、語氣大膽詼諧</text>
+      <text x="16" y="100" fill="#333">• 兼具娛樂與功能、聚焦即時事件</text>
+      <text x="16" y="124" font-weight="700" fill="#1a1a2e">適用</text>
+      <text x="16" y="142" fill="#333">• 追蹤即時趨勢、社群洞察</text>
+      <text x="16" y="160" fill="#333">• 創意內容、非正式問答與娛樂</text>
+    </g>
+    <!-- 6 Perplexity -->
+    <g transform="translate(332,432)">
+      <rect x="0" y="0" width="312" height="200" rx="11" fill="#E7F6FA" stroke="#0891b2"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#0e7490">6 Perplexity</text><text x="16" y="42" font-size="10.5" fill="#6b7280">Perplexity AI</text>
+      <text x="16" y="64" font-weight="700" fill="#1a1a2e">特色</text>
+      <text x="16" y="82" fill="#333">• 即時網路搜尋附來源、引用佐證</text>
+      <text x="16" y="100" fill="#333">• 介面簡潔、適合研究探索</text>
+      <text x="16" y="124" font-weight="700" fill="#1a1a2e">適用</text>
+      <text x="16" y="142" fill="#333">• 附驗證資訊的快速研究</text>
+      <text x="16" y="160" fill="#333">• 學術專業研究、比對資料與引用</text>
+    </g>
+    <!-- 7 Mixtral -->
+    <g transform="translate(0,648)">
+      <rect x="0" y="0" width="312" height="200" rx="11" fill="#FBECEC" stroke="#d14545"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#d14545">7 Mixtral</text><text x="16" y="42" font-size="10.5" fill="#9a6b4a">Mistral AI</text>
+      <text x="16" y="64" font-weight="700" fill="#1a1a2e">特色</text>
+      <text x="16" y="82" fill="#333">• 專家混合（MoE）快又省</text>
+      <text x="16" y="100" fill="#333">• 少參數高表現、開放權重對開發者友善</text>
+      <text x="16" y="124" font-weight="700" fill="#1a1a2e">適用</text>
+      <text x="16" y="142" fill="#333">• 快速高效執行、結構化輸出</text>
+      <text x="16" y="160" fill="#333">• 用開放權重自建工具、大規模部署</text>
+    </g>
+    <!-- 8 Llama -->
+    <g transform="translate(332,648)">
+      <rect x="0" y="0" width="312" height="200" rx="11" fill="#F4F1EE" stroke="#9a7b63"/>
+      <text x="16" y="26" font-size="15" font-weight="800" fill="#9a6b4a">8 Llama</text><text x="16" y="42" font-size="10.5" fill="#9a6b4a">Meta</text>
+      <text x="16" y="64" font-weight="700" fill="#1a1a2e">特色</text>
+      <text x="16" y="82" fill="#333">• 開源、人人皆可取用</text>
+      <text x="16" y="100" fill="#333">• 多元資料訓練推理強、社群工具調校</text>
+      <text x="16" y="124" font-weight="700" fill="#1a1a2e">適用</text>
+      <text x="16" y="142" fill="#333">• 以開源為基礎打造 AI app</text>
+      <text x="16" y="160" fill="#333">• 研究原型實驗、避免平台綁定</text>
+    </g>
+  </g>
+
+  <text x="28" y="962" font-size="11.5" fill="#9aa3af">中文重製版 · 依原圖內容重繪（原作：Saema AI Lab · Top 8 Models To Help You Work Smarter）</text>
+</svg></div>
+    <p class="src">中文重製版 · 依原圖內容重繪（原作：Saema AI Lab）</p>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <span class="cat">提示工程 · 分級</span>
+      <span class="idx">04 / 04</span>
+    </div>
+    <h2>提示的六個層次</h2>
+    <p class="en">Levels of Prompting</p>
+    <p class="lead">從初學者到精英，提示能力分成六層——每往上一層就多疊一個要素：任務 → 情境 → 輸出格式 → 角色 → 停止條件 → 推理，每層都附模板與範例。</p>
+    <ul class="points">
+      <li>Lv1 初學者：只給任務；Lv2 熟練：加上情境（背景、受眾、限制）。</li>
+      <li>Lv3 進階：加上輸出格式（指定結構）；Lv4 專家級：再加上角色。</li>
+      <li>Lv5 專精：加上停止條件，讓 AI 知道何時收手、排除什麼。</li>
+      <li>Lv6 精英：加上推理，要求輸出前先做準確性與品質把關。</li>
+    </ul>
+    <div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 1140" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="1140" fill="#ffffff"/>
+  <g transform="translate(28,28)">
+    <text x="0" y="22" font-size="28" font-weight="800" fill="#1a1a2e">提示的六個層次</text>
+    <text x="0" y="46" font-size="14" font-weight="600" fill="#6b7280">Levels of Prompting — 適用於 ChatGPT、Gemini、Claude、Grok 等各家 LLM</text>
+    <text x="0" y="67" font-size="12.5" fill="#444">每往上一層，就多疊一個要素：任務 → 情境 → 輸出格式 → 角色 → 停止條件 → 推理。</text>
+    <line x1="0" y1="78" x2="644" y2="78" stroke="#2b6cb0" stroke-width="3"/>
+    <circle cx="0" cy="78" r="5" fill="#F25C26"/>
+  </g>
+
+  <g transform="translate(28,122)" font-size="12.5">
+    <!-- L1 -->
+    <g transform="translate(0,0)">
+      <rect x="0" y="0" width="644" height="148" rx="12" fill="#FFF7F0" stroke="#F25C26"/>
+      <rect x="0" y="0" width="64" height="148" rx="12" fill="#F25C26"/>
+      <text x="32" y="62" font-size="26" font-weight="800" fill="#fff" text-anchor="middle">1</text>
+      <text x="32" y="88" font-size="11" fill="#ffe3d3" text-anchor="middle">初學者</text>
+      <text x="84" y="28" font-size="15.5" font-weight="800" fill="#1a1a2e">Beginner　只給「任務」</text>
+      <text x="84" y="50" fill="#F25C26" font-weight="700">含要素：任務</text>
+      <text x="84" y="74" fill="#333">說明：只告訴 AI 要做什麼，不給其他細節。</text>
+      <text x="84" y="98" fill="#6b7280">模板：執行以下任務：〔清楚寫出明確任務〕。</text>
+      <text x="84" y="124" fill="#333">例：列出 10 個關於生產力的影片點子。</text>
+    </g>
+    <!-- L2 -->
+    <g transform="translate(0,160)">
+      <rect x="0" y="0" width="644" height="148" rx="12" fill="#FEF6E7" stroke="#d97706"/>
+      <rect x="0" y="0" width="64" height="148" rx="12" fill="#d97706"/>
+      <text x="32" y="62" font-size="26" font-weight="800" fill="#fff" text-anchor="middle">2</text>
+      <text x="32" y="88" font-size="11" fill="#ffeccb" text-anchor="middle">熟練</text>
+      <text x="84" y="28" font-size="15.5" font-weight="800" fill="#1a1a2e">Skilled　加上「情境」</text>
+      <text x="84" y="50" fill="#c2410c" font-weight="700">含要素：任務 ＋ 情境</text>
+      <text x="84" y="74" fill="#333">說明：告訴 AI 要做什麼，再補背景與受眾來導引方向。</text>
+      <text x="84" y="98" fill="#6b7280">模板：執行〔任務〕，套用〔背景、受眾、限制〕並嚴格遵守。</text>
+      <text x="84" y="124" fill="#333">例：情境為大學生、注意力短、想要簡單可行的改善。</text>
+    </g>
+    <!-- L3 -->
+    <g transform="translate(0,320)">
+      <rect x="0" y="0" width="644" height="148" rx="12" fill="#EAF7F0" stroke="#1a9e6a"/>
+      <rect x="0" y="0" width="64" height="148" rx="12" fill="#1a9e6a"/>
+      <text x="32" y="62" font-size="26" font-weight="800" fill="#fff" text-anchor="middle">3</text>
+      <text x="32" y="88" font-size="11" fill="#d6f2e4" text-anchor="middle">進階</text>
+      <text x="84" y="28" font-size="15.5" font-weight="800" fill="#1a1a2e">Advanced　加上「輸出格式」</text>
+      <text x="84" y="50" fill="#1a9e6a" font-weight="700">含要素：任務 ＋ 情境 ＋ 輸出格式</text>
+      <text x="84" y="74" fill="#333">說明：指定確切的輸出結構讓 AI 依循。</text>
+      <text x="84" y="98" fill="#6b7280">模板：執行〔任務〕，用〔情境〕，輸出格式為〔結構〕。</text>
+      <text x="84" y="124" fill="#333">例：用表格呈現（點子 ＋ 一句話描述）。</text>
+    </g>
+    <!-- L4 -->
+    <g transform="translate(0,480)">
+      <rect x="0" y="0" width="644" height="148" rx="12" fill="#EAF1F9" stroke="#2b6cb0"/>
+      <rect x="0" y="0" width="64" height="148" rx="12" fill="#2b6cb0"/>
+      <text x="32" y="62" font-size="26" font-weight="800" fill="#fff" text-anchor="middle">4</text>
+      <text x="32" y="88" font-size="11" fill="#d3e3f5" text-anchor="middle">專家級</text>
+      <text x="84" y="28" font-size="15.5" font-weight="800" fill="#1a1a2e">Specialist　加上「角色」</text>
+      <text x="84" y="50" fill="#2b6cb0" font-weight="700">含要素：任務 ＋ 情境 ＋ 輸出格式 ＋ 角色</text>
+      <text x="84" y="74" fill="#333">說明：給 AI 一個明確身分，提升專業度與口吻。</text>
+      <text x="84" y="98" fill="#6b7280">模板：扮演〔角色〕，執行〔任務〕，用〔情境〕，格式為〔結構〕。</text>
+      <text x="84" y="124" fill="#333">例：角色＝內容策略師；表格（點子、受眾、一句鉤子）。</text>
+    </g>
+    <!-- L5 -->
+    <g transform="translate(0,640)">
+      <rect x="0" y="0" width="644" height="148" rx="12" fill="#F3EEFE" stroke="#8b5cf6"/>
+      <rect x="0" y="0" width="64" height="148" rx="12" fill="#8b5cf6"/>
+      <text x="32" y="62" font-size="26" font-weight="800" fill="#fff" text-anchor="middle">5</text>
+      <text x="32" y="88" font-size="11" fill="#e6d9fb" text-anchor="middle">專精</text>
+      <text x="84" y="28" font-size="15.5" font-weight="800" fill="#1a1a2e">Expert　加上「停止條件」</text>
+      <text x="84" y="50" fill="#7c3aed" font-weight="700">含要素：＋ 停止條件（知道何時停、排除什麼）</text>
+      <text x="84" y="74" fill="#333">說明：加上界限，讓 AI 知道何時收手、不要多給。</text>
+      <text x="84" y="98" fill="#6b7280">模板：…格式〔結構〕，停止規則：〔限制〕。</text>
+      <text x="84" y="124" fill="#333">例：剛好 10 個項目、不要任何多餘文字。</text>
+    </g>
+    <!-- L6 -->
+    <g transform="translate(0,800)">
+      <rect x="0" y="0" width="644" height="148" rx="12" fill="#1a1a2e"/>
+      <rect x="0" y="0" width="64" height="148" rx="12" fill="#0f0f1c"/>
+      <text x="32" y="62" font-size="26" font-weight="800" fill="#ffd9c6" text-anchor="middle">6</text>
+      <text x="32" y="88" font-size="11" fill="#9aa3af" text-anchor="middle">精英</text>
+      <text x="84" y="28" font-size="15.5" font-weight="800" fill="#ffffff">Elite　加上「推理」</text>
+      <text x="84" y="50" fill="#ffd9c6" font-weight="700">含要素：任務＋情境＋格式＋角色＋停止＋推理</text>
+      <text x="84" y="74" fill="#e7e9ef">說明：要求 AI 在輸出前先做準確性與品質檢查。</text>
+      <text x="84" y="98" fill="#aeb8cf">模板：…輸出前先確保獨特、有價值並做品質把關，再遵守停止規則。</text>
+      <text x="84" y="124" fill="#e7e9ef">例：扮演資深內容策略師，為忙碌創辦人產出生產力點子，止於剛好 10 個。</text>
+    </g>
+  </g>
+
+  <text x="28" y="1122" font-size="11.5" fill="#9aa3af">中文重製版 · 依原圖內容重繪（原作：Levels of Prompting 資訊圖）</text>
+</svg></div>
+    <p class="src">中文重製版 · 依原圖內容重繪（原作：Levels of Prompting 資訊圖）</p>
+  </section>
+
+</div></main>
+<footer>AI 概念研究 · 由 concept-localize-publish 產出 · 依原圖內容重繪、標註出處</footer>
+</body>
+</html>
