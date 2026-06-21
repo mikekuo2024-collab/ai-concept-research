@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic AI 深度研究報告</title>
+<style>
+  :root {
+    --navy: #1a1a2e;
+    --blue: #2c3e6b;
+    --accent: #1e6fbf;
+    --teal: #0d9488;
+    --red: #dc2626;
+    --green: #16a34a;
+    --card-border: #dde3ef;
+    --bg: #f4f6fb;
+    --text: #1e293b;
+    --muted: #64748b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",Arial,sans-serif; background: var(--bg); color: var(--text); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: var(--navy); color: #fff;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 56px; box-shadow: 0 2px 8px rgba(0,0,0,.4);
+  }
+  nav .logo { font-size: 15px; font-weight: 700; letter-spacing: .5px; white-space: nowrap; }
+  nav .logo span { color: #60a5fa; }
+  nav .nav-links { display: flex; gap: 4px; }
+  nav .nav-links a {
+    color: #cbd5e1; text-decoration: none; font-size: 13px; font-weight: 500;
+    padding: 6px 14px; border-radius: 6px; transition: all .2s;
+  }
+  nav .nav-links a:hover, nav .nav-links a.active { background: var(--accent); color: #fff; }
+  nav .meta { font-size: 12px; color: #94a3b8; white-space: nowrap; }
+
+  /* PAGE SECTIONS */
+  .page { padding: 88px 0 48px; min-height: 100vh; scroll-margin-top: 56px; }
+  .page:nth-child(even) { background: #eef1f8; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* BANNER */
+  .banner {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #1e4a8a 100%);
+    color: #fff; padding: 40px 32px; border-radius: 14px; margin-bottom: 32px;
+    position: relative; overflow: hidden;
+  }
+  .banner::before {
+    content: ""; position: absolute; right: -60px; top: -60px;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: rgba(255,255,255,.04);
+  }
+  .banner .tag {
+    display: inline-block; background: rgba(255,255,255,.15);
+    padding: 4px 12px; border-radius: 20px; font-size: 12px;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .banner h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; line-height: 1.3; }
+  .banner p { font-size: 15px; color: #cbd5e1; line-height: 1.7; max-width: 700px; }
+
+  /* DEFINITION BOX */
+  .def-box {
+    background: var(--navy); color: #fff; border-radius: 12px; padding: 28px 32px;
+    margin-bottom: 28px; border-left: 5px solid #60a5fa;
+  }
+  .def-box .def-label { font-size: 11px; font-weight: 700; color: #60a5fa; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+  .def-box p { font-size: 17px; line-height: 1.8; font-weight: 300; }
+  .def-box cite { display: block; margin-top: 14px; font-size: 13px; color: #94a3b8; }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-size: 20px; font-weight: 700; color: var(--blue); margin: 32px 0 18px;
+    padding-bottom: 10px; border-bottom: 3px solid var(--accent); display: flex; align-items: center; gap: 10px;
+  }
+  .section-title .icon { font-size: 22px; }
+
+  /* CARDS GRID */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; margin-bottom: 28px; }
+  .card {
+    background: #fff; border: 1px solid var(--card-border); border-radius: 12px;
+    padding: 22px 20px; transition: box-shadow .2s;
+  }
+  .card:hover { box-shadow: 0 6px 24px rgba(30,111,191,.12); }
+  .card .card-icon { font-size: 28px; margin-bottom: 12px; }
+  .card h3 { font-size: 15px; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+  .card p { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+  .card .card-badge { display: inline-block; background: #e8f0fe; color: var(--accent); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 10px; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 28px; margin-bottom: 28px; }
+  .timeline::before { content: ""; position: absolute; left: 9px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--teal)); }
+  .tl-item { position: relative; margin-bottom: 20px; }
+  .tl-item::before { content: ""; position: absolute; left: -22px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--accent); }
+  .tl-date { font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+  .tl-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .tl-desc { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+  /* COMPARISON TABLE */
+  .comp-table { width: 100%; border-collapse: collapse; margin-bottom: 28px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+  .comp-table th { background: var(--blue); color: #fff; padding: 12px 16px; font-size: 13px; font-weight: 600; text-align: left; }
+  .comp-table td { padding: 11px 16px; font-size: 13px; border-bottom: 1px solid #e8ecf4; }
+  .comp-table tr:nth-child(even) td { background: #f8faff; }
+  .comp-table tr:last-child td { border-bottom: none; }
+  .check { color: var(--green); font-weight: 700; }
+  .cross { color: var(--red); }
+  .partial { color: #d97706; }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+  .step { display: flex; gap: 16px; background: #fff; border: 1px solid var(--card-border); border-radius: 10px; padding: 18px 20px; }
+  .step-num { flex-shrink: 0; width: 36px; height: 36px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; }
+  .step-body h4 { font-size: 14px; font-weight: 700; color: var(--blue); margin-bottom: 5px; }
+  .step-body p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* CODE BLOCK */
+  .code-block { background: #0f172a; border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; overflow-x: auto; }
+  .code-block pre { color: #e2e8f0; font-size: 13px; font-family: "SF Mono","Fira Code",monospace; line-height: 1.7; }
+  .code-block .comment { color: #64748b; }
+  .code-block .keyword { color: #7dd3fc; }
+  .code-block .string { color: #86efac; }
+
+  /* WARNING CARDS */
+  .warnings { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 28px; }
+  .warning-card { background: #fff5f5; border: 1px solid #fecaca; border-left: 5px solid var(--red); border-radius: 10px; padding: 18px 20px; }
+  .warning-card h4 { color: var(--red); font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+  .warning-card p { font-size: 13px; color: #7f1d1d; line-height: 1.6; }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; margin-bottom: 28px; }
+  .checklist li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #e8ecf4; font-size: 14px; color: var(--text); line-height: 1.6; }
+  .checklist li::before { content: "✅"; flex-shrink: 0; }
+  .checklist li:last-child { border-bottom: none; }
+
+  /* SOURCES */
+  .sources { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+  .source-item { background: #fff; border: 1px solid var(--card-border); border-radius: 8px; padding: 14px 18px; display: flex; gap: 14px; align-items: flex-start; }
+  .source-num { flex-shrink: 0; width: 28px; height: 28px; background: var(--navy); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+  .source-content h4 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .source-content .source-meta { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .source-content a { font-size: 12px; color: var(--accent); text-decoration: none; word-break: break-all; }
+  .source-content a:hover { text-decoration: underline; }
+  .tag-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-right: 6px; }
+  .tag-core { background: #dbeafe; color: #1e40af; }
+  .tag-tech { background: #d1fae5; color: #065f46; }
+  .tag-biz { background: #ede9fe; color: #5b21b6; }
+  .tag-research { background: #fef3c7; color: #92400e; }
+  .tag-ext { background: #e0f2fe; color: #0369a1; }
+
+  /* STAT BOXES */
+  .stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 28px; }
+  .stat { background: #fff; border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; text-align: center; }
+  .stat .stat-num { font-size: 36px; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 6px; }
+  .stat .stat-label { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* MATURITY TABLE */
+  .maturity { width: 100%; border-collapse: collapse; margin-bottom: 28px; }
+  .maturity th { background: var(--navy); color: #fff; padding: 12px 16px; font-size: 13px; text-align: left; }
+  .maturity td { padding: 11px 16px; font-size: 13px; border-bottom: 1px solid #e8ecf4; vertical-align: top; }
+  .maturity .level-badge { display: inline-block; width: 70px; text-align: center; padding: 3px 8px; border-radius: 6px; font-weight: 700; font-size: 12px; }
+  .l0 { background: #f1f5f9; color: #475569; }
+  .l1 { background: #e0f2fe; color: #0369a1; }
+  .l2 { background: #d1fae5; color: #065f46; }
+  .l3 { background: #fef3c7; color: #92400e; }
+  .l4 { background: #fce7f3; color: #9d174d; }
+
+  @media print {
+    nav { position: static; }
+    .page { page-break-after: always; padding-top: 24px; }
+    .page:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">🤖 <span>Agentic AI</span> 深度研究報告</div>
+  <div class="nav-links">
+    <a href="#page1" class="active">第一頁：定義與起源</a>
+    <a href="#page2">第二頁：架構與流程</a>
+    <a href="#page3">第三頁：實戰與風險</a>
+  </div>
+  <div class="meta">整理日期：2026-06-21 ｜ 來源：12 篇</div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════ PAGE 1 ══ -->
+<section class="page" id="page1">
+<div class="container">
+
+  <div class="banner">
+    <div class="tag">Page 1 / 3</div>
+    <h1>Agentic AI：定義、起源與演進背景</h1>
+    <p>從語言模型到自主行動者的典範轉移——理解 Agentic AI 的本質、發展脈絡，以及它如何從概念走向企業現實</p>
+  </div>
+
+  <div class="def-box">
+    <div class="def-label">核心定義</div>
+    <p>Agentic AI 是指能夠<strong>感知環境、自主推理、制定計劃並採取行動</strong>以達成目標的 AI 系統，具備<strong>半自主至全自主</strong>的運作能力。與 Generative AI 最根本的差異在於：Agentic AI 是<strong>主動的（Proactive）</strong>，而不是被動回應的（Reactive）。</p>
+    <cite>— 綜合 MIT Sloan、IBM Think、Blockchain Council 定義（2025-2026）</cite>
+  </div>
+
+  <div class="section-title"><span class="icon">📊</span>採用現況數據（2026）</div>
+  <div class="stats">
+    <div class="stat"><div class="stat-num">35%</div><div class="stat-label">全球企業已部署 Agentic AI（MIT Sloan, 2026）</div></div>
+    <div class="stat"><div class="stat-num">80%</div><div class="stat-label">部署成本花在資料工程，而非 AI 本身（MIT Sloan）</div></div>
+    <div class="stat"><div class="stat-num">60–70%</div><div class="stat-label">知識工作任務可被 Agentic AI 協助/自動化（McKinsey）</div></div>
+    <div class="stat"><div class="stat-num">4.1兆</div><div class="stat-label">美元：預估 2030 年前的經濟貢獻（McKinsey）</div></div>
+  </div>
+
+  <div class="section-title"><span class="icon">🕐</span>演進歷史時間軸</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">1980年代</div>
+      <div class="tl-title">BDI 框架誕生</div>
+      <div class="tl-desc">Belief-Desire-Intention 認知架構由哲學家 Bratman 提出，後成為 AI agent 理論基礎</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2020</div>
+      <div class="tl-title">GPT-3 奠基</div>
+      <div class="tl-desc">大語言模型（LLM）展現出前所未有的推理能力，為 agent 建構提供底層引擎</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2022</div>
+      <div class="tl-title">ReAct 框架發表</div>
+      <div class="tl-desc">Princeton + Google 發表 ReAct 論文，定義 Thought-Action-Observation 核心循環，奠定現代 agent 框架基礎</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2023</div>
+      <div class="tl-title">AutoGPT 爆紅、LangChain 興起</div>
+      <div class="tl-desc">首批開源 agent 框架出現，「agentic AI」一詞開始被廣泛使用；工具呼叫（Tool Use）能力成為標配</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2024</div>
+      <div class="tl-title">多智能體系統主流化</div>
+      <div class="tl-desc">AutoGen、CrewAI、LlamaIndex 等框架成熟，企業開始實際部署；Claude、GPT-4 支援原生 Tool Use</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2025–2026</div>
+      <div class="tl-title">企業規模化部署</div>
+      <div class="tl-desc">35% 企業已部署，50% 在實驗中。Anthropic Claude Agent SDK、OpenAI Agents SDK 正式發布；MCP 成為 agent 連接標準</div>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">🔄</span>Agentic AI vs 其他 AI 類型比較</div>
+  <table class="comp-table">
+    <thead>
+      <tr><th>特性</th><th>傳統 AI</th><th>Generative AI</th><th>Agentic AI</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>主動性</td><td class="cross">❌ 被動</td><td class="cross">❌ 被動</td><td class="check">✅ 主動</td></tr>
+      <tr><td>多步驟推理</td><td class="cross">❌ 有限</td><td class="partial">⚠️ 有限</td><td class="check">✅ 強</td></tr>
+      <tr><td>工具使用</td><td class="cross">❌</td><td class="partial">⚠️ 部分</td><td class="check">✅</td></tr>
+      <tr><td>目標追蹤</td><td class="cross">❌</td><td class="cross">❌</td><td class="check">✅</td></tr>
+      <tr><td>跨會話記憶</td><td class="cross">❌</td><td class="cross">❌</td><td class="check">✅</td></tr>
+      <tr><td>自我修正</td><td class="cross">❌</td><td class="cross">❌</td><td class="check">✅</td></tr>
+      <tr><td>長期目標規劃</td><td class="cross">❌</td><td class="cross">❌</td><td class="check">✅</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="icon">🧩</span>五大核心特徵</div>
+  <div class="cards">
+    <div class="card"><div class="card-icon">🎯</div><div class="card-badge">自主性</div><h3>自主性（Autonomy）</h3><p>無需每步驟人類指令，能夠自行做出決策並執行行動，實現長時間的連續運作</p></div>
+    <div class="card"><div class="card-icon">🏆</div><div class="card-badge">目標導向</div><h3>目標導向（Goal-Orientation）</h3><p>接收高層次目標後，自行分解為可執行的子任務序列，持續追蹤直至目標達成</p></div>
+    <div class="card"><div class="card-icon">👁️</div><div class="card-badge">感知能力</div><h3>感知（Perception）</h3><p>接收並理解多種形式的環境輸入：文字、圖像、資料庫查詢結果、API 回傳值</p></div>
+    <div class="card"><div class="card-icon">⚡</div><div class="card-badge">行動能力</div><h3>行動（Action）</h3><p>透過工具呼叫、程式碼執行、API 呼叫等方式影響真實世界，而非僅生成文字</p></div>
+    <div class="card"><div class="card-icon">🔄</div><div class="card-badge">學習適應</div><h3>學習與適應（Learning）</h3><p>從行動結果的反饋中調整策略，在任務執行中持續改善表現</p></div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ PAGE 2 ══ -->
+<section class="page" id="page2">
+<div class="container">
+
+  <div class="banner">
+    <div class="tag">Page 2 / 3</div>
+    <h1>核心架構與操作流程</h1>
+    <p>Agentic AI 的技術骨架：感知-推理-規劃-行動循環、ReAct 框架、多智能體架構，以及記憶系統設計</p>
+  </div>
+
+  <div class="section-title"><span class="icon">♾️</span>Agentic AI 核心執行循環（ReAct 框架）</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>感知（Perceive）</h4><p>接收使用者目標或環境觸發事件，理解多模態輸入（文字、結構化資料、API 輸出），建立當前世界模型</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>思考（Thought / Reason）</h4><p>輸出明確的推理過程（Thought），分析當前狀態，確定最佳下一步行動。ReAct 的核心洞見：思考過程是引導行動的路徑圖</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>規劃（Plan）</h4><p>將高層次目標分解為具體可執行的子任務序列，評估工具選項，安排執行順序與依賴關係</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>行動（Act）</h4><p>呼叫工具（搜尋、計算器、程式碼執行器、API）、執行子任務、或與其他 agents 溝通</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body"><h4>觀察（Observe）</h4><p>接收工具呼叫回傳結果（Observation），評估行動是否達到預期效果，更新世界模型</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-body"><h4>反思與迭代（Reflect & Iterate）</h4><p>判斷任務是否完成：若是，生成最終輸出；若否，回到步驟 2 繼續規劃，直至達成目標</p></div>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <pre><span class="comment"># ReAct 框架標準執行模式示例</span>
+<span class="keyword">Goal:</span> <span class="string">「找出 Agentic AI 市場規模並整理成報告」</span>
+
+<span class="keyword">Thought:</span> 我需要搜尋 Agentic AI 市場規模的資料
+<span class="keyword">Action:</span> WebSearch["Agentic AI market size 2025 2026"]
+<span class="keyword">Observation:</span> {結果: McKinsey 預估 1.5-4.1 兆美元...}
+
+<span class="keyword">Thought:</span> 需要更多數據來源驗證
+<span class="keyword">Action:</span> WebSearch["Agentic AI adoption rate enterprises 2026"]
+<span class="keyword">Observation:</span> {結果: MIT Sloan 35% 採用率...}
+
+<span class="keyword">Thought:</span> 資料充足，可以整理報告
+<span class="keyword">Action:</span> WriteFile["agentic_ai_report.md", content=...]
+<span class="keyword">Observation:</span> {success: true}
+
+<span class="keyword">Action:</span> Finish[<span class="string">"報告已完成，涵蓋市場規模與採用率數據"</span>]</pre>
+  </div>
+
+  <div class="section-title"><span class="icon">🏗️</span>三類多智能體架構</div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🎖️</div>
+      <h3>垂直架構（Hierarchical）</h3>
+      <p><strong>結構：</strong>主 Orchestrator agent 指揮多個 Sub-agents<br><br><strong>適用：</strong>明確層級任務、分工清晰的工作流<br><br><strong>優點：</strong>高可控性、易於監督<br><strong>缺點：</strong>Orchestrator 是單點瓶頸</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🤝</div>
+      <h3>水平架構（Peer-to-Peer）</h3>
+      <p><strong>結構：</strong>多個 agents 平行協作，相互通訊<br><br><strong>適用：</strong>分散式任務、創意協作、辯論驗證<br><br><strong>優點：</strong>彈性高、無單點失敗<br><strong>缺點：</strong>協調複雜度高</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔀</div>
+      <h3>混合架構（Hybrid）</h3>
+      <p><strong>結構：</strong>結合垂直與水平元素<br><br><strong>適用：</strong>大規模複雜系統、企業級部署<br><br><strong>優點：</strong>最靈活、最強大<br><strong>缺點：</strong>最複雜、難以除錯</p>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">🧠</span>記憶系統架構</div>
+  <div class="cards">
+    <div class="card"><div class="card-icon">⚡</div><h3>短期記憶</h3><p>Context Window（上下文視窗）：當前對話或任務的即時記憶，隨會話結束消失</p></div>
+    <div class="card"><div class="card-icon">💾</div><h3>長期記憶</h3><p>向量資料庫（Vector DB）：跨會話持久化儲存，透過語意搜尋檢索相關記憶</p></div>
+    <div class="card"><div class="card-icon">🗺️</div><h3>語意記憶</h3><p>知識圖譜（Knowledge Graph）：結構化事實與概念關係，用於複雜推理</p></div>
+    <div class="card"><div class="card-icon">🛠️</div><h3>程序記憶</h3><p>工作流程與技能：已學習的操作流程、工具使用模式、成功解題策略</p></div>
+  </div>
+
+  <div class="section-title"><span class="icon">⚖️</span>Workflow vs Agent：設計選擇比較</div>
+  <table class="comp-table">
+    <thead>
+      <tr><th>維度</th><th>Workflow（工作流程）</th><th>Agent（智能體）</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>控制流程</td><td>預先定義（程式碼決定）</td><td>動態決定（LLM 決定）</td></tr>
+      <tr><td>適用場景</td><td>結構化、可預測任務</td><td>複雜、開放性任務</td></tr>
+      <tr><td>可預測性</td><td class="check">高 ✅</td><td class="partial">低 ⚠️</td></tr>
+      <tr><td>靈活性</td><td class="partial">低 ⚠️</td><td class="check">高 ✅</td></tr>
+      <tr><td>Token 成本</td><td class="check">較低 ✅</td><td class="partial">較高 ⚠️</td></tr>
+      <tr><td>除錯難度</td><td class="check">容易</td><td class="partial">較難</td></tr>
+      <tr><td>設計建議</td><td>優先選擇（能用 Workflow 就用）</td><td>必要時才升級到 Agent</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="icon">🔧</span>五種核心 Workflow 模式（Anthropic）</div>
+  <div class="steps">
+    <div class="step"><div class="step-num">A</div><div class="step-body"><h4>Prompt Chaining（提示鏈）</h4><p>串聯多個 LLM 呼叫，每步驟輸出成為下步驟輸入。適合：文件撰寫 → 審查 → 潤稿的多階段任務</p></div></div>
+    <div class="step"><div class="step-num">B</div><div class="step-body"><h4>Routing（路由分發）</h4><p>分類輸入，路由到不同處理流程或專業 sub-agent。適合：客服問題分類後轉到對應部門 agent</p></div></div>
+    <div class="step"><div class="step-num">C</div><div class="step-body"><h4>Parallelization（平行化）</h4><p>同時執行多個獨立子任務，最後彙整結果。適合：同時搜尋多個資訊來源再整合</p></div></div>
+    <div class="step"><div class="step-num">D</div><div class="step-body"><h4>Orchestrator-Subagents（主從協調）</h4><p>主 agent 負責規劃與協調，sub-agents 各自負責專業任務。適合：軟體開發中的需求分析/編碼/測試分工</p></div></div>
+    <div class="step"><div class="step-num">E</div><div class="step-body"><h4>Evaluator-Optimizer（評估優化）</h4><p>一個 agent 生成初稿，另一個 agent 評估並提出改善要求，反覆迭代直至品質達標</p></div></div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ PAGE 3 ══ -->
+<section class="page" id="page3">
+<div class="container">
+
+  <div class="banner">
+    <div class="tag">Page 3 / 3</div>
+    <h1>實戰指南、風險管理與資源</h1>
+    <p>企業導入 Agentic AI 的成熟度路徑、四大核心風險、最佳實踐清單，以及完整參考來源</p>
+  </div>
+
+  <div class="section-title"><span class="icon">📈</span>企業採用成熟度模型（五個階段）</div>
+  <table class="maturity">
+    <thead>
+      <tr><th>成熟度</th><th>描述</th><th>能力特徵</th><th>典型使用案例</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="level-badge l0">Level 0</span></td>
+        <td><strong>提示助手</strong></td>
+        <td>單輪問答，無記憶，無工具呼叫</td>
+        <td>基本 Q&A、內容生成</td>
+      </tr>
+      <tr>
+        <td><span class="level-badge l1">Level 1</span></td>
+        <td><strong>工具呼叫</strong></td>
+        <td>可使用 1-3 個外部工具，單次任務</td>
+        <td>搜尋輔助、計算器、API 查詢</td>
+      </tr>
+      <tr>
+        <td><span class="level-badge l2">Level 2</span></td>
+        <td><strong>工作流程自動化</strong></td>
+        <td>多步驟任務、條件判斷、跨系統操作</td>
+        <td>報告生成、資料分析流程、IT 工單處理</td>
+      </tr>
+      <tr>
+        <td><span class="level-badge l3">Level 3</span></td>
+        <td><strong>多智能體協作</strong></td>
+        <td>多個 agents 協同、角色分工、複雜協調</td>
+        <td>軟體開發自動化、研究綜合、供應鏈優化</td>
+      </tr>
+      <tr>
+        <td><span class="level-badge l4">Level 4</span></td>
+        <td><strong>完全自主</strong></td>
+        <td>目標驅動、自主規劃、最小人類干預</td>
+        <td>自主研究、業務決策自動化（仍在發展中）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="icon">⚠️</span>四大核心風險</div>
+  <div class="warnings">
+    <div class="warning-card">
+      <h4>🎯 提示注入攻擊（Prompt Injection）</h4>
+      <p>攻擊者在 agent 輸入中嵌入惡意指令，覆蓋原始目標或竊取敏感資料。多模態模型進一步擴大攻擊面，需要輸入驗證、沙盒隔離與行動審計。</p>
+    </div>
+    <div class="warning-card">
+      <h4>🔗 錯誤累積（Compounding Errors）</h4>
+      <p>在長序列任務中，早期的小錯誤可能在後續步驟中放大，導致最終結果嚴重偏離目標。需要設置中間檢查點與 human-in-the-loop 機制。</p>
+    </div>
+    <div class="warning-card">
+      <h4>⚖️ 偏見與歧視風險（Bias Risk）</h4>
+      <p>訓練資料中的偏見透過 agent 的自主決策被放大，特別危險於招募、信貸審核等高影響決策。需要代表性訓練資料與定期偏見審計。</p>
+    </div>
+    <div class="warning-card">
+      <h4>🔒 過度授權風險（Over-Privilege）</h4>
+      <p>若 agent 被授予超出任務所需的系統權限，一旦被入侵或行為異常，後果難以控制。必須嚴格執行最小權限原則（Minimum Privilege）。</p>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">✅</span>最佳實踐清單</div>
+  <ul class="checklist">
+    <li><strong>最小權限設計：</strong>每個 agent 只獲得完成其特定任務的最小必要權限，並與現有 IAM 系統整合</li>
+    <li><strong>任務邊界清晰：</strong>在設計 agent 時明確定義哪些決策需要人類審核，建立不可逾越的紅線</li>
+    <li><strong>Human-in-the-Loop：</strong>在不可逆操作（刪除、支付、發信）前強制加入人類確認節點</li>
+    <li><strong>行動記錄可追溯：</strong>所有 agent 行動必須有完整日誌，可用於除錯、審計與責任追蹤</li>
+    <li><strong>從小開始：</strong>先用最簡單的 Workflow（而非 Agent），只在必要時升級複雜度</li>
+    <li><strong>工具設計精良：</strong>工具名稱與描述極度清晰，每個工具只做一件事，回傳結構化 JSON</li>
+    <li><strong>持續監控：</strong>追蹤成功率、延遲、成本、用戶滿意度，設置異常警報</li>
+    <li><strong>對抗性測試：</strong>上線前執行 Red-teaming，模擬惡意輸入與邊緣情境</li>
+    <li><strong>代表性訓練資料：</strong>確保 fine-tuning 資料反映真實使用場景與多元用戶群</li>
+    <li><strong>定期偏見審計：</strong>每季度審查 agent 決策是否存在系統性偏見，特別是高影響決策</li>
+  </ul>
+
+  <div class="section-title"><span class="icon">🚀</span>三階段企業導入路線圖（McKinsey）</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Phase 1：基礎建設（3-6 個月）</h4>
+        <p>建立資料管道與 API 整合層；選擇核心 LLM 平台（OpenAI / Anthropic / Google）；設計 Agent Orchestration 框架；確立治理政策與安全準則</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Phase 2：試點驗證（6-12 個月）</h4>
+        <p>選擇 2-3 個高 ROI 使用案例進行 Pilot；建立評估指標體系（準確率、效率、成本節省）；培訓核心 AI 人才；從使用者反饋中快速迭代</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Phase 3：規模化（12-24 個月）</h4>
+        <p>建立 AI Center of Excellence（CoE）；將成功模式推廣至全組織；建立跨部門 agent 協作框架；持續學習與改善機制</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">📚</span>完整參考來源（12 篇）</div>
+  <div class="sources">
+    <div class="source-item">
+      <div class="source-num">1</div>
+      <div class="source-content">
+        <h4>Agentic AI: Ready or not, it's here</h4>
+        <div class="source-meta">MIT Sloan Management Review ｜ Beth Stackpole ｜ 2026-02-18</div>
+        <span class="tag-badge tag-core">核心文章</span>
+        <a href="https://sloanreview.mit.edu/article/agentic-ai-ready-or-not-its-here/" target="_blank">sloanreview.mit.edu → agentic-ai-ready-or-not-its-here</a>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-num">2</div>
+      <div class="source-content">
+        <h4>Agentic AI Architecture and Multi-Agent Systems</h4>
+        <div class="source-meta">IBM Think ｜ IBM Technical Team ｜ 2025-2026</div>
+        <span class="tag-badge tag-tech">技術指南</span>
+        <a href="https://www.ibm.com/think/topics/agentic-ai" target="_blank">ibm.com/think/topics/agentic-ai</a>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-num">3</div>
+      <div class="source-content">
+        <h4>The Rise and Risks of Agentic AI</h4>
+        <div class="source-meta">PwC Trust and Safety Outlook ｜ PricewaterhouseCoopers ｜ 2025-07-17</div>
+        <span class="tag-badge tag-biz">企業報告</span>
+        <a href="https://www.pwc.com/us/en/industries/tmt/library/trust-and-safety-outlook/rise-and-risks-of-agentic-ai.html" target="_blank">pwc.com → rise-and-risks-of-agentic-ai</a>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-num">4</div>
+      <div class="source-content">
+        <h4>What is Agentic AI: A Complete Guide</h4>
+        <div class="source-meta">Blockchain Council ｜ 2025</div>
+        <span class="tag-badge tag-core">核心文章</span>
+        <a href="https://www.blockchain-council.org/ai/what-is-agentic-ai/" target="_blank">blockchain-council.org → what-is-agentic-ai</a>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-num">5</div>
+      <div class="source-content">
+        <h4>Agentic AI in Enterprise: Use Cases and Implementation</h4>
+        <div class="source-meta">Kore.AI ｜ 2025</div>
+        <span class="tag-badge tag-biz">企業報告</span>
+        <a href="https://kore.ai/blog/agentic-ai/" target="_blank">kore.ai/blog/agentic-ai</a>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-num">6</div>
+      <div class="source-content">
+        <h4>The Agentic AI Revolution: Industry Trends and Business Impact</h4>
+        <div class="source-meta">McKinsey & Company ｜ McKinsey Technology Practice ｜ 2025-2026</div>
+        <span class="tag-badge tag-biz">企業報告</span>
+        <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/agentic-ai" target="_blank">mckinsey.com → agentic-ai insights</a>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-num">7</div>
+      <div class="source-content">
+        <h4>Building Effective Agents: Technical Patterns and Best Practices</h4>
+        <div class="source-meta">Anthropic ｜ 2025</div>
+        <span class="tag-badge tag-tech">技術指南</span>
+        <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank">anthropic.com/research/building-effective-agents</a>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-num">8</div>
+      <div class="source-content">
+        <h4>ReAct: Synergizing Reasoning and Acting in Language Models</h4>
+        <div class="source-meta">arXiv（Princeton NLP + Google Research）｜ Shunyu Yao et al. ｜ 2023-03-09</div>
+        <span class="tag-badge tag-research">學術研究</span>
+        <a href="https://arxiv.org/abs/2210.03629" target="_blank">arxiv.org/abs/2210.03629</a>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-num">9</div>
+      <div class="source-content">
+        <h4>Agentic AI: Practical Implementation Guide</h4>
+        <div class="source-meta">Atlan ｜ 2025</div>
+        <span class="tag-badge tag-tech">技術指南</span>
+        <a href="https://atlan.com/agentic-ai/" target="_blank">atlan.com/agentic-ai</a>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-num">10</div>
+      <div class="source-content">
+        <h4>Agentic AI Security and Privacy Considerations</h4>
+        <div class="source-meta">IAPP / VikingCloud ｜ 2025</div>
+        <span class="tag-badge tag-core">核心文章</span>
+        <a href="https://iapp.org/news/a/agentic-ai-privacy-considerations/" target="_blank">iapp.org → agentic-ai-privacy-considerations</a>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-num">11</div>
+      <div class="source-content">
+        <h4>Agentic AI vs Generative AI: Key Differences</h4>
+        <div class="source-meta">Warmly.AI / TechAhead ｜ 2025</div>
+        <span class="tag-badge tag-core">延伸閱讀</span>
+        <a href="https://warmly.ai/blog/agentic-ai-vs-generative-ai" target="_blank">warmly.ai → agentic-ai-vs-generative-ai</a>
+      </div>
+    </div>
+    <div class="source-item">
+      <div class="source-num">12</div>
+      <div class="source-content">
+        <h4>Agentic AI Frameworks: LangChain, AutoGen, CrewAI Comparison</h4>
+        <div class="source-meta">Neo4j / TileDB ｜ 2025</div>
+        <span class="tag-badge tag-tech">技術指南</span>
+        <a href="https://neo4j.com/developer-blog/agentic-ai/" target="_blank">neo4j.com/developer-blog/agentic-ai</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<script>
+// Active nav highlight on scroll
+const pages = document.querySelectorAll('.page');
+const navLinks = document.querySelectorAll('.nav-links a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const id = '#' + e.target.id;
+      const active = document.querySelector(`.nav-links a[href="${id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.4 });
+pages.forEach(p => observer.observe(p));
+</script>
+</body>
+</html>
