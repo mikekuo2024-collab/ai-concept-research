@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Context Engineering 深度研究報告</title>
+<style>
+  :root {
+    --dark-blue: #1a1a2e;
+    --mid-blue: #2c3e6b;
+    --accent: #1e6fbf;
+    --teal: #0d9488;
+    --light-bg: #f4f7fb;
+    --card-border: #dde3ef;
+    --text-main: #1a202c;
+    --text-sub: #4a5568;
+    --warning-red: #c0392b;
+    --success-green: #27ae60;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+    background: var(--light-bg);
+    color: var(--text-main);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ===== 導覽列 ===== */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--dark-blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 56px;
+    z-index: 1000;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .nav-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .nav-links {
+    display: flex;
+    gap: 8px;
+  }
+  .nav-links a {
+    color: #a0c4e8;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nav-meta {
+    color: #7a9cbf;
+    font-size: 12px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* ===== 主內容 ===== */
+  main {
+    margin-top: 56px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 24px 60px;
+  }
+
+  /* ===== 頁面橫幅 ===== */
+  .page-banner {
+    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--mid-blue) 60%, var(--accent) 100%);
+    border-radius: 16px;
+    padding: 48px 40px;
+    margin: 32px 0 24px;
+    color: #fff;
+  }
+  .page-banner .page-number {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    margin-bottom: 8px;
+  }
+  .page-banner h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .page-banner p {
+    opacity: 0.85;
+    font-size: 15px;
+    max-width: 600px;
+  }
+
+  /* ===== 卡片 ===== */
+  .card {
+    background: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(26,42,70,0.06);
+  }
+  .card h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--mid-blue);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--card-border);
+  }
+  .card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 14px 0 8px;
+  }
+
+  /* ===== 核心定義框 ===== */
+  .definition-box {
+    background: linear-gradient(135deg, #e8f0fa 0%, #f0f8ff 100%);
+    border-left: 5px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+  }
+  .definition-box .def-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .definition-box blockquote {
+    font-size: 17px;
+    font-style: italic;
+    color: var(--dark-blue);
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .definition-box .source-tag {
+    font-size: 12px;
+    color: var(--text-sub);
+    background: rgba(30,111,191,0.1);
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+  }
+
+  /* ===== 時間軸 ===== */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 8px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--teal));
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -24px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .timeline-date {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .timeline-content {
+    font-size: 14px;
+    color: var(--text-main);
+  }
+
+  /* ===== 對照表 ===== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin-top: 8px;
+  }
+  th {
+    background: var(--mid-blue);
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #eef2f8;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td {
+    background: #f8fafd;
+  }
+  tr:hover td {
+    background: #edf3ff;
+  }
+
+  /* ===== 元件卡片群 ===== */
+  .component-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .component-card {
+    background: #f8fafd;
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 16px;
+    transition: box-shadow 0.2s;
+  }
+  .component-card:hover {
+    box-shadow: 0 4px 16px rgba(30,111,191,0.15);
+  }
+  .component-icon {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .component-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--mid-blue);
+    margin-bottom: 6px;
+  }
+  .component-card p {
+    font-size: 12.5px;
+    color: var(--text-sub);
+    line-height: 1.5;
+  }
+
+  /* ===== 步驟清單 ===== */
+  .steps {
+    counter-reset: step-counter;
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+  }
+  .steps li {
+    counter-increment: step-counter;
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .steps li::before {
+    content: counter(step-counter);
+    min-width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 4px;
+  }
+  .step-content p {
+    font-size: 13.5px;
+    color: var(--text-sub);
+  }
+
+  /* ===== 程式碼區塊 ===== */
+  pre {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    border-radius: 8px;
+    padding: 20px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+  code {
+    font-family: "Fira Code", "Cascadia Code", Consolas, monospace;
+  }
+
+  /* ===== 警示卡片 ===== */
+  .warning-card {
+    background: #fdf3f2;
+    border: 1px solid #f5c6c2;
+    border-left: 4px solid var(--warning-red);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+  .warning-card h4 {
+    color: var(--warning-red);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .warning-card p {
+    font-size: 13.5px;
+    color: #6b2e2b;
+  }
+
+  /* ===== 最佳實踐清單 ===== */
+  .best-practices {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+  }
+  .best-practices li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eef2f8;
+    font-size: 14px;
+  }
+  .best-practices li::before {
+    content: "✓";
+    color: var(--success-green);
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ===== 來源列表 ===== */
+  .source-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+  }
+  .source-list li {
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    background: #fff;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .source-num {
+    min-width: 28px;
+    height: 28px;
+    background: var(--mid-blue);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .source-info h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 4px;
+  }
+  .source-info .source-meta {
+    font-size: 12px;
+    color: var(--text-sub);
+    margin-bottom: 6px;
+  }
+  .source-info a {
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .source-info a:hover { text-decoration: underline; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+  .tag-core { background: #d6e4f0; color: #1a4e8a; }
+  .tag-zh { background: #fef9e7; color: #7d5a00; }
+  .tag-tech { background: #d5f5e3; color: #1a6640; }
+  .tag-compare { background: #fdebd0; color: #7e3c00; }
+  .tag-academic { background: #f4ecf7; color: #5b1a7a; }
+
+  /* ===== 成熟度路徑 ===== */
+  .maturity-path {
+    display: flex;
+    gap: 0;
+    margin-top: 16px;
+    overflow-x: auto;
+  }
+  .maturity-step {
+    flex: 1;
+    min-width: 130px;
+    text-align: center;
+    padding: 16px 10px;
+    position: relative;
+    background: linear-gradient(135deg, #f0f4fd, #e8f0fb);
+    border: 1px solid var(--card-border);
+    border-radius: 0;
+  }
+  .maturity-step:first-child { border-radius: 10px 0 0 10px; }
+  .maturity-step:last-child { border-radius: 0 10px 10px 0; }
+  .maturity-step::after {
+    content: "→";
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 18px;
+    z-index: 1;
+  }
+  .maturity-step:last-child::after { display: none; }
+  .maturity-level {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .maturity-step h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 6px;
+  }
+  .maturity-step p {
+    font-size: 11.5px;
+    color: var(--text-sub);
+  }
+
+  /* ===== 分頁區隔 ===== */
+  .page-section {
+    scroll-margin-top: 70px;
+  }
+
+  @media print {
+    nav { position: static; }
+    .page-section { page-break-after: always; }
+    .page-section:last-child { page-break-after: avoid; }
+    main { margin-top: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 導覽列 -->
+<nav>
+  <div class="nav-title">Context Engineering 深度研究報告</div>
+  <div class="nav-links">
+    <a href="#page1">第一頁：定義與起源</a>
+    <a href="#page2">第二頁：架構與流程</a>
+    <a href="#page3">第三頁：實戰與資源</a>
+  </div>
+  <div class="nav-meta">整理日期：2026-06-21<br>來源：10 篇參考資料</div>
+</nav>
+
+<main>
+
+<!-- ==============================
+     第一頁：概念定義與起源背景
+     ============================== -->
+<section id="page1" class="page-section">
+  <div class="page-banner">
+    <div class="page-number">Page 1 of 3</div>
+    <h1>概念定義與起源背景</h1>
+    <p>Context Engineering 是如何誕生的？它的核心定義是什麼？與過去的 Prompt Engineering 有何本質差異？</p>
+  </div>
+
+  <!-- 核心定義框 -->
+  <div class="definition-box">
+    <div class="def-label">核心定義（最廣被引用）</div>
+    <blockquote>
+      "Context Engineering 是設計與建構動態系統的學門，在正確的時機、以正確的格式，提供正確的資訊和工具，讓 LLM 能完成任務。"
+    </blockquote>
+    <span class="source-tag">— Philipp Schmid（Google DeepMind），2025-06-30</span>
+  </div>
+
+  <!-- 觸發引言 -->
+  <div class="card">
+    <h2>觸發此概念的關鍵引言</h2>
+    <div style="background:#f8fafd; border-radius:8px; padding:16px 20px; margin-bottom:14px; border-left:3px solid var(--teal);">
+      <p style="font-style:italic; color:#2c3e6b; margin-bottom:8px;">"我真的喜歡 context engineering 這個詞勝過 prompt engineering。它更好地描述了核心技能：提供所有上下文讓 LLM 能合理解決任務的藝術。"</p>
+      <p style="font-size:12px; color:var(--text-sub);">— <strong>Tobi Lütke</strong>（Shopify CEO），2025年6月19日，此推文被視為 Context Engineering 術語的正式起源</p>
+    </div>
+    <div style="background:#f8fafd; border-radius:8px; padding:16px 20px; margin-bottom:14px; border-left:3px solid var(--accent);">
+      <p style="font-style:italic; color:#2c3e6b; margin-bottom:8px;">"LLM 就像新型作業系統，模型是 CPU，而 Context Window 就是 RAM。Context Engineering 是精巧地把對的資訊在對的時機塞進 context window 的微妙藝術與科學。"</p>
+      <p style="font-size:12px; color:var(--text-sub);">— <strong>Andrej Karpathy</strong>（AI 研究員），2025年</p>
+    </div>
+    <div style="background:#f8fafd; border-radius:8px; padding:16px 20px; border-left:3px solid #9b59b6;">
+      <p style="font-style:italic; color:#2c3e6b; margin-bottom:8px;">"在每一個工業強度的 LLM 應用中，context engineering 是精巧填充 context window 的藝術與科學——在正確的下一步所需的資訊之中，填入恰當的內容。"</p>
+      <p style="font-size:12px; color:var(--text-sub);">— <strong>Andrej Karpathy</strong>（Twitter），引用自 LlamaIndex 部落格，2025年</p>
+    </div>
+  </div>
+
+  <!-- 演進時間軸 -->
+  <div class="card">
+    <h2>演進歷史時間軸</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">2020-2022</div>
+        <div class="timeline-content"><strong>Prompt Engineering 時代</strong>：GPT-3 發布，社群開始探索 prompt 設計技巧；ChatGPT（2022年11月）帶動靜態提示詞工程的普及。此時單次對話為主，靜態 prompt 相對足夠。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2023</div>
+        <div class="timeline-content"><strong>RAG 興起</strong>：LLM 知識截止日問題凸顯，Retrieval-Augmented Generation（RAG）成為主流解法，開始有「如何給模型正確外部知識」的系統性思考。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2024</div>
+        <div class="timeline-content"><strong>Agent 時代萌芽</strong>：LLM 開始能使用工具、執行多步驟任務。Context window 從 4K 擴展到 128K、200K tokens，但更長的 context 帶來管理挑戰（lost in the middle 問題）。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2025 年初</div>
+        <div class="timeline-content"><strong>12-Factor Agents 提出 Context 優先</strong>：Dex Horthy 在 GitHub 提出「Own Your Context Window」原則，認為 Agent 中所有事情都是 context 工程，成為 Context Engineering 概念的早期系統化論述。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2025-06-19</div>
+        <div class="timeline-content"><strong>Tobi Lütke 推文引爆討論</strong>：Shopify CEO 在 Twitter 提出 "context engineering" 一詞，獲得 Karpathy、Harrison Chase（LangChain）、Jerry Liu（LlamaIndex）、Simon Willison 等 AI 領袖相繼認可轉發，術語正式確立。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2025-06 至 07</div>
+        <div class="timeline-content"><strong>定義成形</strong>：Philipp Schmid（Google DeepMind）、LangChain、LlamaIndex 相繼發表深度文章，確立技術框架；arXiv 出現第一篇系統性學術綜述論文（2507.13334）。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2025 下半年至 2026</div>
+        <div class="timeline-content"><strong>工具生態爆發</strong>：LangGraph、Mem0、Weaviate 等框架深度整合 context 管理；台灣學術界（台大）和工程師社群開始系統性教學；Context Engineering 成為 AI Agent 開發的標準思維框架。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 對照表 -->
+  <div class="card">
+    <h2>與相關概念的對照</h2>
+    <table>
+      <thead>
+        <tr><th>維度</th><th>Prompt Engineering</th><th>Context Engineering</th><th>RAG</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>核心問題</td><td>如何問問題（How）</td><td>知道什麼（What）</td><td>如何找到資訊（Where）</td></tr>
+        <tr><td>範疇</td><td>單次指令設計</td><td>完整資訊生態系統</td><td>外部知識庫檢索</td></tr>
+        <tr><td>主要輸入</td><td>靜態 prompt 字串</td><td>動態組裝的 context 系統</td><td>向量索引 + 查詢</td></tr>
+        <tr><td>技能需求</td><td>語言直覺、對話設計</td><td>系統架構、資料工程</td><td>向量資料庫、嵌入模型</td></tr>
+        <tr><td>適用場景</td><td>簡單問答、創意寫作</td><td>複雜 Agent、多步驟推理</td><td>知識問答、文件查詢</td></tr>
+        <tr><td>關係</td><td>Context Engineering 的子集</td><td>最廣泛的上位概念</td><td>Context Engineering 的一個支柱</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==============================
+     第二頁：核心架構與操作流程
+     ============================== -->
+<section id="page2" class="page-section">
+  <div class="page-banner">
+    <div class="page-number">Page 2 of 3</div>
+    <h1>核心架構與操作流程</h1>
+    <p>Context Engineering 的七大組成元素是什麼？四大支柱如何運作？實際的程式碼和工具比較。</p>
+  </div>
+
+  <!-- Context 七大組成元素 -->
+  <div class="card">
+    <h2>Context 的九大組成元素</h2>
+    <p style="color:var(--text-sub); margin-bottom:16px; font-size:13.5px;">Context 不只是你傳送的 prompt，而是模型回應前所見到的一切（Philipp Schmid, LlamaIndex 整合版）</p>
+    <div class="component-grid">
+      <div class="component-card">
+        <div class="component-icon">📋</div>
+        <h4>System Prompt / Instructions</h4>
+        <p>定義模型行為的初始指令、規則、人設，設定整個對話的場景。</p>
+      </div>
+      <div class="component-card">
+        <div class="component-icon">💬</div>
+        <h4>User Prompt / Input</h4>
+        <p>使用者的即時任務、問題或指令，是觸發 LLM 生成的直接輸入。</p>
+      </div>
+      <div class="component-card">
+        <div class="component-icon">🔄</div>
+        <h4>State / Chat History（短期記憶）</h4>
+        <p>當前對話中的所有訊息歷史，讓模型理解對話脈絡和前後文。</p>
+      </div>
+      <div class="component-card">
+        <div class="component-icon">🧠</div>
+        <h4>Long-Term Memory（長期記憶）</h4>
+        <p>跨對話持久化的知識：使用者偏好、歷史摘要、已學習的事實。</p>
+      </div>
+      <div class="component-card">
+        <div class="component-icon">🔍</div>
+        <h4>Retrieved Information（RAG）</h4>
+        <p>從外部文件、資料庫、API 動態檢索的即時相關知識。</p>
+      </div>
+      <div class="component-card">
+        <div class="component-icon">🔧</div>
+        <h4>Available Tools（工具定義）</h4>
+        <p>所有可呼叫函數的定義和 schema，讓模型知道有哪些能力可用。</p>
+      </div>
+      <div class="component-card">
+        <div class="component-icon">📤</div>
+        <h4>Tool Responses（工具回應）</h4>
+        <p>工具執行後的回傳結果，作為模型下一步推理的輸入資料。</p>
+      </div>
+      <div class="component-card">
+        <div class="component-icon">📐</div>
+        <h4>Structured Output（格式定義）</h4>
+        <p>定義模型回應的格式（如 JSON schema），既控制輸出也提供結構化輸入。</p>
+      </div>
+      <div class="component-card">
+        <div class="component-icon">🌐</div>
+        <h4>Global State / Workflow Context</h4>
+        <p>多步驟 Agent 中的全域變數、任務進度、先前步驟結果的暫存區。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 四大支柱 -->
+  <div class="card">
+    <h2>四大核心操作支柱（Lance Martin, LangChain）</h2>
+    <ol class="steps">
+      <li>
+        <div class="step-content">
+          <h4>Write（寫入）— 建立長期記憶</h4>
+          <p>動態將重要資訊儲存到 context window 之外，形成長期記憶。跨對話記住使用者偏好、任務狀態、學習到的事實。工具：向量資料庫、Mem0、LangGraph checkpointing。</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <h4>Read（選擇）— 按需注入 Context</h4>
+          <p>從記憶、工具庫、知識庫按需拉取相關資訊注入 context window。包含：從長期記憶召回、動態選擇工具、RAG 檢索。目標：最小可行 context。</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <h4>Compress（壓縮）— 控制 Token 用量</h4>
+          <p>當 context 過長時，僅保留執行任務所需的 tokens。技術：對話摘要、Context Pruning（移除過時資訊）、Context Offloading（卸載到外部工作區）。Claude Code 超過 95% 時自動 auto-compact。</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <h4>Isolate（隔離）— Multi-Agent 架構</h4>
+          <p>將任務拆分給 Sub-Agent 執行，Lead Agent 只接收結果而非完整執行過程。大幅節省 Lead Agent 的 context 用量，但需注意資訊共享的挑戰。</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- 五大實戰技巧 -->
+  <div class="card">
+    <h2>五大實戰策略（ORRIC 框架）</h2>
+    <table>
+      <thead>
+        <tr><th>策略</th><th>英文</th><th>說明</th><th>典型工具/場景</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>卸載</strong></td>
+          <td>Offload</td>
+          <td>將資訊寫到 context 之外，需要時再召回</td>
+          <td>Mem0、LangGraph Memory、向量資料庫；Anthropic "think" tool（+54% 性能）</td>
+        </tr>
+        <tr>
+          <td><strong>壓縮</strong></td>
+          <td>Reduce</td>
+          <td>摘要化或修剪現有 context</td>
+          <td>Claude Code auto-compact、對話摘要、Context Pruning</td>
+        </tr>
+        <tr>
+          <td><strong>檢索</strong></td>
+          <td>Retrieve</td>
+          <td>按需從外部拉取相關資訊</td>
+          <td>RAG（向量搜尋）、Hybrid Search（向量+BM25）、MCP Tools</td>
+        </tr>
+        <tr>
+          <td><strong>隔離</strong></td>
+          <td>Isolate</td>
+          <td>拆分到 Sub-Agent，只回傳結果</td>
+          <td>OpenAI Agents SDK、Anthropic Multi-Agent、LangGraph 子圖</td>
+        </tr>
+        <tr>
+          <td><strong>快取</strong></td>
+          <td>Cache</td>
+          <td>快取常用 context 片段</td>
+          <td>Anthropic Prompt Caching、OpenAI Cached Prompts（顯著降低延遲和成本）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 程式碼範例 -->
+  <div class="card">
+    <h2>程式碼範例：Context 排序與過濾（Python）</h2>
+    <p style="color:var(--text-sub); font-size:13.5px; margin-bottom:4px;">來自 LlamaIndex 技術指南：在 RAG 時加入時間過濾和排序，確保模型優先看到最新最相關的資訊</p>
+    <pre><code>def search_knowledge(
+    query: Annotated[str, "A natural language query or question."]
+) -> str:
+    """從包含 XYZ 資訊的資料庫中檢索知識。
+    每次查詢應是一個具體、明確的自然語言問題。"""
+    
+    nodes = retriever.retrieve(query)
+    
+    # 過濾：只保留截止日期之後的資料
+    # 排序：最新的資料排在前面（讓 LLM 優先看到）
+    sorted_and_filtered_nodes = sorted(
+        [item for item in data 
+         if datetime.strptime(item['date'], '%Y-%m-%d') > cutoff_date],
+        key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d'),
+        reverse=True  # 最新的排前面
+    )
+    
+    return "\n----\n".join([n.text for n in sorted_and_filtered_nodes])</code></pre>
+  </div>
+
+  <!-- 工具比較 -->
+  <div class="card">
+    <h2>主流 Context Engineering 框架比較</h2>
+    <table>
+      <thead>
+        <tr><th>框架</th><th>主要特色</th><th>記憶支援</th><th>適合場景</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>LangGraph</strong></td>
+          <td>事件驅動、Checkpointing、內建記憶模組</td>
+          <td>Thread-scoped + 長期記憶，跨步驟持久化</td>
+          <td>複雜多步驟 Agent、需要狀態管理</td>
+        </tr>
+        <tr>
+          <td><strong>LlamaIndex Workflows</strong></td>
+          <td>事件驅動 1.0、Workflow Context 暫存區</td>
+          <td>VectorMemory、FactExtraction、StaticMemory</td>
+          <td>文件處理、RAG 管線、結構化資料提取</td>
+        </tr>
+        <tr>
+          <td><strong>Mem0</strong></td>
+          <td>記憶壓縮引擎、token 節省 80%</td>
+          <td>專注長期記憶持久化和語意檢索</td>
+          <td>需要跨對話記憶的個人化 Agent</td>
+        </tr>
+        <tr>
+          <td><strong>OpenAI Agents SDK</strong></td>
+          <td>Agents as Tools、多代理協作</td>
+          <td>基礎對話歷史管理</td>
+          <td>OpenAI 生態內的多代理任務分工</td>
+        </tr>
+        <tr>
+          <td><strong>自訂（12-Factor 風格）</strong></td>
+          <td>第一性原理、自訂 Context 格式（XML）</td>
+          <td>完全自主控制</td>
+          <td>需要最大彈性、最高 token 效率的場景</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==============================
+     第三頁：實戰指南、風險與資源
+     ============================== -->
+<section id="page3" class="page-section">
+  <div class="page-banner">
+    <div class="page-number">Page 3 of 3</div>
+    <h1>實戰指南、風險與完整資源</h1>
+    <p>如何從 Prompt Engineering 升級到 Context Engineering？有哪些風險要避免？完整來源清單。</p>
+  </div>
+
+  <!-- 成熟度路徑 -->
+  <div class="card">
+    <h2>Context Engineering 採用成熟度路徑</h2>
+    <div class="maturity-path">
+      <div class="maturity-step">
+        <div class="maturity-level">Level 1</div>
+        <h4>靜態 Prompt</h4>
+        <p>只有 system prompt + user prompt，無動態 context</p>
+      </div>
+      <div class="maturity-step">
+        <div class="maturity-level">Level 2</div>
+        <h4>RAG 整合</h4>
+        <p>加入外部知識庫檢索，基礎 context 擴充</p>
+      </div>
+      <div class="maturity-step">
+        <div class="maturity-level">Level 3</div>
+        <h4>記憶系統</h4>
+        <p>短期 + 長期記憶，跨對話持久化使用者狀態</p>
+      </div>
+      <div class="maturity-step">
+        <div class="maturity-level">Level 4</div>
+        <h4>動態工具選擇</h4>
+        <p>按任務動態注入工具定義，而非預載所有工具</p>
+      </div>
+      <div class="maturity-step">
+        <div class="maturity-level">Level 5</div>
+        <h4>完整 CE 系統</h4>
+        <p>壓縮 + 快取 + 多代理隔離，生產級 token 優化</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 風險與注意事項 -->
+  <div class="card">
+    <h2>風險與注意事項</h2>
+
+    <div class="warning-card">
+      <h4>Lost in the Middle 問題</h4>
+      <p>研究顯示 LLM 對 context 中間位置的資訊注意力最低。避免將關鍵資訊埋在過長 context 的中段；使用排序技術讓最重要的資訊出現在開頭或結尾。</p>
+    </div>
+
+    <div class="warning-card">
+      <h4>Context 成本失控</h4>
+      <p>生產級 Agent 可能進行數十至上百次工具呼叫。若每次工具輸出都原封不動塞回模型，token 費用將呈指數增長。務必實作壓縮管線和 Context Offloading。</p>
+    </div>
+
+    <div class="warning-card">
+      <h4>Context 品質的上游問題</h4>
+      <p>多數討論聚焦在如何管理 context，但忽略「context 來源治理」：企業 context 從哪裡來？誰在維護？過時、不完整、未治理的 context 會導致即使架構完美也無法正常運作。</p>
+    </div>
+
+    <div class="warning-card">
+      <h4>Multi-Agent 資訊共享問題</h4>
+      <p>隔離 context 到 Sub-Agent 雖然節省 token，但會導致子代理之間無法有效共享中間狀態和推理過程。需要在隔離效率和資訊共享之間取得平衡。</p>
+    </div>
+
+    <div class="warning-card">
+      <h4>過度工程化（Over-Engineering）</h4>
+      <p>目標是「最小可行 context」，而非「最大化 context」。塞入不相關的資訊反而會分散模型注意力、降低性能（Garbage In, Garbage Out）。先從簡單開始，按需求增加複雜度。</p>
+    </div>
+  </div>
+
+  <!-- 最佳實踐清單 -->
+  <div class="card">
+    <h2>最佳實踐清單</h2>
+    <ul class="best-practices">
+      <li>從「最小可行 context」原則出發，只提供完成任務所需的最少資訊</li>
+      <li>設計 context 管線系統，而非只寫靜態 prompt 字串</li>
+      <li>根據任務動態決定要包含哪些工具定義，避免工具定義膨脹</li>
+      <li>為 context window 設定預算，監控每次 LLM 呼叫的 token 使用量</li>
+      <li>實作對話摘要機制，超過閾值時自動壓縮歷史記錄</li>
+      <li>使用結構化輸出（JSON Schema）確保工具回應格式一致、易於再利用</li>
+      <li>建立長期記憶的更新和過期機制，防止過時資訊污染 context</li>
+      <li>採用混合搜尋（Hybrid Search = 向量 + BM25）提升 RAG 檢索精準度</li>
+      <li>利用 Prompt Caching 快取常用的 system prompt 和知識文件，降低延遲和成本</li>
+      <li>在複雜任務中使用 Multi-Agent 隔離，但設計清晰的 Sub-Agent 回傳格式</li>
+      <li>建立 context 品質監控：相關性、新鮮度、完整性、精簡性四指標</li>
+      <li>思考「context 來源治理」：確保外部知識庫定期更新、有明確的負責人</li>
+    </ul>
+  </div>
+
+  <!-- 完整參考來源 -->
+  <div class="card">
+    <h2>完整參考來源列表（10 篇）</h2>
+    <ul class="source-list">
+      <li>
+        <div class="source-num">1</div>
+        <div class="source-info">
+          <h4>The New Skill in AI is Not Prompting, It's Context Engineering</h4>
+          <div class="source-meta">Philipp Schmid（Google DeepMind）· 2025-06-30 · 英文</div>
+          <span class="tag tag-core">核心文章</span>
+          <a href="https://www.philschmid.de/context-engineering" target="_blank">https://www.philschmid.de/context-engineering</a>
+        </div>
+      </li>
+      <li>
+        <div class="source-num">2</div>
+        <div class="source-info">
+          <h4>什麼是 Context Engineering 上下文工程？</h4>
+          <div class="source-meta">ihower · 2025-07-03 · 繁體中文</div>
+          <span class="tag tag-zh">中文資源</span>
+          <a href="https://ihower.tw/blog/12817-context-engineering" target="_blank">https://ihower.tw/blog/12817-context-engineering</a>
+        </div>
+      </li>
+      <li>
+        <div class="source-num">3</div>
+        <div class="source-info">
+          <h4>Context Engineering Guide: Techniques for AI Agents</h4>
+          <div class="source-meta">Tuana Çelik, Logan Markewich（LlamaIndex）· 2025-07-03 · 英文</div>
+          <span class="tag tag-tech">技術指南</span>
+          <a href="https://www.llamaindex.ai/blog/context-engineering-what-it-is-and-techniques-to-consider" target="_blank">LlamaIndex Blog</a>
+        </div>
+      </li>
+      <li>
+        <div class="source-num">4</div>
+        <div class="source-info">
+          <h4>Context Engineering vs Prompt Engineering for AI Agents</h4>
+          <div class="source-meta">Firecrawl Team · 2025 · 英文</div>
+          <span class="tag tag-compare">比較分析</span>
+          <a href="https://www.firecrawl.dev/blog/context-engineering" target="_blank">https://www.firecrawl.dev/blog/context-engineering</a>
+        </div>
+      </li>
+      <li>
+        <div class="source-num">5</div>
+        <div class="source-info">
+          <h4>Context Engineering in 2025: The Complete Guide to AI Agent Optimization</h4>
+          <div class="source-meta">Mem0 Team · 2025 · 英文</div>
+          <span class="tag tag-tech">技術指南</span>
+          <a href="https://mem0.ai/blog/context-engineering-ai-agents-guide" target="_blank">https://mem0.ai/blog/context-engineering-ai-agents-guide</a>
+        </div>
+      </li>
+      <li>
+        <div class="source-num">6</div>
+        <div class="source-info">
+          <h4>What is Context Engineering in AI Agents? A Practical Guide</h4>
+          <div class="source-meta">Neo4j Team · 2025 · 英文</div>
+          <span class="tag tag-compare">批評/比較</span>
+          <a href="https://neo4j.com/blog/agentic-ai/what-is-context-engineering/" target="_blank">Neo4j Blog</a>
+        </div>
+      </li>
+      <li>
+        <div class="source-num">7</div>
+        <div class="source-info">
+          <h4>Context Engineering: LLM Memory and Retrieval for AI Agents</h4>
+          <div class="source-meta">Weaviate Team · 2025 · 英文</div>
+          <span class="tag tag-tech">技術指南</span>
+          <a href="https://weaviate.io/blog/context-engineering" target="_blank">https://weaviate.io/blog/context-engineering</a>
+        </div>
+      </li>
+      <li>
+        <div class="source-num">8</div>
+        <div class="source-info">
+          <h4>【生成式AI導論2025】第2講：上下文工程（Context Engineering）</h4>
+          <div class="source-meta">Yuan1108（台大課程筆記）· 2025 · 繁體中文</div>
+          <span class="tag tag-zh">中文資源</span>
+          <a href="https://hackmd.io/@Yuan1108/H1IswtJwZx" target="_blank">https://hackmd.io/@Yuan1108/H1IswtJwZx</a>
+        </div>
+      </li>
+      <li>
+        <div class="source-num">9</div>
+        <div class="source-info">
+          <h4>Context Engineering vs Prompt Engineering</h4>
+          <div class="source-meta">Elastic Team · 2025 · 英文</div>
+          <span class="tag tag-compare">比較分析</span>
+          <a href="https://www.elastic.co/search-labs/blog/context-engineering-vs-prompt-engineering" target="_blank">Elasticsearch Labs Blog</a>
+        </div>
+      </li>
+      <li>
+        <div class="source-num">10</div>
+        <div class="source-info">
+          <h4>A Survey of Context Engineering for Large Language Models</h4>
+          <div class="source-meta">多位研究者 · arXiv 2507.13334 · 2025-07 · 英文</div>
+          <span class="tag tag-academic">學術論文</span>
+          <a href="https://arxiv.org/pdf/2507.13334" target="_blank">https://arxiv.org/pdf/2507.13334</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div style="text-align:center; padding: 24px 0 8px; color: var(--text-sub); font-size: 13px;">
+    本報告由 AI 自動整理 · 整理日期：2026-06-21 · 共 10 篇來源
+  </div>
+</section>
+
+</main>
+
+</body>
+</html>
