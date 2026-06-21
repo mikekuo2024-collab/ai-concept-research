@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP（Model Context Protocol）深度研究報告</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",Arial,sans-serif; background:#f0f4fa; color:#222; }
+
+  /* NAV */
+  nav { position:fixed; top:0; left:0; width:100%; background:#1a1a2e; display:flex; align-items:center; justify-content:space-between; padding:0 32px; height:56px; z-index:999; box-shadow:0 2px 8px rgba(0,0,0,.4); }
+  nav .nav-title { color:#fff; font-size:16px; font-weight:700; letter-spacing:.5px; }
+  nav .nav-links { display:flex; gap:28px; }
+  nav .nav-links a { color:#a8c4e8; text-decoration:none; font-size:13px; transition:color .2s; }
+  nav .nav-links a:hover { color:#fff; }
+  nav .nav-meta { color:#7a9cc4; font-size:12px; text-align:right; }
+
+  main { padding-top:56px; }
+
+  /* PAGE BANNER */
+  .page-banner { background:linear-gradient(135deg,#1a2a4a 0%,#2c3e6b 60%,#1e4a7a 100%); color:#fff; padding:56px 40px 48px; }
+  .page-banner .page-num { font-size:12px; letter-spacing:2px; color:#7ab3e0; text-transform:uppercase; margin-bottom:8px; }
+  .page-banner h1 { font-size:28px; font-weight:700; margin-bottom:10px; }
+  .page-banner p { font-size:14px; color:#b8d0ea; max-width:680px; }
+
+  section.page-section { padding:40px 40px 48px; max-width:1100px; margin:0 auto; }
+
+  /* CARDS */
+  .card { background:#fff; border:1px solid #dde3ef; border-radius:12px; padding:24px; margin-bottom:20px; }
+  .card h3 { font-size:16px; color:#1a2a46; margin-bottom:12px; border-left:4px solid #1e6fbf; padding-left:12px; }
+  .card p, .card li { font-size:14px; line-height:1.75; color:#3a4a5e; }
+  .card ul { padding-left:20px; margin-top:8px; }
+  .card li { margin-bottom:6px; }
+
+  /* DEFINITION BOX */
+  .def-box { background:linear-gradient(135deg,#e8f0fb,#dceeff); border-left:5px solid #1e6fbf; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .def-box .def-label { font-size:11px; letter-spacing:1px; color:#1e6fbf; text-transform:uppercase; margin-bottom:8px; font-weight:700; }
+  .def-box blockquote { font-size:16px; line-height:1.8; color:#1a2a46; font-style:italic; }
+  .def-box .def-source { font-size:12px; color:#5a7aa0; margin-top:8px; }
+
+  /* TIMELINE */
+  .timeline { position:relative; padding-left:24px; }
+  .timeline::before { content:''; position:absolute; left:7px; top:0; bottom:0; width:2px; background:#dde3ef; }
+  .tl-item { position:relative; margin-bottom:20px; }
+  .tl-dot { position:absolute; left:-20px; top:4px; width:14px; height:14px; border-radius:50%; background:#1e6fbf; border:2px solid #fff; box-shadow:0 0 0 2px #1e6fbf; }
+  .tl-date { font-size:11px; color:#1e6fbf; font-weight:700; margin-bottom:2px; }
+  .tl-text { font-size:13px; color:#3a4a5e; line-height:1.6; }
+
+  /* COMPARE TABLE */
+  table { width:100%; border-collapse:collapse; font-size:13px; margin-top:12px; }
+  th { background:#1a2a46; color:#fff; padding:10px 14px; text-align:left; }
+  td { padding:10px 14px; border-bottom:1px solid #eef0f6; }
+  tr:nth-child(even) td { background:#f5f7fc; }
+
+  /* GRID CARDS */
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  @media(max-width:768px){ .grid-2,.grid-3 { grid-template-columns:1fr; } }
+
+  .icon-card { background:#fff; border:1px solid #dde3ef; border-radius:10px; padding:20px; }
+  .icon-card .icon { font-size:28px; margin-bottom:10px; }
+  .icon-card h4 { font-size:14px; color:#1a2a46; font-weight:700; margin-bottom:6px; }
+  .icon-card p { font-size:12px; color:#5a6a7e; line-height:1.6; }
+
+  /* STEP */
+  .steps { counter-reset:step; }
+  .step-item { display:flex; gap:16px; margin-bottom:16px; }
+  .step-num { flex-shrink:0; width:36px; height:36px; border-radius:50%; background:#1e6fbf; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px; }
+  .step-body h4 { font-size:14px; color:#1a2a46; margin-bottom:4px; }
+  .step-body p { font-size:13px; color:#5a6a7e; line-height:1.65; }
+
+  /* CODE */
+  pre { background:#1a1a2e; color:#a8d8a8; padding:16px 20px; border-radius:8px; font-family:"Courier New",monospace; font-size:12px; line-height:1.6; overflow-x:auto; margin-top:12px; }
+
+  /* RISK / BEST PRACTICE */
+  .risk-card { background:#fff5f5; border-left:4px solid #e74c3c; border-radius:8px; padding:14px 18px; margin-bottom:12px; }
+  .risk-card h4 { color:#c0392b; font-size:13px; font-weight:700; margin-bottom:4px; }
+  .risk-card p { font-size:12px; color:#666; line-height:1.6; }
+
+  .bp-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
+  .bp-check { color:#0d9488; font-size:18px; flex-shrink:0; margin-top:1px; }
+  .bp-text { font-size:13px; color:#3a4a5e; line-height:1.65; }
+
+  /* SOURCE LIST */
+  .src-item { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #eee; }
+  .src-num { width:28px; height:28px; border-radius:50%; background:#1e6fbf; color:#fff; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; }
+  .src-body p { font-size:13px; color:#3a4a5e; margin-bottom:2px; }
+  .src-body a { font-size:11px; color:#1e6fbf; text-decoration:none; }
+  .src-tag { display:inline-block; font-size:10px; padding:1px 7px; border-radius:10px; margin-left:6px; background:#e8f0fb; color:#1e6fbf; }
+
+  /* PRINT */
+  @media print {
+    nav { position:static; }
+    .page-banner { page-break-after:avoid; }
+    section.page-section { page-break-after:always; }
+  }
+
+  /* PAGE DIVIDER */
+  .page-divider { height:4px; background:linear-gradient(90deg,#1a1a2e,#1e6fbf,#0d9488); margin:0; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-title">MCP 深度研究報告</span>
+  <div class="nav-links">
+    <a href="#page1">第一頁：定義與起源</a>
+    <a href="#page2">第二頁：架構與流程</a>
+    <a href="#page3">第三頁：實戰與資源</a>
+  </div>
+  <div class="nav-meta">整理日期：2026-06-21<br>來源數量：9 篇</div>
+</nav>
+
+<main>
+
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div id="page1">
+  <div class="page-banner">
+    <div class="page-num">第一頁 / Page 1</div>
+    <h1>概念定義與起源背景</h1>
+    <p>MCP 是什麼？為什麼誕生？從 Anthropic 的官方定義到業界共識，追溯 Model Context Protocol 的起源脈絡。</p>
+  </div>
+
+  <section class="page-section">
+
+    <div class="def-box">
+      <div class="def-label">核心定義</div>
+      <blockquote>"MCP is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools. It provides a universal, open standard for connecting AI systems with data sources, replacing fragmented integrations with a single protocol."</blockquote>
+      <div class="def-source">— Anthropic 官方發布（2024年11月25日）</div>
+    </div>
+
+    <div class="card">
+      <h3>誕生背景：N×M 整合問題</h3>
+      <p>在 MCP 出現之前，每個 AI 應用需要針對每個外部工具編寫自定義整合程式碼。若有 N 個工具（GitHub、Slack、資料庫⋯）和 M 個 AI 模型（Claude、ChatGPT、Gemini⋯），就需要 <strong>N × M</strong> 個各自獨立的適配器。</p>
+      <ul>
+        <li>工程成本爆炸性增長</li>
+        <li>每次工具或模型更新，所有整合都需重寫</li>
+        <li>AI 模型被困在資訊孤島，無法取得即時資料</li>
+      </ul>
+      <p style="margin-top:12px;">MCP 的解法：統一標準 → 只需 <strong>N + M</strong> 個實作，大幅降低整合成本。</p>
+    </div>
+
+    <div class="card">
+      <h3>演進歷史時間軸</h3>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2024年11月25日</div>
+          <div class="tl-text">Anthropic 正式開源 MCP，發布規格、SDK 與預建伺服器。由 David Soria Parra 和 Justin Spahr-Summers 主導開發。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2024年11月 – 2025年初</div>
+          <div class="tl-text">早期採用者跟進：Block、Apollo 整合 MCP；Zed、Replit、Codeium、Sourcegraph 宣布合作。Claude Desktop 率先支援本地 MCP Server。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2025年3月27日</div>
+          <div class="tl-text">OpenAI 正式宣布 Agents SDK 支援 MCP，並整合至 ChatGPT 桌面應用。MCP 升格為跨廠商行業標準。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2025年4月</div>
+          <div class="tl-text">安全研究員發布 MCP 安全評估報告，揭露命令注入、SSRF、提示詞注入等漏洞。社群開始強化安全最佳實踐。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2025年中</div>
+          <div class="tl-text">Google DeepMind 正式採用 MCP，Google Cloud（Vertex AI）整合 MCP 支援。三大 AI 巨頭均採用，MCP 成為事實標準。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2025年6月（最新）</div>
+          <div class="tl-text">協定版本 2025-06-18 發布，引入 Tasks（實驗性）、Elicitation 等新原語，進一步強化多步驟工作流支援。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>MCP 與相關概念對照表</h3>
+      <table>
+        <tr><th>概念</th><th>定位</th><th>與 MCP 的關係</th></tr>
+        <tr><td>MCP</td><td>AI-工具整合標準協定</td><td>本體</td></tr>
+        <tr><td>LSP（語言伺服器協定）</td><td>IDE-語言服務整合標準</td><td>設計靈感來源，架構相似</td></tr>
+        <tr><td>LangChain / LangGraph</td><td>Agent 協調框架</td><td>互補關係，MCP 提供工具連接層</td></tr>
+        <tr><td>OpenAI Function Calling</td><td>特定廠商工具呼叫機制</td><td>競爭替代，MCP 更跨廠商</td></tr>
+        <tr><td>REST API</td><td>通用 Web 服務介面標準</td><td>MCP 在 REST 之上增加 AI 語意層</td></tr>
+        <tr><td>USB-C</td><td>硬體通用連接標準</td><td>MCP 的業界比喻</td></tr>
+      </table>
+    </div>
+
+  </section>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div id="page2">
+  <div class="page-banner">
+    <div class="page-num">第二頁 / Page 2</div>
+    <h1>核心架構與操作流程</h1>
+    <p>深入 MCP 的技術架構：三層角色、三大原語、兩種傳輸機制，以及完整的 JSON-RPC 互動流程。</p>
+  </div>
+
+  <section class="page-section">
+
+    <div class="card">
+      <h3>核心三層架構</h3>
+      <div class="grid-3" style="margin-top:12px;">
+        <div class="icon-card">
+          <div class="icon">🖥️</div>
+          <h4>MCP Host（宿主）</h4>
+          <p>用戶使用的 AI 應用程式，如 Claude Desktop、VS Code、Cursor。負責協調管理多個 MCP Client，包含 AI 協調邏輯，是整個系統的入口點。</p>
+        </div>
+        <div class="icon-card">
+          <div class="icon">🔌</div>
+          <h4>MCP Client（客戶端）</h4>
+          <p>存在於 Host 中的組件，與單個 MCP Server 維持 1:1 的專屬連接。負責訊息格式轉換、session 管理、錯誤處理和響應解析。</p>
+        </div>
+        <div class="icon-card">
+          <div class="icon">⚙️</div>
+          <h4>MCP Server（伺服器）</h4>
+          <p>提供工具、資源、提示的外部服務程式。可本地執行（如 Filesystem Server）或遠端部署（如 Sentry MCP Server）。暴露三種核心原語。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>三大核心原語（Primitives）</h3>
+      <div class="grid-3" style="margin-top:12px;">
+        <div class="icon-card" style="border-top:3px solid #1e6fbf;">
+          <div class="icon">🛠️</div>
+          <h4>Tools（工具）</h4>
+          <p>AI 可呼叫的可執行函式。每個 Tool 有唯一名稱、描述和 JSON Schema 輸入定義。可執行有副作用的操作：API 呼叫、資料庫查詢、計算等。</p>
+          <p style="margin-top:8px;font-size:11px;color:#1e6fbf;">呼叫方法：tools/list → tools/call</p>
+        </div>
+        <div class="icon-card" style="border-top:3px solid #0d9488;">
+          <div class="icon">📚</div>
+          <h4>Resources（資源）</h4>
+          <p>提供情境資訊給 AI 的唯讀資料來源。可以是檔案內容、資料庫記錄、API 響應等。資料由應用定義和控制，AI 不能透過資源修改系統。</p>
+          <p style="margin-top:8px;font-size:11px;color:#0d9488;">呼叫方法：resources/list → resources/read</p>
+        </div>
+        <div class="icon-card" style="border-top:3px solid #8b5cf6;">
+          <div class="icon">📝</div>
+          <h4>Prompts（提示）</h4>
+          <p>幫助結構化 LLM 互動的可重用模板。可包含系統提示、few-shot 範例，由 Server 暴露給 Client 使用，讓 AI 與特定工具的互動更有效率。</p>
+          <p style="margin-top:8px;font-size:11px;color:#8b5cf6;">呼叫方法：prompts/list → prompts/get</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>完整互動流程（4 個步驟）</h3>
+      <div class="steps" style="margin-top:12px;">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>初始化（Lifecycle Management）</h4>
+            <p>Client 發送 initialize 請求，與 Server 協商支援的協定版本和能力（capabilities）。雙方確認後，Client 發送 notifications/initialized 通知連接就緒。</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>工具探索（Tool Discovery）</h4>
+            <p>Client 發送 tools/list 請求，Server 回傳可用工具清單（每個工具含名稱、描述、inputSchema）。AI 應用將所有連接 Server 的工具整合為統一工具庫。</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>工具執行（Tool Execution）</h4>
+            <p>LLM 在對話中決定使用工具時，AI 應用攔截工具呼叫，路由到對應 MCP Server，執行 tools/call，將結果整合回對話。AI 獲得即時外部資料或執行操作。</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>即時通知（Notifications）</h4>
+            <p>Server 可主動發送 JSON-RPC 通知（無 id，不需回應），告知 Client 工具清單或資源發生變更。Client 收到後自動重新拉取最新清單，保持資訊同步。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>兩種傳輸機制對比</h3>
+      <table>
+        <tr><th>特性</th><th>Stdio Transport</th><th>Streamable HTTP Transport</th></tr>
+        <tr><td>適用場景</td><td>本地 MCP Server</td><td>遠端/雲端 MCP Server</td></tr>
+        <tr><td>通訊方式</td><td>標準輸入/輸出串流</td><td>HTTP POST + 可選 SSE</td></tr>
+        <tr><td>Client 關係</td><td>通常 1:1（單一 Client）</td><td>通常 1:N（多個 Client）</td></tr>
+        <tr><td>網路開銷</td><td>無（零開銷）</td><td>有（HTTP 協議開銷）</td></tr>
+        <tr><td>認證機制</td><td>進程級別權限</td><td>OAuth、Bearer Token、API Key</td></tr>
+        <tr><td>典型範例</td><td>Filesystem Server、Local DB</td><td>GitHub Server、Sentry MCP</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>JSON-RPC 程式碼範例</h3>
+      <p style="font-size:13px;color:#5a6a7e;margin-bottom:8px;">初始化請求與回應（協議版本 2025-06-18）：</p>
+<pre>// Client → Server：初始化請求
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "initialize",
+  "params": {
+    "protocolVersion": "2025-06-18",
+    "capabilities": { "elicitation": {} },
+    "clientInfo": { "name": "my-app", "version": "1.0.0" }
+  }
+}
+
+// Server → Client：初始化回應
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "protocolVersion": "2025-06-18",
+    "capabilities": {
+      "tools": { "listChanged": true },
+      "resources": {}
+    },
+    "serverInfo": { "name": "my-server", "version": "1.0.0" }
+  }
+}
+
+// Python SDK 快速建立 MCP Server
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP("My Weather Server")
+
+@mcp.tool()
+def get_weather(location: str, units: str = "metric") -> str:
+    """Get current weather for a location"""
+    # ... 實際 API 呼叫
+    return f"Weather in {location}: 25°C, Sunny"
+
+if __name__ == "__main__":
+    mcp.run()  # 以 Stdio 模式執行</pre>
+    </div>
+
+  </section>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- ═══════════════ PAGE 3 ═══════════════ -->
+<div id="page3">
+  <div class="page-banner">
+    <div class="page-num">第三頁 / Page 3</div>
+    <h1>實戰指南、風險與完整資源</h1>
+    <p>從入門到企業部署：MCP 的採用路徑、安全風險、最佳實踐，以及所有研究來源的完整索引。</p>
+  </div>
+
+  <section class="page-section">
+
+    <div class="card">
+      <h3>MCP 採用成熟度路徑</h3>
+      <div class="grid-2" style="margin-top:12px;">
+        <div class="icon-card" style="border-top:3px solid #22c55e;">
+          <div class="icon">🌱</div>
+          <h4>初學者（0–2週）</h4>
+          <p>安裝 Claude Desktop，連接官方預建 MCP Server（Filesystem、GitHub、Slack）。熟悉三大原語概念，嘗試讓 Claude 讀取本地檔案或查詢 GitHub。</p>
+        </div>
+        <div class="icon-card" style="border-top:3px solid #3b82f6;">
+          <div class="icon">🔧</div>
+          <h4>開發者（1–4週）</h4>
+          <p>使用 Python FastMCP 或 TypeScript SDK 構建第一個自定義 MCP Server，實作 1–3 個工具，連接到個人或公司的特定服務。</p>
+        </div>
+        <div class="icon-card" style="border-top:3px solid #f59e0b;">
+          <div class="icon">🏗️</div>
+          <h4>中級（1–3個月）</h4>
+          <p>部署遠端 MCP Server（Streamable HTTP），整合 OAuth 認證，構建多工具協作工作流，整合 LangChain 或 LangGraph 框架。</p>
+        </div>
+        <div class="icon-card" style="border-top:3px solid #8b5cf6;">
+          <div class="icon">🏢</div>
+          <h4>企業級（3個月+）</h4>
+          <p>建立企業 MCP Server 市場，集中管理權限和認證，整合到現有 DevOps 流程，部署安全審計機制，連接 ERP/CRM 等核心系統。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>安全風險警示</h3>
+      <div class="risk-card">
+        <h4>⚠️ 命令注入漏洞（43% 實作存在）</h4>
+        <p>攻擊者可透過惡意工具輸入執行任意系統命令。解決方案：對所有工具輸入進行嚴格的白名單驗證，避免直接將用戶輸入傳入系統呼叫。</p>
+      </div>
+      <div class="risk-card">
+        <h4>⚠️ SSRF（伺服器端請求偽造，30% 實作存在）</h4>
+        <p>攻擊者可利用 MCP Server 探測內部網路或存取受保護資源。解決方案：限制 MCP Server 可存取的 URL 白名單，封鎖內網 IP 範圍。</p>
+      </div>
+      <div class="risk-card">
+        <h4>⚠️ 任意檔案存取（22% 實作存在）</h4>
+        <p>MCP Server 可能洩露系統設定檔、私鑰等敏感資料。解決方案：明確限制 MCP Server 可存取的目錄路徑，使用沙箱環境。</p>
+      </div>
+      <div class="risk-card">
+        <h4>⚠️ 提示詞注入 + 工具投毒</h4>
+        <p>惡意 MCP Server 可透過已連接的其他工具進行資料外洩，或操控 AI 執行未授權操作。解決方案：只連接可信任的 MCP Server，定期審查連接的 Server 清單。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>最佳實踐清單</h3>
+      <div class="bp-item"><span class="bp-check">✅</span><span class="bp-text"><strong>從簡單開始</strong>：先用官方預建 MCP Server（Filesystem、GitHub）熟悉概念，再開發自定義 Server</span></div>
+      <div class="bp-item"><span class="bp-check">✅</span><span class="bp-text"><strong>嚴格輸入驗證</strong>：對所有工具輸入使用 JSON Schema 驗證，拒絕不符合格式的請求</span></div>
+      <div class="bp-item"><span class="bp-check">✅</span><span class="bp-text"><strong>最小權限原則</strong>：MCP Server 只申請完成任務所需的最小系統權限</span></div>
+      <div class="bp-item"><span class="bp-check">✅</span><span class="bp-text"><strong>只連接可信 Server</strong>：維護已審核的 MCP Server 白名單，定期複審清單</span></div>
+      <div class="bp-item"><span class="bp-check">✅</span><span class="bp-text"><strong>使用 OAuth 認證</strong>：遠端 MCP Server 必須實作 OAuth 2.0，避免使用長效 API Key</span></div>
+      <div class="bp-item"><span class="bp-check">✅</span><span class="bp-text"><strong>早期投資可觀測性</strong>：記錄所有工具呼叫、輸入輸出、執行時間，便於除錯和安全審計</span></div>
+      <div class="bp-item"><span class="bp-check">✅</span><span class="bp-text"><strong>MCP 不取代框架</strong>：MCP 是整合層，複雜 Agent 邏輯仍需搭配 LangChain/LangGraph 使用</span></div>
+      <div class="bp-item"><span class="bp-check">✅</span><span class="bp-text"><strong>企業資料需額外保護</strong>：敏感企業資料須使用具企業級加密和合規認證的 MCP 解決方案</span></div>
+    </div>
+
+    <div class="card">
+      <h3>完整參考來源列表</h3>
+      <div class="src-item">
+        <div class="src-num">01</div>
+        <div class="src-body">
+          <p><strong>Introducing the Model Context Protocol</strong> — Anthropic<span class="src-tag">核心文章</span></p>
+          <a href="https://www.anthropic.com/news/model-context-protocol" target="_blank">https://www.anthropic.com/news/model-context-protocol</a>
+        </div>
+      </div>
+      <div class="src-item">
+        <div class="src-num">02</div>
+        <div class="src-body">
+          <p><strong>Architecture Overview - Model Context Protocol</strong> — modelcontextprotocol.io<span class="src-tag">技術指南</span></p>
+          <a href="https://modelcontextprotocol.io/docs/learn/architecture" target="_blank">https://modelcontextprotocol.io/docs/learn/architecture</a>
+        </div>
+      </div>
+      <div class="src-item">
+        <div class="src-num">03</div>
+        <div class="src-body">
+          <p><strong>What is Model Context Protocol (MCP)? | IBM Think</strong> — Anna Gutowska / IBM<span class="src-tag">核心文章</span></p>
+          <a href="https://www.ibm.com/think/topics/model-context-protocol" target="_blank">https://www.ibm.com/think/topics/model-context-protocol</a>
+        </div>
+      </div>
+      <div class="src-item">
+        <div class="src-num">04</div>
+        <div class="src-body">
+          <p><strong>Model Context Protocol - Wikipedia</strong> — Wikipedia 社群<span class="src-tag">核心文章</span></p>
+          <a href="https://en.wikipedia.org/wiki/Model_Context_Protocol" target="_blank">https://en.wikipedia.org/wiki/Model_Context_Protocol</a>
+        </div>
+      </div>
+      <div class="src-item">
+        <div class="src-num">05</div>
+        <div class="src-body">
+          <p><strong>MCP: A Guide With Demo Project</strong> — DataCamp<span class="src-tag">實作教學</span></p>
+          <a href="https://www.datacamp.com/tutorial/mcp-model-context-protocol" target="_blank">https://www.datacamp.com/tutorial/mcp-model-context-protocol</a>
+        </div>
+      </div>
+      <div class="src-item">
+        <div class="src-num">06</div>
+        <div class="src-body">
+          <p><strong>The Model Context Protocol: Getting beneath the hype</strong> — Thoughtworks<span class="src-tag">批判分析</span></p>
+          <a href="https://www.thoughtworks.com/en-us/insights/blog/generative-ai/model-context-protocol-beneath-hype" target="_blank">https://www.thoughtworks.com/..../model-context-protocol-beneath-hype</a>
+        </div>
+      </div>
+      <div class="src-item">
+        <div class="src-num">07</div>
+        <div class="src-body">
+          <p><strong>MCP 是什麼？AI 從會聊天進化到會做事的關鍵協定</strong> — RAR 設計攻略<span class="src-tag">中文資源</span></p>
+          <a href="https://rar.design/posts/mcp-model-context-protocol-guide" target="_blank">https://rar.design/posts/mcp-model-context-protocol-guide</a>
+        </div>
+      </div>
+      <div class="src-item">
+        <div class="src-num">08</div>
+        <div class="src-body">
+          <p><strong>MCP Security Risks Analysis</strong> — Equixly / 多位安全研究員<span class="src-tag">安全分析</span></p>
+          <a href="https://www.thoughtworks.com/en-us/insights/blog/generative-ai/model-context-protocol-beneath-hype" target="_blank">綜合自 Equixly 評估報告 + Thoughtworks 分析</a>
+        </div>
+      </div>
+      <div class="src-item">
+        <div class="src-num">09</div>
+        <div class="src-body">
+          <p><strong>What is Model Context Protocol (MCP)? A guide | Google Cloud</strong> — Google Cloud<span class="src-tag">雲端平台</span></p>
+          <a href="https://cloud.google.com/discover/what-is-model-context-protocol" target="_blank">https://cloud.google.com/discover/what-is-model-context-protocol</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+</main>
+</body>
+</html>
