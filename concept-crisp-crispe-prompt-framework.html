@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CRISP × C.R.I.S.P.E. 提示框架 · 中文圖解</title>
+<meta name="description" content="兩套 AI 提示框架的中文圖解：CRISP 五式（清晰、相關、指引、結構化、禮貌）與 C.R.I.S.P.E. 六步驟（情境、角色、指示、參數、風格、評估），幫助你每次都寫出更好的 AI 提示。">
+<style>
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+header.hero{background:linear-gradient(135deg,#0f172a,#1e3a5f);color:#fff;padding:54px 0 40px}
+.hero .wrap{display:flex;flex-direction:column;gap:12px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;width:fit-content}
+.hero h1{margin:0;font-size:32px;letter-spacing:.5px}
+.hero p{margin:0;color:#c8d0e0;font-size:15px;max-width:720px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;font-size:13px;color:#aeb8cf}
+.home{color:#ffd9c6;text-decoration:none;font-size:13.5px;font-weight:600}
+main{padding:26px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;margin:22px 0;box-shadow:0 4px 18px rgba(20,20,40,.05)}
+.card-head{display:flex;align-items:center;justify-content:space-between}
+.cat{font-size:12.5px;font-weight:700;color:var(--blue);background:#eaf1f9;padding:4px 11px;border-radius:999px}
+.idx{font-size:12.5px;color:var(--mut);font-weight:700}
+.card h2{margin:14px 0 2px;font-size:23px}
+.en{margin:0;color:var(--mut);font-size:13.5px;font-style:italic}
+.lead{margin:12px 0 6px;font-size:15px;color:#333}
+.points{margin:6px 0 16px;padding-left:20px}
+.points li{margin:5px 0;font-size:14.5px;color:#222}
+.figure{background:#fafafa;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+.figure svg{width:100%;height:auto;display:block}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.compare-item{background:#f8faff;border:1px solid #d1ddf5;border-radius:10px;padding:14px}
+.compare-item h4{margin:0 0 8px;font-size:14px;color:#1e3a5f}
+.compare-item p{margin:0;font-size:13.5px;color:#374151}
+.tip-box{background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:1px solid #bfdbfe;border-radius:12px;padding:16px 20px;margin:16px 0}
+.tip-box h4{margin:0 0 8px;font-size:14.5px;color:#1e40af}
+.tip-box p{margin:0;font-size:14px;color:#374151}
+.src{margin:12px 0 0;font-size:12px;color:#9aa3af}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:24px 0 50px}
+.nav-pills{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 0}
+.nav-pills a{background:#1e3a5f;color:#c8d0e0;text-decoration:none;font-size:13px;padding:5px 14px;border-radius:999px;transition:background .2s}
+.nav-pills a:hover{background:#3b82f6;color:#fff}
+@media(max-width:650px){.hero h1{font-size:24px}.card{padding:18px}.compare-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="badge">AI 概念研究</span>
+  <h1>CRISP × C.R.I.S.P.E. 提示框架 · 中文圖解</h1>
+  <p>兩套系統化 AI 提示框架：CRISP 五式幫你快速寫出高品質提示，C.R.I.S.P.E. 六步驟則帶你進入進階提示工程，每次都能獲得更精準的輸出。</p>
+  <div class="meta"><span>產生日期：2026-06-23</span><span>共 2 張圖</span><span>格式：單頁式 HTML</span></div>
+  <div class="nav-pills">
+    <a href="index.html">← 回索引入口</a>
+    <a href="#crisp">CRISP 五式</a>
+    <a href="#crispe">C.R.I.S.P.E. 六步驟</a>
+  </div>
+</div></header>
+
+<main><div class="wrap">
+
+  <!-- CRISP -->
+  <section id="crisp" class="card">
+    <div class="card-head">
+      <span class="cat">提示工程 · 框架</span>
+      <span class="idx">01 / 02</span>
+    </div>
+    <h2>CRISP 框架：撰寫專業 AI 提示的 5 大最佳實踐</h2>
+    <p class="en">CRISP Framework — Top 5 Best Practices for Writing a Professional AI Prompt</p>
+    <p class="lead">CRISP 是一套簡潔好記的提示框架，五個英文字母各代表一個關鍵原則。掌握這五式，就能讓 AI 更準確地理解你的意圖，輸出更符合需求的內容。</p>
+    <ul class="points">
+      <li><strong>C — 清晰 Clear</strong>：具體且精準，避免模糊語言，明確說明想要的結果與格式</li>
+      <li><strong>R — 相關 Relevant</strong>：提供情境與背景細節，讓 AI 了解作的使用場景與目標對象</li>
+      <li><strong>I — 指引 Instructive</strong>：給出詳細的執行方向，說明步驟、限制條件及優先順序</li>
+      <li><strong>S — 結構化 Structured</strong>：組織輸出格式與版面，指定清單、表格或段落等呈現方式</li>
+      <li><strong>P — 禮貌 Polite</strong>：使用友善有禮的語言，加上「請」與「謝謝」提升互動品質</li>
+    </ul>
+    <div class="figure">
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="gc" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gr" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="gi" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#0369a1"/>
+    </linearGradient>
+    <linearGradient id="gs" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#047857"/>
+    </linearGradient>
+    <linearGradient id="gp" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#b45309"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" fill="url(#bg)" rx="16"/>
+  <text x="450" y="52" text-anchor="middle" font-size="28" font-weight="700" fill="#f1f5f9" letter-spacing="2">CRISP 框架</text>
+  <text x="450" y="82" text-anchor="middle" font-size="15" fill="#94a3b8">撰寫專業 AI 提示的 5 大最佳實踐</text>
+  <line x1="80" y1="98" x2="820" y2="98" stroke="#334155" stroke-width="1"/>
+  <rect x="56" y="118" width="148" height="380" rx="12" fill="#1e293b" stroke="#3b82f640" stroke-width="1.5"/>
+  <rect x="56" y="118" width="148" height="6" rx="3" fill="url(#gc)"/>
+  <circle cx="130" cy="185" r="35" fill="#3b82f6" opacity="0.12"/>
+  <text x="130" y="198" text-anchor="middle" font-size="42" font-weight="900" fill="#3b82f6">C</text>
+  <text x="130" y="240" text-anchor="middle" font-size="17" font-weight="700" fill="#e2e8f0">清晰</text>
+  <text x="130" y="260" text-anchor="middle" font-size="11.5" fill="#64748b">Clear</text>
+  <line x1="80" y1="275" x2="180" y2="275" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="130" y="298" text-anchor="middle" font-size="12.5" fill="#94a3b8">具體且精準</text>
+  <text x="130" y="320" text-anchor="middle" font-size="12.5" fill="#94a3b8">避免模糊語言</text>
+  <text x="130" y="350" text-anchor="middle" font-size="11.5" fill="#64748b">明確說明你</text>
+  <text x="130" y="368" text-anchor="middle" font-size="11.5" fill="#64748b">想要什麼結果</text>
+  <text x="130" y="386" text-anchor="middle" font-size="11.5" fill="#64748b">以及格式要求</text>
+  <rect x="216" y="118" width="148" height="380" rx="12" fill="#1e293b" stroke="#8b5cf640" stroke-width="1.5"/>
+  <rect x="216" y="118" width="148" height="6" rx="3" fill="url(#gr)"/>
+  <circle cx="290" cy="185" r="35" fill="#8b5cf6" opacity="0.12"/>
+  <text x="290" y="198" text-anchor="middle" font-size="42" font-weight="900" fill="#8b5cf6">R</text>
+  <text x="290" y="240" text-anchor="middle" font-size="17" font-weight="700" fill="#e2e8f0">相關</text>
+  <text x="290" y="260" text-anchor="middle" font-size="11.5" fill="#64748b">Relevant</text>
+  <line x1="240" y1="275" x2="340" y2="275" stroke="#2e1a5f" stroke-width="1"/>
+  <text x="290" y="298" text-anchor="middle" font-size="12.5" fill="#94a3b8">提供情境</text>
+  <text x="290" y="320" text-anchor="middle" font-size="12.5" fill="#94a3b8">與背景細節</text>
+  <text x="290" y="350" text-anchor="middle" font-size="11.5" fill="#64748b">讓 AI 了解</text>
+  <text x="290" y="368" text-anchor="middle" font-size="11.5" fill="#64748b">你的使用場景</text>
+  <text x="290" y="386" text-anchor="middle" font-size="11.5" fill="#64748b">與目標對象</text>
+  <rect x="376" y="118" width="148" height="380" rx="12" fill="#1e293b" stroke="#06b6d440" stroke-width="1.5"/>
+  <rect x="376" y="118" width="148" height="6" rx="3" fill="url(#gi)"/>
+  <circle cx="450" cy="185" r="35" fill="#06b6d4" opacity="0.12"/>
+  <text x="450" y="198" text-anchor="middle" font-size="42" font-weight="900" fill="#06b6d4">I</text>
+  <text x="450" y="240" text-anchor="middle" font-size="17" font-weight="700" fill="#e2e8f0">指引</text>
+  <text x="450" y="260" text-anchor="middle" font-size="11.5" fill="#64748b">Instructive</text>
+  <line x1="400" y1="275" x2="500" y2="275" stroke="#0c3a4f" stroke-width="1"/>
+  <text x="450" y="298" text-anchor="middle" font-size="12.5" fill="#94a3b8">給出詳細的</text>
+  <text x="450" y="320" text-anchor="middle" font-size="12.5" fill="#94a3b8">執行方向</text>
+  <text x="450" y="350" text-anchor="middle" font-size="11.5" fill="#64748b">說明步驟、</text>
+  <text x="450" y="368" text-anchor="middle" font-size="11.5" fill="#64748b">限制條件</text>
+  <text x="450" y="386" text-anchor="middle" font-size="11.5" fill="#64748b">及優先順序</text>
+  <rect x="536" y="118" width="148" height="380" rx="12" fill="#1e293b" stroke="#10b98140" stroke-width="1.5"/>
+  <rect x="536" y="118" width="148" height="6" rx="3" fill="url(#gs)"/>
+  <circle cx="610" cy="185" r="35" fill="#10b981" opacity="0.12"/>
+  <text x="610" y="198" text-anchor="middle" font-size="42" font-weight="900" fill="#10b981">S</text>
+  <text x="610" y="240" text-anchor="middle" font-size="17" font-weight="700" fill="#e2e8f0">結構化</text>
+  <text x="610" y="260" text-anchor="middle" font-size="11.5" fill="#64748b">Structured</text>
+  <line x1="560" y1="275" x2="660" y2="275" stroke="#052e1c" stroke-width="1"/>
+  <text x="610" y="298" text-anchor="middle" font-size="12.5" fill="#94a3b8">組織輸出</text>
+  <text x="610" y="320" text-anchor="middle" font-size="12.5" fill="#94a3b8">格式與版面</text>
+  <text x="610" y="350" text-anchor="middle" font-size="11.5" fill="#64748b">指定清單、</text>
+  <text x="610" y="368" text-anchor="middle" font-size="11.5" fill="#64748b">表格或段落</text>
+  <text x="610" y="386" text-anchor="middle" font-size="11.5" fill="#64748b">等呈現方式</text>
+  <rect x="696" y="118" width="148" height="380" rx="12" fill="#1e293b" stroke="#f59e0b40" stroke-width="1.5"/>
+  <rect x="696" y="118" width="148" height="6" rx="3" fill="url(#gp)"/>
+  <circle cx="770" cy="185" r="35" fill="#f59e0b" opacity="0.12"/>
+  <text x="770" y="198" text-anchor="middle" font-size="42" font-weight="900" fill="#f59e0b">P</text>
+  <text x="770" y="240" text-anchor="middle" font-size="17" font-weight="700" fill="#e2e8f0">禮貌</text>
+  <text x="770" y="260" text-anchor="middle" font-size="11.5" fill="#64748b">Polite</text>
+  <line x1="720" y1="275" x2="820" y2="275" stroke="#451a00" stroke-width="1"/>
+  <text x="770" y="298" text-anchor="middle" font-size="12.5" fill="#94a3b8">使用禮貌</text>
+  <text x="770" y="320" text-anchor="middle" font-size="12.5" fill="#94a3b8">友善的語言</text>
+  <text x="770" y="350" text-anchor="middle" font-size="11.5" fill="#64748b">加上「請」</text>
+  <text x="770" y="368" text-anchor="middle" font-size="11.5" fill="#64748b">與「謝謝」</text>
+  <text x="770" y="386" text-anchor="middle" font-size="11.5" fill="#64748b">提升互動品質</text>
+  <rect x="56" y="516" width="788" height="28" rx="8" fill="#1e293b" opacity="0.7"/>
+  <text x="450" y="535" text-anchor="middle" font-size="13" fill="#475569">
+    <tspan fill="#3b82f6" font-weight="700">C</tspan>lear · <tspan fill="#8b5cf6" font-weight="700"> R</tspan>elevant · <tspan fill="#06b6d4" font-weight="700"> I</tspan>nstructive · <tspan fill="#10b981" font-weight="700"> S</tspan>tructured · <tspan fill="#f59e0b" font-weight="700"> P</tspan>olite
+  </text>
+</svg>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-item">
+        <h4>🎯 適合初學者</h4>
+        <p>CRISP 框架簡單易記，5 個字母涵蓋核心原則，從今天起就能套用在每一個 AI 提示中。</p>
+      </div>
+      <div class="compare-item">
+        <h4>⚡ 立即可用</h4>
+        <p>不需要記住複雜理論，只要確認你的提示是否具備這 5 個要素，輸出品質就會明顯提升。</p>
+      </div>
+    </div>
+    <p class="src">來源：CRISP Framework — Best Practices for Professional AI Prompting</p>
+  </section>
+
+  <!-- C.R.I.S.P.E. -->
+  <section id="crispe" class="card">
+    <div class="card-head">
+      <span class="cat">提示工程 · 進階框架</span>
+      <span class="idx">02 / 02</span>
+    </div>
+    <h2>C.R.I.S.P.E. 框架：AI 提示進階六步驟</h2>
+    <p class="en">C.R.I.S.P.E. — A Structured Prompt Method for Better AI Outputs</p>
+    <p class="lead">C.R.I.S.P.E. 是 CRISP 的進階版本，新增了「角色（Role）」與「評估（Evaluation）」兩個維度，讓你能更精準地控制 AI 的行為模式與輸出品質，是菁英級 AI 提示的核心框架。</p>
+    <ul class="points">
+      <li><strong>C — 情境 Context</strong>：設定背景與情境，提供背景故事、定義問題、指定相關數據，避免模糊</li>
+      <li><strong>R — 角色 Role</strong>：定義 AI 的人格與視角，指定角色（行銷專家、程式師、歷史學家等）並設定語調</li>
+      <li><strong>I — 指示 Instructions</strong>：按順序列出步驟，使用動詞開頭，建立邏輯結構，設定條件式指引</li>
+      <li><strong>P — 參數 Parameters</strong>：添加限制條件，定義長度、排除主題、說明必要元素</li>
+      <li><strong>S — 風格 Style</strong>：指定語調（專業、友善、簡潔）與格式（部落格文、程式碼、Email、詩歌）</li>
+      <li><strong>E — 評估 Evaluation</strong>：提供回饋、要求調整、測試輸出、反覆迭代至完美</li>
+    </ul>
+    <div class="figure">
+<svg viewBox="0 0 960 620" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1e"/>
+      <stop offset="100%" style="stop-color:#111827"/>
+    </linearGradient>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f43f5e"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+    <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#14b8a6"/>
+    </linearGradient>
+    <linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#d946ef"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="620" fill="url(#bg2)" rx="16"/>
+  <text x="480" y="52" text-anchor="middle" font-size="30" font-weight="800" fill="#f1f5f9" letter-spacing="3">C.R.I.S.P.E. 框架</text>
+  <text x="480" y="82" text-anchor="middle" font-size="15" fill="#94a3b8">AI 提示進階六步驟 · 每次都能獲得更好的輸出</text>
+  <line x1="60" y1="100" x2="900" y2="100" stroke="#1f2937" stroke-width="1.5"/>
+  <rect x="44" y="118" width="280" height="220" rx="14" fill="#111827" stroke="#6366f130" stroke-width="1.5"/>
+  <rect x="44" y="118" width="280" height="5" rx="2.5" fill="url(#g1)"/>
+  <rect x="44" y="118" width="58" height="58" rx="10" fill="url(#g1)" opacity="0.18"/>
+  <text x="73" y="159" text-anchor="middle" font-size="36" font-weight="900" fill="#8b5cf6">C</text>
+  <text x="155" y="153" font-size="17" font-weight="700" fill="#e2e8f0">情境</text>
+  <text x="155" y="172" font-size="12" fill="#6366f1">Context</text>
+  <text x="54" y="202" font-size="12.5" fill="#94a3b8">設定背景與情境，提供必要資訊</text>
+  <text x="54" y="224" font-size="12" fill="#64748b">· 提供背景故事與脈絡</text>
+  <text x="54" y="244" font-size="12" fill="#64748b">· 定義核心問題</text>
+  <text x="54" y="264" font-size="12" fill="#64748b">· 避免模糊，給出具體數據</text>
+  <text x="54" y="284" font-size="12" fill="#64748b">· 讓 AI 理解任務的完整情境</text>
+  <text x="54" y="304" font-size="12" fill="#64748b">· 指明相關限制或前提條件</text>
+  <rect x="340" y="118" width="280" height="220" rx="14" fill="#111827" stroke="#ec489930" stroke-width="1.5"/>
+  <rect x="340" y="118" width="280" height="5" rx="2.5" fill="url(#g2)"/>
+  <rect x="340" y="118" width="58" height="58" rx="10" fill="url(#g2)" opacity="0.18"/>
+  <text x="369" y="159" text-anchor="middle" font-size="36" font-weight="900" fill="#f43f5e">R</text>
+  <text x="451" y="153" font-size="17" font-weight="700" fill="#e2e8f0">角色</text>
+  <text x="451" y="172" font-size="12" fill="#ec4899">Role</text>
+  <text x="350" y="202" font-size="12.5" fill="#94a3b8">定義 AI 的人格與專業視角</text>
+  <text x="350" y="224" font-size="12" fill="#64748b">· 指定明確角色（行銷專家、</text>
+  <text x="350" y="244" font-size="12" fill="#64748b">  程式開發師、歷史學家等）</text>
+  <text x="350" y="264" font-size="12" fill="#64748b">· 設定語調與表達風格</text>
+  <text x="350" y="284" font-size="12" fill="#64748b">· 借用專家視角獲得更精準</text>
+  <text x="350" y="304" font-size="12" fill="#64748b">  的專業輸出</text>
+  <rect x="636" y="118" width="280" height="220" rx="14" fill="#111827" stroke="#f59e0b30" stroke-width="1.5"/>
+  <rect x="636" y="118" width="280" height="5" rx="2.5" fill="url(#g3)"/>
+  <rect x="636" y="118" width="58" height="58" rx="10" fill="url(#g3)" opacity="0.18"/>
+  <text x="665" y="159" text-anchor="middle" font-size="36" font-weight="900" fill="#f97316">I</text>
+  <text x="747" y="153" font-size="17" font-weight="700" fill="#e2e8f0">指示</text>
+  <text x="747" y="172" font-size="12" fill="#f59e0b">Instructions</text>
+  <text x="646" y="202" font-size="12.5" fill="#94a3b8">給出清晰的逐步執行指引</text>
+  <text x="646" y="224" font-size="12" fill="#64748b">· 按順序列出任務步驟</text>
+  <text x="646" y="244" font-size="12" fill="#64748b">· 使用動詞開頭的動作句</text>
+  <text x="646" y="264" font-size="12" fill="#64748b">· 建立清晰的邏輯結構</text>
+  <text x="646" y="284" font-size="12" fill="#64748b">· 設定「若…則…」的條件</text>
+  <text x="646" y="304" font-size="12" fill="#64748b">· 說明優先順序與例外情況</text>
+  <rect x="44" y="358" width="280" height="220" rx="14" fill="#111827" stroke="#06b6d430" stroke-width="1.5"/>
+  <rect x="44" y="358" width="280" height="5" rx="2.5" fill="url(#g4)"/>
+  <rect x="44" y="358" width="58" height="58" rx="10" fill="url(#g4)" opacity="0.18"/>
+  <text x="73" y="399" text-anchor="middle" font-size="36" font-weight="900" fill="#3b82f6">P</text>
+  <text x="155" y="393" font-size="17" font-weight="700" fill="#e2e8f0">參數</text>
+  <text x="155" y="412" font-size="12" fill="#06b6d4">Parameters</text>
+  <text x="54" y="442" font-size="12.5" fill="#94a3b8">添加限制條件與準則，設定`���c�^��^H�M�OH�
+���۝\�^�OH�L���[H�͍
+������9k���z/.9a�em�n���"9ke��n8� y��y�n;�"O�^��^H�M�OH�
+��۝\�^�OH�L���[H�͍
+������: f��)��.9o��..�hc;�#9���fi:f�:*"��^��^H�M�OH�L
+��۝\�^�OH�L���[H�͍
+������:*���#�o�zh"9c!yd*��:)�y�(�^��^H�M�OH�L���۝\�^�OH�L���[H�͍
+������9�#�讹.�:n�9.#z)�x� y.#zg :)�O�^��^H�M�OH�M
+��۝\�^�OH�L���[H�͍
+������:*+yk��d�z,깪&y���"!�je��-���y.��^���X�H���OH��N��YH���ZY�H�����H�M��[H��LLN�Ȉ����OH��L�NL������K]�YH�K�H�ς��X�H���OH��N��YH���ZY�H�H��H���H��[H�\�
+��JH�ς��X�H���OH��N��YH�N�ZY�H�N��H�L��[H�\�
+��JH��X�]OH��N�ς�^H�͎H�OH��NH�^X[��܏H�ZYH��۝\�^�OH�͈��۝]�ZY�H�L��[H��L�NH����^��^H�
+LH�OH��LȈ�۝\�^�OH�MȈ�۝]�ZY�H����[H��L�N���h�9�/�^��^H�
+LH�OH�L���۝\�^�OH�L���[H��M�M����[O�^��^H��L�OH�
+���۝\�^�OH�L��H��[H��ML؎���!�k��/.9a/9o#�"!�*��*��kn�^��^H��L�OH�
+���۝\�^�OH�L���[H�͍
+������:`n9���*��*���"9l"9�kx� z/%zk!�� y�(y�e;�"O�^��^H��L�OH�
+��۝\�^�OH�L���[H�͍
+������9�!�k���/9o#��":`�:$/y�/9���� y�"�o#��8� O�^��^H��L�OH�L
+��۝\�^�OH�L���[H�͍
+����[XZ[8� z*jy�c8� y��yb%��!ye���"O�^��^H��L�OH�L���۝\�^�OH�L���[H�͍
+������:*+yk��e�z+�:f��n��"!�c���/��"�n���^��^H��L�OH�M
+��۝\�^�OH�L���[H�͍
+������9论*�y����b:"!�)��)��db9��`c�ioO�^���X�H��͈�OH��N��YH���ZY�H�����H�M��[H��LLN�Ȉ����OH��N
+MY��������K]�YH�K�H�ς��X�H��͈�OH��N��YH���ZY�H�H��H���H��[H�\�
+�͊H�ς��X�H��͈�OH��N��YH�N�ZY�H�N��H�L��[H�\�
+�͊H��X�]OH��N�ς�^H���H�OH��NH�^X[��܏H�ZYH��۝\�^�OH�͈��۝]�ZY�H�L��[H��M
+�Y���O�^��^H��
+ȈOH��LȈ�۝\�^�OH�MȈ�۝]�ZY�H����[H��L�N���*ey/,�^��^H��
+ȈOH�L���۝\�^�OH�L���[H��N
+MY�ȏ�]�[X][ۏ�^��^H��
+��OH�
+���۝\�^�OH�L��H��[H��ML؎��k�z)���d9��9.)�c�z)��쯹�byd�z,��^��^H��
+��OH�
+���۝\�^�OH�L���[H�͍
+������9��9/��am�j�9f�ib�"!�/빥.y��yd$O�^��^H��
+��OH�
+��۝\�^�OH�L���[H�͍
+������:)�y�`�*���m9�nyk����z$/y�%��*9ke��^��^H��
+��OH�L
+��۝\�^�OH�L���[H�͍
+������9�+:*i�.#yd#9��9�.��b9�+9��9l#y�b9���^��^H��
+��OH�L���۝\�^�OH�L���[H�͍
+������9c�z)��/�y.����9b,:`e9b,9k�9�^��^H��
+��OH�M
+��۝\�^�OH�L���[H�͍
+������:*&:c!9�"y�b9��9�.�/���*�/��)!��*�^��^H��OH���^X[��܏H�ZYH��۝\�^�OH�L���[H����MLH��)��c��RH9�f�b���9�d9���c%���9�.�m�y�"��a����0��[����[��RH�[�X[�]��X�\�Y��\[���^���ݙς��]���]��\��H�\X�����
+�'�HԒT���˔��K�˔�K�8�%9�#�n�:`n;�'��
+���ԒT�:`jyd"9��yn.9o��`'���9�.��#
+H9��l,z �y����.8� �˔��K�˔�K�:`jyd":g :)�zj�9d�z,�/.9a��:a�z)�y.��b�{�#9i&�"�HH9b!�d&:*+yk��)�"l�"!�*ey/,9�&y����#: �yi)�nay��9ca�� 9�`��$9��8� �����]����\��H�ܘȏ�/����;�&�˔��K�˔�K���[Y]�ܚ�8�%H��X�\�Y��\Y]��܈�]\�RH�]]������X�[ۏ����]���XZ[������\��]��\��H�ܘ\����RH9���o�y�%9�m�0��9.+y���c%�g%�)�����b%�0�����L
+�L��0��H�Y�H�[�^�[��[OH���܎��\�KX�YJH����9f��(�o%zh H�O�����]��ٛ��\���؛�O���[�
