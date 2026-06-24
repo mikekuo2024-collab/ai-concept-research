@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCP 模型上下文協議 · 中文圖解</title>
+<meta name="description" content="Model Context Protocol（MCP）的中文圖解：為什麼需要 MCP、有無 MCP 的差異對比，以及 MCP 六步驟運作流程的完整視覺化說明。">
+<style>
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#6366f1;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+header.hero{background:linear-gradient(135deg,#0f172a,#1e1b4b);color:#fff;padding:54px 0 40px}
+.hero .wrap{display:flex;flex-direction:column;gap:12px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;width:fit-content}
+.hero h1{margin:0;font-size:32px;letter-spacing:.5px}
+.hero p{margin:0;color:#c8d0e0;font-size:15px;max-width:720px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;font-size:13px;color:#aeb8cf}
+.home{color:#ffd9c6;text-decoration:none;font-size:13.5px;font-weight:600}
+main{padding:26px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;margin:22px 0;box-shadow:0 4px 18px rgba(20,20,40,.05)}
+.card-head{display:flex;align-items:center;justify-content:space-between}
+.cat{font-size:12.5px;font-weight:700;color:var(--acc);background:#eef2ff;padding:4px 11px;border-radius:999px}
+.idx{font-size:12.5px;color:var(--mut);font-weight:700}
+.card h2{margin:14px 0 2px;font-size:23px}
+.en{margin:0;color:var(--mut);font-size:13.5px;font-style:italic}
+.lead{margin:12px 0 6px;font-size:15px;color:#333}
+.points{margin:6px 0 16px;padding-left:20px}
+.points li{margin:5px 0;font-size:14.5px;color:#222}
+.figure{background:#0f172a;border:1px solid #1e293b;border-radius:12px;padding:10px;overflow:hidden}
+.figure svg{width:100%;height:auto;display:block}
+.four-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.feat{background:#f0f4ff;border:1px solid #c7d2fe;border-radius:10px;padding:14px}
+.feat h4{margin:0 0 6px;font-size:14px;color:#3730a3}
+.feat p{margin:0;font-size:13.5px;color:#374151}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.compare-no{background:#fdf4ff;border:1px solid #e9d5ff;border-radius:10px;padding:14px}
+.compare-yes{background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:14px}
+.compare-no h4{margin:0 0 6px;font-size:14px;color:#7c3aed}
+.compare-yes h4{margin:0 0 6px;font-size:14px;color:#16a34a}
+.compare-no p,.compare-yes p{margin:0;font-size:13.5px;color:#374151}
+.steps{counter-reset:step;margin:16px 0;display:flex;flex-direction:column;gap:10px}
+.step{display:flex;align-items:flex-start;gap:14px;background:#f8faff;border:1px solid #dde5f5;border-radius:10px;padding:12px 16px}
+.step-num{min-width:30px;height:30px;border-radius:50%;background:#4f46e5;color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.step-body h4{margin:0 0 3px;font-size:14px;color:#1e1b4b}
+.step-body p{margin:0;font-size:13.5px;color:#374151}
+.tip-box{background:linear-gradient(135deg,#eff6ff,#f5f3ff);border:1px solid #c7d2fe;border-radius:12px;padding:16px 20px;margin:16px 0}
+.tip-box h4{margin:0 0 8px;font-size:14.5px;color:#3730a3}
+.tip-box p{margin:0;font-size:14px;color:#374151}
+.src{margin:12px 0 0;font-size:12px;color:#9aa3af}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:24px 0 50px}
+.nav-pills{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 0}
+.nav-pills a{background:#1e1b4b;color:#c8d0e0;text-decoration:none;font-size:13px;padding:5px 14px;border-radius:999px;transition:background .2s}
+.nav-pills a:hover{background:#6366f1;color:#fff}
+@media(max-width:650px){.hero h1{font-size:24px}.card{padding:18px}.four-grid,.compare-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="badge">AI 概念研究</span>
+  <h1>MCP 模型上下文協議 · 中文圖解</h1>
+  <p>Model Context Protocol（MCP）是一套開放標準，讓 AI 應用程式能安全、高效地連結所需的工具、資料與服務。本頁完整解析 MCP 的核心概念、使用前後對比，以及六步驟運作流程。</p>
+  <div class="meta"><span>產生日期：2026-06-25</span><span>共 1 張圖</span><span>格式：單頁式 HTML</span></div>
+  <div class="nav-pills">
+    <a href="index.html">← 回索引入口</a>
+    <a href="#why-mcp">為什麼需要 MCP</a>
+    <a href="#compare">有無 MCP 比較</a>
+    <a href="#how-works">運作流程</a>
+  </div>
+</div></header>
+
+<main><div class="wrap">
+
+  <section class="card">
+    <div class="card-head">
+      <span class="cat">AI 基礎架構 · 開放標準</span>
+      <span class="idx">01 / 01</span>
+    </div>
+    <h2>MCP：模型上下文協議全解析</h2>
+    <p class="en">Model Context Protocol (MCP) — The Open Standard for AI Connectivity</p>
+    <p class="lead">MCP 由 Anthropic 主導制定，是一套讓 AI 模型（如 Claude）能夠安全存取外部工具、資料庫、API 的開放標準。就像 USB-C 統一了設備充電接口，MCP 統一了 AI 與外部世界溝通的介面。</p>
+    <ul class="points">
+      <li><strong>開放標準</strong>：任何人都可以實作 MCP 伺服器，接入各種資料來源與工具</li>
+      <li><strong>安全優先</strong>：MCP 的設計將安全性放在核心，支援企業級部署</li>
+      <li><strong>雙向通訊</strong>：AI 可以讀取資料，也可以執行動作（如發 Email、更新資料庫）</li>
+      <li><strong>生態豐富</strong>：已有 GitHub、Slack、Google Drive 等數百個 MCP 伺服器可用</li>
+    </ul>
+    <div class="figure">
+<svg viewBox="0 0 900 1200" xmlns="http://www.w3.org/2000/svg"
+  font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="1200" fill="#0f172a"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="900" height="6" fill="url(#topGrad)"/>
+  <defs>
+    <linearGradient id="topGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#1e2d42"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="compareL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f1535"/>
+      <stop offset="100%" stop-color="#2d1b4e"/>
+    </linearGradient>
+    <linearGradient id="compareR" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c2340"/>
+      <stop offset="100%" stop-color="#0d3460"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- ===== HEADER ===== -->
+  <rect x="40" y="22" width="820" height="140" rx="16" fill="url(#headerGrad)" filter="url(#shadow)"/>
+  <rect x="40" y="22" width="820" height="140" rx="16" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.5"/>
+
+  <!-- MCP Icon placeholder -->
+  <circle cx="98" cy="92" r="32" fill="#6366f1" opacity="0.25"/>
+  <text x="98" y="100" text-anchor="middle" font-size="26" fill="#a5b4fc">⬡</text>
+
+  <text x="148" y="72" font-size="13" fill="#94a3b8" letter-spacing="3">什麼是</text>
+  <text x="148" y="100" font-size="34" font-weight="700" fill="#e2e8f0">MCP？</text>
+  <text x="148" y="125" font-size="16" fill="#818cf8" font-weight="600">模型上下文協議（Model Context Protocol）</text>
+
+  <text x="148" y="148" font-size="12" fill="#64748b">by Sivaranjan A. · 中文重製版</text>
+
+  <!-- Subtitle description -->
+  <rect x="40" y="175" width="820" height="56" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="60" y="200" font-size="14" fill="#94a3b8">MCP 是一套開放標準，能讓 AI 應用程式以</text>
+  <text x="60" y="222" font-size="14" fill="#94a3b8">安全、高效的方式連結所需的工具、資料與服務。</text>
+  <text x="710" y="211" font-size="24" fill="#6366f1" text-anchor="middle">⟷</text>
+  <circle cx="758" cy="204" r="16" fill="#6366f1" opacity="0.2"/>
+  <text x="758" y="210" font-size="12" text-anchor="middle" fill="#a5b4fc">API</text>
+  <circle cx="800" cy="204" r="16" fill="#8b5cf6" opacity="0.2"/>
+  <text x="800" y="210" font-size="12" text-anchor="middle" fill="#c4b5fd">資料</text>
+  <circle cx="842" cy="204" r="16" fill="#06b6d4" opacity="0.2"/>
+  <text x="842" y="210" font-size="12" text-anchor="middle" fill="#67e8f9">工具</text>
+
+  <!-- ===== WHY MCP Section ===== -->
+  <text x="450" y="265" text-anchor="middle" font-size="18" font-weight="700" fill="#e2e8f0">⚡ 為什麼需要 MCP？</text>
+
+  <!-- 4 feature cards (2x2 grid) -->
+  <!-- Card 1: Universal Connectivity -->
+  <rect x="40" y="278" width="385" height="115" rx="12" fill="url(#cardGrad)" stroke="#4338ca" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="80" cy="325" r="24" fill="#4338ca" opacity="0.3"/>
+  <text x="80" y="333" text-anchor="middle" font-size="20">🌐</text>
+  <text x="116" y="304" font-size="14" font-weight="700" fill="#818cf8">通用連接性</text>
+  <text x="116" y="322" font-size="12" fill="#94a3b8">透過統一介面，將 AI 模型連接</text>
+  <text x="116" y="340" font-size="12" fill="#94a3b8">到任何資料來源、工具或服務，</text>
+  <text x="116" y="358" font-size="12" fill="#94a3b8">無需為每個來源寫不同程式碼。</text>
+  <rect x="40" y="278" width="5" height="115" rx="2" fill="#4338ca"/>
+
+  <!-- Card 2: Seamless Integration -->
+  <rect x="475" y="278" width="385" height="115" rx="12" fill="url(#cardGrad)" stroke="#0e7490" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="515" cy="325" r="24" fill="#0e7490" opacity="0.3"/>
+  <text x="515" y="333" text-anchor="middle" font-size="20">🔗</text>
+  <text x="551" y="304" font-size="14" font-weight="700" fill="#22d3ee">無縫整合</text>
+  <text x="551" y="322" font-size="12" fill="#94a3b8">輕鬆嵌入現有系統與工作流程，</text>
+  <text x="551" y="340" font-size="12" fill="#94a3b8">不需要各種客製化整合方案，</text>
+  <text x="551" y="358" font-size="12" fill="#94a3b8">大幅降低開發與維護成本。</text>
+  <rect x="475" y="278" width="5" height="115" rx="2" fill="#0e7490"/>
+
+  <!-- Card 3: Developer Friendly -->
+  <rect x="40" y="405" width="385" height="115" rx="12" fill="url(#cardGrad)" stroke="#7c3aed" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="80" cy="453" r="24" fill="#7c3aed" opacity="0.3"/>
+  <text x="80" y="461" text-anchor="middle" font-size="20">⚙️</text>
+  <text x="116" y="431" font-size="14" font-weight="700" fill="#c4b5fd">開發者友善</text>
+  <text x="116" y="449" font-size="12" fill="#94a3b8">簡單、一致且開放的設計理念，</text>
+  <text x="116" y="467" font-size="12" fill="#94a3b8">讓你建構更快、專注於真正重要</text>
+  <text x="116" y="485" font-size="12" fill="#94a3b8">的事情，而非重複的整合工作。</text>
+  <rect x="40" y="405" width="5" height="115" rx="2" fill="#7c3aed"/>
+
+  <!-- Card 4: Secure & Reliable -->
+  <rect x="475" y="405" width="385" height="115" rx="12" fill="url(#cardGrad)" stroke="#065f46" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="515" cy="453" r="24" fill="#065f46" opacity="0.3"/>
+  <text x="515" y="461" text-anchor="middle" font-size="20">🛡️</text>
+  <text x="551" y="431" font-size="14" font-weight="700" fill="#34d399">安全可靠</text>
+  <text x="551" y="449" font-size="12" fill="#94a3b8">以安全性與可靠性為核心設計，</text>
+  <text x="551" y="467" font-size="12" fill="#94a3b8">適合企業級應用場景，</text>
+  <text x="551" y="485" font-size="12" fill="#94a3b8">讓 AI 在受控環境中安全運作。</text>
+  <rect x="475" y="405" width="5" height="115" rx="2" fill="#065f46"/>
+
+  <!-- ===== WITHOUT vs WITH MCP ===== -->
+  <text x="450" y="555" text-anchor="middle" font-size="18" font-weight="700" fill="#e2e8f0">📊 有無 MCP 的差異</text>
+
+  <!-- Without MCP -->
+  <rect x="40" y="568" width="385" height="145" rx="12" fill="url(#compareL)" stroke="#7c3aed" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="40" y="568" width="385" height="40" rx="12" fill="#4c1d95" opacity="0.6"/>
+  <rect x="40" y="595" width="385" height="13" fill="#4c1d95" opacity="0.6"/>
+  <text x="232" y="594" text-anchor="middle" font-size="14" font-weight="700" fill="#c4b5fd">❌ 沒有 MCP</text>
+  <text x="232" y="618" text-anchor="middle" font-size="13" font-weight="600" fill="#f59e0b">零散 · 複雜 · 僵化</text>
+  <text x="232" y="640" text-anchor="middle" font-size="12" fill="#94a3b8">大量客製化整合方案</text>
+  <text x="232" y="658" text-anchor="middle" font-size="12" fill="#94a3b8">難以維護與擴展</text>
+  <text x="232" y="676" text-anchor="middle" font-size="12" fill="#94a3b8">每個 AI 需要個別連接每個工具</text>
+  <!-- Spaghetti connections visual -->
+  <line x1="100" y1="696" x2="180" y2="706" stroke="#6366f1" stroke-width="1" opacity="0.5"/>
+  <line x1="100" y1="696" x2="280" y2="700" stroke="#6366f1" stroke-width="1" opacity="0.5"/>
+  <line x1="100" y1="696" x2="365" y2="696" stroke="#6366f1" stroke-width="1" opacity="0.5"/>
+  <line x1="180" y1="700" x2="280" y2="696" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+  <line x1="180" y1="700" x2="365" y2="706" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+  <circle cx="100" cy="696" r="6" fill="#6366f1" opacity="0.7"/>
+  <circle cx="180" cy="703" r="6" fill="#8b5cf6" opacity="0.7"/>
+  <circle cx="280" cy="698" r="6" fill="#7c3aed" opacity="0.7"/>
+  <circle cx="365" cy="701" r="6" fill="#6366f1" opacity="0.7"/>
+
+  <!-- With MCP -->
+  <rect x="475" y="568" width="385" height="145" rx="12" fill="url(#compareR)" stroke="#0e7490" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="475" y="568" width="385" height="40" rx="12" fill="#0c4a6e" opacity="0.6"/>
+  <rect x="475" y="595" width="385" height="13" fill="#0c4a6e" opacity="0.6"/>
+  <text x="667" y="594" text-anchor="middle" font-size="14" font-weight="700" fill="#22d3ee">✅ 有了 MCP</text>
+  <text x="667" y="618" text-anchor="middle" font-size="13" font-weight="600" fill="#34d399">統一 · 簡單 · 可擴展</text>
+  <text x="667" y="640" text-anchor="middle" font-size="12" fill="#94a3b8">單一協議，無限可能</text>
+  <text x="667" y="658" text-anchor="middle" font-size="12" fill="#94a3b8">輕鬆連接，零負擔維護</text>
+  <text x="667" y="676" text-anchor="middle" font-size="12" fill="#94a3b8">所有工具透過 MCP 統一橋接</text>
+  <!-- Hub-and-spoke visual -->
+  <circle cx="667" cy="700" r="14" fill="#0e7490" opacity="0.8"/>
+  <text x="667" y="705" text-anchor="middle" font-size="10" fill="white" font-weight="700">MCP</text>
+  <line x1="553" y1="700" x2="653" y2="700" stroke="#22d3ee" stroke-width="1.5" opacity="0.7"/>
+  <line x1="610" y1="690" x2="656" y2="695" stroke="#22d3ee" stroke-width="1.5" opacity="0.7"/>
+  <line x1="724" y1="690" x2="681" y2="695" stroke="#22d3ee" stroke-width="1.5" opacity="0.7"/>
+  <line x1="784" y1="700" x2="681" y2="700" stroke="#22d3ee" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="548" cy="700" r="6" fill="#06b6d4" opacity="0.7"/>
+  <circle cx="610" cy="688" r="6" fill="#0891b2" opacity="0.7"/>
+  <circle cx="724" cy="688" r="6" fill="#0891b2" opacity="0.7"/>
+  <circle cx="789" cy="700" r="6" fill="#06b6d4" opacity="0.7"/>
+
+  <!-- ===== HOW MCP WORKS ===== -->
+  <text x="450" y="745" text-anchor="middle" font-size="18" font-weight="700" fill="#e2e8f0">🔄 MCP 如何運作？</text>
+
+  <!-- 6 Step Flow -->
+  <!-- Step 1 -->
+  <rect x="40" y="758" width="250" height="90" rx="10" fill="#1e293b" stroke="#4338ca" stroke-width="1.5"/>
+  <circle cx="70" cy="785" r="16" fill="#4338ca"/>
+  <text x="70" y="790" text-anchor="middle" font-size="13" font-weight="700" fill="white">1</text>
+  <text x="98" y="778" font-size="13" font-weight="600" fill="#818cf8">使用者送出請求</text>
+  <text x="55" y="800" font-size="11" fill="#64748b">使用者透過</text>
+  <text x="55" y="815" font-size="11" fill="#64748b">AI 應用程式提交查詢</text>
+
+  <!-- Arrow right -->
+  <text x="305" y="808" text-anchor="middle" font-size="22" fill="#6366f1">→</text>
+
+  <!-- Step 2 -->
+  <rect x="325" y="758" width="250" height="90" rx="10" fill="#1e293b" stroke="#7c3aed" stroke-width="1.5"/>
+  <circle cx="355" cy="785" r="16" fill="#7c3aed"/>
+  <text x="355" y="790" text-anchor="middle" font-size="13" font-weight="700" fill="white">2</text>
+  <text x="383" y="778" font-size="13" font-weight="600" fill="#c4b5fd">AI 理解意圖</text>
+  <text x="340" y="800" font-size="11" fill="#64748b">應用程式解讀請求</text>
+  <text x="340" y="815" font-size="11" fill="#64748b">並準備採取行動</text>
+
+  <!-- Arrow right -->
+  <text x="590" y="808" text-anchor="middle" font-size="22" fill="#6366f1">→</text>
+
+  <!-- Step 3 -->
+  <rect x="610" y="758" width="250" height="90" rx="10" fill="#1e293b" stroke="#0e7490" stroke-width="1.5"/>
+  <circle cx="640" cy="785" r="16" fill="#0e7490"/>
+  <text x="640" y="790" text-anchor="middle" font-size="13" font-weight="700" fill="white">3</text>
+  <text x="668" y="778" font-size="13" font-weight="600" fill="#22d3ee">MCP 客戶端發請求</text>
+  <text x="625" y="800" font-size="11" fill="#64748b">以 MCP 協議格式</text>
+  <text x="625" y="815" font-size="11" fill="#64748b">封裝並傳送請求</text>
+
+  <!-- Vertical arrow down (center) -->
+  <text x="450" y="875" text-anchor="middle" font-size="22" fill="#6366f1">↓</text>
+
+  <!-- Step 4 -->
+  <rect x="610" y="885" width="250" height="90" rx="10" fill="#1e293b" stroke="#065f46" stroke-width="1.5"/>
+  <circle cx="640" cy="912" r="16" fill="#065f46"/>
+  <text x="640" y="917" text-anchor="middle" font-size="13" font-weight="700" fill="white">4</text>
+  <text x="668" y="905" font-size="13" font-weight="600" fill="#34d399">伺服器路由請求</text>
+  <text x="625" y="927" font-size="11" fill="#64748b">MCP 伺服器處理請求，</text>
+  <text x="625" y="942" font-size="11" fill="#64748b">路由到正確工具或資料源</text>
+
+  <!-- Arrow left -->
+  <text x="590" y="935" text-anchor="middle" font-size="22" fill="#6366f1">←</text>
+
+  <!-- Step 5 -->
+  <rect x="325" y="885" width="250" height="90" rx="10" fill="#1e293b" stroke="#b45309" stroke-width="1.5"/>
+  <circle cx="355" cy="912" r="16" fill="#b45309"/>
+  <text x="355" y="917" text-anchor="middle" font-size="13" font-weight="700" fill="white">5</text>
+  <text x="383" y="905" font-size="13" font-weight="600" fill="#fbbf24">安全存取資源</text>
+  <text x="340" y="927" font-size="11" fill="#64748b">伺服器安全地</text>
+  <text x="340" y="942" font-size="11" fill="#64748b">與工具、API、資料互動</text>
+
+  <!-- Arrow left -->
+  <text x="305" y="935" text-anchor="middle" font-size="22" fill="#6366f1">←</text>
+
+  <!-- Step 6 -->
+  <rect x="40" y="885" width="250" height="90" rx="10" fill="#1e293b" stroke="#4338ca" stroke-width="1.5"/>
+  <circle cx="70" cy="912" r="16" fill="#4338ca"/>
+  <text x="70" y="917" text-anchor="middle" font-size="13" font-weight="700" fill="white">6</text>
+  <text x="98" y="905" font-size="13" font-weight="600" fill="#818cf8">回傳結果給使用者</text>
+  <text x="55" y="927" font-size="11" fill="#64748b">結果依路徑回傳</text>
+  <text x="55" y="942" font-size="11" fill="#64748b">至應用程式，再到使用者</text>
+
+  <!-- ===== CLOSING TAGLINE ===== -->
+  <rect x="40" y="1000" width="820" height="85" rx="14" fill="url(#headerGrad)" stroke="#6366f1" stroke-width="1" stroke-opacity="0.6"/>
+  <text x="450" y="1030" text-anchor="middle" font-size="14" fill="#94a3b8">MCP 賦予 AI 系統超越自身限制的能力，</text>
+  <text x="450" y="1053" text-anchor="middle" font-size="14" fill="#94a3b8">以安全、可靠、毫不費力的方式連結整個世界。</text>
+  <text x="450" y="1075" text-anchor="middle" font-size="16" font-weight="700" fill="#a5b4fc">一個協議，無限可能。</text>
+
+  <!-- Data/API/Cloud/Tools icons row -->
+  <rect x="40" y="1100" width="820" height="65" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="160" y="1122" text-anchor="middle" font-size="11" fill="#475569">資料</text>
+  <circle cx="160" cy="1145" r="12" fill="#4338ca" opacity="0.4"/>
+  <text x="160" y="1149" text-anchor="middle" font-size="14">🗄️</text>
+
+  <text x="290" y="1122" text-anchor="middle" font-size="11" fill="#475569">API</text>
+  <circle cx="290" cy="1145" r="12" fill="#0e7490" opacity="0.4"/>
+  <text x="290" y="1149" text-anchor="middle" font-size="14">🔌</text>
+
+  <circle cx="450" cy="1133" r="26" fill="#6366f1" opacity="0.3"/>
+  <text x="450" y="1129" text-anchor="middle" font-size="11" fill="#818cf8" font-weight="700">MCP</text>
+  <text x="450" y="1148" text-anchor="middle" font-size="12" fill="#a5b4fc">⬡</text>
+
+  <text x="608" y="1122" text-anchor="middle" font-size="11" fill="#475569">雲端</text>
+  <circle cx="608" cy="1145" r="12" fill="#7c3aed" opacity="0.4"/>
+  <text x="608" y="1149" text-anchor="middle" font-size="14">☁️</text>
+
+  <text x="740" y="1122" text-anchor="middle" font-size="11" fill="#475569">工具</text>
+  <circle cx="740" cy="1145" r="12" fill="#065f46" opacity="0.4"/>
+  <text x="740" y="1149" text-anchor="middle" font-size="14">🛠️</text>
+
+  <!-- Lines from MCP hub to items -->
+  <line x1="424" y1="1133" x2="302" y2="1140" stroke="#6366f1" stroke-width="1" opacity="0.5" stroke-dasharray="4,3"/>
+  <line x1="424" y1="1133" x2="172" y2="1140" stroke="#6366f1" stroke-width="1" opacity="0.5" stroke-dasharray="4,3"/>
+  <line x1="476" y1="1133" x2="596" y2="1140" stroke="#6366f1" stroke-width="1" opacity="0.5" stroke-dasharray="4,3"/>
+  <line x1="476" y1="1133" x2="728" y2="1140" stroke="#6366f1" stroke-width="1" opacity="0.5" stroke-dasharray="4,3"/>
+
+  <!-- Footer -->
+  <text x="450" y="1185" text-anchor="middle" font-size="11" fill="#334155">中文重製版 · 依原圖風格重繪（原作：Sivaranjan A. @sivaaiexpert）</text>
+
+</svg>
+
+    </div>
+    <p class="src">原作：Sivaranjan A. (@sivaaiexpert) · 中文重製版 · 依原圖風格重繪</p>
+  </section>
+
+  <section id="why-mcp" class="card">
+    <h2 style="margin-top:0">⚡ 為什麼需要 MCP？四大核心優勢</h2>
+    <div class="four-grid">
+      <div class="feat">
+        <h4>🌐 通用連接性</h4>
+        <p>透過統一介面連接任何資料來源、工具或服務，不再需要為每個來源各寫一套整合程式碼。</p>
+      </div>
+      <div class="feat">
+        <h4>🔗 無縫整合</h4>
+        <p>輕鬆嵌入現有系統與工作流程，大幅降低開發與維護成本，不需要各種客製化解決方案。</p>
+      </div>
+      <div class="feat">
+        <h4>⚙️ 開發者友善</h4>
+        <p>簡單、一致且開放的設計，讓開發者能更快建構功能，專注於業務邏輯而非繁瑣的整合工作。</p>
+      </div>
+      <div class="feat">
+        <h4>🛡️ 安全可靠</h4>
+        <p>以安全性與可靠性為核心設計，適合企業級應用場景，讓 AI 在受控環境中安全運作。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare" class="card">
+    <h2 style="margin-top:0">📊 有無 MCP 的差異</h2>
+    <div class="compare-grid">
+      <div class="compare-no">
+        <h4>❌ 沒有 MCP</h4>
+        <p><strong>零散 · 複雜 · 僵化</strong><br>每個 AI 應用需要各自撰寫整合程式碼來連接每一種工具，導致大量重複工作，難以維護與擴展。M 個 AI × N 個工具 = M×N 個整合。</p>
+      </div>
+      <div class="compare-yes">
+        <h4>✅ 有了 MCP</h4>
+        <p><strong>統一 · 簡單 · 可擴展</strong><br>所有 AI 透過 MCP 這一個標準協議橋接所有工具。新增工具只需實作一個 MCP 伺服器，所有支援 MCP 的 AI 立即可用。M 個 AI + N 個工具 = M+N 個整合。</p>
+      </div>
+    </div>
+    <div class="tip-box">
+      <h4>💡 類比理解</h4>
+      <p>MCP 就像 HTTP 之於網路：在 HTTP 出現前，每個網站需要自己的專屬通訊協議；有了 HTTP，任何瀏覽器都能存取任何網站。MCP 對 AI 工具生態的意義，正是如此。</p>
+    </div>
+  </section>
+
+  <section id="how-works" class="card">
+    <h2 style="margin-top:0">🔄 MCP 六步驟運作流程</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>使用者送出請求</h4>
+          <p>使用者透過 AI 應用程式（如 Claude Desktop）提交查詢或任務指令。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>AI 理解意圖並準備行動</h4>
+          <p>AI 應用程式解讀請求，判斷需要使用哪些工具或資料來完成任務，並決定呼叫策略。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>MCP 客戶端封裝並傳送請求</h4>
+          <p>客戶端（嵌入 AI 應用中）將請求以 MCP 協議格式標準化封裝，傳送給對應的 MCP 伺服器。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>MCP 伺服器路由到正確工具</h4>
+          <p>伺服器解析請求，將其路由到對應的工具、API 或資料來源，並管理權限驗證。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h4>安全存取外部資源</h4>
+          <p>伺服器在受控的安全環境中與外部工具、API 或資料庫互動，執行讀取或寫入操作。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <h4>結果回傳給使用者</h4>
+          <p>執行結果沿路徑回傳：伺服器 → 客戶端 → AI 應用程式 → 使用者，完成一次完整的 MCP 互動。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div></main>
+<footer><div class="wrap">
+  <p>AI 概念研究 · 中文圖解系列 · <a href="index.html" style="color:var(--acc)">回首頁</a></p>
+  <p style="margin-top:6px;font-size:12px">原作：Sivaranjan A. @sivaaiexpert · 中文重製版依原圖風格重繪，僅供學習研究使用</p>
+</div></footer>
+</body>
+</html>
