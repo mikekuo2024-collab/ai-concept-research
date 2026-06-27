@@ -1,0 +1,128 @@
+<svg viewBox="0 0 900 780" xmlns="http://www.w3.org/2000/svg"
+  font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+
+  <!-- 背景 -->
+  <rect width="900" height="780" fill="#f8f9fa" rx="12"/>
+
+  <!-- 標題 -->
+  <rect x="0" y="0" width="900" height="68" fill="#212529" rx="12"/>
+  <rect x="0" y="50" width="900" height="18" fill="#212529"/>
+  <text x="450" y="28" text-anchor="middle" font-size="22" font-weight="bold" fill="#ffffff">Claude 設定路線圖</text>
+  <text x="450" y="56" text-anchor="middle" font-size="12" fill="#adb5bd">The Claude Setup Roadmap · 在其他任何事之前，先把基礎做對</text>
+
+  <!-- 副標題 -->
+  <text x="450" y="90" text-anchor="middle" font-size="12" fill="#6c757d">你已建立好專業操作員的 Claude 設定。</text>
+
+  <!-- 格線定義：3列 × 3欄，每格 280x185 -->
+
+  <!-- 格 1：Setup -->
+  <rect x="20" y="105" width="272" height="195" fill="#e8f4f8" rx="12" stroke="#bee3f8" stroke-width="1.5"/>
+  <rect x="20" y="105" width="272" height="38" fill="#2196F3" rx="12"/>
+  <rect x="20" y="129" width="272" height="14" fill="#2196F3"/>
+  <text x="156" y="126" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">① 設定</text>
+  <text x="40" y="162" font-size="11.5" fill="#1a3a4a" font-weight="bold">Setup — 最先把基礎做對</text>
+  <text x="40" y="180" font-size="11" fill="#333">• 下載桌面應用程式並升級 Pro</text>
+  <text x="40" y="196" font-size="11" fill="#333">• 開啟 Extended Thinking 處理複雜任務</text>
+  <text x="40" y="212" font-size="11" fill="#333">• 讓 Claude 成為你的預設工作空間</text>
+  <rect x="40" y="224" width="234" height="28" fill="#2196F3" rx="6" opacity="0.12"/>
+  <text x="157" y="243" text-anchor="middle" font-size="11" fill="#1a3a4a">下載 → 升級 → 設為預設</text>
+
+  <!-- 格 2：Prompting -->
+  <rect x="314" y="105" width="272" height="195" fill="#fff8e1" rx="12" stroke="#ffe082" stroke-width="1.5"/>
+  <rect x="314" y="105" width="272" height="38" fill="#FF9800" rx="12"/>
+  <rect x="314" y="129" width="272" height="14" fill="#FF9800"/>
+  <text x="450" y="126" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">② 提示技巧</text>
+  <text x="334" y="162" font-size="11.5" fill="#5d3000" font-weight="bold">Prompting — 分開好輸出和壞輸出的技能</text>
+  <text x="334" y="180" font-size="11" fill="#333">• 從目標和「成功標準」開始</text>
+  <text x="334" y="196" font-size="11" fill="#333">• 舉例，不要給模糊描述</text>
+  <text x="334" y="212" font-size="11" fill="#333">• 告訴 Claude 要避免什麼</text>
+  <rect x="334" y="224" width="234" height="28" fill="#FF9800" rx="6" opacity="0.12"/>
+  <text x="451" y="243" text-anchor="middle" font-size="11" fill="#5d3000">目標 → 範例 → 禁忌</text>
+
+  <!-- 格 3：Context -->
+  <rect x="608" y="105" width="272" height="195" fill="#f3e5f5" rx="12" stroke="#ce93d8" stroke-width="1.5"/>
+  <rect x="608" y="105" width="272" height="38" fill="#9C27B0" rx="12"/>
+  <rect x="608" y="129" width="272" height="14" fill="#9C27B0"/>
+  <text x="744" y="126" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">③ 上下文</text>
+  <text x="628" y="162" font-size="11.5" fill="#3a003a" font-weight="bold">Context — Claude 的品質取決於你餵它什麼</text>
+  <text x="628" y="180" font-size="11" fill="#333">• 撰寫清晰的 About Me 文件</text>
+  <text x="628" y="196" font-size="11" fill="#333">• 加入語氣偏好和禁用詞</text>
+  <text x="628" y="212" font-size="11" fill="#333">• 包含你最佳作品範例</text>
+  <rect x="628" y="224" width="234" height="28" fill="#9C27B0" rx="6" opacity="0.12"/>
+  <text x="745" y="243" text-anchor="middle" font-size="11" fill="#3a003a">About Me → 語氣偏好 → 最佳範例</text>
+
+  <!-- 格 4：Right Model -->
+  <rect x="20" y="316" width="272" height="195" fill="#e8f5e9" rx="12" stroke="#a5d6a7" stroke-width="1.5"/>
+  <rect x="20" y="316" width="272" height="38" fill="#4CAF50" rx="12"/>
+  <rect x="20" y="340" width="272" height="14" fill="#4CAF50"/>
+  <text x="156" y="337" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">④ 選對模型</text>
+  <text x="40" y="373" font-size="11.5" fill="#1a3a1a" font-weight="bold">Right Model — 讓大腦配對工作</text>
+  <text x="40" y="391" font-size="11" fill="#333">• 依任務複雜度配對正確模型</text>
+  <text x="40" y="407" font-size="11" fill="#333">• 任務改變時切換模型</text>
+  <text x="40" y="423" font-size="11" fill="#333">• 需要時使用 Extended Thinking</text>
+  <rect x="40" y="435" width="234" height="28" fill="#4CAF50" rx="6" opacity="0.12"/>
+  <text x="157" y="454" text-anchor="middle" font-size="11" fill="#1a3a1a">Haiku = 快 ／ Sonnet = 均衡 ／ Opus = 深</text>
+
+  <!-- 格 5：Projects -->
+  <rect x="314" y="316" width="272" height="195" fill="#fce4ec" rx="12" stroke="#f48fb1" stroke-width="1.5"/>
+  <rect x="314" y="316" width="272" height="38" fill="#E91E63" rx="12"/>
+  <rect x="314" y="340" width="272" height="14" fill="#E91E63"/>
+  <text x="450" y="337" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">⑤ 專案管理</text>
+  <text x="334" y="373" font-size="11.5" fill="#3a001a" font-weight="bold">Projects — 每個重複交付物對應一個專案</text>
+  <text x="334" y="391" font-size="11" fill="#333">• 上傳一個頂級標準範例</text>
+  <text x="334" y="407" font-size="11" fill="#333">• 指令簡潔並專注於任務</text>
+  <text x="334" y="423" font-size="11" fill="#333">• 把所有相關內容存進專案</text>
+  <rect x="334" y="435" width="234" height="28" fill="#E91E63" rx="6" opacity="0.12"/>
+  <text x="451" y="454" text-anchor="middle" font-size="11" fill="#3a001a">一專案 = 一類型交付物</text>
+
+  <!-- 格 6：Skills -->
+  <rect x="608" y="316" width="272" height="195" fill="#e3f2fd" rx="12" stroke="#90caf9" stroke-width="1.5"/>
+  <rect x="608" y="316" width="272" height="38" fill="#1565C0" rx="12"/>
+  <rect x="608" y="340" width="272" height="14" fill="#1565C0"/>
+  <text x="744" y="337" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">⑥ 技能</text>
+  <text x="628" y="373" font-size="11.5" fill="#0a1a3a" font-weight="bold">Skills — Claude 自動套用的指令</text>
+  <text x="628" y="391" font-size="11" fill="#333">• 為每個每週任務建立一個技能</text>
+  <text x="628" y="407" font-size="11" fill="#333">• 每個技能加「不適用於」說明</text>
+  <text x="628" y="423" font-size="11" fill="#333">• 為每個技能設定清晰觸發詞</text>
+  <rect x="628" y="435" width="234" height="28" fill="#1565C0" rx="6" opacity="0.12"/>
+  <text x="745" y="454" text-anchor="middle" font-size="11" fill="#0a1a3a">觸發詞 → 自動 → 一致輸出</text>
+
+  <!-- 格 7：Design -->
+  <rect x="20" y="527" width="272" height="195" fill="#fff3e0" rx="12" stroke="#ffcc80" stroke-width="1.5"/>
+  <rect x="20" y="527" width="272" height="38" fill="#F57C00" rx="12"/>
+  <rect x="20" y="551" width="272" height="14" fill="#F57C00"/>
+  <text x="156" y="548" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">⑦ 設計</text>
+  <text x="40" y="584" font-size="11.5" fill="#3a1a00" font-weight="bold">Design — 從提示到原型，不離開 Claude</text>
+  <text x="40" y="602" font-size="11" fill="#333">• 包含目標、版面、內容和限制</text>
+  <text x="40" y="618" font-size="11" fill="#333">• 在對話中迭代，在畫布上編輯</text>
+  <text x="40" y="634" font-size="11" fill="#333">• 提示前先上傳靈感圖或文章</text>
+  <rect x="40" y="646" width="234" height="28" fill="#F57C00" rx="6" opacity="0.12"/>
+  <text x="157" y="665" text-anchor="middle" font-size="11" fill="#3a1a00">靈感 → 提示 → 迭代 → 成品</text>
+
+  <!-- 格 8：Cowork -->
+  <rect x="314" y="527" width="272" height="195" fill="#e0f2f1" rx="12" stroke="#80cbc4" stroke-width="1.5"/>
+  <rect x="314" y="527" width="272" height="38" fill="#00695C" rx="12"/>
+  <rect x="314" y="551" width="272" height="14" fill="#00695C"/>
+  <text x="450" y="548" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">⑧ Cowork</text>
+  <text x="334" y="584" font-size="11.5" fill="#00231a" font-weight="bold">Cowork — 檔案進，成品出，同一地方</text>
+  <text x="334" y="602" font-size="11" fill="#333">• 建立清晰的資料夾結構</text>
+  <text x="334" y="618" font-size="11" fill="#333">• 把每個優質輸出存為模板</text>
+  <text x="334" y="634" font-size="11" fill="#333">• 每月審查並更新系統</text>
+  <rect x="334" y="646" width="234" height="28" fill="#00695C" rx="6" opacity="0.12"/>
+  <text x="451" y="665" text-anchor="middle" font-size="11" fill="#00231a">資料夾 → 模板 → 每月審查</text>
+
+  <!-- 格 9：Connectors -->
+  <rect x="608" y="527" width="272" height="195" fill="#ede7f6" rx="12" stroke="#b39ddb" stroke-width="1.5"/>
+  <rect x="608" y="527" width="272" height="38" fill="#512DA8" rx="12"/>
+  <rect x="608" y="551" width="272" height="14" fill="#512DA8"/>
+  <text x="744" y="548" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">⑨ 連接器</text>
+  <text x="628" y="584" font-size="11.5" fill="#1a003a" font-weight="bold">Connectors — 停止切換分頁</text>
+  <text x="628" y="602" font-size="11" fill="#333">• 連接你常用的工具</text>
+  <text x="628" y="618" font-size="11" fill="#333">• 關閉你不用的工具</text>
+  <text x="628" y="634" font-size="11" fill="#333">• 確認權限已正確設置</text>
+  <rect x="628" y="646" width="234" height="28" fill="#512DA8" rx="6" opacity="0.12"/>
+  <text x="745" y="665" text-anchor="middle" font-size="11" fill="#1a003a">連接 → 清理 → 確認權限</text>
+
+  <!-- 底部 -->
+  <text x="450" y="770" text-anchor="middle" font-size="10" fill="#999">中文重製版 · 依原圖風格重繪（原作：@Saema Al Lab · 「The Claude Setup Roadmap」）</text>
+</svg>

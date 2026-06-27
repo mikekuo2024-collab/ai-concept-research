@@ -1,0 +1,154 @@
+<svg viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg"
+  font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+
+  <!-- 背景 -->
+  <rect width="900" height="720" fill="#f0f4ff" rx="12"/>
+
+  <!-- 標題列 -->
+  <rect x="0" y="0" width="900" height="72" fill="#1a1a2e" rx="12"/>
+  <rect x="0" y="50" width="900" height="22" fill="#1a1a2e"/>
+  <text x="450" y="30" text-anchor="middle" font-size="22" font-weight="bold" fill="#ffffff">精通 Claude Cowork 的三個步驟</text>
+  <text x="450" y="58" text-anchor="middle" font-size="13" fill="#9eb4ff">3 Steps to Master Claude Cowork · 建立一次，省下每週數小時</text>
+
+  <!-- Step 1 卡片 -->
+  <rect x="28" y="90" width="262" height="606" fill="#ffffff" rx="14" filter="url(#shadow)"/>
+  <rect x="28" y="90" width="262" height="52" fill="#4361ee" rx="14"/>
+  <rect x="28" y="128" width="262" height="14" fill="#4361ee"/>
+  <text x="159" y="117" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">STEP 1 · 設定</text>
+  <text x="159" y="133" text-anchor="middle" font-size="11" fill="#bbc8ff">一次設定，省下數小時與 tokens</text>
+
+  <!-- Step 1 內容 -->
+  <text x="50" y="164" font-size="12" fill="#333" font-weight="bold">📁 建立資料夾結構</text>
+  <text x="50" y="182" font-size="11" fill="#555">命名：Claude Cowork</text>
+  <text x="50" y="197" font-size="11" fill="#555">子資料夾：about-me ／ outputs</text>
+  <text x="50" y="212" font-size="11" fill="#555">　　　　　templates</text>
+
+  <line x1="50" y1="224" x2="270" y2="224" stroke="#e8eaf6" stroke-width="1"/>
+
+  <text x="50" y="242" font-size="12" fill="#333" font-weight="bold">🤖 讓 Claude 訪問你</text>
+  <text x="50" y="260" font-size="11" fill="#555">提示：「問我問題以了解</text>
+  <text x="50" y="275" font-size="11" fill="#555">我的工作方式。」</text>
+  <text x="50" y="290" font-size="11" fill="#777">→ 用 AskUserQuestion 引導</text>
+
+  <line x1="50" y1="302" x2="270" y2="302" stroke="#e8eaf6" stroke-width="1"/>
+
+  <text x="50" y="320" font-size="12" fill="#333" font-weight="bold">📝 建立 ABOUT ME 文件</text>
+  <text x="50" y="338" font-size="11" fill="#555">包含：背景 · 語氣 · 優劣勢</text>
+  <text x="50" y="353" font-size="11" fill="#555">　　　偏好 · 你的工作方式</text>
+
+  <line x1="50" y1="365" x2="270" y2="365" stroke="#e8eaf6" stroke-width="1"/>
+
+  <text x="50" y="383" font-size="12" fill="#333" font-weight="bold">⚙️ 編輯全域指令</text>
+  <text x="50" y="401" font-size="11" fill="#555">設定規則與偏好</text>
+  <text x="50" y="416" font-size="11" fill="#555">告訴 Claude：「永遠先讀</text>
+  <text x="50" y="431" font-size="11" fill="#555">ABOUT ME 文件」</text>
+
+  <line x1="50" y1="443" x2="270" y2="443" stroke="#e8eaf6" stroke-width="1"/>
+
+  <text x="50" y="461" font-size="12" fill="#333" font-weight="bold">🔇 關閉自動讀取</text>
+  <text x="50" y="479" font-size="11" fill="#555">停止自動載入：</text>
+  <text x="50" y="494" font-size="11" fill="#cc3333">OUTPUTS ／ TEMPLATES</text>
+  <text x="50" y="509" font-size="11" fill="#777">（需要時再手動呼叫）</text>
+
+  <rect x="50" y="525" width="218" height="40" fill="#4361ee" rx="8" opacity="0.12"/>
+  <text x="159" y="541" text-anchor="middle" font-size="11" fill="#4361ee" font-weight="bold">好系統勝過好提示。</text>
+  <text x="159" y="557" text-anchor="middle" font-size="11" fill="#4361ee">20 分鐘設定，每週省數小時。</text>
+
+  <!-- Step 2 卡片 -->
+  <rect x="318" y="90" width="262" height="606" fill="#ffffff" rx="14"/>
+  <rect x="318" y="90" width="262" height="52" fill="#7209b7" rx="14"/>
+  <rect x="318" y="128" width="262" height="14" fill="#7209b7"/>
+  <text x="449" y="117" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">STEP 2 · 建立</text>
+  <text x="449" y="133" text-anchor="middle" font-size="11" fill="#d8b4fe">下載 Claude App，開啟新 Cowork 工作階段</text>
+
+  <text x="340" y="164" font-size="12" fill="#333" font-weight="bold">📥 安裝 Claude 桌面應用</text>
+  <text x="340" y="182" font-size="11" fill="#555">下載並安裝 Claude Desktop App</text>
+  <text x="340" y="197" font-size="11" fill="#555">開啟全新的 Cowork 工作階段</text>
+
+  <line x1="340" y1="209" x2="560" y2="209" stroke="#e8eaf6" stroke-width="1"/>
+
+  <text x="340" y="227" font-size="12" fill="#333" font-weight="bold">🧠 選擇正確模型</text>
+  <text x="340" y="245" font-size="11" fill="#555">使用 <tspan font-weight="bold" fill="#7209b7">Opus 4.8</tspan> 處理困難專案</text>
+  <text x="340" y="260" font-size="11" fill="#555">開啟「延伸思考」</text>
+  <text x="340" y="275" font-size="11" fill="#777">→ 獲得更好的複雜任務推理</text>
+
+  <line x1="340" y1="287" x2="560" y2="287" stroke="#e8eaf6" stroke-width="1"/>
+
+  <text x="340" y="305" font-size="12" fill="#333" font-weight="bold">🏢 建立 MY COMPANY 文件</text>
+  <text x="340" y="323" font-size="11" fill="#555">包含：使命 · 服務 · 目標</text>
+  <text x="340" y="338" font-size="11" fill="#555">　　　產品方案 · 目標受眾</text>
+  <text x="340" y="353" font-size="11" fill="#555">　　　不做的事</text>
+
+  <line x1="340" y1="365" x2="560" y2="365" stroke="#e8eaf6" stroke-width="1"/>
+
+  <text x="340" y="383" font-size="12" fill="#333" font-weight="bold">✍️ 建立反 AI 風格文件</text>
+  <text x="340" y="401" font-size="11" fill="#555">規則：每段最多 3 句</text>
+  <text x="340" y="416" font-size="11" fill="#555">避免填充詞 · 刪除討厭的短語</text>
+  <text x="340" y="431" font-size="11" fill="#555">保持 2,000 tokens 以內</text>
+
+  <line x1="340" y1="443" x2="560" y2="443" stroke="#e8eaf6" stroke-width="1"/>
+
+  <text x="340" y="461" font-size="12" fill="#333" font-weight="bold">💾 儲存優質輸出為模板</text>
+  <text x="340" y="479" font-size="11" fill="#555">把每個傑出輸出存成</text>
+  <text x="340" y="494" font-size="11" fill="#555">可重複使用的模板</text>
+  <text x="340" y="509" font-size="11" fill="#777">儲存到 templates 子資料夾</text>
+
+  <rect x="340" y="525" width="218" height="40" fill="#7209b7" rx="8" opacity="0.12"/>
+  <text x="449" y="541" text-anchor="middle" font-size="11" fill="#7209b7" font-weight="bold">把設定視為一項投資。</text>
+  <text x="449" y="557" text-anchor="middle" font-size="11" fill="#7209b7">撥出 20 分鐘，花一次時間。</text>
+
+  <!-- Step 3 卡片 -->
+  <rect x="608" y="90" width="262" height="606" fill="#ffffff" rx="14"/>
+  <rect x="608" y="90" width="262" height="52" fill="#06d6a0" rx="14"/>
+  <rect x="608" y="128" width="262" height="14" fill="#06d6a0"/>
+  <text x="739" y="117" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a1a2e">STEP 3 · 工作</text>
+  <text x="739" y="133" text-anchor="middle" font-size="11" fill="#004d3a">Poonam Soni 的實戰技巧</text>
+
+  <text x="630" y="164" font-size="12" fill="#333" font-weight="bold">🎙️ 說話代替打字</text>
+  <text x="630" y="182" font-size="11" fill="#555">在提示結尾加：</text>
+  <text x="630" y="197" font-size="11" fill="#06a07d" font-weight="bold">「問我問題。」</text>
+
+  <line x1="630" y1="209" x2="848" y2="209" stroke="#e8eaf6" stroke-width="1"/>
+
+  <text x="630" y="227" font-size="12" fill="#333" font-weight="bold">🔗 連接 Cowork 資料夾</text>
+  <text x="630" y="245" font-size="11" fill="#555">把 Claude Cowork</text>
+  <text x="630" y="260" font-size="11" fill="#555">指向工作資料夾</text>
+
+  <line x1="630" y1="272" x2="848" y2="272" stroke="#e8eaf6" stroke-width="1"/>
+
+  <text x="630" y="290" font-size="12" fill="#333" font-weight="bold">🚨 挑戰錯誤，不要同意</text>
+  <text x="630" y="308" font-size="11" fill="#555">告訴 Claude：</text>
+  <text x="630" y="323" font-size="11" fill="#cc3333" font-weight="bold">「指出錯誤，不要附和我。」</text>
+
+  <line x1="630" y1="335" x2="848" y2="335" stroke="#e8eaf6" stroke-width="1"/>
+
+  <text x="630" y="353" font-size="12" fill="#333" font-weight="bold">🔄 每 20 則訊息開新對話</text>
+  <text x="630" y="371" font-size="11" fill="#555">定期開新工作階段</text>
+  <text x="630" y="386" font-size="11" fill="#777">避免上下文視窗溢出</text>
+
+  <line x1="630" y1="398" x2="848" y2="398" stroke="#e8eaf6" stroke-width="1"/>
+
+  <text x="630" y="416" font-size="12" fill="#333" font-weight="bold">🧪 測試所有規則</text>
+  <text x="630" y="434" font-size="11" fill="#555">若某規則無法改善輸出</text>
+  <text x="630" y="449" font-size="11" fill="#cc3333">→ 刪除它</text>
+
+  <line x1="630" y1="461" x2="848" y2="461" stroke="#e8eaf6" stroke-width="1"/>
+
+  <text x="630" y="479" font-size="12" fill="#333" font-weight="bold">📊 連接 Cowork，選 Opus</text>
+  <text x="630" y="497" font-size="11" fill="#555">開啟延伸思考</text>
+  <text x="630" y="512" font-size="11" fill="#777">困難專案用 Opus 4.8</text>
+
+  <rect x="630" y="525" width="218" height="40" fill="#06d6a0" rx="8" opacity="0.15"/>
+  <text x="739" y="541" text-anchor="middle" font-size="11" fill="#004d3a" font-weight="bold">用對工具，用對方式。</text>
+  <text x="739" y="557" text-anchor="middle" font-size="11" fill="#004d3a">每一步都讓 AI 更懂你。</text>
+
+  <!-- 底部說明 -->
+  <text x="450" y="710" text-anchor="middle" font-size="10" fill="#999">中文重製版 · 依原圖風格重繪（原作：Poonam Soni · 「3 Steps to Master Claude Cowork」）</text>
+
+  <!-- 陰影濾鏡 -->
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0003"/>
+    </filter>
+  </defs>
+</svg>

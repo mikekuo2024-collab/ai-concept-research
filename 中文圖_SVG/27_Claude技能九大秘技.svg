@@ -1,0 +1,135 @@
+<svg viewBox="0 0 900 820" xmlns="http://www.w3.org/2000/svg"
+  font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+
+  <!-- 背景 -->
+  <rect width="900" height="820" fill="#0f1117" rx="12"/>
+
+  <!-- 標題 -->
+  <rect x="0" y="0" width="900" height="70" fill="#161b27" rx="12"/>
+  <rect x="0" y="50" width="900" height="20" fill="#161b27"/>
+  <text x="450" y="30" text-anchor="middle" font-size="22" font-weight="bold" fill="#e2e8f0">Claude 技能九大秘技</text>
+  <text x="450" y="58" text-anchor="middle" font-size="12" fill="#718096">9 Claude Skills Cheatcodes · 建立一次，每次自動執行</text>
+
+  <!-- 區塊 1：SETUP -->
+  <rect x="20" y="82" width="860" height="28" fill="#2d3748" rx="8"/>
+  <text x="35" y="101" font-size="13" font-weight="bold" fill="#63b3ed">🔧 SETUP — 先把這個做對，其他才有意義</text>
+
+  <!-- Tip 1 -->
+  <rect x="20" y="118" width="415" height="150" fill="#1a2235" rx="10" stroke="#2d4a7a" stroke-width="1.5"/>
+  <rect x="20" y="118" width="415" height="36" fill="#2b6cb0" rx="10"/>
+  <rect x="20" y="140" width="415" height="14" fill="#2b6cb0"/>
+  <text x="35" y="140" font-size="13" font-weight="bold" fill="#fff">① 從 SKILL-CREATOR 開始</text>
+  <text x="35" y="166" font-size="11" fill="#cbd5e0">Anthropic 預裝了一個「建立技能的技能」。</text>
+  <text x="35" y="183" font-size="11" fill="#cbd5e0">開啟 Cowork → 選 Opus 4.8</text>
+  <text x="35" y="200" font-size="11" fill="#90cdf4" font-weight="bold">「用 skill-creator 為 [任務] 建立技能」</text>
+  <text x="35" y="217" font-size="11" fill="#a0aec0">它會訪問你並自動撰寫 SKILL.md 文件。</text>
+  <text x="35" y="238" font-size="10" fill="#4a5568">→ 預裝於 Cowork 和 Desktop</text>
+  <text x="35" y="252" font-size="10" fill="#4a5568">→ 讓 AI 幫你寫 AI 技能</text>
+
+  <!-- Tip 2 -->
+  <rect x="465" y="118" width="415" height="150" fill="#1a2235" rx="10" stroke="#4a2d7a" stroke-width="1.5"/>
+  <rect x="465" y="118" width="415" height="36" fill="#6b46c1" rx="10"/>
+  <rect x="465" y="140" width="415" height="14" fill="#6b46c1"/>
+  <text x="480" y="140" font-size="13" font-weight="bold" fill="#fff">② 描述欄 = 觸發器</text>
+  <text x="480" y="166" font-size="11" fill="#cbd5e0">只有一個欄位決定技能是否啟動。</text>
+  <text x="480" y="183" font-size="11" fill="#68d391">✅ 「分析競爭對手定價」→ 觸發</text>
+  <text x="480" y="200" font-size="11" fill="#fc8181">❌ 「幫助商業業務」→ 永遠休眠</text>
+  <text x="480" y="217" font-size="11" fill="#a0aec0">模糊 = 休眠 · 精確 = 準時觸發</text>
+  <text x="480" y="238" font-size="10" fill="#4a5568">→ 花時間寫好描述欄</text>
+  <text x="480" y="252" font-size="10" fill="#4a5568">→ 這是最重要的一個欄位</text>
+
+  <!-- 區塊 2：CONTROL -->
+  <rect x="20" y="282" width="860" height="28" fill="#2d3748" rx="8"/>
+  <text x="35" y="301" font-size="13" font-weight="bold" fill="#f6ad55">🎛️ CONTROL — 防止技能劫持其他對話</text>
+
+  <!-- Tip 3 -->
+  <rect x="20" y="318" width="270" height="160" fill="#1a2235" rx="10" stroke="#7a2d2d" stroke-width="1.5"/>
+  <rect x="20" y="318" width="270" height="36" fill="#c53030" rx="10"/>
+  <rect x="20" y="340" width="270" height="14" fill="#c53030"/>
+  <text x="35" y="339" font-size="13" font-weight="bold" fill="#fff">③ 加入負面觸發器</text>
+  <text x="35" y="366" font-size="11" fill="#cbd5e0">告訴 Claude 何時「不要」使用。</text>
+  <text x="35" y="384" font-size="10.5" fill="#fc8181" font-weight="bold">「3 句以下的問題不要使用」</text>
+  <text x="35" y="402" font-size="11" fill="#a0aec0">你的 LinkedIn 技能就不會</text>
+  <text x="35" y="418" font-size="11" fill="#a0aec0">跑進程式碼對話中。</text>
+  <text x="35" y="438" font-size="10" fill="#4a5568">→ 每個技能都需要這一行</text>
+  <text x="35" y="452" font-size="10" fill="#4a5568">→ 負面觸發和觸發詞同等重要</text>
+
+  <!-- Tip 4 -->
+  <rect x="315" y="318" width="270" height="160" fill="#1a2235" rx="10" stroke="#2d5a2d" stroke-width="1.5"/>
+  <rect x="315" y="318" width="270" height="36" fill="#276749" rx="10"/>
+  <rect x="315" y="340" width="270" height="14" fill="#276749"/>
+  <text x="330" y="339" font-size="13" font-weight="bold" fill="#fff">④ 聲音文件 × 技能堆疊</text>
+  <text x="330" y="366" font-size="11" fill="#cbd5e0">兩個層次同時觸發：</text>
+  <text x="330" y="384" font-size="11" fill="#68d391">about-me.md → 你是誰</text>
+  <text x="330" y="402" font-size="11" fill="#68d391">SKILL.md → 如何完成工作</text>
+  <text x="330" y="420" font-size="11" fill="#a0aec0">兩層合一，效果倍增。</text>
+  <text x="330" y="438" font-size="10" fill="#4a5568">→ 先建 about-me，再建 Skill</text>
+  <text x="330" y="452" font-size="10" fill="#4a5568">→ 兩者互補，不要重複</text>
+
+  <!-- Tip 5 -->
+  <rect x="610" y="318" width="270" height="160" fill="#1a2235" rx="10" stroke="#5a4d2d" stroke-width="1.5"/>
+  <rect x="610" y="318" width="270" height="36" fill="#975a16" rx="10"/>
+  <rect x="610" y="340" width="270" height="14" fill="#975a16"/>
+  <text x="625" y="339" font-size="13" font-weight="bold" fill="#fff">⑤ 漸進揭露原則</text>
+  <text x="625" y="366" font-size="11" fill="#cbd5e0">前言（frontmatter）→ 每次對話都載入</text>
+  <text x="625" y="384" font-size="11" fill="#cbd5e0">本體（body）→ 觸發時才載入</text>
+  <text x="625" y="402" font-size="11" fill="#cbd5e0">文件（files）→ 呼叫時才載入</text>
+  <text x="625" y="420" font-size="11" fill="#f6ad55" font-weight="bold">20 個技能 ≠ 20 倍 tokens</text>
+  <text x="625" y="438" font-size="10" fill="#4a5568">→ 智慧載入，token 不爆</text>
+  <text x="625" y="452" font-size="10" fill="#4a5568">→ 大膽安裝所需技能</text>
+
+  <!-- 區塊 3：PERFORMANCE -->
+  <rect x="20" y="492" width="860" height="28" fill="#2d3748" rx="8"/>
+  <text x="35" y="511" font-size="13" font-weight="bold" fill="#68d391">⚡ PERFORMANCE — 保持高效低耗</text>
+
+  <!-- Tip 6 -->
+  <rect x="20" y="528" width="270" height="165" fill="#1a2235" rx="10" stroke="#1a4a3a" stroke-width="1.5"/>
+  <rect x="20" y="528" width="270" height="36" fill="#1a6045" rx="10"/>
+  <rect x="20" y="550" width="270" height="14" fill="#1a6045"/>
+  <text x="35" y="549" font-size="13" font-weight="bold" fill="#fff">⑥ 打包支援文件</text>
+  <text x="35" y="576" font-size="10.5" fill="#a0aec0" font-weight="bold">skills/skill-name/ 收納一切：</text>
+  <text x="35" y="594" font-size="10.5" fill="#68d391">SKILL.md → 指令</text>
+  <text x="35" y="610" font-size="10.5" fill="#68d391">scripts/ → 程式碼</text>
+  <text x="35" y="626" font-size="10.5" fill="#68d391">references/ → 文件</text>
+  <text x="35" y="642" font-size="10.5" fill="#68d391">assets/ → 模板</text>
+  <text x="35" y="660" font-size="10" fill="#4a5568">→ 技能呼叫時才載入這些文件</text>
+  <text x="35" y="674" font-size="10" fill="#4a5568">→ 整潔的資料夾架構</text>
+
+  <!-- Tip 7 -->
+  <rect x="315" y="528" width="270" height="165" fill="#1a2235" rx="10" stroke="#2d4a7a" stroke-width="1.5"/>
+  <rect x="315" y="528" width="270" height="36" fill="#2b6cb0" rx="10"/>
+  <rect x="315" y="550" width="270" height="14" fill="#2b6cb0"/>
+  <text x="330" y="549" font-size="13" font-weight="bold" fill="#fff">⑦ 用一個問題除錯</text>
+  <text x="330" y="576" font-size="11" fill="#cbd5e0">問 Claude：</text>
+  <text x="330" y="594" font-size="10.5" fill="#90cdf4" font-weight="bold">「你什麼時候會用 [技能名] 技能？」</text>
+  <text x="330" y="612" font-size="11" fill="#a0aec0">它會引用描述欄內容回答你</text>
+  <text x="330" y="630" font-size="11" fill="#a0aec0">你能立刻看出哪裡模糊</text>
+  <text x="330" y="648" font-size="10" fill="#4a5568">→ 最快的技能診斷方法</text>
+  <text x="330" y="662" font-size="10" fill="#4a5568">→ 發布前必做的一個測試</text>
+
+  <!-- Tip 8 -->
+  <rect x="610" y="528" width="270" height="165" fill="#1a2235" rx="10" stroke="#4a2d2d" stroke-width="1.5"/>
+  <rect x="610" y="528" width="270" height="36" fill="#9b2c2c" rx="10"/>
+  <rect x="610" y="550" width="270" height="14" fill="#9b2c2c"/>
+  <text x="625" y="549" font-size="13" font-weight="bold" fill="#fff">⑧ 在提示中修正品質</text>
+  <text x="625" y="576" font-size="11" fill="#cbd5e0">輸出品質不好？</text>
+  <text x="625" y="594" font-size="11" fill="#fc8181" font-weight="bold">不要編輯技能。</text>
+  <text x="625" y="612" font-size="11" fill="#cbd5e0">在提示中加：</text>
+  <text x="625" y="630" font-size="10.5" fill="#90cdf4" font-weight="bold">「慢慢來，品質優先於速度。」</text>
+  <text x="625" y="648" font-size="10" fill="#4a5568">→ 技能是方法論，提示是執行</text>
+  <text x="625" y="662" font-size="10" fill="#4a5568">→ 別把提示錯誤當成技能問題</text>
+
+  <!-- 區塊 4：REALITY CHECK -->
+  <rect x="20" y="710" width="860" height="28" fill="#2d3748" rx="8"/>
+  <text x="35" y="729" font-size="13" font-weight="bold" fill="#f687b3">🌐 REALITY CHECK — 技能是開放標準</text>
+
+  <!-- Tip 9 -->
+  <rect x="20" y="745" width="860" height="60" fill="#1a2235" rx="10" stroke="#4a2d5a" stroke-width="1.5"/>
+  <text x="55" y="765" font-size="13" font-weight="bold" fill="#d6bcfa">⑨ 技能具可攜性</text>
+  <text x="55" y="783" font-size="11" fill="#a0aec0">基於開放標準（agentskills.io）· 已被採用：</text>
+  <text x="310" y="783" font-size="11" fill="#90cdf4">Microsoft · OpenAI · Figma · Cursor · GitHub</text>
+  <text x="700" y="783" font-size="11" fill="#a0aec0">同一份 SKILL.md 處處通用</text>
+
+  <!-- 底部 -->
+  <text x="450" y="812" text-anchor="middle" font-size="10" fill="#4a5568">中文重製版 · 依原圖風格重繪（原作：Eric Melillo · ericmelillo.com · 「9 Claude Skills Cheatcodes」）</text>
+</svg>
