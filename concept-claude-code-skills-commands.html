@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code 建站七步驟 × Skills 建立指南 × 10 個強大指令 · AI 概念研究</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0f1117;color:#e2e8f0;font-family:'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif;min-height:100vh}
+  header{background:#1a1d27;border-bottom:1px solid #2d2f3e;padding:20px 40px;position:sticky;top:0;z-index:100}
+  header h1{font-size:22px;font-weight:700;color:#fff;letter-spacing:1px}
+  header p{color:#94a3b8;font-size:13px;margin-top:4px}
+  nav{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  nav a{background:#1e2030;color:#94a3b8;text-decoration:none;padding:5px 14px;border-radius:20px;font-size:12px;border:1px solid #2d2f3e;transition:all .2s}
+  nav a:hover,nav a.active{background:#7c3aed;color:#fff;border-color:#7c3aed}
+  .home-link{color:#7c3aed;text-decoration:none;font-size:12px;display:inline-flex;align-items:center;gap:4px}
+  .home-link:hover{color:#a78bfa}
+  main{max-width:1100px;margin:0 auto;padding:40px 24px 80px}
+  .intro-card{background:linear-gradient(135deg,#1e1b4b,#1e2030);border:1px solid #7c3aed;border-radius:16px;padding:28px 36px;margin-bottom:40px}
+  .intro-card h2{font-size:20px;color:#c4b5fd;margin-bottom:10px}
+  .intro-card p{color:#94a3b8;font-size:13.5px;line-height:1.7}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .tag{background:#2d1b69;color:#c4b5fd;padding:3px 12px;border-radius:12px;font-size:11px}
+  .section-title{font-size:16px;font-weight:700;color:#a78bfa;margin:40px 0 20px;letter-spacing:2px;display:flex;align-items:center;gap:10px}
+  .section-title::after{content:'';flex:1;height:1px;background:#2d2f3e}
+  .diagram-card{background:#1e2030;border:1px solid #2d2f3e;border-radius:16px;margin-bottom:32px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .diagram-card:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(124,58,237,.2)}
+  .diagram-card-header{padding:18px 24px;background:#1a1d27;border-bottom:1px solid #2d2f3e;display:flex;justify-content:space-between;align-items:center}
+  .diagram-card-header h3{font-size:15px;font-weight:700;color:#e2e8f0}
+  .diagram-card-header span{font-size:11px;color:#94a3b8;background:#0f1117;padding:2px 10px;border-radius:10px}
+  .diagram-wrapper{padding:24px;background:#0f1117}
+  .diagram-wrapper svg{width:100%;height:auto;display:block}
+  .key-points{padding:20px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .key-point{background:#0f1117;border-radius:10px;padding:12px 16px;border-left:3px solid #7c3aed}
+  .key-point h4{font-size:12px;color:#c4b5fd;font-weight:700;margin-bottom:4px}
+  .key-point p{font-size:11.5px;color:#94a3b8;line-height:1.5}
+  .back-to-top{position:fixed;bottom:32px;right:32px;background:#7c3aed;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;box-shadow:0 4px 15px rgba(124,58,237,.4);z-index:100;display:flex;align-items:center;justify-content:center;text-decoration:none}
+  footer{background:#1a1d27;border-top:1px solid #2d2f3e;text-align:center;padding:20px;color:#4b5563;font-size:11px}
+  footer a{color:#7c3aed;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="home-link">← 返回首頁</a>
+  <h1>Claude Code 建站七步驟 × Skills 建立指南 × 10 個強大指令</h1>
+  <p>2026-07-01 · 3 張中文圖解 · AI 概念研究系列</p>
+  <nav>
+    <a href="#website" class="active">建站七步驟</a>
+    <a href="#skills">Skills 指南</a>
+    <a href="#commands">10 個指令</a>
+  </nav>
+</header>
+
+<main>
+  <div class="intro-card">
+    <h2>本頁收錄 3 張核心圖解</h2>
+    <p>從零開始用 Claude Code 建立網站的七步驟實戰流程、建立真正有效 Claude Skills 的完整指南（含 6 步驟建立流程、觸發設計、安全原則），以及 10 個讓你聰明工作的 Claude 斜槓指令（/ghost、/matrix、/brief、/challenge、/systemize 等）與黃金組合技。</p>
+    <div class="tags">
+      <span class="tag">Claude Code</span>
+      <span class="tag">網站建立</span>
+      <span class="tag">SKILL.md</span>
+      <span class="tag">Skills 設計</span>
+      <span class="tag">觸發器</span>
+      <span class="tag">斜槓指令</span>
+      <span class="tag">/ghost</span>
+      <span class="tag">/matrix</span>
+      <span class="tag">/challenge</span>
+      <span class="tag">工作流程</span>
+    </div>
+  </div>
+
+  <div class="section-title" id="website">01 用 Claude Code 建立第一個網站（七步驟）</div>
+  <div class="diagram-card">
+    <div class="diagram-card-header">
+      <h3>Claude Code 建站七步驟完整流程</h3>
+      <span>原作：英文 AI 資訊圖 · 中文重製</span>
+    </div>
+    <div class="diagram-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 1100" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="1100" fill="#ffffff"/>
+  <g transform="translate(28,28)">
+    <text x="0" y="26" font-size="26" font-weight="800" fill="#1a1a2e">用 Claude Code 建立你的第一個網站</text>
+    <text x="0" y="50" font-size="13" font-weight="600" fill="#6b7280">How to Build Your First Website with Claude Code — 七步驟流程圖解</text>
+    <line x1="0" y1="62" x2="644" y2="62" stroke="#7c3aed" stroke-width="3"/>
+    <circle cx="0" cy="62" r="5" fill="#F25C26"/>
+  </g>
+  <g transform="translate(28, 106)">
+    <g transform="translate(0,0)">
+      <rect x="0" y="0" width="644" height="120" rx="10" fill="#F3EEFE" stroke="#7c3aed" stroke-width="1.5"/>
+      <rect x="0" y="0" width="64" height="120" rx="10" fill="#7c3aed"/>
+      <text x="32" y="52" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">1</text>
+      <text x="32" y="74" font-size="10" fill="#d8b4fe" text-anchor="middle">STEP</text>
+      <text x="84" y="26" font-size="15" font-weight="800" fill="#5b21b6">從截圖開始</text>
+      <text x="84" y="48" font-size="12" fill="#4c1d95">舊方法：你用文字描述設計風格，然後猜測結果。</text>
+      <text x="84" y="66" font-size="12" fill="#333">新方法：截下任何你喜歡的網站畫面，直接丟進 Claude Code。</text>
+      <text x="84" y="84" font-size="12" fill="#333">「幫我照這個風格，做一個我的版本。」</text>
+      <text x="84" y="102" font-size="11" fill="#7c3aed">到 Dribbble 或 Awwwards 截圖，這是最快的起點。</text>
+    </g>
+    <g transform="translate(0,136)">
+      <rect x="0" y="0" width="644" height="105" rx="10" fill="#EAF1F9" stroke="#2b6cb0" stroke-width="1.5"/>
+      <rect x="0" y="0" width="64" height="105" rx="10" fill="#2b6cb0"/>
+      <text x="32" y="46" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">2</text>
+      <text x="32" y="68" font-size="10" fill="#bfdbfe" text-anchor="middle">STEP</text>
+      <text x="84" y="26" font-size="15" font-weight="800" fill="#1e3a5f">取得 design.md 樣板</text>
+      <text x="84" y="48" font-size="12" fill="#333">前往 getdesign.md，挑一個品牌（Stripe、Notion 等）</text>
+      <text x="84" y="66" font-size="12" fill="#333">下載後放入你的專案資料夾</text>
+      <text x="84" y="84" font-size="12" fill="#1e3a5f" font-weight="600">告訴 Claude：「所有樣式都依照這份文件。」</text>
+    </g>
+    <g transform="translate(0,257)">
+      <rect x="0" y="0" width="644" height="120" rx="10" fill="#ECFDF5" stroke="#10b981" stroke-width="1.5"/>
+      <rect x="0" y="0" width="64" height="120" rx="10" fill="#10b981"/>
+      <text x="32" y="52" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">3</text>
+      <text x="32" y="74" font-size="10" fill="#a7f3d0" text-anchor="middle">STEP</text>
+      <text x="84" y="26" font-size="15" font-weight="800" fill="#065f46">魔法提示詞</text>
+      <text x="84" y="48" font-size="12" fill="#333">舊方法：你要給技術步驟，一步一步說清楚。</text>
+      <text x="84" y="66" font-size="12" fill="#333">新方法：告訴它目標，它會一次問一個問題來了解你。</text>
+      <rect x="84" y="78" width="540" height="34" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+      <text x="96" y="98" font-size="11.5" font-weight="700" fill="#065f46">「你是我的 CTO，我是 CEO。不要講程式術語，一次問我一個問題，然後幫我做出來。」</text>
+    </g>
+    <g transform="translate(0,393)">
+      <rect x="0" y="0" width="644" height="105" rx="10" fill="#FEF3C7" stroke="#d97706" stroke-width="1.5"/>
+      <rect x="0" y="0" width="64" height="105" rx="10" fill="#d97706"/>
+      <text x="32" y="46" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">4</text>
+      <text x="32" y="68" font-size="10" fill="#fde68a" text-anchor="middle">STEP</text>
+      <text x="84" y="26" font-size="15" font-weight="800" fill="#78350f">開啟繞過權限模式</text>
+      <text x="84" y="48" font-size="12" fill="#333">舊方法：每次編輯或執行指令都要手動確認。</text>
+      <text x="84" y="66" font-size="12" fill="#333">新方法：Claude Code 設定 → 開啟「Allow bypass permissions mode」</text>
+      <text x="84" y="86" font-size="11" fill="#d97706">⚠ 公司電腦請先詢問 IT 部門再開啟</text>
+    </g>
+    <g transform="translate(0,514)">
+      <rect x="0" y="0" width="644" height="105" rx="10" fill="#FFF1F2" stroke="#e11d48" stroke-width="1.5"/>
+      <rect x="0" y="0" width="64" height="105" rx="10" fill="#e11d48"/>
+      <text x="32" y="46" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">5</text>
+      <text x="32" y="68" font-size="10" fill="#fecdd3" text-anchor="middle">STEP</text>
+      <text x="84" y="26" font-size="15" font-weight="800" fill="#881337">一次只做一件事</text>
+      <text x="84" y="48" font-size="12" fill="#333">舊方法：一次交辦 12 件事，最後每件都只做一半。</text>
+      <text x="84" y="66" font-size="12" fill="#333">新方法：先做首頁，做好了再做下一頁。</text>
+      <text x="84" y="84" font-size="12" fill="#e11d48" font-weight="700">原則：每條訊息只交辦一個小任務，不要一次交辦十二個。</text>
+    </g>
+    <g transform="translate(0,635)">
+      <rect x="0" y="0" width="644" height="120" rx="10" fill="#EEF2FF" stroke="#6366f1" stroke-width="1.5"/>
+      <rect x="0" y="0" width="64" height="120" rx="10" fill="#6366f1"/>
+      <text x="32" y="52" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">6</text>
+      <text x="32" y="74" font-size="10" fill="#c7d2fe" text-anchor="middle">STEP</text>
+      <text x="84" y="26" font-size="15" font-weight="800" fill="#312e81">執行並修正</text>
+      <text x="84" y="48" font-size="12" fill="#333">舊方法：你讀程式碼，試著找出哪裡出了問題。</text>
+      <text x="84" y="66" font-size="12" fill="#333">新方法：用白話文列出問題，或截圖 bug 後說「修這個」</text>
+      <text x="84" y="84" font-size="12" fill="#333">重新整理、觀察，反覆修正。每頁約 5–6 輪。</text>
+      <text x="84" y="102" font-size="11" fill="#6366f1">不要讀程式碼，描述你看到的問題就好。</text>
+    </g>
+    <g transform="translate(0,771)">
+      <rect x="0" y="0" width="644" height="105" rx="10" fill="#F0FDF4" stroke="#16a34a" stroke-width="1.5"/>
+      <rect x="0" y="0" width="64" height="105" rx="10" fill="#16a34a"/>
+      <text x="32" y="46" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">7</text>
+      <text x="32" y="68" font-size="10" fill="#bbf7d0" text-anchor="middle">STEP</text>
+      <text x="84" y="26" font-size="15" font-weight="800" fill="#14532d">上線發佈</text>
+      <text x="84" y="48" font-size="12" fill="#333">舊方法：上線代表伺服器、設定、終端機，非常麻煩。</text>
+      <text x="84" y="66" font-size="12" fill="#333">新方法：Netlify 只需連接一次，就能獲得可用的連結。</text>
+      <text x="84" y="84" font-size="12" fill="#16a34a" font-weight="700">原則：完成它所花的時間不要比使用它還久。目標：24 分鐘上線。</text>
+    </g>
+  </g>
+  <text x="350" y="1084" font-size="10" fill="#9ca3af" text-anchor="middle">中文重製版 · 依原圖風格重繪（原作：英文 AI 資訊圖）</text>
+</svg>
+
+    </div>
+    <div class="key-points">
+      <div class="key-point"><h4>Step 1：從截圖開始</h4><p>截下喜歡的網站直接丟進 Claude，不需用文字描述設計風格。</p></div>
+      <div class="key-point"><h4>Step 2–3：樣板 + 魔法提示</h4><p>下載 design.md 統一樣式；用「你是 CTO，我是 CEO」讓 Claude 主動訪談需求。</p></div>
+      <div class="key-point"><h4>Step 4–5：繞過確認 + 逐頁推進</h4><p>開啟 bypass 模式讓 Claude 自主執行；一次只交辦一個小任務。</p></div>
+      <div class="key-point"><h4>Step 6–7：截圖修正 + Netlify 上線</h4><p>描述問題或截圖 bug，5–6 輪修正後，Netlify 一鍵上線。</p></div>
+    </div>
+  </div>
+
+  <div class="section-title" id="skills">02 如何建立真正有效的 Claude Skills</div>
+  <div class="diagram-card">
+    <div class="diagram-card-header">
+      <h3>Claude Skills 完整建立指南</h3>
+      <span>原作：英文 AI 資訊圖 · 中文重製</span>
+    </div>
+    <div class="diagram-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 1080" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="1080" fill="#ffffff"/>
+  <!-- Header -->
+  <g transform="translate(28,28)">
+    <text x="0" y="26" font-size="24" font-weight="800" fill="#1a1a2e">如何建立真正有效的 Claude Skills</text>
+    <text x="0" y="50" font-size="13" font-weight="600" fill="#6b7280">How to Build Claude Skills That Really Work — 完整指南</text>
+    <line x1="0" y1="62" x2="644" y2="62" stroke="#F25C26" stroke-width="3"/>
+    <circle cx="0" cy="62" r="5" fill="#7c3aed"/>
+  </g>
+
+  <!-- Row 1: What + When -->
+  <g transform="translate(28,100)">
+    <!-- What is a skill -->
+    <rect x="0" y="0" width="310" height="110" rx="10" fill="#FFF7F0" stroke="#F25C26" stroke-width="1.5"/>
+    <text x="14" y="24" font-size="14" font-weight="800" fill="#c2410c">什麼是 Claude Skill？</text>
+    <text x="14" y="44" font-size="11.5" fill="#333">以 SKILL.md 為核心建立的</text>
+    <text x="14" y="60" font-size="11.5" fill="#333">可重複使用的工作流程套件，</text>
+    <text x="14" y="76" font-size="11.5" fill="#333">可由 Claude 自動觸發</text>
+    <text x="14" y="92" font-size="11.5" fill="#333">或透過 /指令 手動執行。</text>
+
+    <!-- When to use -->
+    <rect x="334" y="0" width="310" height="110" rx="10" fill="#ECFDF5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="348" y="24" font-size="14" font-weight="800" fill="#065f46">何時使用 Skill？</text>
+    <text x="348" y="44" font-size="11.5" fill="#333">適合可重複的工作流程，而非</text>
+    <text x="348" y="60" font-size="11.5" fill="#333">一次性提示：研究調查、內容改寫、</text>
+    <text x="348" y="76" font-size="11.5" fill="#333">品牌聲音、程式審查、</text>
+    <text x="348" y="92" font-size="11.5" fill="#333">文件撰寫、自動化流程。</text>
+  </g>
+
+  <!-- Core Rule -->
+  <g transform="translate(28,226)">
+    <rect x="0" y="0" width="644" height="50" rx="10" fill="#FEF2F2" stroke="#dc2626" stroke-width="2"/>
+    <text x="322" y="20" font-size="13" font-weight="800" fill="#dc2626" text-anchor="middle">核心原則</text>
+    <text x="322" y="40" font-size="12" fill="#7f1d1d" text-anchor="middle">如果 Claude 無法識別什麼時候該使用它，這個 Skill 就算失敗。</text>
+  </g>
+
+  <!-- Skill Structure + What Makes Triggers -->
+  <g transform="translate(28,292)">
+    <!-- Structure -->
+    <rect x="0" y="0" width="310" height="160" rx="10" fill="#EEF2FF" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="14" y="24" font-size="14" font-weight="800" fill="#312e81">Skill 目錄結構</text>
+    <rect x="14" y="32" width="282" height="116" rx="6" fill="#1e1b4b"/>
+    <text x="24" y="52" font-size="11" fill="#a5b4fc" font-family="monospace">my-skill/</text>
+    <text x="32" y="68" font-size="11" fill="#e0e7ff" font-family="monospace">SKILL.md</text>
+    <text x="32" y="84" font-size="11" fill="#e0e7ff" font-family="monospace">reference.md</text>
+    <text x="32" y="100" font-size="11" fill="#e0e7ff" font-family="monospace">examples.md</text>
+    <text x="32" y="116" font-size="11" fill="#e0e7ff" font-family="monospace">scripts/</text>
+    <text x="24" y="138" font-size="10.5" fill="#818cf8">最少只需 SKILL.md 即可開始</text>
+
+    <!-- What makes triggers -->
+    <rect x="334" y="0" width="310" height="160" rx="10" fill="#FFF7F0" stroke="#d97706" stroke-width="1.5"/>
+    <text x="348" y="24" font-size="14" font-weight="800" fill="#78350f">讓 Skill 被觸發的關鍵</text>
+    <text x="348" y="46" font-size="12" fill="#333">• 清楚的使用情境描述</text>
+    <text x="348" y="64" font-size="12" fill="#333">• 使用者自然說話的方式</text>
+    <text x="348" y="82" font-size="12" fill="#333">• 具體的情境脈絡</text>
+    <text x="348" y="100" font-size="12" fill="#333">• 重要關鍵字放在最前面</text>
+    <text x="348" y="124" font-size="12" fill="#78350f" font-weight="700">完美描述公式：</text>
+    <text x="348" y="142" font-size="11" fill="#333">任務 + 觸發詞組 + 範例句</text>
+  </g>
+
+  <!-- Row 3: Best Practices -->
+  <g transform="translate(28,468)">
+    <rect x="0" y="0" width="198" height="130" rx="10" fill="#F0FDF4" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="14" y="22" font-size="13" font-weight="800" fill="#14532d">保持精簡</text>
+    <text x="14" y="42" font-size="11" fill="#333">SKILL.md 少於 500 行</text>
+    <text x="14" y="58" font-size="11" fill="#333">重資訊移至輔助檔案</text>
+    <text x="14" y="74" font-size="11" fill="#333">避免指令膨脹</text>
+    <text x="14" y="96" font-size="11" fill="#16a34a" font-weight="600">精準 Skill 觸發更好、</text>
+    <text x="14" y="112" font-size="11" fill="#16a34a" font-weight="600">執行效果更佳。</text>
+
+    <rect x="222" y="0" width="198" height="130" rx="10" fill="#EAF1F9" stroke="#2b6cb0" stroke-width="1.5"/>
+    <text x="236" y="22" font-size="13" font-weight="800" fill="#1e3a5f">像操作者一樣寫作</text>
+    <text x="236" y="42" font-size="11" fill="#333">步驟式操作說明</text>
+    <text x="236" y="58" font-size="11" fill="#333">規則 + 輸出格式</text>
+    <text x="236" y="74" font-size="11" fill="#333">情境脈絡</text>
+    <text x="236" y="92" font-size="11" fill="#333">避免：模糊建議、廢話</text>
+    <text x="236" y="108" font-size="11" fill="#333">長篇解說</text>
+
+    <rect x="444" y="0" width="200" height="130" rx="10" fill="#FDF4FF" stroke="#c026d3" stroke-width="1.5"/>
+    <text x="458" y="22" font-size="13" font-weight="800" fill="#701a75">一個 Skill = 一個任務</text>
+    <text x="458" y="42" font-size="11" fill="#333">使用參數提高靈活性</text>
+    <text x="458" y="58" font-size="11" fill="#333">範例：/改寫 landing-page 精簡版</text>
+    <text x="458" y="78" font-size="11" fill="#333">使用輔助檔案：</text>
+    <text x="458" y="94" font-size="11" fill="#333">模板、範例、參考資料</text>
+    <text x="458" y="110" font-size="11" fill="#333">需要時加入腳本自動化</text>
+  </g>
+
+  <!-- Row 4: Invocation + Security -->
+  <g transform="translate(28,614)">
+    <rect x="0" y="0" width="310" height="145" rx="10" fill="#FFF7F0" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="14" y="24" font-size="14" font-weight="800" fill="#7c2d12">呼叫方式控制</text>
+    <text x="14" y="46" font-size="12" fill="#333">自動 + 手動（預設）</text>
+    <text x="14" y="62" font-size="12" fill="#333">僅手動 — 適合高風險操作</text>
+    <text x="14" y="78" font-size="12" fill="#333">僅背景 — 隱藏輔助任務</text>
+    <text x="14" y="100" font-size="13" font-weight="800" fill="#7c2d12">安全基礎</text>
+    <text x="14" y="118" font-size="12" fill="#333">信任來源 / 審查腳本</text>
+    <text x="14" y="134" font-size="12" fill="#333">限制高風險操作 / 避免過度授權</text>
+
+    <rect x="334" y="0" width="310" height="145" rx="10" fill="#F3EEFE" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="348" y="24" font-size="14" font-weight="800" fill="#4c1d95">Skill 失敗的原因</text>
+    <text x="348" y="46" font-size="12" fill="#7f1d1d">• 描述太模糊</text>
+    <text x="348" y="62" font-size="12" fill="#7f1d1d">• 一個 Skill 承擔太多任務</text>
+    <text x="348" y="78" font-size="12" fill="#7f1d1d">• 沒有觸發關鍵字</text>
+    <text x="348" y="94" font-size="12" fill="#7f1d1d">• 給太多情境脈絡</text>
+    <text x="348" y="110" font-size="12" fill="#7f1d1d">• 沒有附上範例</text>
+  </g>
+
+  <!-- Build Process -->
+  <g transform="translate(28,775)">
+    <rect x="0" y="0" width="644" height="160" rx="10" fill="#F8FAFF" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="322" y="24" font-size="14" font-weight="800" fill="#312e81" text-anchor="middle">六步驟建立流程</text>
+    <!-- 6 steps in 2 rows of 3 -->
+    <g font-size="11" fill="#333">
+      <rect x="14" y="36" width="185" height="46" rx="6" fill="#EEF2FF" stroke="#6366f1" stroke-width="1"/>
+      <text x="106" y="56" text-anchor="middle" font-weight="700" fill="#312e81">1. 選定一個工作流程</text>
+      <text x="106" y="72" text-anchor="middle">只選一個，聚焦才有效</text>
+
+      <rect x="229" y="36" width="185" height="46" rx="6" fill="#EEF2FF" stroke="#6366f1" stroke-width="1"/>
+      <text x="321" y="56" text-anchor="middle" font-weight="700" fill="#312e81">2. 撰寫清楚的描述</text>
+      <text x="321" y="72" text-anchor="middle">任務 + 觸發詞 + 範例</text>
+
+      <rect x="444" y="36" width="185" height="46" rx="6" fill="#EEF2FF" stroke="#6366f1" stroke-width="1"/>
+      <text x="536" y="56" text-anchor="middle" font-weight="700" fill="#312e81">3. 保持指令精簡</text>
+      <text x="536" y="72" text-anchor="middle">避免冗長說明</text>
+
+      <rect x="14" y="98" width="185" height="46" rx="6" fill="#EEF2FF" stroke="#6366f1" stroke-width="1"/>
+      <text x="106" y="118" text-anchor="middle" font-weight="700" fill="#312e81">4. 加入實際範例</text>
+      <text x="106" y="134" text-anchor="middle">範例提升一致性與準確性</text>
+
+      <rect x="229" y="98" width="185" height="46" rx="6" fill="#EEF2FF" stroke="#6366f1" stroke-width="1"/>
+      <text x="321" y="118" text-anchor="middle" font-weight="700" fill="#312e81">5. 測試觸發效果</text>
+      <text x="321" y="134" text-anchor="middle">確認 Claude 能正確識別</text>
+
+      <rect x="444" y="98" width="185" height="46" rx="6" fill="#EEF2FF" stroke="#6366f1" stroke-width="1"/>
+      <text x="536" y="118" text-anchor="middle" font-weight="700" fill="#312e81">6. 根據失敗優化</text>
+      <text x="536" y="134" text-anchor="middle">失敗是最好的回饋來源</text>
+    </g>
+  </g>
+
+  <!-- Takeaway -->
+  <g transform="translate(28,951)">
+    <rect x="0" y="0" width="644" height="50" rx="10" fill="#1a1a2e"/>
+    <text x="322" y="18" font-size="12" font-weight="800" fill="#F25C26" text-anchor="middle">核心心法</text>
+    <text x="322" y="38" font-size="11.5" fill="#e5e7eb" text-anchor="middle">優秀的 Claude Skill 不需要複雜，它需要的是精準、輕量、容易被模型識別和執行。</text>
+  </g>
+
+  <text x="350" y="1068" font-size="10" fill="#9ca3af" text-anchor="middle">中文重製版 · 依原圖風格重繪（原作：英文 AI 資訊圖）</text>
+</svg>
+
+    </div>
+    <div class="key-points">
+      <div class="key-point"><h4>核心原則</h4><p>Skill 若無法被 Claude 識別，就等於失敗。描述要清楚、觸發詞要具體。</p></div>
+      <div class="key-point"><h4>完美描述公式</h4><p>任務 + 觸發詞組 + 範例句。讓 Claude 能在正確時機自動啟動。</p></div>
+      <div class="key-point"><h4>一個 Skill = 一個任務</h4><p>精準且輕量。SKILL.md 少於 500 行，重資訊移至輔助檔案。</p></div>
+      <div class="key-point"><h4>失敗原因</h4><p>描述模糊、一個 Skill 太多任務、沒有觸發關鍵字、沒有附範例。</p></div>
+    </div>
+  </div>
+
+  <div class="section-title" id="commands">03 聰明工作的 10 個 Claude 斜槓指令</div>
+  <div class="diagram-card">
+    <div class="diagram-card-header">
+      <h3>10 個強大 Claude 指令速查表</h3>
+      <span>原作：英文 AI 資訊圖 · 中文重製</span>
+    </div>
+    <div class="diagram-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 1050" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="700" height="1050" fill="#ffffff"/>
+  <!-- Header -->
+  <g transform="translate(28,28)">
+    <text x="0" y="26" font-size="24" font-weight="800" fill="#1a1a2e">聰明工作：10 個強大的 Claude 斜槓指令</text>
+    <text x="0" y="50" font-size="13" font-weight="600" fill="#6b7280">Work Smarter With Claude — 10 Powerful Claude Commands</text>
+    <line x1="0" y1="62" x2="644" y2="62" stroke="#2b6cb0" stroke-width="3"/>
+    <circle cx="0" cy="62" r="5" fill="#F25C26"/>
+  </g>
+
+  <!-- 10 commands in 2 columns of 5 -->
+  <g transform="translate(28,96)">
+
+    <!-- Left column -->
+    <g>
+      <!-- /ghost -->
+      <rect x="0" y="0" width="308" height="86" rx="10" fill="#EAF1F9" stroke="#2b6cb0" stroke-width="1.5"/>
+      <text x="14" y="22" font-size="15" font-weight="800" fill="#1d4ed8">/ghost</text>
+      <text x="14" y="40" font-size="12" font-weight="700" fill="#1e3a5f">讓寫作更像真人</text>
+      <text x="14" y="58" font-size="11" fill="#333">讓輸出聽起來自然流暢，去除 AI 腔調。</text>
+      <text x="14" y="74" font-size="11" fill="#6b7280">適合：貼文、Email、電子報、思想領袖文章</text>
+
+      <!-- /matrix -->
+      <rect x="0" y="102" width="308" height="86" rx="10" fill="#F3EEFE" stroke="#7c3aed" stroke-width="1.5"/>
+      <text x="14" y="124" font-size="15" font-weight="800" fill="#7c3aed">/matrix</text>
+      <text x="14" y="142" font-size="12" font-weight="700" fill="#4c1d95">清楚比較選項</text>
+      <text x="14" y="160" font-size="11" fill="#333">把混亂的選擇整理成並排比較表。</text>
+      <text x="14" y="176" font-size="11" fill="#6b7280">適合：軟體選型、招募、策略、供應商決策</text>
+
+      <!-- /brief -->
+      <rect x="0" y="204" width="308" height="86" rx="10" fill="#ECFDF5" stroke="#10b981" stroke-width="1.5"/>
+      <text x="14" y="226" font-size="15" font-weight="800" fill="#065f46">/brief</text>
+      <text x="14" y="244" font-size="12" font-weight="700" fill="#065f46">去除廢話</text>
+      <text x="14" y="262" font-size="11" fill="#333">給出簡短、直接、可執行的答案。</text>
+      <text x="14" y="278" font-size="11" fill="#6b7280">適合：摘要、決策、關鍵要點整理</text>
+
+      <!-- /challenge -->
+      <rect x="0" y="306" width="308" height="86" rx="10" fill="#FFF1F2" stroke="#e11d48" stroke-width="1.5"/>
+      <text x="14" y="328" font-size="15" font-weight="800" fill="#e11d48">/challenge</text>
+      <text x="14" y="346" font-size="12" font-weight="700" fill="#881337">壓力測試你的想法</text>
+      <text x="14" y="364" font-size="11" fill="#333">強迫找出反對意見、風險與失敗點。</text>
+      <text x="14" y="380" font-size="11" fill="#6b7280">適合：點子驗證、定價、產品與商業決策</text>
+
+      <!-- /systemize -->
+      <rect x="0" y="408" width="308" height="86" rx="10" fill="#FEF3C7" stroke="#d97706" stroke-width="1.5"/>
+      <text x="14" y="430" font-size="15" font-weight="800" fill="#78350f">/systemize</text>
+      <text x="14" y="448" font-size="12" font-weight="700" fill="#78350f">把任務變成工作流程</text>
+      <text x="14" y="466" font-size="11" fill="#333">建立可重複的流程，而非一次性輸出。</text>
+      <text x="14" y="482" font-size="11" fill="#6b7280">適合：內容、入職流程、潛在客戶篩選、會議</text>
+    </g>
+
+    <!-- Right column -->
+    <g transform="translate(336,0)">
+      <!-- /roast -->
+      <rect x="0" y="0" width="308" height="86" rx="10" fill="#FFF7F0" stroke="#F25C26" stroke-width="1.5"/>
+      <text x="14" y="22" font-size="15" font-weight="800" fill="#c2410c">/roast</text>
+      <text x="14" y="40" font-size="12" font-weight="700" fill="#7c2d12">獲得直白的誠實回饋</text>
+      <text x="14" y="58" font-size="11" fill="#333">找出弱點、盲點和模糊思維。</text>
+      <text x="14" y="74" font-size="11" fill="#6b7280">適合：文案、簡報、落地頁、內容</text>
+
+      <!-- /steal -->
+      <rect x="0" y="102" width="308" height="86" rx="10" fill="#FDF4FF" stroke="#c026d3" stroke-width="1.5"/>
+      <text x="14" y="124" font-size="15" font-weight="800" fill="#c026d3">/steal</text>
+      <text x="14" y="142" font-size="12" font-weight="700" fill="#701a75">逆向工程成功案例</text>
+      <text x="14" y="160" font-size="11" fill="#333">提取成功內容或產品背後的原則。</text>
+      <text x="14" y="176" font-size="11" fill="#6b7280">適合：分析行銷活動、落地頁、病毒式內容</text>
+
+      <!-- /focus -->
+      <rect x="0" y="204" width="308" height="86" rx="10" fill="#F0FDF4" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="14" y="226" font-size="15" font-weight="800" fill="#15803d">/focus</text>
+      <text x="14" y="244" font-size="12" font-weight="700" fill="#14532d">讓模型保持專注</text>
+      <text x="14" y="262" font-size="11" fill="#333">減少扯遠、提升回覆相關性。</text>
+      <text x="14" y="278" font-size="11" fill="#6b7280">適合：策略、規劃、研究、技術工作</text>
+
+      <!-- /expand -->
+      <rect x="0" y="306" width="308" height="86" rx="10" fill="#EEF2FF" stroke="#6366f1" stroke-width="1.5"/>
+      <text x="14" y="328" font-size="15" font-weight="800" fill="#4338ca">/expand</text>
+      <text x="14" y="346" font-size="12" font-weight="700" fill="#312e81">深入探索</text>
+      <text x="14" y="364" font-size="11" fill="#333">加入解釋、範例與實作細節。</text>
+      <text x="14" y="380" font-size="11" fill="#6b7280">適合：第一次回答正確但太淺的情況</text>
+
+      <!-- Power Combo -->
+      <rect x="0" y="408" width="308" height="86" rx="10" fill="#1a1a2e" stroke="#F25C26" stroke-width="2"/>
+      <text x="14" y="428" font-size="14" font-weight="800" fill="#F25C26">黃金組合：/ghost + /brief + /challenge</text>
+      <text x="14" y="448" font-size="11" fill="#e5e7eb">人性化寫作 → 精簡答案 → 壓力測試想法</text>
+      <text x="14" y="466" font-size="11" fill="#9ca3af">適合：內容創作者、營運者、創業者的</text>
+      <text x="14" y="482" font-size="11" fill="#9ca3af">強力組合技</text>
+    </g>
+  </g>
+
+  <!-- Bottom insight -->
+  <g transform="translate(28,608)">
+    <rect x="0" y="0" width="644" height="70" rx="10" fill="#F8FAFF" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="322" y="24" font-size="13" font-weight="800" fill="#312e81" text-anchor="middle">真正的優勢在哪裡？</text>
+    <text x="322" y="46" font-size="11.5" fill="#333" text-anchor="middle">更好的 AI 結果通常來自更好的指令、更好的結構，以及更好的工作流程。</text>
+    <text x="322" y="62" font-size="11.5" fill="#333" text-anchor="middle">模型本身很重要，但你如何與它思考配合，更重要。</text>
+  </g>
+
+  <text x="350" y="1038" font-size="10" fill="#9ca3af" text-anchor="middle">中文重製版 · 依原圖風格重繪（原作：英文 AI 資訊圖）</text>
+</svg>
+
+    </div>
+    <div class="key-points">
+      <div class="key-point"><h4>/ghost + /brief</h4><p>人性化寫作後精簡輸出，是內容創作者的基本組合。</p></div>
+      <div class="key-point"><h4>/challenge + /roast</h4><p>壓力測試想法、找出盲點，決策前必用。</p></div>
+      <div class="key-point"><h4>/matrix + /steal</h4><p>把選項整理成比較表，並逆向分析成功案例的背後原則。</p></div>
+      <div class="key-point"><h4>黃金組合技</h4><p>/ghost + /brief + /challenge：人性化→精簡→壓力測試，三步完成高品質輸出。</p></div>
+    </div>
+  </div>
+</main>
+
+<a href="#" class="back-to-top" title="回到頂部">↑</a>
+<footer>
+  <p>AI 概念研究 · 中文圖解系列 · 2026-07-01 ·
+  <a href="index.html">返回首頁</a> ·
+  <a href="https://mikekuo2024-collab.github.io/ai-concept-research/">公開網址</a>
+  </p>
+</footer>
+</body>
+</html>
