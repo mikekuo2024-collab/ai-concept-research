@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 工程師完整路線圖 × Claude 連接器八大應用 · AI概念研究</title>
+<style>
+:root{--bg:#f0f2f5;--card-bg:#ffffff;--text:#1a1a2e;--sub:#6b7280;--accent:#4361ee;--border:#e5e7eb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);color:#fff;padding:2rem 1.5rem 1.5rem;text-align:center}
+header h1{font-size:1.7rem;font-weight:700;margin-bottom:.4rem}
+header p{font-size:.9rem;color:#9eb4ff}
+header .meta{font-size:.8rem;color:#718096;margin-top:.5rem}
+nav{background:#fff;border-bottom:1px solid var(--border);display:flex;justify-content:center;gap:0;overflow-x:auto;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px #0001}
+nav a{display:block;padding:.75rem 1.2rem;font-size:.85rem;font-weight:600;color:var(--sub);text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
+nav a:hover,nav a.active{color:var(--accent);border-bottom-color:var(--accent)}
+main{max-width:980px;margin:0 auto;padding:2rem 1rem}
+.section{margin-bottom:3rem;scroll-margin-top:4rem}
+.section-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:var(--sub);text-transform:uppercase;margin-bottom:.4rem}
+.section h2{font-size:1.25rem;font-weight:700;margin-bottom:.35rem;color:var(--text)}
+.section .orig{font-size:.82rem;color:var(--sub);margin-bottom:.7rem}
+.section .desc{font-size:.9rem;line-height:1.7;color:#374151;margin-bottom:1rem;background:var(--card-bg);border-left:3px solid var(--accent);padding:.75rem 1rem;border-radius:0 8px 8px 0}
+.svg-wrap{background:var(--card-bg);border-radius:14px;box-shadow:0 2px 16px #0001;overflow:hidden;margin-bottom:1rem}
+.svg-wrap svg{width:100%;height:auto;display:block}
+.key-points{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+.key-points span{background:#eff6ff;color:#1d4ed8;font-size:.78rem;font-weight:600;padding:.3rem .7rem;border-radius:20px;border:1px solid #bfdbfe}
+.divider{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+footer{text-align:center;font-size:.78rem;color:var(--sub);padding:1.5rem;border-top:1px solid var(--border);background:#fff}
+footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <h1>AI 工程師完整路線圖 × Claude 連接器八大應用</h1>
+  <p>兩張英文 AI 資訊圖的精準中文圖解 · 2026-07-04</p>
+  <p class="meta">素材來源：Google Drive「AI概念研究」資料夾 · 每日自動中文化流程</p>
+</header>
+<nav>
+  <a href="#sec1" class="active">AI 工程師路線圖</a>
+  <a href="#sec2">Claude 連接器</a>
+</nav>
+<main>
+  <section class="section" id="sec1">
+    <div class="section-label">概念圖解 #34</div>
+    <h2>AI 工程師完整路線圖</h2>
+    <div class="orig">英文原題：「Complete AI Engineer Roadmap」</div>
+    <div class="desc">從零到 AI 工程師的 12 階段完整學習路徑，並標註每階段建議時程：<strong>①程式設計基礎</strong>（Python、OOP、資料結構、Git、SQL）→ <strong>②AI 必備數學</strong>（線性代數、機率統計、微積分、最佳化）→ <strong>③資料分析</strong>（NumPy、Pandas、視覺化、EDA）→ <strong>④機器學習</strong>（監督式／非監督式、模型評估、特徵工程）→ <strong>⑤深度學習</strong>（神經網路、反向傳播、TensorFlow/PyTorch）→ <strong>⑥電腦視覺</strong> → <strong>⑦自然語言處理</strong>（Transformers、BERT、GPT）→ <strong>⑧生成式 AI</strong>（LLM、提示工程、RAG、AI 代理）→ <strong>⑨AI 框架與工具</strong>（LangChain、Hugging Face 等）→ <strong>⑩MLOps 與部署</strong> → <strong>⑪專案實作</strong>（最重要！）→ <strong>⑫進階主題</strong>（LoRA、模型量化、強化學習）。最終目標：打造真實世界的 AI 產品。</div>
+    <div class="svg-wrap">
+      <object type="image/svg+xml" data="中文圖_SVG/34_AI工程師完整路線圖.svg" style="width:100%;height:auto;display:block">
+        <img src="中文圖_SVG/34_AI工程師完整路線圖.svg" style="width:100%">
+      </object>
+    </div>
+    <div class="key-points">
+      <span>AI 工程師</span><span>學習路線圖</span><span>機器學習</span><span>深度學習</span>
+      <span>生成式 AI</span><span>RAG</span><span>LangChain</span><span>MLOps</span><span>專案實作</span>
+    </div>
+  </section>
+  <hr class="divider">
+  <section class="section" id="sec2">
+    <div class="section-label">概念圖解 #35</div>
+    <h2>Claude 連接器：每週實際使用的 8 個應用</h2>
+    <div class="orig">英文原題：「Claude Connectors — the 8 apps I actually use in Claude every week」· 原作：Ruben Hassid（How to AI）</div>
+    <div class="desc">作者每週真實使用的 8 個 Claude 連接器實戰情境：<strong>①Granola</strong>——自動會議逐字稿，請 Claude 摘要並列行動項目；<strong>②Gmail</strong>——郵件自動分成三類（今天回／等週五／忽略），回覆直接存成草稿；<strong>③Slack</strong>——讀 48 小時頻道訊息，只挑出 3 件需要回應的事；<strong>④Canva</strong>——想法直接變成品牌色的 5 頁 LinkedIn 輪播；<strong>⑤Google Drive</strong>——在 Cowork 用對話生成試算表，一鍵開在雲端硬碟；<strong>⑥Notion</strong>——擷取內容日曆並延伸創作新貼文；<strong>⑦Google Calendar</strong>——找共同空檔、列出該取消的會議；<strong>⑧Gamma</strong>——一頁一重點的簡報，在 Claude 完成後進 Gamma 微調。</div>
+    <div class="svg-wrap">
+      <object type="image/svg+xml" data="中文圖_SVG/35_Claude連接器八大應用.svg" style="width:100%;height:auto;display:block">
+        <img src="中文圖_SVG/35_Claude連接器八大應用.svg" style="width:100%">
+      </object>
+    </div>
+    <div class="key-points">
+      <span>Claude 連接器</span><span>MCP</span><span>Granola</span><span>Gmail</span><span>Slack</span>
+      <span>Canva</span><span>Google Drive</span><span>Notion</span><span>Google Calendar</span><span>Gamma</span>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>AI 概念研究 · 每日自動中文化 · 2026-07-04 · <a href="https://mikekuo2024-collab.github.io/ai-concept-research/" target="_blank">回到索引頁 →</a></p>
+</footer>
+<script>
+const sections=document.querySelectorAll('.section');
+const navLinks=document.querySelectorAll('nav a');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){navLinks.forEach(l=>l.classList.remove('active'));const lk=document.querySelector('nav a[href="#'+e.target.id+'"]');if(lk)lk.classList.add('active')}})},{threshold:0.3});
+sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
