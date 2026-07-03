@@ -1,0 +1,206 @@
+<svg viewBox="0 0 1100 1580" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <linearGradient id="bg34" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef3fa"/>
+      <stop offset="1" stop-color="#dbe5f1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1100" height="1580" fill="url(#bg34)"/>
+
+  <!-- 標題 -->
+  <text x="550" y="52" text-anchor="middle" font-size="34" font-weight="700" fill="#3f6bb5">完 整</text>
+  <text x="550" y="108" text-anchor="middle" font-size="52" font-weight="900" fill="#26303c">AI 工程師<tspan fill="#2e5fa3"> 路線圖</tspan></text>
+  <rect x="330" y="126" width="440" height="6" rx="3" fill="#2e5fa3"/>
+  <!-- 左側腦晶片小圖示 -->
+  <g stroke="#3f6bb5" stroke-width="3" fill="none">
+    <circle cx="72" cy="80" r="24"/>
+    <path d="M72 56 v-14 M72 104 v14 M48 80 h-14 M96 80 h14 M55 63 l-10 -10 M89 63 l10 -10 M55 97 l-10 10 M89 97 l10 10"/>
+  </g>
+  <!-- 右側機器人小圖示 -->
+  <g>
+    <rect x="990" y="58" width="60" height="46" rx="12" fill="#ffffff" stroke="#26303c" stroke-width="3"/>
+    <circle cx="1008" cy="80" r="5" fill="#26303c"/>
+    <circle cx="1032" cy="80" r="5" fill="#26303c"/>
+    <path d="M1012 92 q8 7 16 0" stroke="#26303c" stroke-width="3" fill="none"/>
+    <line x1="1020" y1="58" x2="1020" y2="44" stroke="#26303c" stroke-width="3"/>
+    <circle cx="1020" cy="40" r="4" fill="#26303c"/>
+    <rect x="1002" y="108" width="36" height="16" rx="6" fill="#2e5fa3"/>
+    <text x="1020" y="121" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">AI</text>
+  </g>
+
+  <!-- 時間軸 -->
+  <line x1="60" y1="196" x2="60" y2="1392" stroke="#9db3cd" stroke-width="3"/>
+
+  <!-- ===== 1 程式設計基礎 ===== -->
+  <g>
+    <circle cx="60" cy="210" r="18" fill="#ffffff" stroke="#2e5fa3" stroke-width="3"/>
+    <text x="60" y="217" text-anchor="middle" font-size="18" font-weight="700" fill="#26303c">1</text>
+    <rect x="100" y="180" width="240" height="60" rx="10" fill="#2e5fa3"/>
+    <text x="220" y="206" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">程式設計基礎</text>
+    <text x="220" y="228" text-anchor="middle" font-size="13" fill="#d8e4f5">（2–4 週）</text>
+    <path d="M348 210 h26 m-8 -7 l8 7 l-8 7" stroke="#2e5fa3" stroke-width="3" fill="none"/>
+    <text x="392" y="204" font-size="16" fill="#26303c">• Python 基礎　　• OOP 物件導向概念　　• 資料結構與演算法</text>
+    <text x="392" y="230" font-size="16" fill="#26303c">• Git 與 GitHub　　• SQL 基礎</text>
+  </g>
+  <line x1="392" y1="252" x2="1060" y2="252" stroke="#b9c8db" stroke-width="1"/>
+
+  <!-- ===== 2 AI 數學 ===== -->
+  <g>
+    <circle cx="60" cy="298" r="18" fill="#ffffff" stroke="#6a4a9c" stroke-width="3"/>
+    <text x="60" y="305" text-anchor="middle" font-size="18" font-weight="700" fill="#26303c">2</text>
+    <rect x="100" y="268" width="240" height="60" rx="10" fill="#6a4a9c"/>
+    <text x="220" y="294" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">AI 必備數學</text>
+    <text x="220" y="316" text-anchor="middle" font-size="13" fill="#e3d9f2">（3–6 週）</text>
+    <path d="M348 298 h26 m-8 -7 l8 7 l-8 7" stroke="#6a4a9c" stroke-width="3" fill="none"/>
+    <text x="392" y="292" font-size="16" fill="#26303c">• 線性代數　　• 機率　　• 統計</text>
+    <text x="392" y="318" font-size="16" fill="#26303c">• 微積分基礎　　• 最佳化概念</text>
+  </g>
+  <line x1="392" y1="340" x2="1060" y2="340" stroke="#b9c8db" stroke-width="1"/>
+
+  <!-- ===== 3 資料分析 ===== -->
+  <g>
+    <circle cx="60" cy="386" r="18" fill="#ffffff" stroke="#3c8a50" stroke-width="3"/>
+    <text x="60" y="393" text-anchor="middle" font-size="18" font-weight="700" fill="#26303c">3</text>
+    <rect x="100" y="356" width="240" height="60" rx="10" fill="#3c8a50"/>
+    <text x="220" y="382" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">資料分析</text>
+    <text x="220" y="404" text-anchor="middle" font-size="13" fill="#d7ecdc">（2–4 週）</text>
+    <path d="M348 386 h26 m-8 -7 l8 7 l-8 7" stroke="#3c8a50" stroke-width="3" fill="none"/>
+    <text x="392" y="376" font-size="16" fill="#26303c">• NumPy　　• Pandas　　• 資料清理</text>
+    <text x="392" y="402" font-size="16" fill="#26303c">• 資料視覺化（Matplotlib、Seaborn、Plotly）</text>
+    <text x="392" y="428" font-size="16" fill="#26303c">• 探索式資料分析（EDA）</text>
+  </g>
+  <line x1="392" y1="450" x2="1060" y2="450" stroke="#b9c8db" stroke-width="1"/>
+
+  <!-- ===== 4 機器學習 ===== -->
+  <g>
+    <circle cx="60" cy="500" r="18" fill="#ffffff" stroke="#d9822b" stroke-width="3"/>
+    <text x="60" y="507" text-anchor="middle" font-size="18" font-weight="700" fill="#26303c">4</text>
+    <rect x="100" y="470" width="240" height="60" rx="10" fill="#d9822b"/>
+    <text x="220" y="496" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">機器學習</text>
+    <text x="220" y="518" text-anchor="middle" font-size="13" fill="#f8e6d2">（6–8 週）</text>
+    <path d="M348 500 h26 m-8 -7 l8 7 l-8 7" stroke="#d9822b" stroke-width="3" fill="none"/>
+    <text x="392" y="486" font-size="16" font-weight="700" fill="#d9822b">監督式學習：</text>
+    <text x="392" y="512" font-size="16" fill="#26303c">• 線性迴歸、邏輯迴歸　　• 決策樹、隨機森林、SVM</text>
+    <text x="392" y="538" font-size="16" font-weight="700" fill="#d9822b">非監督式學習：<tspan font-weight="400" fill="#26303c">　• K-Means、PCA</tspan></text>
+    <text x="392" y="564" font-size="16" fill="#26303c">• 模型評估　　• 特徵工程　　• 超參數調校　　• Scikit-learn</text>
+  </g>
+  <line x1="392" y1="588" x2="1060" y2="588" stroke="#b9c8db" stroke-width="1"/>
+
+  <!-- ===== 5 深度學習 ===== -->
+  <g>
+    <circle cx="60" cy="636" r="18" fill="#ffffff" stroke="#b03a4a" stroke-width="3"/>
+    <text x="60" y="643" text-anchor="middle" font-size="18" font-weight="700" fill="#26303c">5</text>
+    <rect x="100" y="606" width="240" height="60" rx="10" fill="#b03a4a"/>
+    <text x="220" y="632" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">深度學習</text>
+    <text x="220" y="654" text-anchor="middle" font-size="13" fill="#f2d9dd">（6–8 週）</text>
+    <path d="M348 636 h26 m-8 -7 l8 7 l-8 7" stroke="#b03a4a" stroke-width="3" fill="none"/>
+    <text x="392" y="626" font-size="16" fill="#26303c">• 神經網路　　• 前向與反向傳播　　• 損失函數</text>
+    <text x="392" y="652" font-size="16" fill="#26303c">• 激活函數　　• 優化器（SGD、Adam）</text>
+    <text x="392" y="678" font-size="16" fill="#26303c">• TensorFlow / PyTorch</text>
+  </g>
+  <line x1="392" y1="700" x2="1060" y2="700" stroke="#b9c8db" stroke-width="1"/>
+
+  <!-- ===== 6 電腦視覺 ===== -->
+  <g>
+    <circle cx="60" cy="748" r="18" fill="#ffffff" stroke="#2f8a96" stroke-width="3"/>
+    <text x="60" y="755" text-anchor="middle" font-size="18" font-weight="700" fill="#26303c">6</text>
+    <rect x="100" y="718" width="240" height="60" rx="10" fill="#2f8a96"/>
+    <text x="220" y="744" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">電腦視覺</text>
+    <text x="220" y="766" text-anchor="middle" font-size="13" fill="#d5ecef">（3–5 週）</text>
+    <path d="M348 748 h26 m-8 -7 l8 7 l-8 7" stroke="#2f8a96" stroke-width="3" fill="none"/>
+    <text x="392" y="742" font-size="16" fill="#26303c">• OpenCV　　• CNN 卷積神經網路　　• 影像分類</text>
+    <text x="392" y="768" font-size="16" fill="#26303c">• 物件偵測　　• 影像分割　　• 遷移學習</text>
+  </g>
+  <line x1="392" y1="790" x2="1060" y2="790" stroke="#b9c8db" stroke-width="1"/>
+
+  <!-- ===== 7 自然語言處理 ===== -->
+  <g>
+    <circle cx="60" cy="836" r="18" fill="#ffffff" stroke="#6a4a9c" stroke-width="3"/>
+    <text x="60" y="843" text-anchor="middle" font-size="18" font-weight="700" fill="#26303c">7</text>
+    <rect x="100" y="806" width="240" height="60" rx="10" fill="#6a4a9c"/>
+    <text x="220" y="830" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">自然語言處理（NLP）</text>
+    <text x="220" y="854" text-anchor="middle" font-size="13" fill="#e3d9f2">（4–6 週）</text>
+    <path d="M348 836 h26 m-8 -7 l8 7 l-8 7" stroke="#6a4a9c" stroke-width="3" fill="none"/>
+    <text x="392" y="830" font-size="16" fill="#26303c">• 文字前處理　　• 斷詞（Tokenization）　　• 詞嵌入</text>
+    <text x="392" y="856" font-size="16" fill="#26303c">• RNN、LSTM　　• Transformers　　• BERT　　• GPT 模型</text>
+  </g>
+  <line x1="392" y1="878" x2="1060" y2="878" stroke="#b9c8db" stroke-width="1"/>
+
+  <!-- ===== 8 生成式 AI ===== -->
+  <g>
+    <circle cx="60" cy="932" r="18" fill="#ffffff" stroke="#d9822b" stroke-width="3"/>
+    <text x="60" y="939" text-anchor="middle" font-size="18" font-weight="700" fill="#26303c">8</text>
+    <rect x="100" y="902" width="240" height="60" rx="10" fill="#d9822b"/>
+    <text x="220" y="928" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">生成式 AI</text>
+    <text x="220" y="950" text-anchor="middle" font-size="13" fill="#f8e6d2">（4–8 週）</text>
+    <path d="M348 932 h26 m-8 -7 l8 7 l-8 7" stroke="#d9822b" stroke-width="3" fill="none"/>
+    <text x="392" y="918" font-size="16" fill="#26303c">• LLM 大型語言模型基礎　　• 提示工程　　• RAG</text>
+    <text x="392" y="944" font-size="16" fill="#26303c">• 微調（Fine-Tuning）　　• 嵌入向量　　• 向量資料庫</text>
+    <text x="392" y="970" font-size="16" fill="#26303c">• AI 代理　　• 多代理系統</text>
+  </g>
+  <line x1="392" y1="992" x2="1060" y2="992" stroke="#b9c8db" stroke-width="1"/>
+
+  <!-- ===== 9 AI 框架與工具 ===== -->
+  <g>
+    <circle cx="60" cy="1040" r="18" fill="#ffffff" stroke="#6d737c" stroke-width="3"/>
+    <text x="60" y="1047" text-anchor="middle" font-size="18" font-weight="700" fill="#26303c">9</text>
+    <rect x="100" y="1010" width="240" height="60" rx="10" fill="#6d737c"/>
+    <text x="220" y="1044" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">AI 框架與工具</text>
+    <path d="M348 1040 h26 m-8 -7 l8 7 l-8 7" stroke="#6d737c" stroke-width="3" fill="none"/>
+    <text x="392" y="1034" font-size="16" fill="#26303c">• LangChain　　• LangGraph　　• LlamaIndex　　• Hugging Face</text>
+    <text x="392" y="1060" font-size="16" fill="#26303c">• Ollama　　• OpenAI API　　• Gemini API</text>
+  </g>
+  <line x1="392" y1="1082" x2="1060" y2="1082" stroke="#b9c8db" stroke-width="1"/>
+
+  <!-- ===== 10 MLOps 與部署 ===== -->
+  <g>
+    <circle cx="60" cy="1128" r="18" fill="#ffffff" stroke="#4f9e57" stroke-width="3"/>
+    <text x="60" y="1135" text-anchor="middle" font-size="16" font-weight="700" fill="#26303c">10</text>
+    <rect x="100" y="1098" width="240" height="60" rx="10" fill="#4f9e57"/>
+    <text x="220" y="1122" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">MLOps 與部署</text>
+    <text x="220" y="1146" text-anchor="middle" font-size="13" fill="#dcefdd">（4–6 週）</text>
+    <path d="M348 1128 h26 m-8 -7 l8 7 l-8 7" stroke="#4f9e57" stroke-width="3" fill="none"/>
+    <text x="392" y="1122" font-size="16" fill="#26303c">• FastAPI　　• Streamlit　　• CI/CD</text>
+    <text x="392" y="1148" font-size="16" fill="#26303c">• MLflow　　• 模型監控　　• 雲端平台（AWS / GCP / Azure）</text>
+  </g>
+  <line x1="392" y1="1170" x2="1060" y2="1170" stroke="#b9c8db" stroke-width="1"/>
+
+  <!-- ===== 11 專案實作 ===== -->
+  <g>
+    <circle cx="60" cy="1224" r="18" fill="#ffffff" stroke="#1f3a6e" stroke-width="3"/>
+    <text x="60" y="1231" text-anchor="middle" font-size="16" font-weight="700" fill="#26303c">11</text>
+    <rect x="100" y="1194" width="240" height="60" rx="10" fill="#1f3a6e"/>
+    <text x="220" y="1218" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">專案實作</text>
+    <text x="220" y="1242" text-anchor="middle" font-size="13" fill="#cfd9ec">（最重要的一步）</text>
+    <path d="M348 1224 h26 m-8 -7 l8 7 l-8 7" stroke="#1f3a6e" stroke-width="3" fill="none"/>
+    <text x="392" y="1210" font-size="16" fill="#26303c">• 聊天機器人　　• AI 履歷分析器　　• RAG 應用</text>
+    <text x="392" y="1236" font-size="16" fill="#26303c">• 影像分類 App　　• 推薦系統　　• 端到端 AI 產品</text>
+    <text x="392" y="1262" font-size="16" fill="#26303c">• AI 代理　　• 多代理應用</text>
+  </g>
+  <line x1="392" y1="1284" x2="1060" y2="1284" stroke="#b9c8db" stroke-width="1"/>
+
+  <!-- ===== 12 進階主題 ===== -->
+  <g>
+    <circle cx="60" cy="1332" r="18" fill="#ffffff" stroke="#d99a5b" stroke-width="3"/>
+    <text x="60" y="1339" text-anchor="middle" font-size="16" font-weight="700" fill="#26303c">12</text>
+    <rect x="100" y="1302" width="240" height="60" rx="10" fill="#f2d3ac" stroke="#d99a5b" stroke-width="2"/>
+    <text x="220" y="1338" text-anchor="middle" font-size="19" font-weight="700" fill="#7a4b12">進階主題</text>
+    <path d="M348 1332 h26 m-8 -7 l8 7 l-8 7" stroke="#d99a5b" stroke-width="3" fill="none"/>
+    <text x="392" y="1326" font-size="16" fill="#26303c">• 微調大型語言模型　　• LoRA 與 QLoRA　　• 強化學習</text>
+    <text x="392" y="1352" font-size="16" fill="#26303c">• AI 安全　　• 模型量化　　• 分散式訓練</text>
+  </g>
+
+  <!-- ===== 最終目標 ===== -->
+  <g>
+    <rect x="80" y="1400" width="940" height="110" rx="14" fill="#ffffff" stroke="#2e5fa3" stroke-width="2.5"/>
+    <rect x="452" y="1386" width="196" height="30" rx="15" fill="#2e5fa3"/>
+    <text x="550" y="1407" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">最 終 目 標</text>
+    <text x="550" y="1448" text-anchor="middle" font-size="17" fill="#26303c">Python → 數學 → 資料分析 → 機器學習 → 深度學習 → NLP</text>
+    <text x="550" y="1478" text-anchor="middle" font-size="17" fill="#26303c">→ 生成式 AI → AI 代理 → MLOps → 部署 → <tspan font-weight="700" fill="#2e5fa3">真實世界 AI 產品</tspan></text>
+    <circle cx="140" cy="1455" r="26" fill="none" stroke="#2e5fa3" stroke-width="4"/>
+    <circle cx="140" cy="1455" r="14" fill="none" stroke="#2e5fa3" stroke-width="4"/>
+    <circle cx="140" cy="1455" r="4" fill="#2e5fa3"/>
+  </g>
+
+  <text x="550" y="1552" text-anchor="middle" font-size="13" fill="#7a8798">中文重製版 · 依原圖風格重繪（原作：Complete AI Engineer Roadmap 資訊圖）</text>
+</svg>
