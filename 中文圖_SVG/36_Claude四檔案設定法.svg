@@ -1,0 +1,173 @@
+<svg viewBox="0 0 1140 1460" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <linearGradient id="tl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d9488"/>
+      <stop offset="0.35" stop-color="#c026d3"/>
+      <stop offset="0.68" stop-color="#d97706"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="1140" height="1460" fill="#fafaf7"/>
+
+  <!-- 標題 -->
+  <text x="40" y="66" font-size="46" font-weight="800" fill="#111118">如何<tspan fill="#e05a33">（真正）</tspan>設定好 <tspan fill="#e05a33">✳ Claude</tspan></text>
+  <text x="40" y="112" font-size="19" fill="#374151"><tspan font-weight="700">四個檔案的設定法</tspan>，把 4 小時的任務變成一句指令。<tspan fill="#4f6ef7" font-weight="600">by Younis AI ｜ Follow for more..</tspan></text>
+
+  <!-- 左側漸層時間軸 -->
+  <rect x="61" y="170" width="6" height="1230" rx="3" fill="url(#tl)"/>
+
+  <!-- ═══ 卡片 1 · Context ═══ -->
+  <circle cx="64" cy="310" r="26" fill="#0d9488"/>
+  <text x="64" y="320" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">1</text>
+  <rect x="104" y="160" width="1006" height="300" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="132" y="198" font-size="13" font-weight="700" letter-spacing="2" fill="#0d9488">檔案 · 規則層（THE RULE LAYER）</text>
+  <text x="132" y="234" font-size="27" font-weight="800" fill="#111118">Context 情境脈絡</text>
+  <rect x="132" y="248" width="128" height="24" rx="6" fill="#ecfdf5"/>
+  <text x="142" y="265" font-size="13" font-family="Menlo,Consolas,monospace" fill="#047857">~/CLAUDE.md</text>
+  <text x="132" y="298" font-size="14.5" fill="#374151">你交給 Claude 的<tspan font-weight="700">入職說明書</tspan>：你的業務、語氣與工作方式，</text>
+  <text x="132" y="320" font-size="14.5" fill="#374151">每次對話開始前都會先讀。</text>
+  <g font-size="14.5" fill="#1f2937">
+    <rect x="132" y="336" width="22" height="22" rx="6" fill="#0d9488"/><text x="143" y="352" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">1</text>
+    <text x="164" y="352">執行 <tspan font-family="Menlo,Consolas,monospace" fill="#047857">/init</tspan> 草擬你的第一份 CLAUDE.md。</text>
+    <rect x="132" y="364" width="22" height="22" rx="6" fill="#0d9488"/><text x="143" y="380" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">2</text>
+    <text x="164" y="380">加入品牌、語氣與工作流程規則。</text>
+    <rect x="132" y="392" width="22" height="22" rx="6" fill="#0d9488"/><text x="143" y="408" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">3</text>
+    <text x="164" y="408">在每個專案資料夾都放一份專案 CLAUDE.md。</text>
+    <rect x="132" y="420" width="22" height="22" rx="6" fill="#0d9488"/><text x="143" y="436" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">4</text>
+    <text x="164" y="436">Claude 失誤時，就回頭更新這份簡報。</text>
+  </g>
+  <!-- 右側程式碼面板 -->
+  <rect x="700" y="186" width="382" height="250" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+  <rect x="700" y="186" width="382" height="34" rx="12" fill="#eef2f7"/>
+  <rect x="700" y="206" width="382" height="14" fill="#eef2f7"/>
+  <circle cx="722" cy="203" r="5" fill="#ef4444"/><circle cx="738" cy="203" r="5" fill="#f59e0b"/><circle cx="754" cy="203" r="5" fill="#22c55e"/>
+  <text x="774" y="208" font-size="12.5" font-family="Menlo,Consolas,monospace" fill="#475569">~/CLAUDE.md</text>
+  <g font-size="12.5" font-family="Menlo,Consolas,monospace">
+    <text x="716" y="244" fill="#94a3b8">1</text><text x="740" y="244" fill="#0f172a" font-weight="700"># CLAUDE.md</text>
+    <text x="716" y="266" fill="#94a3b8">2</text>
+    <text x="716" y="288" fill="#94a3b8">3</text><text x="740" y="288" fill="#047857" font-weight="700">## Workflow Orchestration</text>
+    <text x="716" y="310" fill="#94a3b8">4</text><text x="740" y="310" fill="#334155">- 任何 3 步以上的任務先做計畫。</text>
+    <text x="716" y="332" fill="#94a3b8">5</text><text x="740" y="332" fill="#334155">- 偏離軌道就停下重新規劃。</text>
+    <text x="716" y="354" fill="#94a3b8">6</text>
+    <text x="716" y="376" fill="#94a3b8">7</text><text x="740" y="376" fill="#047857" font-weight="700">## Subagent Strategy</text>
+    <text x="716" y="398" fill="#94a3b8">8</text><text x="740" y="398" fill="#334155">- 大方地使用子代理。</text>
+    <text x="716" y="420" fill="#94a3b8">9</text><text x="740" y="420" fill="#334155">- 每個子代理只做一件事。</text>
+  </g>
+
+  <!-- ═══ 卡片 2 · Memory ═══ -->
+  <circle cx="64" cy="626" r="26" fill="#c026d3"/>
+  <text x="64" y="636" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">2</text>
+  <rect x="104" y="476" width="1006" height="300" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="132" y="514" font-size="13" font-weight="700" letter-spacing="2" fill="#c026d3">檔案 · 教訓層（THE LESSON LAYER）</text>
+  <text x="132" y="550" font-size="27" font-weight="800" fill="#111118">Memory 記憶</text>
+  <rect x="132" y="564" width="172" height="24" rx="6" fill="#fdf4ff"/>
+  <text x="142" y="581" font-size="13" font-family="Menlo,Consolas,monospace" fill="#a21caf">memory/MEMORY.md</text>
+  <text x="132" y="614" font-size="14.5" fill="#374151">Claude 一邊了解你、一邊<tspan font-weight="700">更新這裡</tspan>。每一次糾正、偏好或</text>
+  <text x="132" y="636" font-size="14.5" fill="#374151">規則，都會永久存檔。</text>
+  <g font-size="14.5" fill="#1f2937">
+    <rect x="132" y="652" width="22" height="22" rx="6" fill="#c026d3"/><text x="143" y="668" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">1</text>
+    <text x="164" y="668">告訴 Claude 要記住某條規則或偏好。</text>
+    <rect x="132" y="680" width="22" height="22" rx="6" fill="#c026d3"/><text x="143" y="696" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">2</text>
+    <text x="164" y="696">每則記憶都存成獨立的 <tspan font-family="Menlo,Consolas,monospace" fill="#a21caf">.md</tspan> 檔。</text>
+    <rect x="132" y="708" width="22" height="22" rx="6" fill="#c026d3"/><text x="143" y="724" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">3</text>
+    <text x="164" y="724">接上 MCP，從 NotebookLM、Granola、收件匣匯入。</text>
+    <rect x="132" y="736" width="22" height="22" rx="6" fill="#c026d3"/><text x="143" y="752" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">4</text>
+    <text x="164" y="752">每個新對話都會自動載入記憶。</text>
+  </g>
+  <!-- 右側記憶檔案面板 -->
+  <rect x="700" y="502" width="382" height="250" rx="12" fill="#fdf4ff" stroke="#f0d9f5"/>
+  <text x="720" y="534" font-size="13" font-family="Menlo,Consolas,monospace" fill="#a21caf">~/.claude/.../memory/</text>
+  <line x1="720" y1="546" x2="1062" y2="546" stroke="#ecd5f2" stroke-dasharray="3 3"/>
+  <g font-size="13.5" font-family="Menlo,Consolas,monospace" fill="#3b0764">
+    <circle cx="728" cy="570" r="4" fill="#a855f7"/><text x="744" y="575">charlie-content-bible.md</text>
+    <circle cx="728" cy="596" r="4" fill="#a855f7"/><text x="744" y="601">charlie-claude-master.md</text>
+    <circle cx="728" cy="622" r="4" fill="#a855f7"/><text x="744" y="627">charlie-claude-voice.md</text>
+    <circle cx="728" cy="648" r="4" fill="#a855f7"/><text x="744" y="653">design-memory.md</text>
+    <circle cx="728" cy="674" r="4" fill="#a855f7"/><text x="744" y="679">brand-guide.md</text>
+    <circle cx="728" cy="700" r="4" fill="#a855f7"/><text x="744" y="705">notebooklm-source.md</text>
+    <text x="744" y="733" fill="#9d7bb0" font-style="italic">＋ 還有 129 個記憶檔案</text>
+  </g>
+
+  <!-- ═══ 卡片 3 · Skills ═══ -->
+  <circle cx="64" cy="942" r="26" fill="#d97706"/>
+  <text x="64" y="952" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">3</text>
+  <rect x="104" y="792" width="1006" height="300" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="132" y="830" font-size="13" font-weight="700" letter-spacing="2" fill="#d97706">檔案 · 行動層（THE ACTION LAYER）</text>
+  <text x="132" y="866" font-size="27" font-weight="800" fill="#111118">Skills 技能</text>
+  <rect x="132" y="880" width="210" height="24" rx="6" fill="#fffbeb"/>
+  <text x="142" y="897" font-size="13" font-family="Menlo,Consolas,monospace" fill="#b45309">skills/{name}/SKILL.md</text>
+  <text x="132" y="930" font-size="14.5" fill="#374151">帶它走過一次流程，Claude 就打包成<tspan font-weight="700">可重複使用的一行指令</tspan></text>
+  <text x="132" y="952" font-size="14.5" fill="#374151"><tspan font-weight="700">工作流</tspan>，任何對話都能發動。</text>
+  <g font-size="14.5" fill="#1f2937">
+    <rect x="132" y="968" width="22" height="22" rx="6" fill="#d97706"/><text x="143" y="984" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">1</text>
+    <text x="164" y="984">用白話告訴 Claude 這個技能要做什麼。</text>
+    <rect x="132" y="996" width="22" height="22" rx="6" fill="#d97706"/><text x="143" y="1012" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">2</text>
+    <text x="164" y="1012">Claude 自動搭好 <tspan font-family="Menlo,Consolas,monospace" fill="#b45309">SKILL.md</tspan> 與資料夾結構。</text>
+    <rect x="132" y="1024" width="22" height="22" rx="6" fill="#d97706"/><text x="143" y="1040" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">3</text>
+    <text x="164" y="1040">接上 MCP 連接器：Notion、Gmail、Drive。</text>
+    <rect x="132" y="1052" width="22" height="22" rx="6" fill="#d97706"/><text x="143" y="1068" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">4</text>
+    <text x="164" y="1068">在任何對話用 <tspan font-family="Menlo,Consolas,monospace" fill="#b45309">/{name}</tspan> 一鍵發動。</text>
+  </g>
+  <!-- 右側指令清單面板 -->
+  <rect x="700" y="818" width="382" height="250" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="700" y="818" width="382" height="38" rx="12" fill="#f8fafc"/>
+  <rect x="700" y="842" width="382" height="14" fill="#f8fafc"/>
+  <text x="718" y="843" font-size="14" fill="#64748b">🔍 <tspan font-family="Menlo,Consolas,monospace" fill="#0f172a">/cre</tspan><tspan fill="#d97706">▏</tspan></text>
+  <rect x="701" y="858" width="380" height="32" fill="#fef3c7"/>
+  <g font-size="13" font-family="Menlo,Consolas,monospace" font-weight="700">
+    <text x="718" y="879" fill="#b45309">/create</text>
+    <text x="718" y="912" fill="#b45309">/today</text>
+    <text x="718" y="945" fill="#b45309">/ideas</text>
+    <text x="718" y="971" fill="#b45309">/infographic-</text>
+    <text x="718" y="987" fill="#b45309">maker</text>
+    <text x="718" y="1017" fill="#b45309">/ig-scripts</text>
+  </g>
+  <g font-size="13" fill="#334155">
+    <text x="856" y="879">用我的語氣寫貼文</text>
+    <text x="856" y="912">規劃一天 · 行事曆＋收件匣</text>
+    <text x="856" y="945">挖掘內容靈感</text>
+    <text x="856" y="979">產出這張資訊圖</text>
+    <text x="856" y="1017">逐字稿轉 Reel 腳本</text>
+  </g>
+  <line x1="701" y1="890" x2="1081" y2="890" stroke="#eef2f7"/><line x1="701" y1="923" x2="1081" y2="923" stroke="#eef2f7"/><line x1="701" y1="956" x2="1081" y2="956" stroke="#eef2f7"/><line x1="701" y1="998" x2="1081" y2="998" stroke="#eef2f7"/>
+  <text x="718" y="1050" font-size="12" font-style="italic" fill="#94a3b8" font-family="Menlo,Consolas,monospace">＋ brand-kit、substack-cover、viral-hook…</text>
+
+  <!-- ═══ 卡片 4 · Agents ═══ -->
+  <circle cx="64" cy="1258" r="26" fill="#2563eb"/>
+  <text x="64" y="1268" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">4</text>
+  <rect x="104" y="1108" width="1006" height="300" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="132" y="1146" font-size="13" font-weight="700" letter-spacing="2" fill="#2563eb">檔案 · 團隊層（THE TEAM LAYER）</text>
+  <text x="132" y="1182" font-size="27" font-weight="800" fill="#111118">Agents 代理</text>
+  <rect x="132" y="1196" width="228" height="24" rx="6" fill="#eff6ff"/>
+  <text x="142" y="1213" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8">.claude/agents/{role}.md</text>
+  <text x="132" y="1246" font-size="14.5" fill="#374151">每個代理都是<tspan font-weight="700">只做一件事的員工</tspan>。管線依序交棒，</text>
+  <text x="132" y="1268" font-size="14.5" fill="#374151">中間完全不需要人。</text>
+  <g font-size="14.5" fill="#1f2937">
+    <rect x="132" y="1284" width="22" height="22" rx="6" fill="#2563eb"/><text x="143" y="1300" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">1</text>
+    <text x="164" y="1300">用白話描述你需要的專家。</text>
+    <rect x="132" y="1312" width="22" height="22" rx="6" fill="#2563eb"/><text x="143" y="1328" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">2</text>
+    <text x="164" y="1328">Claude 寫好代理檔：提示詞＋指定模型。</text>
+    <rect x="132" y="1340" width="22" height="22" rx="6" fill="#2563eb"/><text x="143" y="1356" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">3</text>
+    <text x="164" y="1356"><tspan font-weight="700">Opus</tspan> 負責分析與評審，<tspan font-weight="700">Sonnet</tspan> 負責執行。</text>
+    <rect x="132" y="1368" width="22" height="22" rx="6" fill="#2563eb"/><text x="143" y="1384" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">4</text>
+    <text x="164" y="1384">把代理串成管線，冷靜地跑 QA。</text>
+  </g>
+  <!-- 右側管線面板 -->
+  <rect x="700" y="1134" width="382" height="250" rx="12" fill="#eff6ff" stroke="#dbeafe"/>
+  <text x="891" y="1162" font-size="13" font-weight="700" letter-spacing="2" fill="#1e40af" text-anchor="middle" font-family="Menlo,Consolas,monospace">PIPELINE · CONTENT/</text>
+  <g>
+    <rect x="756" y="1174" width="270" height="26" rx="7" fill="#ffffff" stroke="#93c5fd"/><text x="891" y="1192" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8" text-anchor="middle" font-weight="700">strategist 策略師</text>
+    <text x="891" y="1209" font-size="11" fill="#60a5fa" text-anchor="middle">↓</text>
+    <rect x="756" y="1210" width="270" height="26" rx="7" fill="#ffffff" stroke="#93c5fd"/><text x="891" y="1228" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8" text-anchor="middle" font-weight="700">designer 設計師</text>
+    <text x="891" y="1245" font-size="11" fill="#60a5fa" text-anchor="middle">↓</text>
+    <rect x="756" y="1246" width="270" height="26" rx="7" fill="#ffffff" stroke="#93c5fd"/><text x="891" y="1264" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8" text-anchor="middle" font-weight="700">html-builder 網頁建置</text>
+    <text x="891" y="1281" font-size="11" fill="#60a5fa" text-anchor="middle">↓</text>
+    <rect x="756" y="1282" width="270" height="26" rx="7" fill="#ffffff" stroke="#93c5fd"/><text x="891" y="1300" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8" text-anchor="middle" font-weight="700">pre-flight 出發前檢查</text>
+    <text x="891" y="1317" font-size="11" fill="#60a5fa" text-anchor="middle">↓</text>
+    <rect x="756" y="1318" width="270" height="26" rx="7" fill="#ffffff" stroke="#93c5fd"/><text x="891" y="1336" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8" text-anchor="middle" font-weight="700">qa-scorer 品質評分</text>
+    <text x="891" y="1353" font-size="11" fill="#60a5fa" text-anchor="middle">↓</text>
+    <rect x="756" y="1354" width="270" height="26" rx="7" fill="#ffffff" stroke="#93c5fd"/><text x="891" y="1372" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8" text-anchor="middle" font-weight="700">caption 文案標題</text>
+  </g>
+
+  <text x="570" y="1442" font-size="12.5" fill="#9ca3af" text-anchor="middle">中文重製版 · 依原圖風格重繪（原作：Younis AI「How to (actually) setup Claude」）</text>
+</svg>

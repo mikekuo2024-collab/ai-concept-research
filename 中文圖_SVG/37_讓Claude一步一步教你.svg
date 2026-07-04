@@ -1,0 +1,144 @@
+<svg viewBox="0 0 1080 1330" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="1080" height="1330" fill="#ede9dd"/>
+
+  <!-- 標題 -->
+  <text x="540" y="80" font-size="46" font-weight="800" text-anchor="middle" fill="#1a1a1a">如何讓 <tspan fill="#c05c33">Claude</tspan> 一步一步教會你</text>
+  <text x="540" y="138" font-size="38" font-weight="800" text-anchor="middle" fill="#1a1a1a"><tspan font-style="italic">Step</tspan> by <tspan fill="#c05c33">Step</tspan> · 逐步學習法</text>
+  <line x1="30" y1="172" x2="1050" y2="172" stroke="#1a1a1a" stroke-width="3"/>
+
+  <!-- ── 第 1 列 ── -->
+  <!-- 01 白卡 -->
+  <g>
+    <rect x="30" y="205" width="330" height="335" rx="4" fill="#ffffff"/>
+    <circle cx="72" cy="252" r="25" fill="#c05c33"/><text x="72" y="260" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">01</text>
+    <text x="46" y="312" font-size="20.5" font-weight="800" fill="#1a1a1a">先說清楚你的目標</text>
+    <line x1="46" y1="330" x2="344" y2="330" stroke="#d8d3c6" stroke-width="1.5"/>
+    <g font-size="15" fill="#3d3d3d">
+      <text x="46" y="362">直接告訴 Claude 你想要的</text>
+      <text x="46" y="388">「<tspan font-weight="700">結果</tspan>」，而不是方法。不需</text>
+      <text x="46" y="414">要技術術語，用白話描述就</text>
+      <text x="46" y="440">完全足夠。「<tspan font-weight="700">我想自動化 X</tspan>」</text>
+      <text x="46" y="466">或「我想做出 Y」，這樣就</text>
+      <text x="46" y="492">能開始。</text>
+    </g>
+  </g>
+  <!-- 02 白卡 -->
+  <g>
+    <rect x="375" y="205" width="330" height="335" rx="4" fill="#ffffff"/>
+    <circle cx="417" cy="252" r="25" fill="#c05c33"/><text x="417" y="260" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">02</text>
+    <text x="391" y="312" font-size="20.5" font-weight="800" fill="#1a1a1a">先要求完整路線圖</text>
+    <line x1="391" y1="330" x2="689" y2="330" stroke="#d8d3c6" stroke-width="1.5"/>
+    <g font-size="15" fill="#3d3d3d">
+      <text x="391" y="362">動手之前，先請 Claude 從頭</text>
+      <text x="391" y="388">到尾<tspan font-weight="700">列出每一個步驟</tspan>。看見</text>
+      <text x="391" y="414">完整路徑能消除恐懼——你知</text>
+      <text x="391" y="440">道自己要去哪裡。這是地圖，</text>
+      <text x="391" y="466">但路仍要<tspan font-weight="700">一次一步</tspan>地走。</text>
+    </g>
+  </g>
+  <!-- 03 橘卡 -->
+  <g>
+    <rect x="720" y="205" width="330" height="335" rx="4" fill="#c05c33"/>
+    <circle cx="762" cy="252" r="25" fill="#a84a26" stroke="#ffffff" stroke-width="2.5"/><text x="762" y="260" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">03</text>
+    <text x="736" y="312" font-size="20.5" font-weight="800" fill="#ffffff">只從第一步開始</text>
+    <line x1="736" y1="330" x2="1034" y2="330" stroke="#d98a68" stroke-width="1.5"/>
+    <g font-size="15" fill="#fbeee7">
+      <text x="736" y="362">不要往後偷看，也不要因為第</text>
+      <text x="736" y="388">三步看起來簡單就跳過去。初</text>
+      <text x="736" y="414">學者一眼看到全部會<tspan font-weight="700" fill="#fff">僵住</tspan>，</text>
+      <text x="736" y="440">一次一步才能保持動能。目前</text>
+      <text x="736" y="466">這一步沒完成，Claude 就不</text>
+      <text x="736" y="492">會往前走。</text>
+    </g>
+  </g>
+
+  <!-- ── 第 2 列 ── -->
+  <!-- 04 黑卡 -->
+  <g>
+    <rect x="30" y="560" width="330" height="335" rx="4" fill="#191919"/>
+    <circle cx="72" cy="607" r="25" fill="#c05c33"/><text x="72" y="615" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">04</text>
+    <text x="46" y="667" font-size="20.5" font-weight="800" fill="#ffffff">動手的是你，不是 Claude</text>
+    <line x1="46" y1="685" x2="344" y2="685" stroke="#4a4a4a" stroke-width="1.5"/>
+    <g font-size="15" fill="#d9d9d9">
+      <text x="46" y="717">Claude 示範確切的做法，但</text>
+      <text x="46" y="743">動手的人是<tspan font-weight="700" fill="#fff">你</tspan>。即使它幾秒</text>
+      <text x="46" y="769">鐘就能做完，也會忍住不出</text>
+      <text x="46" y="795">手。自己親手做過一次，</text>
+      <text x="46" y="821"><tspan font-weight="700" fill="#fff">下週你就能獨立再做一次</tspan>。</text>
+    </g>
+  </g>
+  <!-- 05 白卡 -->
+  <g>
+    <rect x="375" y="560" width="330" height="335" rx="4" fill="#ffffff"/>
+    <circle cx="417" cy="607" r="25" fill="#c05c33"/><text x="417" y="615" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">05</text>
+    <text x="391" y="667" font-size="20.5" font-weight="800" fill="#1a1a1a">確認之後才前進</text>
+    <line x1="391" y1="685" x2="689" y2="685" stroke="#d8d3c6" stroke-width="1.5"/>
+    <g font-size="15" fill="#3d3d3d">
+      <text x="391" y="717">完成一步就說「<tspan font-weight="700">done</tspan>」或</text>
+      <text x="391" y="743">「完成」。Claude 會等你的訊</text>
+      <text x="391" y="769">號；若它自行往前，就把它拉</text>
+      <text x="391" y="795">回一次一步。急著跳過不懂的</text>
+      <text x="391" y="821">步驟，<tspan font-weight="700">之後的一切都會垮掉</tspan>。</text>
+    </g>
+  </g>
+  <!-- 06 白卡 -->
+  <g>
+    <rect x="720" y="560" width="330" height="335" rx="4" fill="#ffffff"/>
+    <circle cx="762" cy="607" r="25" fill="#c05c33"/><text x="762" y="615" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">06</text>
+    <text x="736" y="667" font-size="20.5" font-weight="800" fill="#1a1a1a">不清楚就請它重講</text>
+    <line x1="736" y1="685" x2="1034" y2="685" stroke="#d8d3c6" stroke-width="1.5"/>
+    <g font-size="15" fill="#3d3d3d">
+      <text x="736" y="717">「一步，<tspan font-weight="700">完全弄懂</tspan>」才是往下</text>
+      <text x="736" y="743">走的標準。可以請 Claude 換</text>
+      <text x="736" y="769">句話說、放慢速度或換個方式</text>
+      <text x="736" y="795">示範。再問一次沒有任何代價，</text>
+      <text x="736" y="821"><tspan font-weight="700">現在的困惑拖越久成本越高</tspan>。</text>
+    </g>
+  </g>
+
+  <!-- ── 第 3 列 ── -->
+  <!-- 07 白卡 -->
+  <g>
+    <rect x="30" y="915" width="330" height="335" rx="4" fill="#ffffff"/>
+    <circle cx="72" cy="962" r="25" fill="#c05c33"/><text x="72" y="970" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">07</text>
+    <text x="46" y="1022" font-size="20.5" font-weight="800" fill="#1a1a1a">以完全獨立為目標</text>
+    <line x1="46" y1="1040" x2="344" y2="1040" stroke="#d8d3c6" stroke-width="1.5"/>
+    <g font-size="15" fill="#3d3d3d">
+      <text x="46" y="1072">目標不是讓 Claude 牽著手把</text>
+      <text x="46" y="1098">任務完成一次，而是<tspan font-weight="700">下週你</tspan></text>
+      <text x="46" y="1124"><tspan font-weight="700">能獨自從記憶中再做一次</tspan>，</text>
+      <text x="46" y="1150">靠的只有真正留在你身上的</text>
+      <text x="46" y="1176">所學。</text>
+    </g>
+  </g>
+  <!-- 08 橘卡 -->
+  <g>
+    <rect x="375" y="915" width="330" height="335" rx="4" fill="#c05c33"/>
+    <circle cx="417" cy="962" r="25" fill="#a84a26" stroke="#ffffff" stroke-width="2.5"/><text x="417" y="970" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">08</text>
+    <text x="391" y="1022" font-size="20.5" font-weight="800" fill="#ffffff">加碼：保持白話</text>
+    <line x1="391" y1="1040" x2="689" y2="1040" stroke="#d98a68" stroke-width="1.5"/>
+    <g font-size="15" fill="#fbeee7">
+      <text x="391" y="1072">取得專家協助從來不需要行</text>
+      <text x="391" y="1098">話。像對<tspan font-weight="700" fill="#fff">朋友</tspan>解釋一樣描述</text>
+      <text x="391" y="1124">問題，Claude 會把白話翻譯</text>
+      <text x="391" y="1150">成正確的技術步驟——那是它</text>
+      <text x="391" y="1176">的工作，不是你的。</text>
+    </g>
+  </g>
+  <!-- 09 白卡 -->
+  <g>
+    <rect x="720" y="915" width="330" height="335" rx="4" fill="#ffffff"/>
+    <circle cx="762" cy="962" r="25" fill="#c05c33"/><text x="762" y="970" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">09</text>
+    <text x="736" y="1022" font-size="20.5" font-weight="800" fill="#1a1a1a">記住：你才是建造者</text>
+    <line x1="736" y1="1040" x2="1034" y2="1040" stroke="#d8d3c6" stroke-width="1.5"/>
+    <g font-size="15" fill="#3d3d3d">
+      <text x="736" y="1072">Claude 是<tspan font-weight="700">地圖與嚮導</tspan>，走在</text>
+      <text x="736" y="1098">路上的是你。每個親手完成的</text>
+      <text x="736" y="1124">步驟都會成為留在你身上的技</text>
+      <text x="736" y="1150">能——這正是「做完任務」與</text>
+      <text x="736" y="1176">「<tspan font-weight="700">真正學會</tspan>」的差別。</text>
+    </g>
+  </g>
+
+  <text x="540" y="1295" font-size="14" fill="#6b6558" text-anchor="middle" font-weight="600">By Adrees AI automation ｜ Follow for daily AI content · 中文重製版 · 依原圖風格重繪</text>
+</svg>
