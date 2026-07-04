@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude 四檔案設定法 × 一步一步教會你 · AI概念研究</title>
+<style>
+:root{--bg:#f0f2f5;--card-bg:#ffffff;--text:#1a1a2e;--sub:#6b7280;--accent:#4361ee;--border:#e5e7eb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);color:#fff;padding:2rem 1.5rem 1.5rem;text-align:center}
+header h1{font-size:1.7rem;font-weight:700;margin-bottom:.4rem}
+header p{font-size:.9rem;color:#9eb4ff}
+header .meta{font-size:.8rem;color:#718096;margin-top:.5rem}
+nav{background:#fff;border-bottom:1px solid var(--border);display:flex;justify-content:center;gap:0;overflow-x:auto;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px #0001}
+nav a{display:block;padding:.75rem 1.2rem;font-size:.85rem;font-weight:600;color:var(--sub);text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
+nav a:hover,nav a.active{color:var(--accent);border-bottom-color:var(--accent)}
+main{max-width:980px;margin:0 auto;padding:2rem 1rem}
+.section{margin-bottom:3rem;scroll-margin-top:4rem}
+.section-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:var(--sub);text-transform:uppercase;margin-bottom:.4rem}
+.section h2{font-size:1.25rem;font-weight:700;margin-bottom:.35rem;color:var(--text)}
+.section .orig{font-size:.82rem;color:var(--sub);margin-bottom:.7rem}
+.section .desc{font-size:.9rem;line-height:1.7;color:#374151;margin-bottom:1rem;background:var(--card-bg);border-left:3px solid var(--accent);padding:.75rem 1rem;border-radius:0 8px 8px 0}
+.svg-wrap{background:var(--card-bg);border-radius:14px;box-shadow:0 2px 16px #0001;overflow:hidden;margin-bottom:1rem}
+.svg-wrap svg{width:100%;height:auto;display:block}
+.key-points{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+.key-points span{background:#eff6ff;color:#1d4ed8;font-size:.78rem;font-weight:600;padding:.3rem .7rem;border-radius:20px;border:1px solid #bfdbfe}
+.divider{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+footer{text-align:center;font-size:.78rem;color:var(--sub);padding:1.5rem;border-top:1px solid var(--border);background:#fff}
+footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <h1>Claude 四檔案設定法 × 讓 Claude 一步一步教會你</h1>
+  <p>兩張英文 AI 資訊圖的精準中文圖解 · 2026-07-05</p>
+  <p class="meta">素材來源：Google Drive「AI概念研究」資料夾 · 每日自動中文化流程</p>
+</header>
+<nav>
+  <a href="#sec1" class="active">四檔案設定法</a>
+  <a href="#sec2">讓 Claude 一步步教你</a>
+</nav>
+<main>
+<section class="section" id="sec1">
+  <p class="section-label">概念圖解 1 / 2</p>
+  <h2>如何（真正）設定好 Claude：四檔案設定法</h2>
+  <p class="orig">英文原題：How to (actually) setup Claude — The 4-file setup that turns 4-hour tasks into one instruction（by Younis AI）</p>
+  <p class="desc">把 4 小時的任務變成一句指令的四層檔案架構：規則層 Context（~/CLAUDE.md 入職說明書，/init 草擬、每個專案資料夾各放一份）、教訓層 Memory（memory/MEMORY.md，每次糾正與偏好都存成獨立 .md 永久記住、新對話自動載入）、行動層 Skills（skills/{name}/SKILL.md，走過一次流程就打包成 /{name} 一行指令工作流）、團隊層 Agents（.claude/agents/{role}.md，每個代理只做一件事，Opus 分析評審、Sonnet 執行，串成管線自動交棒）。</p>
+  <div class="svg-wrap">
+<svg viewBox="0 0 1140 1460" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <linearGradient id="tl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d9488"/>
+      <stop offset="0.35" stop-color="#c026d3"/>
+      <stop offset="0.68" stop-color="#d97706"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="1140" height="1460" fill="#fafaf7"/>
+
+  <!-- 標題 -->
+  <text x="40" y="66" font-size="46" font-weight="800" fill="#111118">如何<tspan fill="#e05a33">（真正）</tspan>設定好 <tspan fill="#e05a33">✳ Claude</tspan></text>
+  <text x="40" y="112" font-size="19" fill="#374151"><tspan font-weight="700">四個檔案的設定法</tspan>，把 4 小時的任務變成一句指令。<tspan fill="#4f6ef7" font-weight="600">by Younis AI ｜ Follow for more..</tspan></text>
+
+  <!-- 左側漸層時間軸 -->
+  <rect x="61" y="170" width="6" height="1230" rx="3" fill="url(#tl)"/>
+
+  <!-- ═══ 卡片 1 · Context ═══ -->
+  <circle cx="64" cy="310" r="26" fill="#0d9488"/>
+  <text x="64" y="320" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">1</text>
+  <rect x="104" y="160" width="1006" height="300" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="132" y="198" font-size="13" font-weight="700" letter-spacing="2" fill="#0d9488">檔案 · 規則層（THE RULE LAYER）</text>
+  <text x="132" y="234" font-size="27" font-weight="800" fill="#111118">Context 情境脈絡</text>
+  <rect x="132" y="248" width="128" height="24" rx="6" fill="#ecfdf5"/>
+  <text x="142" y="265" font-size="13" font-family="Menlo,Consolas,monospace" fill="#047857">~/CLAUDE.md</text>
+  <text x="132" y="298" font-size="14.5" fill="#374151">你交給 Claude 的<tspan font-weight="700">入職說明書</tspan>：你的業務、語氣與工作方式，</text>
+  <text x="132" y="320" font-size="14.5" fill="#374151">每次對話開始前都會先讀。</text>
+  <g font-size="14.5" fill="#1f2937">
+    <rect x="132" y="336" width="22" height="22" rx="6" fill="#0d9488"/><text x="143" y="352" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">1</text>
+    <text x="164" y="352">執行 <tspan font-family="Menlo,Consolas,monospace" fill="#047857">/init</tspan> 草擬你的第一份 CLAUDE.md。</text>
+    <rect x="132" y="364" width="22" height="22" rx="6" fill="#0d9488"/><text x="143" y="380" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">2</text>
+    <text x="164" y="380">加入品牌、語氣與工作流程規則。</text>
+    <rect x="132" y="392" width="22" height="22" rx="6" fill="#0d9488"/><text x="143" y="408" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">3</text>
+    <text x="164" y="408">在每個專案資料夾都放一份專案 CLAUDE.md。</text>
+    <rect x="132" y="420" width="22" height="22" rx="6" fill="#0d9488"/><text x="143" y="436" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">4</text>
+    <text x="164" y="436">Claude 失誤時，就回頭更新這份簡報。</text>
+  </g>
+  <!-- 右側程式碼面板 -->
+  <rect x="700" y="186" width="382" height="250" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+  <rect x="700" y="186" width="382" height="34" rx="12" fill="#eef2f7"/>
+  <rect x="700" y="206" width="382" height="14" fill="#eef2f7"/>
+  <circle cx="722" cy="203" r="5" fill="#ef4444"/><circle cx="738" cy="203" r="5" fill="#f59e0b"/><circle cx="754" cy="203" r="5" fill="#22c55e"/>
+  <text x="774" y="208" font-size="12.5" font-family="Menlo,Consolas,monospace" fill="#475569">~/CLAUDE.md</text>
+  <g font-size="12.5" font-family="Menlo,Consolas,monospace">
+    <text x="716" y="244" fill="#94a3b8">1</text><text x="740" y="244" fill="#0f172a" font-weight="700"># CLAUDE.md</text>
+    <text x="716" y="266" fill="#94a3b8">2</text>
+    <text x="716" y="288" fill="#94a3b8">3</text><text x="740" y="288" fill="#047857" font-weight="700">## Workflow Orchestration</text>
+    <text x="716" y="310" fill="#94a3b8">4</text><text x="740" y="310" fill="#334155">- 任何 3 步以上的任務先做計畫。</text>
+    <text x="716" y="332" fill="#94a3b8">5</text><text x="740" y="332" fill="#334155">- 偏離軌道就停下重新規劃。</text>
+    <text x="716" y="354" fill="#94a3b8">6</text>
+    <text x="716" y="376" fill="#94a3b8">7</text><text x="740" y="376" fill="#047857" font-weight="700">## Subagent Strategy</text>
+    <text x="716" y="398" fill="#94a3b8">8</text><text x="740" y="398" fill="#334155">- 大方地使用子代理。</text>
+    <text x="716" y="420" fill="#94a3b8">9</text><text x="740" y="420" fill="#334155">- 每個子代理只做一件事。</text>
+  </g>
+
+  <!-- ═══ 卡片 2 · Memory ═══ -->
+  <circle cx="64" cy="626" r="26" fill="#c026d3"/>
+  <text x="64" y="636" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">2</text>
+  <rect x="104" y="476" width="1006" height="300" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="132" y="514" font-size="13" font-weight="700" letter-spacing="2" fill="#c026d3">檔案 · 教訓層（THE LESSON LAYER）</text>
+  <text x="132" y="550" font-size="27" font-weight="800" fill="#111118">Memory 記憶</text>
+  <rect x="132" y="564" width="172" height="24" rx="6" fill="#fdf4ff"/>
+  <text x="142" y="581" font-size="13" font-family="Menlo,Consolas,monospace" fill="#a21caf">memory/MEMORY.md</text>
+  <text x="132" y="614" font-size="14.5" fill="#374151">Claude 一邊了解你、一邊<tspan font-weight="700">更新這裡</tspan>。每一次糾正、偏好或</text>
+  <text x="132" y="636" font-size="14.5" fill="#374151">規則，都會永久存檔。</text>
+  <g font-size="14.5" fill="#1f2937">
+    <rect x="132" y="652" width="22" height="22" rx="6" fill="#c026d3"/><text x="143" y="668" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">1</text>
+    <text x="164" y="668">告訴 Claude 要記住某條規則或偏好。</text>
+    <rect x="132" y="680" width="22" height="22" rx="6" fill="#c026d3"/><text x="143" y="696" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">2</text>
+    <text x="164" y="696">每則記憶都存成獨立的 <tspan font-family="Menlo,Consolas,monospace" fill="#a21caf">.md</tspan> 檔。</text>
+    <rect x="132" y="708" width="22" height="22" rx="6" fill="#c026d3"/><text x="143" y="724" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">3</text>
+    <text x="164" y="724">接上 MCP，從 NotebookLM、Granola、收件匣匯入。</text>
+    <rect x="132" y="736" width="22" height="22" rx="6" fill="#c026d3"/><text x="143" y="752" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">4</text>
+    <text x="164" y="752">每個新對話都會自動載入記憶。</text>
+  </g>
+  <!-- 右側記憶檔案面板 -->
+  <rect x="700" y="502" width="382" height="250" rx="12" fill="#fdf4ff" stroke="#f0d9f5"/>
+  <text x="720" y="534" font-size="13" font-family="Menlo,Consolas,monospace" fill="#a21caf">~/.claude/.../memory/</text>
+  <line x1="720" y1="546" x2="1062" y2="546" stroke="#ecd5f2" stroke-dasharray="3 3"/>
+  <g font-size="13.5" font-family="Menlo,Consolas,monospace" fill="#3b0764">
+    <circle cx="728" cy="570" r="4" fill="#a855f7"/><text x="744" y="575">charlie-content-bible.md</text>
+    <circle cx="728" cy="596" r="4" fill="#a855f7"/><text x="744" y="601">charlie-claude-master.md</text>
+    <circle cx="728" cy="622" r="4" fill="#a855f7"/><text x="744" y="627">charlie-claude-voice.md</text>
+    <circle cx="728" cy="648" r="4" fill="#a855f7"/><text x="744" y="653">design-memory.md</text>
+    <circle cx="728" cy="674" r="4" fill="#a855f7"/><text x="744" y="679">brand-guide.md</text>
+    <circle cx="728" cy="700" r="4" fill="#a855f7"/><text x="744" y="705">notebooklm-source.md</text>
+    <text x="744" y="733" fill="#9d7bb0" font-style="italic">＋ 還有 129 個記憶檔案</text>
+  </g>
+
+  <!-- ═══ 卡片 3 · Skills ═══ -->
+  <circle cx="64" cy="942" r="26" fill="#d97706"/>
+  <text x="64" y="952" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">3</text>
+  <rect x="104" y="792" width="1006" height="300" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="132" y="830" font-size="13" font-weight="700" letter-spacing="2" fill="#d97706">檔案 · 行動層（THE ACTION LAYER）</text>
+  <text x="132" y="866" font-size="27" font-weight="800" fill="#111118">Skills 技能</text>
+  <rect x="132" y="880" width="210" height="24" rx="6" fill="#fffbeb"/>
+  <text x="142" y="897" font-size="13" font-family="Menlo,Consolas,monospace" fill="#b45309">skills/{name}/SKILL.md</text>
+  <text x="132" y="930" font-size="14.5" fill="#374151">帶它走過一次流程，Claude 就打包成<tspan font-weight="700">可重複使用的一行指令</tspan></text>
+  <text x="132" y="952" font-size="14.5" fill="#374151"><tspan font-weight="700">工作流</tspan>，任何對話都能發動。</text>
+  <g font-size="14.5" fill="#1f2937">
+    <rect x="132" y="968" width="22" height="22" rx="6" fill="#d97706"/><text x="143" y="984" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">1</text>
+    <text x="164" y="984">用白話告訴 Claude 這個技能要做什麼。</text>
+    <rect x="132" y="996" width="22" height="22" rx="6" fill="#d97706"/><text x="143" y="1012" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">2</text>
+    <text x="164" y="1012">Claude 自動搭好 <tspan font-family="Menlo,Consolas,monospace" fill="#b45309">SKILL.md</tspan> 與資料夾結構。</text>
+    <rect x="132" y="1024" width="22" height="22" rx="6" fill="#d97706"/><text x="143" y="1040" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">3</text>
+    <text x="164" y="1040">接上 MCP 連接器：Notion、Gmail、Drive。</text>
+    <rect x="132" y="1052" width="22" height="22" rx="6" fill="#d97706"/><text x="143" y="1068" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">4</text>
+    <text x="164" y="1068">在任何對話用 <tspan font-family="Menlo,Consolas,monospace" fill="#b45309">/{name}</tspan> 一鍵發動。</text>
+  </g>
+  <!-- 右側指令清單面板 -->
+  <rect x="700" y="818" width="382" height="250" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="700" y="818" width="382" height="38" rx="12" fill="#f8fafc"/>
+  <rect x="700" y="842" width="382" height="14" fill="#f8fafc"/>
+  <text x="718" y="843" font-size="14" fill="#64748b">🔍 <tspan font-family="Menlo,Consolas,monospace" fill="#0f172a">/cre</tspan><tspan fill="#d97706">▏</tspan></text>
+  <rect x="701" y="858" width="380" height="32" fill="#fef3c7"/>
+  <g font-size="13" font-family="Menlo,Consolas,monospace" font-weight="700">
+    <text x="718" y="879" fill="#b45309">/create</text>
+    <text x="718" y="912" fill="#b45309">/today</text>
+    <text x="718" y="945" fill="#b45309">/ideas</text>
+    <text x="718" y="971" fill="#b45309">/infographic-</text>
+    <text x="718" y="987" fill="#b45309">maker</text>
+    <text x="718" y="1017" fill="#b45309">/ig-scripts</text>
+  </g>
+  <g font-size="13" fill="#334155">
+    <text x="856" y="879">用我的語氣寫貼文</text>
+    <text x="856" y="912">規劃一天 · 行事曆＋收件匣</text>
+    <text x="856" y="945">挖掘內容靈感</text>
+    <text x="856" y="979">產出這張資訊圖</text>
+    <text x="856" y="1017">逐字稿轉 Reel 腳本</text>
+  </g>
+  <line x1="701" y1="890" x2="1081" y2="890" stroke="#eef2f7"/><line x1="701" y1="923" x2="1081" y2="923" stroke="#eef2f7"/><line x1="701" y1="956" x2="1081" y2="956" stroke="#eef2f7"/><line x1="701" y1="998" x2="1081" y2="998" stroke="#eef2f7"/>
+  <text x="718" y="1050" font-size="12" font-style="italic" fill="#94a3b8" font-family="Menlo,Consolas,monospace">＋ brand-kit、substack-cover、viral-hook…</text>
+
+  <!-- ═══ 卡片 4 · Agents ═══ -->
+  <circle cx="64" cy="1258" r="26" fill="#2563eb"/>
+  <text x="64" y="1268" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">4</text>
+  <rect x="104" y="1108" width="1006" height="300" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="132" y="1146" font-size="13" font-weight="700" letter-spacing="2" fill="#2563eb">檔案 · 團隊層（THE TEAM LAYER）</text>
+  <text x="132" y="1182" font-size="27" font-weight="800" fill="#111118">Agents 代理</text>
+  <rect x="132" y="1196" width="228" height="24" rx="6" fill="#eff6ff"/>
+  <text x="142" y="1213" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8">.claude/agents/{role}.md</text>
+  <text x="132" y="1246" font-size="14.5" fill="#374151">每個代理都是<tspan font-weight="700">只做一件事的員工</tspan>。管線依序交棒，</text>
+  <text x="132" y="1268" font-size="14.5" fill="#374151">中間完全不需要人。</text>
+  <g font-size="14.5" fill="#1f2937">
+    <rect x="132" y="1284" width="22" height="22" rx="6" fill="#2563eb"/><text x="143" y="1300" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">1</text>
+    <text x="164" y="1300">用白話描述你需要的專家。</text>
+    <rect x="132" y="1312" width="22" height="22" rx="6" fill="#2563eb"/><text x="143" y="1328" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">2</text>
+    <text x="164" y="1328">Claude 寫好代理檔：提示詞＋指定模型。</text>
+    <rect x="132" y="1340" width="22" height="22" rx="6" fill="#2563eb"/><text x="143" y="1356" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">3</text>
+    <text x="164" y="1356"><tspan font-weight="700">Opus</tspan> 負責分析與評審，<tspan font-weight="700">Sonnet</tspan> 負責執行。</text>
+    <rect x="132" y="1368" width="22" height="22" rx="6" fill="#2563eb"/><text x="143" y="1384" fill="#fff" font-weight="700" text-anchor="middle" font-size="13">4</text>
+    <text x="164" y="1384">把代理串成管線，冷靜地跑 QA。</text>
+  </g>
+  <!-- 右側管線面板 -->
+  <rect x="700" y="1134" width="382" height="250" rx="12" fill="#eff6ff" stroke="#dbeafe"/>
+  <text x="891" y="1162" font-size="13" font-weight="700" letter-spacing="2" fill="#1e40af" text-anchor="middle" font-family="Menlo,Consolas,monospace">PIPELINE · CONTENT/</text>
+  <g>
+    <rect x="756" y="1174" width="270" height="26" rx="7" fill="#ffffff" stroke="#93c5fd"/><text x="891" y="1192" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8" text-anchor="middle" font-weight="700">strategist 策略師</text>
+    <text x="891" y="1209" font-size="11" fill="#60a5fa" text-anchor="middle">↓</text>
+    <rect x="756" y="1210" width="270" height="26" rx="7" fill="#ffffff" stroke="#93c5fd"/><text x="891" y="1228" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8" text-anchor="middle" font-weight="700">designer 設計師</text>
+    <text x="891" y="1245" font-size="11" fill="#60a5fa" text-anchor="middle">↓</text>
+    <rect x="756" y="1246" width="270" height="26" rx="7" fill="#ffffff" stroke="#93c5fd"/><text x="891" y="1264" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8" text-anchor="middle" font-weight="700">html-builder 網頁建置</text>
+    <text x="891" y="1281" font-size="11" fill="#60a5fa" text-anchor="middle">↓</text>
+    <rect x="756" y="1282" width="270" height="26" rx="7" fill="#ffffff" stroke="#93c5fd"/><text x="891" y="1300" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8" text-anchor="middle" font-weight="700">pre-flight 出發前檢查</text>
+    <text x="891" y="1317" font-size="11" fill="#60a5fa" text-anchor="middle">↓</text>
+    <rect x="756" y="1318" width="270" height="26" rx="7" fill="#ffffff" stroke="#93c5fd"/><text x="891" y="1336" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8" text-anchor="middle" font-weight="700">qa-scorer 品質評分</text>
+    <text x="891" y="1353" font-size="11" fill="#60a5fa" text-anchor="middle">↓</text>
+    <rect x="756" y="1354" width="270" height="26" rx="7" fill="#ffffff" stroke="#93c5fd"/><text x="891" y="1372" font-size="13" font-family="Menlo,Consolas,monospace" fill="#1d4ed8" text-anchor="middle" font-weight="700">caption 文案標題</text>
+  </g>
+
+  <text x="570" y="1442" font-size="12.5" fill="#9ca3af" text-anchor="middle">中文重製版 · 依原圖風格重繪（原作：Younis AI「How to (actually) setup Claude」）</text>
+</svg>
+  </div>
+  <div class="key-points"><span>Context ~/CLAUDE.md</span><span>Memory 永久記憶</span><span>Skills 一行指令</span><span>Agents 管線交棒</span><span>/init 起手</span><span>Opus 評審 × Sonnet 執行</span></div>
+</section>
+<hr class="divider">
+<section class="section" id="sec2">
+  <p class="section-label">概念圖解 2 / 2</p>
+  <h2>如何讓 Claude 一步一步教會你（Step by Step 逐步學習法）</h2>
+  <p class="orig">英文原題：How to Get Claude to Teach You Step by Step（by Adrees AI automation）</p>
+  <p class="desc">把 Claude 當教練而非代工的九個原則：先說清楚目標（要結果不要方法）、先要完整路線圖、只從第一步開始不偷看、動手的是你不是 Claude、說「done」確認後才前進、不懂就請它重講、以完全獨立為目標、全程保持白話、記住你才是建造者——每個親手完成的步驟，才會變成留在你身上的技能。</p>
+  <div class="svg-wrap">
+<svg viewBox="0 0 1080 1330" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="1080" height="1330" fill="#ede9dd"/>
+
+  <!-- 標題 -->
+  <text x="540" y="80" font-size="46" font-weight="800" text-anchor="middle" fill="#1a1a1a">如何讓 <tspan fill="#c05c33">Claude</tspan> 一步一步教會你</text>
+  <text x="540" y="138" font-size="38" font-weight="800" text-anchor="middle" fill="#1a1a1a"><tspan font-style="italic">Step</tspan> by <tspan fill="#c05c33">Step</tspan> · 逐步學習法</text>
+  <line x1="30" y1="172" x2="1050" y2="172" stroke="#1a1a1a" stroke-width="3"/>
+
+  <!-- ── 第 1 列 ── -->
+  <!-- 01 白卡 -->
+  <g>
+    <rect x="30" y="205" width="330" height="335" rx="4" fill="#ffffff"/>
+    <circle cx="72" cy="252" r="25" fill="#c05c33"/><text x="72" y="260" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">01</text>
+    <text x="46" y="312" font-size="20.5" font-weight="800" fill="#1a1a1a">先說清楚你的目標</text>
+    <line x1="46" y1="330" x2="344" y2="330" stroke="#d8d3c6" stroke-width="1.5"/>
+    <g font-size="15" fill="#3d3d3d">
+      <text x="46" y="362">直接告訴 Claude 你想要的</text>
+      <text x="46" y="388">「<tspan font-weight="700">結果</tspan>」，而不是方法。不需</text>
+      <text x="46" y="414">要技術術語，用白話描述就</text>
+      <text x="46" y="440">完全足夠。「<tspan font-weight="700">我想自動化 X</tspan>」</text>
+      <text x="46" y="466">或「我想做出 Y」，這樣就</text>
+      <text x="46" y="492">能開始。</text>
+    </g>
+  </g>
+  <!-- 02 白卡 -->
+  <g>
+    <rect x="375" y="205" width="330" height="335" rx="4" fill="#ffffff"/>
+    <circle cx="417" cy="252" r="25" fill="#c05c33"/><text x="417" y="260" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">02</text>
+    <text x="391" y="312" font-size="20.5" font-weight="800" fill="#1a1a1a">先要求完整路線圖</text>
+    <line x1="391" y1="330" x2="689" y2="330" stroke="#d8d3c6" stroke-width="1.5"/>
+    <g font-size="15" fill="#3d3d3d">
+      <text x="391" y="362">動手之前，先請 Claude 從頭</text>
+      <text x="391" y="388">到尾<tspan font-weight="700">列出每一個步驟</tspan>。看見</text>
+      <text x="391" y="414">完整路徑能消除恐懼——你知</text>
+      <text x="391" y="440">道自己要去哪裡。這是地圖，</text>
+      <text x="391" y="466">但路仍要<tspan font-weight="700">一次一步</tspan>地走。</text>
+    </g>
+  </g>
+  <!-- 03 橘卡 -->
+  <g>
+    <rect x="720" y="205" width="330" height="335" rx="4" fill="#c05c33"/>
+    <circle cx="762" cy="252" r="25" fill="#a84a26" stroke="#ffffff" stroke-width="2.5"/><text x="762" y="260" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">03</text>
+    <text x="736" y="312" font-size="20.5" font-weight="800" fill="#ffffff">只從第一步開始</text>
+    <line x1="736" y1="330" x2="1034" y2="330" stroke="#d98a68" stroke-width="1.5"/>
+    <g font-size="15" fill="#fbeee7">
+      <text x="736" y="362">不要往後偷看，也不要因為第</text>
+      <text x="736" y="388">三步看起來簡單就跳過去。初</text>
+      <text x="736" y="414">學者一眼看到全部會<tspan font-weight="700" fill="#fff">僵住</tspan>，</text>
+      <text x="736" y="440">一次一步才能保持動能。目前</text>
+      <text x="736" y="466">這一步沒完成，Claude 就不</text>
+      <text x="736" y="492">會往前走。</text>
+    </g>
+  </g>
+
+  <!-- ── 第 2 列 ── -->
+  <!-- 04 黑卡 -->
+  <g>
+    <rect x="30" y="560" width="330" height="335" rx="4" fill="#191919"/>
+    <circle cx="72" cy="607" r="25" fill="#c05c33"/><text x="72" y="615" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">04</text>
+    <text x="46" y="667" font-size="20.5" font-weight="800" fill="#ffffff">動手的是你，不是 Claude</text>
+    <line x1="46" y1="685" x2="344" y2="685" stroke="#4a4a4a" stroke-width="1.5"/>
+    <g font-size="15" fill="#d9d9d9">
+      <text x="46" y="717">Claude 示範確切的做法，但</text>
+      <text x="46" y="743">動手的人是<tspan font-weight="700" fill="#fff">你</tspan>。即使它幾秒</text>
+      <text x="46" y="769">鐘就能做完，也會忍住不出</text>
+      <text x="46" y="795">手。自己親手做過一次，</text>
+      <text x="46" y="821"><tspan font-weight="700" fill="#fff">下週你就能獨立再做一次</tspan>。</text>
+    </g>
+  </g>
+  <!-- 05 白卡 -->
+  <g>
+    <rect x="375" y="560" width="330" height="335" rx="4" fill="#ffffff"/>
+    <circle cx="417" cy="607" r="25" fill="#c05c33"/><text x="417" y="615" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">05</text>
+    <text x="391" y="667" font-size="20.5" font-weight="800" fill="#1a1a1a">確認之後才前進</text>
+    <line x1="391" y1="685" x2="689" y2="685" stroke="#d8d3c6" stroke-width="1.5"/>
+    <g font-size="15" fill="#3d3d3d">
+      <text x="391" y="717">完成一步就說「<tspan font-weight="700">done</tspan>」或</text>
+      <text x="391" y="743">「完成」。Claude 會等你的訊</text>
+      <text x="391" y="769">號；若它自行往前，就把它拉</text>
+      <text x="391" y="795">回一次一步。急著跳過不懂的</text>
+      <text x="391" y="821">步驟，<tspan font-weight="700">之後的一切都會垮掉</tspan>。</text>
+    </g>
+  </g>
+  <!-- 06 白卡 -->
+  <g>
+    <rect x="720" y="560" width="330" height="335" rx="4" fill="#ffffff"/>
+    <circle cx="762" cy="607" r="25" fill="#c05c33"/><text x="762" y="615" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">06</text>
+    <text x="736" y="667" font-size="20.5" font-weight="800" fill="#1a1a1a">不清楚就請它重講</text>
+    <line x1="736" y1="685" x2="1034" y2="685" stroke="#d8d3c6" stroke-width="1.5"/>
+    <g font-size="15" fill="#3d3d3d">
+      <text x="736" y="717">「一步，<tspan font-weight="700">完全弄懂</tspan>」才是往下</text>
+      <text x="736" y="743">走的標準。可以請 Claude 換</text>
+      <text x="736" y="769">句話說、放慢速度或換個方式</text>
+      <text x="736" y="795">示範。再問一次沒有任何代價，</text>
+      <text x="736" y="821"><tspan font-weight="700">現在的困惑拖越久成本越高</tspan>。</text>
+    </g>
+  </g>
+
+  <!-- ── 第 3 列 ── -->
+  <!-- 07 白卡 -->
+  <g>
+    <rect x="30" y="915" width="330" height="335" rx="4" fill="#ffffff"/>
+    <circle cx="72" cy="962" r="25" fill="#c05c33"/><text x="72" y="970" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">07</text>
+    <text x="46" y="1022" font-size="20.5" font-weight="800" fill="#1a1a1a">以完全獨立為目標</text>
+    <line x1="46" y1="1040" x2="344" y2="1040" stroke="#d8d3c6" stroke-width="1.5"/>
+    <g font-size="15" fill="#3d3d3d">
+      <text x="46" y="1072">目標不是讓 Claude 牽著手把</text>
+      <text x="46" y="1098">任務完成一次，而是<tspan font-weight="700">下週你</tspan></text>
+      <text x="46" y="1124"><tspan font-weight="700">能獨自從記憶中再做一次</tspan>，</text>
+      <text x="46" y="1150">靠的只有真正留在你身上的</text>
+      <text x="46" y="1176">所學。</text>
+    </g>
+  </g>
+  <!-- 08 橘卡 -->
+  <g>
+    <rect x="375" y="915" width="330" height="335" rx="4" fill="#c05c33"/>
+    <circle cx="417" cy="962" r="25" fill="#a84a26" stroke="#ffffff" stroke-width="2.5"/><text x="417" y="970" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">08</text>
+    <text x="391" y="1022" font-size="20.5" font-weight="800" fill="#ffffff">加碼：保持白話</text>
+    <line x1="391" y1="1040" x2="689" y2="1040" stroke="#d98a68" stroke-width="1.5"/>
+    <g font-size="15" fill="#fbeee7">
+      <text x="391" y="1072">取得專家協助從來不需要行</text>
+      <text x="391" y="1098">話。像對<tspan font-weight="700" fill="#fff">朋友</tspan>解釋一樣描述</text>
+      <text x="391" y="1124">問題，Claude 會把白話翻譯</text>
+      <text x="391" y="1150">成正確的技術步驟——那是它</text>
+      <text x="391" y="1176">的工作，不是你的。</text>
+    </g>
+  </g>
+  <!-- 09 白卡 -->
+  <g>
+    <rect x="720" y="915" width="330" height="335" rx="4" fill="#ffffff"/>
+    <circle cx="762" cy="962" r="25" fill="#c05c33"/><text x="762" y="970" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">09</text>
+    <text x="736" y="1022" font-size="20.5" font-weight="800" fill="#1a1a1a">記住：你才是建造者</text>
+    <line x1="736" y1="1040" x2="1034" y2="1040" stroke="#d8d3c6" stroke-width="1.5"/>
+    <g font-size="15" fill="#3d3d3d">
+      <text x="736" y="1072">Claude 是<tspan font-weight="700">地圖與嚮導</tspan>，走在</text>
+      <text x="736" y="1098">路上的是你。每個親手完成的</text>
+      <text x="736" y="1124">步驟都會成為留在你身上的技</text>
+      <text x="736" y="1150">能——這正是「做完任務」與</text>
+      <text x="736" y="1176">「<tspan font-weight="700">真正學會</tspan>」的差別。</text>
+    </g>
+  </g>
+
+  <text x="540" y="1295" font-size="14" fill="#6b6558" text-anchor="middle" font-weight="600">By Adrees AI automation ｜ Follow for daily AI content · 中文重製版 · 依原圖風格重繪</text>
+</svg>
+  </div>
+  <div class="key-points"><span>目標優先於方法</span><span>先看完整地圖</span><span>一次只走一步</span><span>自己動手做</span><span>done 才前進</span><span>白話就夠了</span><span>完全獨立為終點</span></div>
+</section>
+</main>
+<footer>AI 概念研究 · 每日自動中文化流程產出 · <a href="index.html">回索引頁</a> · 原作者：Younis AI／Adrees AI automation（依原圖風格重繪中文版）</footer>
+</body>
+</html>
