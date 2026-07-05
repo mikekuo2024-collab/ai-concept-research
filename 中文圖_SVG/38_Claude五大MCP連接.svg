@@ -1,0 +1,157 @@
+<svg viewBox="0 0 900 1240" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <linearGradient id="cyanGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="triGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a5f3fc"/><stop offset="1" stop-color="#0369a1"/>
+    </linearGradient>
+  </defs>
+  <!-- 背景 -->
+  <rect width="900" height="1240" fill="#070d1a"/>
+  <g stroke="#12314f" stroke-width="1.5" fill="none" opacity="0.8">
+    <path d="M640 30 h90 l30 30 h100"/><path d="M700 55 h120 l25 25"/>
+    <circle cx="640" cy="30" r="3" fill="#1d4ed8"/><circle cx="860" cy="60" r="3" fill="#1d4ed8"/>
+  </g>
+  <!-- 標題 -->
+  <text x="48" y="88" font-size="54" font-weight="900" fill="#f1f5f9" letter-spacing="1">5 個強大的</text>
+  <text x="48" y="152" font-size="58" font-weight="900" fill="url(#cyanGrad)" letter-spacing="1">MCP 連接</text>
+  <text x="48" y="204" font-size="38" font-weight="800" font-style="italic"><tspan fill="#e2e8f0">給 </tspan><tspan fill="#f59e0b">CLAUDE</tspan><tspan fill="#e2e8f0"> 使用</tspan></text>
+  <!-- 右上三角標誌 -->
+  <g transform="translate(760,105)">
+    <path d="M0 55 L45 -35 L90 55 Z" fill="none" stroke="url(#triGrad)" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M22 40 L45 -5 L68 40 Z" fill="#0ea5e9" opacity="0.85"/>
+  </g>
+  <!-- 藍色橫幅 -->
+  <g transform="translate(48,228)">
+    <path d="M0 0 h590 l-16 40 H-16 Z" fill="#1d4ed8"/>
+    <text x="287" y="27" font-size="22" font-weight="800" font-style="italic" fill="#ffffff" text-anchor="middle">連接 · 自動化 · 完成更多</text>
+  </g>
+
+  <!-- Row 1: GitHub -->
+  <g transform="translate(0,296)">
+    <rect x="44" y="0" width="812" height="140" rx="16" fill="#0c1526" stroke="#3b82f6" stroke-width="2.5"/>
+    <path d="M60 8 L128 8 L108 132 L60 132 Z" fill="#1e3a8a"/>
+    <text x="88" y="92" font-size="58" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+    <g transform="translate(140,26)">
+      <rect width="88" height="88" rx="18" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+      <circle cx="44" cy="46" r="26" fill="#e2e8f0"/>
+      <path d="M24 30 l8 -10 8 6 h8 l8 -6 8 10" fill="#e2e8f0"/>
+      <circle cx="35" cy="42" r="4" fill="#0f172a"/><circle cx="53" cy="42" r="4" fill="#0f172a"/>
+      <path d="M40 58 q4 4 8 0" stroke="#0f172a" stroke-width="2" fill="none"/>
+    </g>
+    <text x="248" y="38" font-size="26" font-weight="900" fill="#60a5fa">GITHUB MCP</text>
+    <text x="248" y="66" font-size="15" fill="#d7e1ec">把 Claude 連上你的 GitHub 儲存庫。</text>
+    <text x="248" y="88" font-size="15" fill="#d7e1ec">搜尋程式碼、審查 PR、分析專案、</text>
+    <text x="248" y="110" font-size="15" fill="#d7e1ec">管理檔案——全部在對話中完成。</text>
+    <line x1="620" y1="16" x2="620" y2="124" stroke="#1e3a5f" stroke-width="1.5"/>
+    <circle cx="672" cy="70" r="30" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+    <text x="672" y="79" font-size="22" font-weight="800" fill="#93c5fd" text-anchor="middle">&lt;/&gt;</text>
+    <text x="718" y="52" font-size="14" fill="#cbd5e1">即時讀取、搜尋並</text>
+    <text x="718" y="74" font-size="14" fill="#cbd5e1">操作你的儲存庫</text>
+    <text x="718" y="96" font-size="14" fill="#cbd5e1">與程式碼。</text>
+  </g>
+  <!-- Row 2: Google Drive -->
+  <g transform="translate(0,452)">
+    <rect x="44" y="0" width="812" height="140" rx="16" fill="#0c1a12" stroke="#22c55e" stroke-width="2.5"/>
+    <path d="M60 8 L128 8 L108 132 L60 132 Z" fill="#14532d"/>
+    <text x="88" y="92" font-size="58" font-weight="900" fill="#ffffff" text-anchor="middle">2</text>
+    <g transform="translate(140,26)">
+      <rect width="88" height="88" rx="18" fill="#f8fafc"/>
+      <path d="M36 22 h16 l20 34 h-16 Z" fill="#fbbf24"/>
+      <path d="M36 22 L16 56 l8 14 20 -34 Z" fill="#22c55e"/>
+      <path d="M24 70 h32 l16 -14 h-40 Z" fill="#3b82f6"/>
+    </g>
+    <text x="248" y="38" font-size="26" font-weight="900" fill="#4ade80">GOOGLE DRIVE MCP</text>
+    <text x="248" y="66" font-size="15" fill="#d7e1ec">存取你的雲端檔案、文件、試算表與</text>
+    <text x="248" y="88" font-size="15" fill="#d7e1ec">簡報。Claude 能尋找、閱讀、摘要</text>
+    <text x="248" y="110" font-size="15" fill="#d7e1ec">並分析你的內容。</text>
+    <line x1="620" y1="16" x2="620" y2="124" stroke="#14532d" stroke-width="1.5"/>
+    <circle cx="672" cy="70" r="30" fill="none" stroke="#22c55e" stroke-width="2.5"/>
+    <g transform="translate(658,52)"><rect width="28" height="36" rx="4" fill="none" stroke="#86efac" stroke-width="2.5"/><line x1="6" y1="10" x2="22" y2="10" stroke="#86efac" stroke-width="2.5"/><line x1="6" y1="18" x2="22" y2="18" stroke="#86efac" stroke-width="2.5"/><line x1="6" y1="26" x2="16" y2="26" stroke="#86efac" stroke-width="2.5"/></g>
+    <text x="718" y="52" font-size="14" fill="#cbd5e1">輕鬆搜尋、開啟並</text>
+    <text x="718" y="74" font-size="14" fill="#cbd5e1">摘要你的 Google</text>
+    <text x="718" y="96" font-size="14" fill="#cbd5e1">Drive 檔案。</text>
+  </g>
+  <!-- Row 3: Slack -->
+  <g transform="translate(0,608)">
+    <rect x="44" y="0" width="812" height="140" rx="16" fill="#140f22" stroke="#a855f7" stroke-width="2.5"/>
+    <path d="M60 8 L128 8 L108 132 L60 132 Z" fill="#581c87"/>
+    <text x="88" y="92" font-size="58" font-weight="900" fill="#ffffff" text-anchor="middle">3</text>
+    <g transform="translate(140,26)">
+      <rect width="88" height="88" rx="18" fill="#f8fafc"/>
+      <rect x="18" y="38" width="26" height="10" rx="5" fill="#36c5f0"/>
+      <rect x="44" y="18" width="10" height="26" rx="5" fill="#2eb67d"/>
+      <rect x="44" y="42" width="26" height="10" rx="5" fill="#ecb22e"/>
+      <rect x="34" y="46" width="10" height="26" rx="5" fill="#e01e5a"/>
+    </g>
+    <text x="248" y="38" font-size="26" font-weight="900" fill="#c084fc">SLACK MCP</text>
+    <text x="248" y="66" font-size="15" fill="#d7e1ec">把 Slack 對話與頻道帶進 Claude。</text>
+    <text x="248" y="88" font-size="15" fill="#d7e1ec">不必離開聊天視窗，即可取得摘要、</text>
+    <text x="248" y="110" font-size="15" fill="#d7e1ec">洞察與答案。</text>
+    <line x1="620" y1="16" x2="620" y2="124" stroke="#3b1a5e" stroke-width="1.5"/>
+    <circle cx="672" cy="70" r="30" fill="none" stroke="#a855f7" stroke-width="2.5"/>
+    <g fill="#d8b4fe"><rect x="658" y="64" width="12" height="5" rx="2.5"/><rect x="672" y="52" width="5" height="12" rx="2.5"/><rect x="672" y="66" width="12" height="5" rx="2.5"/><rect x="666" y="70" width="5" height="12" rx="2.5"/></g>
+    <text x="718" y="52" font-size="14" fill="#cbd5e1">從你的 Slack 工作</text>
+    <text x="718" y="74" font-size="14" fill="#cbd5e1">區擷取訊息、討論</text>
+    <text x="718" y="96" font-size="14" fill="#cbd5e1">串與最新動態。</text>
+  </g>
+  <!-- Row 4: Notion -->
+  <g transform="translate(0,764)">
+    <rect x="44" y="0" width="812" height="140" rx="16" fill="#1c1206" stroke="#f97316" stroke-width="2.5"/>
+    <path d="M60 8 L128 8 L108 132 L60 132 Z" fill="#7c2d12"/>
+    <text x="88" y="92" font-size="58" font-weight="900" fill="#ffffff" text-anchor="middle">4</text>
+    <g transform="translate(140,26)">
+      <rect width="88" height="88" rx="18" fill="#0f0f0f"/>
+      <rect x="22" y="20" width="44" height="48" rx="6" fill="#f8fafc"/>
+      <text x="44" y="56" font-size="34" font-weight="900" fill="#0f0f0f" text-anchor="middle">N</text>
+    </g>
+    <text x="248" y="38" font-size="26" font-weight="900" fill="#fb923c">NOTION MCP</text>
+    <text x="248" y="66" font-size="15" fill="#d7e1ec">把 Notion 工作區連上 Claude。</text>
+    <text x="248" y="88" font-size="15" fill="#d7e1ec">存取頁面、資料庫與筆記，快速</text>
+    <text x="248" y="110" font-size="15" fill="#d7e1ec">取得答案、保持條理。</text>
+    <line x1="620" y1="16" x2="620" y2="124" stroke="#5a2e10" stroke-width="1.5"/>
+    <circle cx="672" cy="70" r="30" fill="none" stroke="#f97316" stroke-width="2.5"/>
+    <rect x="660" y="56" width="24" height="28" rx="4" fill="none" stroke="#fdba74" stroke-width="2.5"/>
+    <text x="672" y="79" font-size="18" font-weight="800" fill="#fdba74" text-anchor="middle">N</text>
+    <text x="718" y="52" font-size="14" fill="#cbd5e1">搜尋、閱讀並管理</text>
+    <text x="718" y="74" font-size="14" fill="#cbd5e1">Notion 頁面與</text>
+    <text x="718" y="96" font-size="14" fill="#cbd5e1">資料庫。</text>
+  </g>
+  <!-- Row 5: Airtable -->
+  <g transform="translate(0,920)">
+    <rect x="44" y="0" width="812" height="140" rx="16" fill="#0a1420" stroke="#0ea5e9" stroke-width="2.5"/>
+    <path d="M60 8 L128 8 L108 132 L60 132 Z" fill="#0c4a6e"/>
+    <text x="88" y="92" font-size="58" font-weight="900" fill="#ffffff" text-anchor="middle">5</text>
+    <g transform="translate(140,26)">
+      <rect width="88" height="88" rx="18" fill="#f8fafc"/>
+      <path d="M44 20 L72 32 L44 44 L16 32 Z" fill="#fbbf24"/>
+      <path d="M16 38 L42 49 L42 70 L16 58 Z" fill="#2563eb"/>
+      <path d="M72 38 L46 49 L46 70 L72 58 Z" fill="#ef4444"/>
+    </g>
+    <text x="248" y="38" font-size="26" font-weight="900" fill="#38bdf8">AIRTABLE MCP</text>
+    <text x="248" y="66" font-size="15" fill="#d7e1ec">連結你的 Airtable 資料庫。查詢</text>
+    <text x="248" y="88" font-size="15" fill="#d7e1ec">紀錄、分析資料，幾秒鐘內就能</text>
+    <text x="248" y="110" font-size="15" fill="#d7e1ec">自動化你的工作流程。</text>
+    <line x1="620" y1="16" x2="620" y2="124" stroke="#0c4a6e" stroke-width="1.5"/>
+    <circle cx="672" cy="70" r="30" fill="none" stroke="#0ea5e9" stroke-width="2.5"/>
+    <g stroke="#7dd3fc" stroke-width="2.5" fill="none"><rect x="659" y="57" width="26" height="26" rx="3"/><line x1="659" y1="66" x2="685" y2="66"/><line x1="659" y1="74" x2="685" y2="74"/><line x1="668" y1="57" x2="668" y2="83"/><line x1="676" y1="57" x2="676" y2="83"/></g>
+    <text x="718" y="52" font-size="14" fill="#cbd5e1">不離開 Claude 即</text>
+    <text x="718" y="74" font-size="14" fill="#cbd5e1">可查詢、篩選並分</text>
+    <text x="718" y="96" font-size="14" fill="#cbd5e1">析 Airtable 資料。</text>
+  </g>
+
+  <!-- Comment Portal 橫幅 -->
+  <g transform="translate(0,1080)">
+    <rect x="70" y="0" width="760" height="66" rx="14" fill="#0c1526" stroke="#f59e0b" stroke-width="2"/>
+    <text x="100" y="45" font-size="34">🔥</text>
+    <text x="460" y="30" font-size="26" font-weight="900" text-anchor="middle"><tspan fill="#ffffff">留言區傳送門 </tspan><tspan fill="#f59e0b" font-style="italic">COMMENT PORTAL</tspan></text>
+    <text x="460" y="56" font-size="16" font-weight="700" font-style="italic" fill="#cbd5e1" text-anchor="middle">完整設定步驟與範例請見原貼文留言區</text>
+    <g fill="#38bdf8"><path d="M780 20 l14 13 -14 13 Z"/><path d="M796 20 l14 13 -14 13 Z"/></g>
+  </g>
+
+  <!-- 頁尾 -->
+  <line x1="44" y1="1166" x2="856" y2="1166" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="48" y="1196" font-size="17" font-weight="800"><tspan fill="#38bdf8">追蹤 </tspan><tspan fill="#f1f5f9">PINNACLE AI SOLUTIONS</tspan><tspan fill="#64748b" font-size="14"> — 獲取更多 AI 工具、秘訣與工作流</tspan></text>
+  <text x="48" y="1224" font-size="13" fill="#475569">中文重製版 · 依原圖風格重繪（原作：Pinnacle AI Solutions「5 Powerful MCP Connections for Claude」）</text>
+</svg>

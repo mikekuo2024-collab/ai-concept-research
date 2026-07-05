@@ -1,0 +1,146 @@
+<svg viewBox="0 0 900 1190" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <!-- 背景 -->
+  <rect width="900" height="1190" fill="#ffffff"/>
+  <rect x="0" y="1160" width="900" height="8" fill="#312e81"/>
+  <!-- 標題 -->
+  <text x="450" y="66" font-size="46" font-weight="900" text-anchor="middle"><tspan fill="#111827">建構 </tspan><tspan fill="#2563eb">AI 治理</tspan><tspan fill="#111827"> 的 8 大面向</tspan></text>
+  <!-- VIDVATTA 標誌 -->
+  <g transform="translate(60,96)">
+    <circle cx="18" cy="20" r="14" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+    <path d="M10 20 l5 -8 h6 l5 8 -8 10 Z" fill="#7c3aed"/>
+    <g stroke="#a78bfa" stroke-width="2"><line x1="18" y1="-2" x2="18" y2="4"/><line x1="2" y1="10" x2="7" y2="13"/><line x1="34" y1="10" x2="29" y2="13"/></g>
+    <rect x="42" y="6" width="140" height="28" rx="4" fill="#5b21b6"/>
+    <text x="112" y="26" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">VIDVATTA</text>
+  </g>
+  <!-- 左側機器人吉祥物 -->
+  <g transform="translate(52,560)">
+    <ellipse cx="40" cy="96" rx="34" ry="10" fill="#e5e7eb"/>
+    <path d="M12 40 a28 28 0 1 1 56 0 v26 a28 20 0 0 1 -56 0 Z" fill="#4f46e5"/>
+    <circle cx="28" cy="44" r="6" fill="#ffffff"/><circle cx="52" cy="44" r="6" fill="#ffffff"/>
+    <circle cx="28" cy="44" r="2.5" fill="#111827"/><circle cx="52" cy="44" r="2.5" fill="#111827"/>
+    <path d="M30 62 q10 8 20 0" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <line x1="40" y1="4" x2="40" y2="12" stroke="#4f46e5" stroke-width="3"/>
+    <circle cx="40" cy="2" r="4" fill="#f59e0b"/>
+    <path d="M-14 30 l10 -6 v12 Z" fill="#3b82f6"/>
+    <path d="M84 78 l12 8 -14 6 Z" fill="#22c55e"/>
+    <circle cx="90" cy="20" r="6" fill="none" stroke="#ec4899" stroke-width="2"/>
+  </g>
+  <!-- 中央虛線弧 -->
+  <path d="M210 160 q-150 440 0 900" fill="none" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 6" opacity="0.6"/>
+
+  <!-- Row template: pill + dashed arrow + note box -->
+  <!-- 1 資料目錄 -->
+  <g transform="translate(0,140)">
+    <circle cx="196" cy="34" r="5" fill="#f59e0b"/>
+    <rect x="212" y="10" width="252" height="52" rx="26" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
+    <circle cx="240" cy="36" r="17" fill="#fbbf24"/><circle cx="236" cy="32" r="15" fill="#fde68a" opacity="0.7"/>
+    <text x="270" y="43" font-size="19" font-weight="800" fill="#374151">資料目錄</text>
+    <path d="M470 36 q40 -6 66 -12" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M540 20 l10 2 -6 8 Z" fill="#6b7280"/>
+    <rect x="552" y="-18" width="316" height="104" rx="10" fill="#fef3c7"/>
+    <text x="568" y="4" font-size="14" fill="#44403c">• 集中式資料資產目錄</text>
+    <text x="568" y="24" font-size="14" fill="#44403c">• 智慧資料探索工具</text>
+    <text x="568" y="44" font-size="14" fill="#44403c">• 業務情境脈絡補充</text>
+    <text x="568" y="64" font-size="14" fill="#44403c">• 自動標記與標籤　• 資料集所有權對應</text>
+  </g>
+  <!-- 2 資料血緣 -->
+  <g transform="translate(0,262)">
+    <circle cx="226" cy="34" r="5" fill="#f97316"/>
+    <rect x="242" y="10" width="252" height="52" rx="26" fill="#ffffff" stroke="#f97316" stroke-width="3"/>
+    <circle cx="270" cy="36" r="17" fill="#fb923c"/><circle cx="266" cy="32" r="15" fill="#fed7aa" opacity="0.7"/>
+    <text x="300" y="43" font-size="19" font-weight="800" fill="#374151">資料血緣</text>
+    <path d="M500 36 q36 -4 60 -10" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M564 22 l10 2 -6 8 Z" fill="#6b7280"/>
+    <rect x="576" y="-14" width="292" height="104" rx="10" fill="#ffedd5"/>
+    <text x="592" y="8" font-size="14" fill="#44403c">• 端到端資料可追溯性</text>
+    <text x="592" y="28" font-size="14" fill="#44403c">• 資料轉換過程追蹤　• 工作流程視覺化</text>
+    <text x="592" y="48" font-size="14" fill="#44403c">• 來源到目的地對應</text>
+    <text x="592" y="68" font-size="14" fill="#44403c">• 歷史資料流動紀錄</text>
+  </g>
+  <!-- 3 資料品質檢查 -->
+  <g transform="translate(0,384)">
+    <circle cx="256" cy="34" r="5" fill="#ea580c"/>
+    <rect x="272" y="10" width="268" height="52" rx="26" fill="#ffffff" stroke="#ea580c" stroke-width="3"/>
+    <circle cx="300" cy="36" r="17" fill="#f97316"/><circle cx="296" cy="32" r="15" fill="#fdba74" opacity="0.7"/>
+    <text x="330" y="43" font-size="19" font-weight="800" fill="#374151">資料品質檢查</text>
+    <path d="M546 36 q30 -4 52 -8" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M602 24 l10 2 -6 8 Z" fill="#6b7280"/>
+    <rect x="614" y="-12" width="254" height="104" rx="10" fill="#fee9dd"/>
+    <text x="630" y="10" font-size="14" fill="#44403c">• 資料準確度監控</text>
+    <text x="630" y="30" font-size="14" fill="#44403c">• 完整性驗證規則</text>
+    <text x="630" y="50" font-size="14" fill="#44403c">• 離群值偵測系統　• 標準化落實</text>
+    <text x="630" y="70" font-size="14" fill="#44403c">• 即時品質警示</text>
+  </g>
+  <!-- 4 資料安全 -->
+  <g transform="translate(0,506)">
+    <circle cx="276" cy="34" r="5" fill="#d946ef"/>
+    <rect x="292" y="10" width="252" height="52" rx="26" fill="#ffffff" stroke="#d946ef" stroke-width="3"/>
+    <circle cx="320" cy="36" r="17" fill="#e879f9"/><circle cx="316" cy="32" r="15" fill="#f5d0fe" opacity="0.7"/>
+    <text x="350" y="43" font-size="19" font-weight="800" fill="#374151">資料安全</text>
+    <path d="M550 36 h50" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M604 31 l10 5 -10 5 Z" fill="#6b7280"/>
+    <rect x="620" y="-12" width="248" height="104" rx="10" fill="#fae8ff"/>
+    <text x="636" y="10" font-size="14" fill="#44403c">• 細粒度資料保護</text>
+    <text x="636" y="30" font-size="14" fill="#44403c">• 安全 API 存取控制　• 異常偵測機制</text>
+    <text x="636" y="50" font-size="14" fill="#44403c">• 資料外洩防護（DLP）</text>
+    <text x="636" y="70" font-size="14" fill="#44403c">• 持續安全監控</text>
+  </g>
+  <!-- 5 存取控制 -->
+  <g transform="translate(0,628)">
+    <circle cx="276" cy="34" r="5" fill="#c026d3"/>
+    <rect x="292" y="10" width="252" height="52" rx="26" fill="#ffffff" stroke="#c026d3" stroke-width="3"/>
+    <circle cx="320" cy="36" r="17" fill="#d946ef"/><circle cx="316" cy="32" r="15" fill="#f0abfc" opacity="0.7"/>
+    <text x="350" y="43" font-size="19" font-weight="800" fill="#374151">存取控制</text>
+    <path d="M550 36 h50" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M604 31 l10 5 -10 5 Z" fill="#6b7280"/>
+    <rect x="620" y="-12" width="248" height="104" rx="10" fill="#f3e8ff"/>
+    <text x="636" y="10" font-size="14" fill="#44403c">• 多因素驗證（MFA）</text>
+    <text x="636" y="30" font-size="14" fill="#44403c">• 動態存取配置　• 工作階段監控</text>
+    <text x="636" y="50" font-size="14" fill="#44403c">• 特權存取管理（PAM）</text>
+    <text x="636" y="70" font-size="14" fill="#44403c">• 存取審查與認證</text>
+  </g>
+  <!-- 6 中繼資料管理 -->
+  <g transform="translate(0,750)">
+    <circle cx="256" cy="34" r="5" fill="#8b5cf6"/>
+    <rect x="272" y="10" width="268" height="52" rx="26" fill="#ffffff" stroke="#8b5cf6" stroke-width="3"/>
+    <circle cx="300" cy="36" r="17" fill="#a78bfa"/><circle cx="296" cy="32" r="15" fill="#ddd6fe" opacity="0.7"/>
+    <text x="330" y="43" font-size="19" font-weight="800" fill="#374151">中繼資料管理</text>
+    <path d="M546 36 q30 4 52 8" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M602 38 l10 8 -12 4 Z" fill="#6b7280"/>
+    <rect x="614" y="-6" width="254" height="104" rx="10" fill="#ede9fe"/>
+    <text x="630" y="16" font-size="14" fill="#44403c">• 中繼資料標準化框架</text>
+    <text x="630" y="36" font-size="14" fill="#44403c">• 自動化中繼資料血緣</text>
+    <text x="630" y="56" font-size="14" fill="#44403c">• 資料資產分類模型　• 搜尋最佳化</text>
+    <text x="630" y="76" font-size="14" fill="#44403c">• 治理導向的中繼資料政策</text>
+  </g>
+  <!-- 7 合規追蹤 -->
+  <g transform="translate(0,872)">
+    <circle cx="226" cy="34" r="5" fill="#3b82f6"/>
+    <rect x="242" y="10" width="252" height="52" rx="26" fill="#ffffff" stroke="#3b82f6" stroke-width="3"/>
+    <circle cx="270" cy="36" r="17" fill="#60a5fa"/><circle cx="266" cy="32" r="15" fill="#bfdbfe" opacity="0.7"/>
+    <text x="300" y="43" font-size="19" font-weight="800" fill="#374151">合規追蹤</text>
+    <path d="M500 36 q36 6 60 12" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M564 44 l10 8 -12 4 Z" fill="#6b7280"/>
+    <rect x="576" y="0" width="292" height="104" rx="10" fill="#dbeafe"/>
+    <text x="592" y="22" font-size="14" fill="#44403c">• 法規變動追蹤　• 政策違規偵測</text>
+    <text x="592" y="42" font-size="14" fill="#44403c">• 合規工作流程自動化</text>
+    <text x="592" y="62" font-size="14" fill="#44403c">• 稽核就緒系統</text>
+    <text x="592" y="82" font-size="14" fill="#44403c">• 資料保護影響追蹤</text>
+  </g>
+  <!-- 8 稽核日誌 -->
+  <g transform="translate(0,994)">
+    <circle cx="196" cy="34" r="5" fill="#0ea5e9"/>
+    <rect x="212" y="10" width="252" height="52" rx="26" fill="#ffffff" stroke="#0ea5e9" stroke-width="3"/>
+    <circle cx="240" cy="36" r="17" fill="#38bdf8"/><circle cx="236" cy="32" r="15" fill="#bae6fd" opacity="0.7"/>
+    <text x="270" y="43" font-size="19" font-weight="800" fill="#374151">稽核日誌</text>
+    <path d="M470 36 q40 8 66 14" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M540 46 l10 8 -12 4 Z" fill="#6b7280"/>
+    <rect x="552" y="2" width="316" height="104" rx="10" fill="#e0f2fe"/>
+    <text x="568" y="24" font-size="14" fill="#44403c">• 即時事件監控　• 防竄改日誌儲存</text>
+    <text x="568" y="44" font-size="14" fill="#44403c">• 行為分析追蹤</text>
+    <text x="568" y="64" font-size="14" fill="#44403c">• 警示與升級處理系統</text>
+    <text x="568" y="84" font-size="14" fill="#44403c">• 鑑識調查支援</text>
+  </g>
+  <!-- 出處 -->
+  <text x="450" y="1146" font-size="13" fill="#9ca3af" text-anchor="middle">中文重製版 · 依原圖風格重繪（原作：VIDVATTA「8 Ways to Build AI Governance」）</text>
+</svg>
