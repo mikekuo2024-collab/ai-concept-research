@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude 五大 MCP 連接 × AI 治理八大面向 × Claude Projects 十大用法 · AI概念研究</title>
+<style>
+:root{--bg:#f0f2f5;--card-bg:#ffffff;--text:#1a1a2e;--sub:#6b7280;--accent:#4361ee;--border:#e5e7eb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);color:#fff;padding:2rem 1.5rem 1.5rem;text-align:center}
+header h1{font-size:1.6rem;font-weight:700;margin-bottom:.4rem}
+header p{font-size:.9rem;color:#9eb4ff}
+header .meta{font-size:.8rem;color:#718096;margin-top:.5rem}
+nav{background:#fff;border-bottom:1px solid var(--border);display:flex;justify-content:center;gap:0;overflow-x:auto;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px #0001}
+nav a{display:block;padding:.75rem 1.2rem;font-size:.85rem;font-weight:600;color:var(--sub);text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
+nav a:hover,nav a.active{color:var(--accent);border-bottom-color:var(--accent)}
+main{max-width:980px;margin:0 auto;padding:2rem 1rem}
+.section{margin-bottom:3rem;scroll-margin-top:4rem}
+.section-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:var(--sub);text-transform:uppercase;margin-bottom:.4rem}
+.section h2{font-size:1.25rem;font-weight:700;margin-bottom:.35rem;color:var(--text)}
+.section .orig{font-size:.82rem;color:var(--sub);margin-bottom:.7rem}
+.section .desc{font-size:.9rem;line-height:1.7;color:#374151;margin-bottom:1rem;background:var(--card-bg);border-left:3px solid var(--accent);padding:.75rem 1rem;border-radius:0 8px 8px 0}
+.svg-wrap{background:var(--card-bg);border-radius:14px;box-shadow:0 2px 16px #0001;overflow:hidden;margin-bottom:1rem}
+.svg-wrap svg{width:100%;height:auto;display:block}
+.key-points{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+.key-points span{background:#eff6ff;color:#1d4ed8;font-size:.78rem;font-weight:600;padding:.3rem .7rem;border-radius:20px;border:1px solid #bfdbfe}
+.divider{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+footer{text-align:center;font-size:.78rem;color:var(--sub);padding:1.5rem;border-top:1px solid var(--border);background:#fff}
+footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <h1>Claude 五大 MCP 連接 × AI 治理八大面向 × Claude Projects 十大用法</h1>
+  <p>三張英文 AI 資訊圖的精準中文圖解 · 2026-07-06</p>
+  <p class="meta">素材來源：Google Drive「AI概念研究」資料夾 · 每日自動中文化流程</p>
+</header>
+<nav>
+  <a href="#sec1" class="active">五大 MCP 連接</a>
+  <a href="#sec2">AI 治理八大面向</a>
+  <a href="#sec3">Projects 十大用法</a>
+</nav>
+<main>
+<section class="section" id="sec1">
+  <p class="section-label">概念圖解 1 / 3</p>
+  <h2>給 Claude 用的 5 個強大 MCP 連接</h2>
+  <p class="orig">英文原題：5 Powerful MCP Connections for Claude — Connect. Automate. Get More Done.（by Pinnacle AI Solutions）</p>
+  <p class="desc">五個立即提升生產力的 MCP 連接：GitHub MCP（搜尋程式碼、審查 PR、分析專案、管理檔案）、Google Drive MCP（尋找、閱讀、摘要並分析雲端文件）、Slack MCP（把頻道對話帶進 Claude，直接取得摘要與答案）、Notion MCP（存取頁面、資料庫與筆記）、Airtable MCP（查詢紀錄、分析資料、自動化工作流）。核心精神：連接、自動化、完成更多。</p>
+  <div class="svg-wrap">
+<svg viewBox="0 0 900 1240" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <linearGradient id="cyanGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="triGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a5f3fc"/><stop offset="1" stop-color="#0369a1"/>
+    </linearGradient>
+  </defs>
+  <!-- 背景 -->
+  <rect width="900" height="1240" fill="#070d1a"/>
+  <g stroke="#12314f" stroke-width="1.5" fill="none" opacity="0.8">
+    <path d="M640 30 h90 l30 30 h100"/><path d="M700 55 h120 l25 25"/>
+    <circle cx="640" cy="30" r="3" fill="#1d4ed8"/><circle cx="860" cy="60" r="3" fill="#1d4ed8"/>
+  </g>
+  <!-- 標題 -->
+  <text x="48" y="88" font-size="54" font-weight="900" fill="#f1f5f9" letter-spacing="1">5 個強大的</text>
+  <text x="48" y="152" font-size="58" font-weight="900" fill="url(#cyanGrad)" letter-spacing="1">MCP 連接</text>
+  <text x="48" y="204" font-size="38" font-weight="800" font-style="italic"><tspan fill="#e2e8f0">給 </tspan><tspan fill="#f59e0b">CLAUDE</tspan><tspan fill="#e2e8f0"> 使用</tspan></text>
+  <!-- 右上三角標誌 -->
+  <g transform="translate(760,105)">
+    <path d="M0 55 L45 -35 L90 55 Z" fill="none" stroke="url(#triGrad)" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M22 40 L45 -5 L68 40 Z" fill="#0ea5e9" opacity="0.85"/>
+  </g>
+  <!-- 藍色橫幅 -->
+  <g transform="translate(48,228)">
+    <path d="M0 0 h590 l-16 40 H-16 Z" fill="#1d4ed8"/>
+    <text x="287" y="27" font-size="22" font-weight="800" font-style="italic" fill="#ffffff" text-anchor="middle">連接 · 自動化 · 完成更多</text>
+  </g>
+
+  <!-- Row 1: GitHub -->
+  <g transform="translate(0,296)">
+    <rect x="44" y="0" width="812" height="140" rx="16" fill="#0c1526" stroke="#3b82f6" stroke-width="2.5"/>
+    <path d="M60 8 L128 8 L108 132 L60 132 Z" fill="#1e3a8a"/>
+    <text x="88" y="92" font-size="58" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+    <g transform="translate(140,26)">
+      <rect width="88" height="88" rx="18" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+      <circle cx="44" cy="46" r="26" fill="#e2e8f0"/>
+      <path d="M24 30 l8 -10 8 6 h8 l8 -6 8 10" fill="#e2e8f0"/>
+      <circle cx="35" cy="42" r="4" fill="#0f172a"/><circle cx="53" cy="42" r="4" fill="#0f172a"/>
+      <path d="M40 58 q4 4 8 0" stroke="#0f172a" stroke-width="2" fill="none"/>
+    </g>
+    <text x="248" y="38" font-size="26" font-weight="900" fill="#60a5fa">GITHUB MCP</text>
+    <text x="248" y="66" font-size="15" fill="#d7e1ec">把 Claude 連上你的 GitHub 儲存庫。</text>
+    <text x="248" y="88" font-size="15" fill="#d7e1ec">搜尋程式碼、審查 PR、分析專案、</text>
+    <text x="248" y="110" font-size="15" fill="#d7e1ec">管理檔案——全部在對話中完成。</text>
+    <line x1="620" y1="16" x2="620" y2="124" stroke="#1e3a5f" stroke-width="1.5"/>
+    <circle cx="672" cy="70" r="30" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+    <text x="672" y="79" font-size="22" font-weight="800" fill="#93c5fd" text-anchor="middle">&lt;/&gt;</text>
+    <text x="718" y="52" font-size="14" fill="#cbd5e1">即時讀取、搜尋並</text>
+    <text x="718" y="74" font-size="14" fill="#cbd5e1">操作你的儲存庫</text>
+    <text x="718" y="96" font-size="14" fill="#cbd5e1">與程式碼。</text>
+  </g>
+  <!-- Row 2: Google Drive -->
+  <g transform="translate(0,452)">
+    <rect x="44" y="0" width="812" height="140" rx="16" fill="#0c1a12" stroke="#22c55e" stroke-width="2.5"/>
+    <path d="M60 8 L128 8 L108 132 L60 132 Z" fill="#14532d"/>
+    <text x="88" y="92" font-size="58" font-weight="900" fill="#ffffff" text-anchor="middle">2</text>
+    <g transform="translate(140,26)">
+      <rect width="88" height="88" rx="18" fill="#f8fafc"/>
+      <path d="M36 22 h16 l20 34 h-16 Z" fill="#fbbf24"/>
+      <path d="M36 22 L16 56 l8 14 20 -34 Z" fill="#22c55e"/>
+      <path d="M24 70 h32 l16 -14 h-40 Z" fill="#3b82f6"/>
+    </g>
+    <text x="248" y="38" font-size="26" font-weight="900" fill="#4ade80">GOOGLE DRIVE MCP</text>
+    <text x="248" y="66" font-size="15" fill="#d7e1ec">存取你的雲端檔案、文件、試算表與</text>
+    <text x="248" y="88" font-size="15" fill="#d7e1ec">簡報。Claude 能尋找、閱讀、摘要</text>
+    <text x="248" y="110" font-size="15" fill="#d7e1ec">並分析你的內容。</text>
+    <line x1="620" y1="16" x2="620" y2="124" stroke="#14532d" stroke-width="1.5"/>
+    <circle cx="672" cy="70" r="30" fill="none" stroke="#22c55e" stroke-width="2.5"/>
+    <g transform="translate(658,52)"><rect width="28" height="36" rx="4" fill="none" stroke="#86efac" stroke-width="2.5"/><line x1="6" y1="10" x2="22" y2="10" stroke="#86efac" stroke-width="2.5"/><line x1="6" y1="18" x2="22" y2="18" stroke="#86efac" stroke-width="2.5"/><line x1="6" y1="26" x2="16" y2="26" stroke="#86efac" stroke-width="2.5"/></g>
+    <text x="718" y="52" font-size="14" fill="#cbd5e1">輕鬆搜尋、開啟並</text>
+    <text x="718" y="74" font-size="14" fill="#cbd5e1">摘要你的 Google</text>
+    <text x="718" y="96" font-size="14" fill="#cbd5e1">Drive 檔案。</text>
+  </g>
+  <!-- Row 3: Slack -->
+  <g transform="translate(0,608)">
+    <rect x="44" y="0" width="812" height="140" rx="16" fill="#140f22" stroke="#a855f7" stroke-width="2.5"/>
+    <path d="M60 8 L128 8 L108 132 L60 132 Z" fill="#581c87"/>
+    <text x="88" y="92" font-size="58" font-weight="900" fill="#ffffff" text-anchor="middle">3</text>
+    <g transform="translate(140,26)">
+      <rect width="88" height="88" rx="18" fill="#f8fafc"/>
+      <rect x="18" y="38" width="26" height="10" rx="5" fill="#36c5f0"/>
+      <rect x="44" y="18" width="10" height="26" rx="5" fill="#2eb67d"/>
+      <rect x="44" y="42" width="26" height="10" rx="5" fill="#ecb22e"/>
+      <rect x="34" y="46" width="10" height="26" rx="5" fill="#e01e5a"/>
+    </g>
+    <text x="248" y="38" font-size="26" font-weight="900" fill="#c084fc">SLACK MCP</text>
+    <text x="248" y="66" font-size="15" fill="#d7e1ec">把 Slack 對話與頻道帶進 Claude。</text>
+    <text x="248" y="88" font-size="15" fill="#d7e1ec">不必離開聊天視窗，即可取得摘要、</text>
+    <text x="248" y="110" font-size="15" fill="#d7e1ec">洞察與答案。</text>
+    <line x1="620" y1="16" x2="620" y2="124" stroke="#3b1a5e" stroke-width="1.5"/>
+    <circle cx="672" cy="70" r="30" fill="none" stroke="#a855f7" stroke-width="2.5"/>
+    <g fill="#d8b4fe"><rect x="658" y="64" width="12" height="5" rx="2.5"/><rect x="672" y="52" width="5" height="12" rx="2.5"/><rect x="672" y="66" width="12" height="5" rx="2.5"/><rect x="666" y="70" width="5" height="12" rx="2.5"/></g>
+    <text x="718" y="52" font-size="14" fill="#cbd5e1">從你的 Slack 工作</text>
+    <text x="718" y="74" font-size="14" fill="#cbd5e1">區擷取訊息、討論</text>
+    <text x="718" y="96" font-size="14" fill="#cbd5e1">串與最新動態。</text>
+  </g>
+  <!-- Row 4: Notion -->
+  <g transform="translate(0,764)">
+    <rect x="44" y="0" width="812" height="140" rx="16" fill="#1c1206" stroke="#f97316" stroke-width="2.5"/>
+    <path d="M60 8 L128 8 L108 132 L60 132 Z" fill="#7c2d12"/>
+    <text x="88" y="92" font-size="58" font-weight="900" fill="#ffffff" text-anchor="middle">4</text>
+    <g transform="translate(140,26)">
+      <rect width="88" height="88" rx="18" fill="#0f0f0f"/>
+      <rect x="22" y="20" width="44" height="48" rx="6" fill="#f8fafc"/>
+      <text x="44" y="56" font-size="34" font-weight="900" fill="#0f0f0f" text-anchor="middle">N</text>
+    </g>
+    <text x="248" y="38" font-size="26" font-weight="900" fill="#fb923c">NOTION MCP</text>
+    <text x="248" y="66" font-size="15" fill="#d7e1ec">把 Notion 工作區連上 Claude。</text>
+    <text x="248" y="88" font-size="15" fill="#d7e1ec">存取頁面、資料庫與筆記，快速</text>
+    <text x="248" y="110" font-size="15" fill="#d7e1ec">取得答案、保持條理。</text>
+    <line x1="620" y1="16" x2="620" y2="124" stroke="#5a2e10" stroke-width="1.5"/>
+    <circle cx="672" cy="70" r="30" fill="none" stroke="#f97316" stroke-width="2.5"/>
+    <rect x="660" y="56" width="24" height="28" rx="4" fill="none" stroke="#fdba74" stroke-width="2.5"/>
+    <text x="672" y="79" font-size="18" font-weight="800" fill="#fdba74" text-anchor="middle">N</text>
+    <text x="718" y="52" font-size="14" fill="#cbd5e1">搜尋、閱讀並管理</text>
+    <text x="718" y="74" font-size="14" fill="#cbd5e1">Notion 頁面與</text>
+    <text x="718" y="96" font-size="14" fill="#cbd5e1">資料庫。</text>
+  </g>
+  <!-- Row 5: Airtable -->
+  <g transform="translate(0,920)">
+    <rect x="44" y="0" width="812" height="140" rx="16" fill="#0a1420" stroke="#0ea5e9" stroke-width="2.5"/>
+    <path d="M60 8 L128 8 L108 132 L60 132 Z" fill="#0c4a6e"/>
+    <text x="88" y="92" font-size="58" font-weight="900" fill="#ffffff" text-anchor="middle">5</text>
+    <g transform="translate(140,26)">
+      <rect width="88" height="88" rx="18" fill="#f8fafc"/>
+      <path d="M44 20 L72 32 L44 44 L16 32 Z" fill="#fbbf24"/>
+      <path d="M16 38 L42 49 L42 70 L16 58 Z" fill="#2563eb"/>
+      <path d="M72 38 L46 49 L46 70 L72 58 Z" fill="#ef4444"/>
+    </g>
+    <text x="248" y="38" font-size="26" font-weight="900" fill="#38bdf8">AIRTABLE MCP</text>
+    <text x="248" y="66" font-size="15" fill="#d7e1ec">連結你的 Airtable 資料庫。查詢</text>
+    <text x="248" y="88" font-size="15" fill="#d7e1ec">紀錄、分析資料，幾秒鐘內就能</text>
+    <text x="248" y="110" font-size="15" fill="#d7e1ec">自動化你的工作流程。</text>
+    <line x1="620" y1="16" x2="620" y2="124" stroke="#0c4a6e" stroke-width="1.5"/>
+    <circle cx="672" cy="70" r="30" fill="none" stroke="#0ea5e9" stroke-width="2.5"/>
+    <g stroke="#7dd3fc" stroke-width="2.5" fill="none"><rect x="659" y="57" width="26" height="26" rx="3"/><line x1="659" y1="66" x2="685" y2="66"/><line x1="659" y1="74" x2="685" y2="74"/><line x1="668" y1="57" x2="668" y2="83"/><line x1="676" y1="57" x2="676" y2="83"/></g>
+    <text x="718" y="52" font-size="14" fill="#cbd5e1">不離開 Claude 即</text>
+    <text x="718" y="74" font-size="14" fill="#cbd5e1">可查詢、篩選並分</text>
+    <text x="718" y="96" font-size="14" fill="#cbd5e1">析 Airtable 資料。</text>
+  </g>
+
+  <!-- Comment Portal 橫幅 -->
+  <g transform="translate(0,1080)">
+    <rect x="70" y="0" width="760" height="66" rx="14" fill="#0c1526" stroke="#f59e0b" stroke-width="2"/>
+    <text x="100" y="45" font-size="34">🔥</text>
+    <text x="460" y="30" font-size="26" font-weight="900" text-anchor="middle"><tspan fill="#ffffff">留言區傳送門 </tspan><tspan fill="#f59e0b" font-style="italic">COMMENT PORTAL</tspan></text>
+    <text x="460" y="56" font-size="16" font-weight="700" font-style="italic" fill="#cbd5e1" text-anchor="middle">完整設定步驟與範例請見原貼文留言區</text>
+    <g fill="#38bdf8"><path d="M780 20 l14 13 -14 13 Z"/><path d="M796 20 l14 13 -14 13 Z"/></g>
+  </g>
+
+  <!-- 頁尾 -->
+  <line x1="44" y1="1166" x2="856" y2="1166" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="48" y="1196" font-size="17" font-weight="800"><tspan fill="#38bdf8">追蹤 </tspan><tspan fill="#f1f5f9">PINNACLE AI SOLUTIONS</tspan><tspan fill="#64748b" font-size="14"> — 獲取更多 AI 工具、秘訣與工作流</tspan></text>
+  <text x="48" y="1224" font-size="13" fill="#475569">中文重製版 · 依原圖風格重繪（原作：Pinnacle AI Solutions「5 Powerful MCP Connections for Claude」）</text>
+</svg>
+  </div>
+  <div class="key-points">
+    <span>GitHub MCP</span><span>Google Drive MCP</span><span>Slack MCP</span><span>Notion MCP</span><span>Airtable MCP</span><span>連接 · 自動化</span>
+  </div>
+</section>
+<hr class="divider">
+<section class="section" id="sec2">
+  <p class="section-label">概念圖解 2 / 3</p>
+  <h2>建構 AI 治理的 8 大面向</h2>
+  <p class="orig">英文原題：8 Ways to Build AI Governance（by VIDVATTA）</p>
+  <p class="desc">從資料面把 AI 治理落地的八大支柱：資料目錄（集中式資產目錄與智慧探索）、資料血緣（端到端可追溯與轉換追蹤）、資料品質檢查（準確度監控與離群值偵測）、資料安全（細粒度保護與 DLP）、存取控制（MFA 與特權存取管理 PAM）、中繼資料管理（標準化框架與分類模型）、合規追蹤（法規變動與稽核就緒）、稽核日誌（防竄改儲存與鑑識支援）。</p>
+  <div class="svg-wrap">
+<svg viewBox="0 0 900 1190" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <!-- 背景 -->
+  <rect width="900" height="1190" fill="#ffffff"/>
+  <rect x="0" y="1160" width="900" height="8" fill="#312e81"/>
+  <!-- 標題 -->
+  <text x="450" y="66" font-size="46" font-weight="900" text-anchor="middle"><tspan fill="#111827">建構 </tspan><tspan fill="#2563eb">AI 治理</tspan><tspan fill="#111827"> 的 8 大面向</tspan></text>
+  <!-- VIDVATTA 標誌 -->
+  <g transform="translate(60,96)">
+    <circle cx="18" cy="20" r="14" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+    <path d="M10 20 l5 -8 h6 l5 8 -8 10 Z" fill="#7c3aed"/>
+    <g stroke="#a78bfa" stroke-width="2"><line x1="18" y1="-2" x2="18" y2="4"/><line x1="2" y1="10" x2="7" y2="13"/><line x1="34" y1="10" x2="29" y2="13"/></g>
+    <rect x="42" y="6" width="140" height="28" rx="4" fill="#5b21b6"/>
+    <text x="112" y="26" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">VIDVATTA</text>
+  </g>
+  <!-- 左側機器人吉祥物 -->
+  <g transform="translate(52,560)">
+    <ellipse cx="40" cy="96" rx="34" ry="10" fill="#e5e7eb"/>
+    <path d="M12 40 a28 28 0 1 1 56 0 v26 a28 20 0 0 1 -56 0 Z" fill="#4f46e5"/>
+    <circle cx="28" cy="44" r="6" fill="#ffffff"/><circle cx="52" cy="44" r="6" fill="#ffffff"/>
+    <circle cx="28" cy="44" r="2.5" fill="#111827"/><circle cx="52" cy="44" r="2.5" fill="#111827"/>
+    <path d="M30 62 q10 8 20 0" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <line x1="40" y1="4" x2="40" y2="12" stroke="#4f46e5" stroke-width="3"/>
+    <circle cx="40" cy="2" r="4" fill="#f59e0b"/>
+    <path d="M-14 30 l10 -6 v12 Z" fill="#3b82f6"/>
+    <path d="M84 78 l12 8 -14 6 Z" fill="#22c55e"/>
+    <circle cx="90" cy="20" r="6" fill="none" stroke="#ec4899" stroke-width="2"/>
+  </g>
+  <!-- 中央虛線弧 -->
+  <path d="M210 160 q-150 440 0 900" fill="none" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 6" opacity="0.6"/>
+
+  <!-- Row template: pill + dashed arrow + note box -->
+  <!-- 1 資料目錄 -->
+  <g transform="translate(0,140)">
+    <circle cx="196" cy="34" r="5" fill="#f59e0b"/>
+    <rect x="212" y="10" width="252" height="52" rx="26" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
+    <circle cx="240" cy="36" r="17" fill="#fbbf24"/><circle cx="236" cy="32" r="15" fill="#fde68a" opacity="0.7"/>
+    <text x="270" y="43" font-size="19" font-weight="800" fill="#374151">資料目錄</text>
+    <path d="M470 36 q40 -6 66 -12" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M540 20 l10 2 -6 8 Z" fill="#6b7280"/>
+    <rect x="552" y="-18" width="316" height="104" rx="10" fill="#fef3c7"/>
+    <text x="568" y="4" font-size="14" fill="#44403c">• 集中式資料資產目錄</text>
+    <text x="568" y="24" font-size="14" fill="#44403c">• 智慧資料探索工具</text>
+    <text x="568" y="44" font-size="14" fill="#44403c">• 業務情境脈絡補充</text>
+    <text x="568" y="64" font-size="14" fill="#44403c">• 自動標記與標籤　• 資料集所有權對應</text>
+  </g>
+  <!-- 2 資料血緣 -->
+  <g transform="translate(0,262)">
+    <circle cx="226" cy="34" r="5" fill="#f97316"/>
+    <rect x="242" y="10" width="252" height="52" rx="26" fill="#ffffff" stroke="#f97316" stroke-width="3"/>
+    <circle cx="270" cy="36" r="17" fill="#fb923c"/><circle cx="266" cy="32" r="15" fill="#fed7aa" opacity="0.7"/>
+    <text x="300" y="43" font-size="19" font-weight="800" fill="#374151">資料血緣</text>
+    <path d="M500 36 q36 -4 60 -10" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M564 22 l10 2 -6 8 Z" fill="#6b7280"/>
+    <rect x="576" y="-14" width="292" height="104" rx="10" fill="#ffedd5"/>
+    <text x="592" y="8" font-size="14" fill="#44403c">• 端到端資料可追溯性</text>
+    <text x="592" y="28" font-size="14" fill="#44403c">• 資料轉換過程追蹤　• 工作流程視覺化</text>
+    <text x="592" y="48" font-size="14" fill="#44403c">• 來源到目的地對應</text>
+    <text x="592" y="68" font-size="14" fill="#44403c">• 歷史資料流動紀錄</text>
+  </g>
+  <!-- 3 資料品質檢查 -->
+  <g transform="translate(0,384)">
+    <circle cx="256" cy="34" r="5" fill="#ea580c"/>
+    <rect x="272" y="10" width="268" height="52" rx="26" fill="#ffffff" stroke="#ea580c" stroke-width="3"/>
+    <circle cx="300" cy="36" r="17" fill="#f97316"/><circle cx="296" cy="32" r="15" fill="#fdba74" opacity="0.7"/>
+    <text x="330" y="43" font-size="19" font-weight="800" fill="#374151">資料品質檢查</text>
+    <path d="M546 36 q30 -4 52 -8" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M602 24 l10 2 -6 8 Z" fill="#6b7280"/>
+    <rect x="614" y="-12" width="254" height="104" rx="10" fill="#fee9dd"/>
+    <text x="630" y="10" font-size="14" fill="#44403c">• 資料準確度監控</text>
+    <text x="630" y="30" font-size="14" fill="#44403c">• 完整性驗證規則</text>
+    <text x="630" y="50" font-size="14" fill="#44403c">• 離群值偵測系統　• 標準化落實</text>
+    <text x="630" y="70" font-size="14" fill="#44403c">• 即時品質警示</text>
+  </g>
+  <!-- 4 資料安全 -->
+  <g transform="translate(0,506)">
+    <circle cx="276" cy="34" r="5" fill="#d946ef"/>
+    <rect x="292" y="10" width="252" height="52" rx="26" fill="#ffffff" stroke="#d946ef" stroke-width="3"/>
+    <circle cx="320" cy="36" r="17" fill="#e879f9"/><circle cx="316" cy="32" r="15" fill="#f5d0fe" opacity="0.7"/>
+    <text x="350" y="43" font-size="19" font-weight="800" fill="#374151">資料安全</text>
+    <path d="M550 36 h50" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M604 31 l10 5 -10 5 Z" fill="#6b7280"/>
+    <rect x="620" y="-12" width="248" height="104" rx="10" fill="#fae8ff"/>
+    <text x="636" y="10" font-size="14" fill="#44403c">• 細粒度資料保護</text>
+    <text x="636" y="30" font-size="14" fill="#44403c">• 安全 API 存取控制　• 異常偵測機制</text>
+    <text x="636" y="50" font-size="14" fill="#44403c">• 資料外洩防護（DLP）</text>
+    <text x="636" y="70" font-size="14" fill="#44403c">• 持續安全監控</text>
+  </g>
+  <!-- 5 存取控制 -->
+  <g transform="translate(0,628)">
+    <circle cx="276" cy="34" r="5" fill="#c026d3"/>
+    <rect x="292" y="10" width="252" height="52" rx="26" fill="#ffffff" stroke="#c026d3" stroke-width="3"/>
+    <circle cx="320" cy="36" r="17" fill="#d946ef"/><circle cx="316" cy="32" r="15" fill="#f0abfc" opacity="0.7"/>
+    <text x="350" y="43" font-size="19" font-weight="800" fill="#374151">存取控制</text>
+    <path d="M550 36 h50" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M604 31 l10 5 -10 5 Z" fill="#6b7280"/>
+    <rect x="620" y="-12" width="248" height="104" rx="10" fill="#f3e8ff"/>
+    <text x="636" y="10" font-size="14" fill="#44403c">• 多因素驗證（MFA）</text>
+    <text x="636" y="30" font-size="14" fill="#44403c">• 動態存取配置　• 工作階段監控</text>
+    <text x="636" y="50" font-size="14" fill="#44403c">• 特權存取管理（PAM）</text>
+    <text x="636" y="70" font-size="14" fill="#44403c">• 存取審查與認證</text>
+  </g>
+  <!-- 6 中繼資料管理 -->
+  <g transform="translate(0,750)">
+    <circle cx="256" cy="34" r="5" fill="#8b5cf6"/>
+    <rect x="272" y="10" width="268" height="52" rx="26" fill="#ffffff" stroke="#8b5cf6" stroke-width="3"/>
+    <circle cx="300" cy="36" r="17" fill="#a78bfa"/><circle cx="296" cy="32" r="15" fill="#ddd6fe" opacity="0.7"/>
+    <text x="330" y="43" font-size="19" font-weight="800" fill="#374151">中繼資料管理</text>
+    <path d="M546 36 q30 4 52 8" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M602 38 l10 8 -12 4 Z" fill="#6b7280"/>
+    <rect x="614" y="-6" width="254" height="104" rx="10" fill="#ede9fe"/>
+    <text x="630" y="16" font-size="14" fill="#44403c">• 中繼資料標準化框架</text>
+    <text x="630" y="36" font-size="14" fill="#44403c">• 自動化中繼資料血緣</text>
+    <text x="630" y="56" font-size="14" fill="#44403c">• 資料資產分類模型　• 搜尋最佳化</text>
+    <text x="630" y="76" font-size="14" fill="#44403c">• 治理導向的中繼資料政策</text>
+  </g>
+  <!-- 7 合規追蹤 -->
+  <g transform="translate(0,872)">
+    <circle cx="226" cy="34" r="5" fill="#3b82f6"/>
+    <rect x="242" y="10" width="252" height="52" rx="26" fill="#ffffff" stroke="#3b82f6" stroke-width="3"/>
+    <circle cx="270" cy="36" r="17" fill="#60a5fa"/><circle cx="266" cy="32" r="15" fill="#bfdbfe" opacity="0.7"/>
+    <text x="300" y="43" font-size="19" font-weight="800" fill="#374151">合規追蹤</text>
+    <path d="M500 36 q36 6 60 12" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M564 44 l10 8 -12 4 Z" fill="#6b7280"/>
+    <rect x="576" y="0" width="292" height="104" rx="10" fill="#dbeafe"/>
+    <text x="592" y="22" font-size="14" fill="#44403c">• 法規變動追蹤　• 政策違規偵測</text>
+    <text x="592" y="42" font-size="14" fill="#44403c">• 合規工作流程自動化</text>
+    <text x="592" y="62" font-size="14" fill="#44403c">• 稽核就緒系統</text>
+    <text x="592" y="82" font-size="14" fill="#44403c">• 資料保護影響追蹤</text>
+  </g>
+  <!-- 8 稽核日誌 -->
+  <g transform="translate(0,994)">
+    <circle cx="196" cy="34" r="5" fill="#0ea5e9"/>
+    <rect x="212" y="10" width="252" height="52" rx="26" fill="#ffffff" stroke="#0ea5e9" stroke-width="3"/>
+    <circle cx="240" cy="36" r="17" fill="#38bdf8"/><circle cx="236" cy="32" r="15" fill="#bae6fd" opacity="0.7"/>
+    <text x="270" y="43" font-size="19" font-weight="800" fill="#374151">稽核日誌</text>
+    <path d="M470 36 q40 8 66 14" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <path d="M540 46 l10 8 -12 4 Z" fill="#6b7280"/>
+    <rect x="552" y="2" width="316" height="104" rx="10" fill="#e0f2fe"/>
+    <text x="568" y="24" font-size="14" fill="#44403c">• 即時事件監控　• 防竄改日誌儲存</text>
+    <text x="568" y="44" font-size="14" fill="#44403c">• 行為分析追蹤</text>
+    <text x="568" y="64" font-size="14" fill="#44403c">• 警示與升級處理系統</text>
+    <text x="568" y="84" font-size="14" fill="#44403c">• 鑑識調查支援</text>
+  </g>
+  <!-- 出處 -->
+  <text x="450" y="1146" font-size="13" fill="#9ca3af" text-anchor="middle">中文重製版 · 依原圖風格重繪（原作：VIDVATTA「8 Ways to Build AI Governance」）</text>
+</svg>
+  </div>
+  <div class="key-points">
+    <span>資料目錄</span><span>資料血緣</span><span>資料品質</span><span>資料安全</span><span>存取控制</span><span>中繼資料</span><span>合規追蹤</span><span>稽核日誌</span>
+  </div>
+</section>
+<hr class="divider">
+<section class="section" id="sec3">
+  <p class="section-label">概念圖解 3 / 3</p>
+  <h2>Claude Projects 的 10 大強力用法</h2>
+  <p class="orig">英文原題：10 Powerful Ways to Use Claude Projects — Organize. Automate. Create. All in One Place.（by Pinnacle AI Solutions）</p>
+  <p class="desc">Claude Projects 讓檔案、筆記與對話保有情境脈絡、集中一處。十大用法涵蓋：內容創作、商業規劃、程式與技術專案、研究與摘要、行銷與品牌、任務與專案管理、學習與教育、設計與創意發想、郵件與溝通、自動化與整合。專業秘訣：用 Projects 給 Claude 長期記憶、自訂指令與所有重要檔案，讓它完全照你需要的方式工作。</p>
+  <div class="svg-wrap">
+<svg viewBox="0 0 900 1150" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <linearGradient id="pjGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#818cf8"/><stop offset="1" stop-color="#4338ca"/>
+    </linearGradient>
+    <linearGradient id="footGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1150" fill="#0a0a14"/>
+  <!-- 標題 -->
+  <text x="44" y="72" font-size="44" font-weight="900" fill="#f1f5f9">CLAUDE PROJECTS 的</text>
+  <text x="44" y="132" font-size="52" font-weight="900"><tspan fill="#a78bfa">10 大強力用法</tspan></text>
+  <!-- 右上星芒標誌 -->
+  <g transform="translate(742,40)">
+    <rect width="118" height="110" rx="20" fill="url(#pjGrad)"/>
+    <g transform="translate(59,55)" fill="#f97316">
+      <g id="ray"><path d="M0 -34 L7 -8 L-7 -8 Z"/></g>
+      <use href="#ray" transform="rotate(45)"/><use href="#ray" transform="rotate(90)"/>
+      <use href="#ray" transform="rotate(135)"/><use href="#ray" transform="rotate(180)"/>
+      <use href="#ray" transform="rotate(225)"/><use href="#ray" transform="rotate(270)"/>
+      <use href="#ray" transform="rotate(315)"/><circle r="9"/>
+    </g>
+  </g>
+  <!-- 副標橫幅 -->
+  <rect x="44" y="158" width="560" height="42" rx="8" fill="#111827" stroke="#334155" stroke-width="1.5"/>
+  <text x="62" y="186" font-size="20" font-weight="800"><tspan fill="#e2e8f0">組織 · 自動化 · 創造。</tspan><tspan fill="#38bdf8">全部集中在一個地方。</tspan></text>
+
+  <!-- 四大優勢列 -->
+  <rect x="44" y="222" width="812" height="118" rx="14" fill="#0e1220" stroke="#1f2a44" stroke-width="1.5"/>
+  <g transform="translate(60,238)">
+    <path d="M14 18 h20 l6 8 h30 a6 6 0 0 1 6 6 v36 a6 6 0 0 1 -6 6 H14 a6 6 0 0 1 -6 -6 V24 a6 6 0 0 1 6 -6 Z" fill="#2563eb"/>
+    <text x="90" y="24" font-size="15.5" font-weight="800" fill="#ffffff">一切保有<tspan fill="#38bdf8">情境脈絡</tspan></text>
+    <text x="90" y="48" font-size="12.5" fill="#9fb0c3">檔案、筆記與對話</text>
+    <text x="90" y="66" font-size="12.5" fill="#9fb0c3">集中一處、井然有序。</text>
+  </g>
+  <line x1="252" y1="238" x2="252" y2="324" stroke="#1f2a44" stroke-width="1.5"/>
+  <g transform="translate(266,238)">
+    <circle cx="38" cy="44" r="28" fill="none" stroke="#ec4899" stroke-width="3"/>
+    <path d="M24 44 q7 -14 14 0 q7 14 14 0" stroke="#ec4899" stroke-width="2.5" fill="none"/>
+    <line x1="38" y1="16" x2="38" y2="26" stroke="#ec4899" stroke-width="2.5"/>
+    <text x="82" y="24" font-size="15.5" font-weight="800" fill="#ffffff">更聰明的<tspan fill="#f472b6">工作流</tspan></text>
+    <text x="82" y="48" font-size="12.5" fill="#9fb0c3">讓 Claude 思考、規劃</text>
+    <text x="82" y="66" font-size="12.5" fill="#9fb0c3">並更精準地執行。</text>
+  </g>
+  <line x1="454" y1="238" x2="454" y2="324" stroke="#1f2a44" stroke-width="1.5"/>
+  <g transform="translate(468,238)">
+    <rect x="8" y="18" width="58" height="54" rx="8" fill="none" stroke="#38bdf8" stroke-width="3"/>
+    <path d="M18 58 l12 -14 10 8 16 -22" stroke="#38bdf8" stroke-width="3" fill="none"/>
+    <path d="M50 26 h8 v8" stroke="#38bdf8" stroke-width="3" fill="none"/>
+    <text x="82" y="24" font-size="15.5" font-weight="800" fill="#ffffff">擴展你的<tspan fill="#7dd3fc">想法</tspan></text>
+    <text x="82" y="48" font-size="12.5" fill="#9fb0c3">從簡單任務到複雜專案，</text>
+    <text x="82" y="66" font-size="12.5" fill="#9fb0c3">Claude 與你一起成長。</text>
+  </g>
+  <line x1="656" y1="238" x2="656" y2="324" stroke="#1f2a44" stroke-width="1.5"/>
+  <g transform="translate(670,238)">
+    <rect x="12" y="34" width="48" height="38" rx="8" fill="none" stroke="#4ade80" stroke-width="3"/>
+    <path d="M22 34 v-8 a14 14 0 0 1 28 0 v8" stroke="#4ade80" stroke-width="3" fill="none"/>
+    <circle cx="36" cy="52" r="5" fill="#4ade80"/>
+    <text x="72" y="24" font-size="15.5" font-weight="800" fill="#ffffff">私密且<tspan fill="#4ade80">安全</tspan></text>
+    <text x="72" y="48" font-size="12.5" fill="#9fb0c3">資料屬於你。以企業級</text>
+    <text x="72" y="66" font-size="12.5" fill="#9fb0c3">安全標準打造。</text>
+  </g>
+
+  <!-- 區段標題 -->
+  <line x1="60" y1="382" x2="240" y2="382" stroke="#475569" stroke-width="2"/>
+  <text x="450" y="390" font-size="27" font-weight="900" fill="#f8fafc" text-anchor="middle">CLAUDE PROJECTS 的 10 種用法</text>
+  <line x1="660" y1="382" x2="840" y2="382" stroke="#475569" stroke-width="2"/>
+
+  <!-- 卡片列 1 -->
+  <!-- 1 內容創作 -->
+  <g transform="translate(44,416)">
+    <rect width="152" height="212" rx="12" fill="#0d101c" stroke="#8a6d1f" stroke-width="1.8"/>
+    <circle cx="22" cy="22" r="14" fill="#2563eb"/><text x="22" y="27" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="76" y="66" font-size="34" text-anchor="middle">📝</text>
+    <text x="76" y="102" font-size="16" font-weight="800" fill="#60a5fa" text-anchor="middle">內容創作</text>
+    <text x="76" y="130" font-size="12" fill="#c3cedb" text-anchor="middle">寫部落格、腳本、</text>
+    <text x="76" y="148" font-size="12" fill="#c3cedb" text-anchor="middle">社群貼文、郵件等</text>
+    <text x="76" y="166" font-size="12" fill="#c3cedb" text-anchor="middle">——速度前所未有</text>
+    <text x="76" y="184" font-size="12" fill="#c3cedb" text-anchor="middle">地快。</text>
+  </g>
+  <!-- 2 商業規劃 -->
+  <g transform="translate(212,416)">
+    <rect width="152" height="212" rx="12" fill="#0d101c" stroke="#8a6d1f" stroke-width="1.8"/>
+    <circle cx="22" cy="22" r="14" fill="#9333ea"/><text x="22" y="27" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">2</text>
+    <text x="76" y="66" font-size="34" text-anchor="middle">🎯</text>
+    <text x="76" y="102" font-size="16" font-weight="800" fill="#c084fc" text-anchor="middle">商業規劃</text>
+    <text x="76" y="130" font-size="12" fill="#c3cedb" text-anchor="middle">制定計畫、分析</text>
+    <text x="76" y="148" font-size="12" fill="#c3cedb" text-anchor="middle">市場、撰寫提案</text>
+    <text x="76" y="166" font-size="12" fill="#c3cedb" text-anchor="middle">與募資簡報。</text>
+  </g>
+  <!-- 3 程式與技術專案 -->
+  <g transform="translate(380,416)">
+    <rect width="152" height="212" rx="12" fill="#0d101c" stroke="#8a6d1f" stroke-width="1.8"/>
+    <circle cx="22" cy="22" r="14" fill="#16a34a"/><text x="22" y="27" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">3</text>
+    <text x="76" y="64" font-size="26" font-weight="800" fill="#4ade80" text-anchor="middle">&lt;/&gt;</text>
+    <text x="76" y="94" font-size="16" font-weight="800" fill="#4ade80" text-anchor="middle">程式與技術</text>
+    <text x="76" y="114" font-size="16" font-weight="800" fill="#4ade80" text-anchor="middle">專案</text>
+    <text x="76" y="142" font-size="12" fill="#c3cedb" text-anchor="middle">生成程式碼、除錯、</text>
+    <text x="76" y="160" font-size="12" fill="#c3cedb" text-anchor="middle">撰寫 API 文件，</text>
+    <text x="76" y="178" font-size="12" fill="#c3cedb" text-anchor="middle">自信地開發。</text>
+  </g>
+  <!-- 4 研究與摘要 -->
+  <g transform="translate(548,416)">
+    <rect width="152" height="212" rx="12" fill="#0d101c" stroke="#8a6d1f" stroke-width="1.8"/>
+    <circle cx="22" cy="22" r="14" fill="#ea580c"/><text x="22" y="27" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">4</text>
+    <text x="76" y="66" font-size="34" text-anchor="middle">🔍</text>
+    <text x="76" y="102" font-size="16" font-weight="800" fill="#fb923c" text-anchor="middle">研究與摘要</text>
+    <text x="76" y="130" font-size="12" fill="#c3cedb" text-anchor="middle">摘要長文件、</text>
+    <text x="76" y="148" font-size="12" fill="#c3cedb" text-anchor="middle">萃取關鍵洞察，</text>
+    <text x="76" y="166" font-size="12" fill="#c3cedb" text-anchor="middle">節省寶貴時間。</text>
+  </g>
+  <!-- 5 行銷與品牌 -->
+  <g transform="translate(716,416)">
+    <rect width="140" height="212" rx="12" fill="#0d101c" stroke="#8a6d1f" stroke-width="1.8"/>
+    <circle cx="22" cy="22" r="14" fill="#0ea5e9"/><text x="22" y="27" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">5</text>
+    <text x="70" y="66" font-size="34" text-anchor="middle">📣</text>
+    <text x="70" y="102" font-size="16" font-weight="800" fill="#38bdf8" text-anchor="middle">行銷與品牌</text>
+    <text x="70" y="130" font-size="12" fill="#c3cedb" text-anchor="middle">打造行銷活動、</text>
+    <text x="70" y="148" font-size="12" fill="#c3cedb" text-anchor="middle">分析競爭對手、</text>
+    <text x="70" y="166" font-size="12" fill="#c3cedb" text-anchor="middle">寫出脫穎而出</text>
+    <text x="70" y="184" font-size="12" fill="#c3cedb" text-anchor="middle">的訊息。</text>
+  </g>
+
+  <!-- 卡片列 2 -->
+  <!-- 6 任務與專案管理 -->
+  <g transform="translate(44,644)">
+    <rect width="152" height="212" rx="12" fill="#0d101c" stroke="#8a6d1f" stroke-width="1.8"/>
+    <circle cx="22" cy="22" r="14" fill="#ca8a04"/><text x="22" y="27" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">6</text>
+    <text x="76" y="66" font-size="34" text-anchor="middle">📋</text>
+    <text x="76" y="96" font-size="15.5" font-weight="800" fill="#fbbf24" text-anchor="middle">任務與專案</text>
+    <text x="76" y="116" font-size="15.5" font-weight="800" fill="#fbbf24" text-anchor="middle">管理</text>
+    <text x="76" y="144" font-size="12" fill="#c3cedb" text-anchor="middle">拆解大目標、</text>
+    <text x="76" y="162" font-size="12" fill="#c3cedb" text-anchor="middle">追蹤進度，輕鬆</text>
+    <text x="76" y="180" font-size="12" fill="#c3cedb" text-anchor="middle">保持井然有序。</text>
+  </g>
+  <!-- 7 學習與教育 -->
+  <g transform="translate(212,644)">
+    <rect width="152" height="212" rx="12" fill="#0d101c" stroke="#8a6d1f" stroke-width="1.8"/>
+    <circle cx="22" cy="22" r="14" fill="#db2777"/><text x="22" y="27" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">7</text>
+    <text x="76" y="66" font-size="34" text-anchor="middle">📖</text>
+    <text x="76" y="102" font-size="16" font-weight="800" fill="#f472b6" text-anchor="middle">學習與教育</text>
+    <text x="76" y="130" font-size="12" fill="#c3cedb" text-anchor="middle">更聰明地學習、</text>
+    <text x="76" y="148" font-size="12" fill="#c3cedb" text-anchor="middle">解釋複雜主題、</text>
+    <text x="76" y="166" font-size="12" fill="#c3cedb" text-anchor="middle">建立客製化</text>
+    <text x="76" y="184" font-size="12" fill="#c3cedb" text-anchor="middle">學習指南。</text>
+  </g>
+  <!-- 8 設計與創意發想 -->
+  <g transform="translate(380,644)">
+    <rect width="152" height="212" rx="12" fill="#0d101c" stroke="#8a6d1f" stroke-width="1.8"/>
+    <circle cx="22" cy="22" r="14" fill="#2563eb"/><text x="22" y="27" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">8</text>
+    <text x="76" y="66" font-size="34" text-anchor="middle">🎨</text>
+    <text x="76" y="96" font-size="15.5" font-weight="800" fill="#60a5fa" text-anchor="middle">設計與創意</text>
+    <text x="76" y="116" font-size="15.5" font-weight="800" fill="#60a5fa" text-anchor="middle">發想</text>
+    <text x="76" y="144" font-size="12" fill="#c3cedb" text-anchor="middle">腦力激盪概念、</text>
+    <text x="76" y="162" font-size="12" fill="#c3cedb" text-anchor="middle">產生視覺構想，</text>
+    <text x="76" y="180" font-size="12" fill="#c3cedb" text-anchor="middle">讓創意專案成真。</text>
+  </g>
+  <!-- 9 郵件與溝通 -->
+  <g transform="translate(548,644)">
+    <rect width="152" height="212" rx="12" fill="#0d101c" stroke="#8a6d1f" stroke-width="1.8"/>
+    <circle cx="22" cy="22" r="14" fill="#dc2626"/><text x="22" y="27" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">9</text>
+    <text x="76" y="66" font-size="34" text-anchor="middle">✉️</text>
+    <text x="76" y="102" font-size="16" font-weight="800" fill="#f87171" text-anchor="middle">郵件與溝通</text>
+    <text x="76" y="130" font-size="12" fill="#c3cedb" text-anchor="middle">草擬清晰、專業、</text>
+    <text x="76" y="148" font-size="12" fill="#c3cedb" text-anchor="middle">有效的電子郵件、</text>
+    <text x="76" y="166" font-size="12" fill="#c3cedb" text-anchor="middle">報告與訊息。</text>
+  </g>
+  <!-- 10 自動化與整合 -->
+  <g transform="translate(716,644)">
+    <rect width="140" height="212" rx="12" fill="#0d101c" stroke="#8a6d1f" stroke-width="1.8"/>
+    <circle cx="22" cy="22" r="14" fill="#16a34a"/><text x="22" y="27" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">10</text>
+    <text x="70" y="66" font-size="34" text-anchor="middle">⚙️</text>
+    <text x="70" y="96" font-size="15.5" font-weight="800" fill="#4ade80" text-anchor="middle">自動化與</text>
+    <text x="70" y="116" font-size="15.5" font-weight="800" fill="#4ade80" text-anchor="middle">整合</text>
+    <text x="70" y="144" font-size="11.5" fill="#c3cedb" text-anchor="middle">連接工具、自動化</text>
+    <text x="70" y="162" font-size="11.5" fill="#c3cedb" text-anchor="middle">工作流，讓 Claude</text>
+    <text x="70" y="180" font-size="11.5" fill="#c3cedb" text-anchor="middle">處理重複性工作。</text>
+  </g>
+
+  <!-- 底部提示列 -->
+  <g transform="translate(44,880)">
+    <rect width="428" height="96" rx="14" fill="#0d101c" stroke="#b7791f" stroke-width="2"/>
+    <circle cx="46" cy="48" r="26" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+    <text x="46" y="58" font-size="26" text-anchor="middle">💡</text>
+    <text x="86" y="32" font-size="17" font-weight="900" fill="#f59e0b">專業秘訣：</text>
+    <text x="86" y="54" font-size="12.5" fill="#c3cedb">用 Projects 給 Claude 長期記憶、自訂指令與所有</text>
+    <text x="86" y="72" font-size="12.5" fill="#c3cedb">重要檔案——讓它完全照你需要的方式工作。</text>
+  </g>
+  <path d="M486 916 h24 v-10 l22 22 -22 22 v-10 h-24 Z" fill="#f1f5f9"/>
+  <g transform="translate(546,880)">
+    <rect width="310" height="96" rx="14" fill="#12101f" stroke="#7c3aed" stroke-width="2"/>
+    <text x="20" y="36" font-size="17" font-weight="900" fill="#e9d5ff">想要更多靈感？</text>
+    <text x="20" y="60" font-size="12.5" fill="#c3cedb">查看原貼文留言區：5 個可直接套用的</text>
+    <text x="20" y="78" font-size="12.5" fill="#c3cedb">專案構想＋提示詞，複製即可使用！</text>
+    <circle cx="262" cy="48" r="24" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+    <path d="M250 42 h24 v14 h-14 l-6 6 v-6 h-4 Z" fill="#a78bfa"/>
+  </g>
+
+  <!-- 頁尾 -->
+  <rect x="0" y="1004" width="900" height="72" fill="url(#footGrad)"/>
+  <g transform="translate(58,1014)">
+    <path d="M0 44 L26 -4 L52 44 Z" fill="none" stroke="#93c5fd" stroke-width="6" stroke-linejoin="round"/>
+  </g>
+  <text x="140" y="1042" font-size="26" font-weight="900"><tspan fill="#ffffff">追蹤 </tspan><tspan fill="#7dd3fc">PINNACLE AI SOLUTIONS</tspan></text>
+  <text x="140" y="1066" font-size="14" font-weight="700" fill="#bfdbfe">獲取更多 AI 秘訣、工具與工作流程</text>
+  <text x="450" y="1122" font-size="13" fill="#475569" text-anchor="middle">中文重製版 · 依原圖風格重繪（原作：Pinnacle AI Solutions「10 Powerful Ways to Use Claude Projects」）</text>
+</svg>
+  </div>
+  <div class="key-points">
+    <span>長期記憶</span><span>自訂指令</span><span>內容創作</span><span>商業規劃</span><span>研究摘要</span><span>專案管理</span><span>自動化整合</span>
+  </div>
+</section>
+</main>
+<footer>
+  <p>AI 概念研究 · 中文圖解 · 2026-07-06 由每日自動化流程產生 · <a href="index.html">回到索引</a></p>
+</footer>
+</body>
+</html>
