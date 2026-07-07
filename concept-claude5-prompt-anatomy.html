@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude 5 提示技巧 · 中文圖解</title>
+<style>
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header.hero{background:linear-gradient(135deg,#1a1a2e,#2b3a67);color:#fff;padding:54px 0 46px}
+.hero .wrap{display:flex;flex-direction:column;gap:14px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;width:fit-content}
+.hero h1{margin:0;font-size:34px;letter-spacing:.5px}
+.hero p{margin:0;color:#c8d0e0;max-width:760px}
+nav.toc{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+nav.toc .wrap{display:flex;gap:8px;overflow-x:auto;padding:12px 20px}
+nav.toc a{flex:0 0 auto;font-size:12.5px;color:#374151;text-decoration:none;background:#f1f3f6;padding:7px 12px;border-radius:8px;white-space:nowrap;transition:.15s}
+nav.toc a:hover{background:var(--blue);color:#fff}
+nav.toc a b{color:var(--acc)} nav.toc a:hover b{color:#fff}
+main{padding:30px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin:22px 0;box-shadow:0 4px 18px rgba(20,20,40,.05)}
+.card-head{display:flex;gap:16px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:18px}
+.num{flex:0 0 auto;width:46px;height:46px;background:var(--ink);color:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800}
+.cat{display:inline-block;font-size:12px;font-weight:700;color:var(--acc);background:#fff2ec;padding:2px 10px;border-radius:999px;margin-bottom:6px}
+.card-head h2{margin:2px 0;font-size:21px}
+.card-head .en{margin:0;color:var(--mut);font-size:13px;font-style:italic}
+.card-body{display:grid;grid-template-columns:1.35fr 1fr;gap:24px;align-items:start}
+.card-body:not(:has(.text)){grid-template-columns:1fr}
+.figure{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+.figure svg{width:100%;height:auto;display:block}
+.text .intro{font-size:15px;font-weight:600;color:#222;margin:2px 0 14px;padding-left:12px;border-left:3px solid var(--acc)}
+.text ul{margin:0;padding-left:20px} .text li{margin-bottom:11px;font-size:14px;color:#333}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 0 50px}
+@media(max-width:860px){.card-body{grid-template-columns:1fr}.hero h1{font-size:26px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="badge">中文圖解</span>
+  <h1>Claude 5 提示技巧 · 中文圖解</h1>
+  <p>Claude 5 提示的解剖結構 × 如何對 Claude-5 下提示 · 依原圖風格重繪（原作：Ruben Hassid「How to AI」）</p>
+</div></header>
+<nav class="toc"><div class="wrap"><a href="#s1"><b>01</b> Claude 5 提示的解剖結構</a><a href="#s2"><b>02</b> 如何對 Claude-5 下提示（發揮它的最大實力）</a></div></nav>
+<main><div class="wrap">
+    <section class="card" id="s1">
+      <div class="card-head">
+        <span class="num">01</span>
+        <div><span class="cat">提示工程</span><h2>Claude 5 提示的解剖結構</h2><p class="en">The Anatomy of a Claude 5 prompt</p></div>
+      </div>
+      <div class="card-body"><div class="figure"><svg viewBox="0 0 1200 1530" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="1200" height="1530" fill="#262321"/>
+
+  <!-- 標題 -->
+  <g>
+    <g transform="translate(58,88)">
+      <g stroke="#D96C4F" stroke-width="7" stroke-linecap="round">
+        <line x1="0" y1="-26" x2="0" y2="26"/>
+        <line x1="-26" y1="0" x2="26" y2="0"/>
+        <line x1="-19" y1="-19" x2="19" y2="19"/>
+        <line x1="-19" y1="19" x2="19" y2="-19"/>
+      </g>
+    </g>
+    <rect x="108" y="42" width="404" height="76" fill="#D96C4F"/>
+    <text x="120" y="99" font-size="54" font-weight="700" fill="#FFFFFF" font-family="'Songti TC','Noto Serif CJK TC','PingFang TC',serif">Claude 5 提示</text>
+    <text x="524" y="99" font-size="54" font-weight="700" fill="#F4EFE9" font-family="'Songti TC','Noto Serif CJK TC','PingFang TC',serif">的解剖結構</text>
+  </g>
+
+  <!-- 左側提示範本面板 -->
+  <rect x="40" y="160" width="820" height="1330" rx="18" fill="#332F2C"/>
+
+  <!-- 段落色條 -->
+  <g>
+    <rect x="72" y="188" width="5" height="98" fill="#E8705F"/>
+    <rect x="72" y="311" width="5" height="98" fill="#6B9BD8"/>
+    <rect x="72" y="434" width="5" height="67" fill="#3FA98E"/>
+    <rect x="72" y="526" width="5" height="67" fill="#E5B94E"/>
+    <rect x="72" y="618" width="5" height="129" fill="#F4C2CE"/>
+    <rect x="72" y="772" width="5" height="129" fill="#A78BDB"/>
+    <rect x="72" y="926" width="5" height="98" fill="#E8705F"/>
+    <rect x="72" y="1049" width="5" height="67" fill="#6B9BD8"/>
+    <rect x="72" y="1141" width="5" height="67" fill="#3FA98E"/>
+    <rect x="72" y="1233" width="5" height="98" fill="#E5B94E"/>
+    <rect x="72" y="1356" width="5" height="98" fill="#F4C2CE"/>
+  </g>
+
+  <!-- 段落文字 -->
+  <g font-size="21" fill="#E9E4DE">
+    <text x="98" y="210">我正在為〔目標對象〕進行〔更大的目標〕。</text>
+    <text x="98" y="241">他們需要〔這份產出能帶來什麼〕。</text>
+    <text x="98" y="272">基於此，請執行：〔任務〕。</text>
+
+    <text x="98" y="333">先完整讀完這些檔案再回應：</text>
+    <text x="98" y="364">〔filename.md〕—〔它包含什麼〕</text>
+    <text x="98" y="395">〔filename.md〕—〔它包含什麼〕</text>
+
+    <text x="98" y="456">這是我想達成目標的參考範例：</text>
+    <text x="98" y="487">〔上傳 markdown 參考檔，或直接貼在這裡〕</text>
+
+    <text x="98" y="548">這是一個〔例行／困難／最難未解〕的問題。</text>
+    <text x="98" y="579">別低估自己——用你能力範圍的上限來規劃它。</text>
+
+    <text x="98" y="640">當你的資訊足以行動時，就行動。</text>
+    <text x="98" y="671">不要重推已確立的結論、翻案我做過的決定、</text>
+    <text x="98" y="702">或羅列你不會採用的選項。</text>
+    <text x="98" y="733">正在權衡選擇？直接給出建議。</text>
+
+    <text x="98" y="794">做「能良好運作的最簡方案」。</text>
+    <text x="98" y="825">不加多餘功能、重構或抽象化。</text>
+    <text x="98" y="856">不為不可能發生的情境寫錯誤處理。</text>
+    <text x="98" y="887">若我描述的是問題，交付物就是你的評估。</text>
+
+    <text x="98" y="948">把互相獨立的子任務分派給子代理，持續推進。</text>
+    <text x="98" y="979">每隔〔間隔〕用一個全新上下文的子代理，</text>
+    <text x="98" y="1010">對照規格進行驗證。</text>
+
+    <text x="98" y="1071">回報進度前，逐一核對每個宣稱是否有本次</text>
+    <text x="98" y="1102">工具結果佐證。未驗證？直說。測試失敗？附上輸出。</text>
+
+    <text x="98" y="1163">把教訓記錄在〔notes.md〕——一檔一課，附一行摘要。</text>
+    <text x="98" y="1194">更新既有的，不要重複建。刪掉被證明錯誤的。</text>
+
+    <text x="98" y="1255">只在這些情況暫停：破壞性動作、真正的範圍變更、</text>
+    <text x="98" y="1286">或只有我能提供的輸入。否則一路做到底。</text>
+    <text x="98" y="1317">絕不在「承諾要做」的狀態下結束回合。</text>
+
+    <text x="98" y="1378">以結果開場——先給我會主動要的 TLDR。</text>
+    <text x="98" y="1409">完整句子、不用箭頭鏈、不用我沒看過的縮寫。</text>
+    <text x="98" y="1440">清楚勝於簡短。</text>
+  </g>
+
+  <!-- 面板底部輸入列裝飾 -->
+  <text x="80" y="1472" font-size="30" fill="#8A837C">＋</text>
+  <text x="640" y="1468" font-size="19" fill="#8A837C">Fable 5　High ▾</text>
+  <rect x="796" y="1444" width="34" height="34" rx="8" fill="#D96C4F"/>
+  <text x="813" y="1468" font-size="20" fill="#FFFFFF" text-anchor="middle">↑</text>
+
+  <!-- 右側標籤欄 -->
+  <g>
+    <rect x="888" y="190" width="5" height="72" fill="#E8705F"/>
+    <text x="908" y="222" font-size="31" font-weight="700" fill="#FFFFFF">任務 Task</text>
+    <text x="908" y="248" font-size="16" fill="#B9B2AA">目標＋為什麼，</text>
+    <text x="908" y="269" font-size="16" fill="#B9B2AA">而不是步驟</text>
+
+    <rect x="888" y="313" width="5" height="72" fill="#6B9BD8"/>
+    <text x="908" y="345" font-size="31" font-weight="700" fill="#FFFFFF">上下文檔案</text>
+    <text x="908" y="371" font-size="16" fill="#B9B2AA">先讀檔案，</text>
+    <text x="908" y="392" font-size="16" fill="#B9B2AA">絕不用猜的</text>
+
+    <rect x="888" y="436" width="5" height="72" fill="#3FA98E"/>
+    <text x="908" y="468" font-size="31" font-weight="700" fill="#FFFFFF">參考範例</text>
+    <text x="908" y="494" font-size="16" fill="#B9B2AA">讓它看見</text>
+    <text x="908" y="515" font-size="16" fill="#B9B2AA">「好」長什麼樣子</text>
+
+    <rect x="888" y="540" width="5" height="72" fill="#E5B94E"/>
+    <text x="908" y="572" font-size="31" font-weight="700" fill="#FFFFFF">投入程度</text>
+    <text x="908" y="598" font-size="16" fill="#B9B2AA">別讓它</text>
+    <text x="908" y="619" font-size="16" fill="#B9B2AA">低估自己</text>
+
+    <rect x="888" y="644" width="5" height="72" fill="#F4C2CE"/>
+    <text x="908" y="676" font-size="31" font-weight="700" fill="#FFFFFF">立即行動</text>
+    <text x="908" y="702" font-size="16" fill="#B9B2AA">防止它</text>
+    <text x="908" y="723" font-size="16" fill="#B9B2AA">過度規劃</text>
+
+    <rect x="888" y="798" width="5" height="72" fill="#A78BDB"/>
+    <text x="908" y="830" font-size="31" font-weight="700" fill="#FFFFFF">範圍 Scope</text>
+    <text x="908" y="856" font-size="16" fill="#B9B2AA">能運作的</text>
+    <text x="908" y="877" font-size="16" fill="#B9B2AA">最簡方案</text>
+
+    <rect x="888" y="930" width="5" height="72" fill="#E8705F"/>
+    <text x="908" y="962" font-size="31" font-weight="700" fill="#FFFFFF">委派 Delegate</text>
+    <text x="908" y="988" font-size="16" fill="#B9B2AA">枯燥工作</text>
+    <text x="908" y="1009" font-size="16" fill="#B9B2AA">交給子代理</text>
+
+    <rect x="888" y="1053" width="5" height="72" fill="#6B9BD8"/>
+    <text x="908" y="1085" font-size="31" font-weight="700" fill="#FFFFFF">證據 Evidence</text>
+    <text x="908" y="1111" font-size="16" fill="#B9B2AA">先稽核</text>
+    <text x="908" y="1132" font-size="16" fill="#B9B2AA">再回報</text>
+
+    <rect x="888" y="1145" width="5" height="72" fill="#3FA98E"/>
+    <text x="908" y="1177" font-size="31" font-weight="700" fill="#FFFFFF">記憶 Memory</text>
+    <text x="908" y="1203" font-size="16" fill="#B9B2AA">教訓要能</text>
+    <text x="908" y="1224" font-size="16" fill="#B9B2AA">跨越工作階段</text>
+
+    <rect x="888" y="1237" width="5" height="72" fill="#E5B94E"/>
+    <text x="908" y="1269" font-size="31" font-weight="700" fill="#FFFFFF">檢查點</text>
+    <text x="908" y="1295" font-size="16" fill="#B9B2AA">只在必要時</text>
+    <text x="908" y="1316" font-size="16" fill="#B9B2AA">才暫停</text>
+
+    <rect x="888" y="1360" width="5" height="72" fill="#F4C2CE"/>
+    <text x="908" y="1392" font-size="31" font-weight="700" fill="#FFFFFF">回報 Report</text>
+    <text x="908" y="1418" font-size="16" fill="#B9B2AA">TLDR</text>
+    <text x="908" y="1439" font-size="16" fill="#B9B2AA">永遠放最前面</text>
+  </g>
+
+  <!-- 頁尾 -->
+  <text x="40" y="1516" font-size="17" fill="#8A837C">更多資訊圖請至 how-to-ai.guide</text>
+  <text x="1160" y="1516" font-size="17" fill="#8A837C" text-anchor="end">中文重製版 · 依原圖風格重繪（原作：Ruben Hassid「How to AI」）</text>
+</svg></div><div class="text"><p class="intro">一份完整 Claude 5 提示的 11 個組成部位：從任務、上下文檔案到回報格式，逐段拆解可直接套用的提示範本。</p><ul><li>任務：說明目標＋為什麼（更大的目標、對象、產出用途），而不是列步驟。</li><li>上下文檔案與參考範例：先讓它完整讀檔、看見「好」長什麼樣子，絕不用猜的。</li><li>投入程度與立即行動：宣告問題難度、要求用能力上限規劃；資訊足夠就行動，防止過度規劃。</li><li>範圍與委派：做能運作的最簡方案；獨立子任務交給子代理，並定期用全新上下文子代理對照規格驗證。</li><li>證據、記憶、檢查點、回報：回報前逐項稽核宣稱、教訓寫進筆記檔跨階段留存、只在必要時暫停、開場先給 TLDR。</li></ul></div></div>
+    </section>
+    <section class="card" id="s2">
+      <div class="card-head">
+        <span class="num">02</span>
+        <div><span class="cat">提示工程</span><h2>如何對 Claude-5 下提示（發揮它的最大實力）</h2><p class="en">How to Prompt Claude-5 (to get the most out of it)</p></div>
+      </div>
+      <div class="card-body"><div class="figure"><svg viewBox="0 0 1200 1530" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="1200" height="1530" fill="#F4F1EC"/>
+
+  <!-- 標題橫幅 -->
+  <rect x="40" y="40" width="1120" height="110" rx="14" fill="#C75B45"/>
+  <text x="600" y="115" font-size="62" font-weight="700" fill="#FFFFFF" text-anchor="middle" font-family="'Songti TC','Noto Serif CJK TC','PingFang TC',serif">如何對 Claude-5 下提示</text>
+  <text x="600" y="212" font-size="38" font-weight="700" fill="#1E1B18" text-anchor="middle">（發揮它的最大實力）</text>
+
+  <!-- 金字塔 -->
+  <g stroke="#F4F1EC" stroke-width="4">
+    <polygon points="880,272 936,374 824,374" fill="#EBA894"/>
+    <polygon points="936,374 992,476 768,476 824,374" fill="#E08A72"/>
+    <polygon points="992,476 1048,578 712,578 768,476" fill="#C75B45"/>
+    <polygon points="1048,578 1104,680 656,680 712,578" fill="#8F3E2E"/>
+    <polygon points="1104,680 1160,782 600,782 656,680" fill="#DDD3C0"/>
+  </g>
+  <g font-size="33" font-weight="700" fill="#1E1B18" text-anchor="end" font-family="'Songti TC','Noto Serif CJK TC','PingFang TC',serif">
+    <text x="800" y="340">專案 Project</text>
+    <text x="746" y="442">技能 Skills</text>
+    <text x="690" y="544">提問確認 AskUserQuestion</text>
+    <text x="634" y="646">目標 Goal</text>
+    <text x="578" y="748">投入程度 Effort</text>
+  </g>
+
+  <!-- 左側：Project 區塊 -->
+  <rect x="70" y="276" width="130" height="46" rx="8" fill="#EBA894"/>
+  <text x="135" y="308" font-size="26" font-weight="700" fill="#5A2A1E" text-anchor="middle">專案</text>
+  <g font-size="21" fill="#33302C">
+    <text x="76" y="362">刪掉你的資料夾，改建一個 Project：</text>
+    <text x="76" y="392">跨對話共用的檔案＋指示。</text>
+    <text x="76" y="422">一個任務一個 Project。可與團隊共享。</text>
+    <text x="76" y="452">（僅付費方案提供）</text>
+  </g>
+
+  <!-- 左側：Skills 區塊 -->
+  <rect x="70" y="520" width="130" height="46" rx="8" fill="#E08A72"/>
+  <text x="135" y="552" font-size="26" font-weight="700" fill="#4A2418" text-anchor="middle">技能</text>
+  <g font-size="21" fill="#33302C">
+    <text x="76" y="606">「關於我」檔案現在就是一個技能。</text>
+    <text x="76" y="636">一個 / 指令，勝過一段存起來的提示。</text>
+    <text x="76" y="666">判斷標準：能教會一個人的，</text>
+    <text x="76" y="696">就能做成一個 Skill。</text>
+  </g>
+
+  <!-- 虛線連接 -->
+  <g stroke="#555049" stroke-width="2" stroke-dasharray="7 6" fill="none">
+    <path d="M 60 299 L 46 299 L 46 972 L 140 972"/>
+    <path d="M 210 543 L 400 543 L 400 900 L 410 900"/>
+    <path d="M 370 1256 L 370 1195"/>
+    <path d="M 540 1256 L 540 1130"/>
+    <path d="M 930 1274 L 930 1160"/>
+  </g>
+
+  <!-- 範例框 -->
+  <rect x="90" y="850" width="1020" height="350" rx="18" fill="#FFFFFF" stroke="#C75B45" stroke-width="2"/>
+  <text x="130" y="912" font-size="33" font-weight="700" fill="#1E1B18">範例</text>
+
+  <g font-size="22">
+    <rect x="128" y="938" width="770" height="34" rx="5" fill="#EBA894"/>
+    <text x="140" y="963" fill="#3A1D14">打開我的「課程上市 Project」——受眾筆記與上市細節都在裡面。</text>
+    <rect x="128" y="976" width="700" height="34" rx="5" fill="#EBA894"/>
+    <text x="140" y="1001" fill="#3A1D14">也看看「過往上市紀錄」文件，了解上次哪些做法有效。</text>
+    <rect x="128" y="1014" width="860" height="34" rx="5" fill="#E08A72"/>
+    <text x="140" y="1039" fill="#3A1D14">執行 /linkedin-post，要符合我的開頭鉤子與語氣：不用 AI 慣用語、</text>
+    <rect x="128" y="1052" width="380" height="34" rx="5" fill="#E08A72"/>
+    <text x="140" y="1077" fill="#3A1D14">不用長破折號、每段最多 3 句。</text>
+    <rect x="518" y="1052" width="470" height="34" rx="5" fill="#C75B45"/>
+    <text x="530" y="1077" fill="#FFFFFF">動筆之前，把你需要知道的一切都先問我；</text>
+    <rect x="128" y="1090" width="620" height="34" rx="5" fill="#C75B45"/>
+    <text x="140" y="1115" fill="#FFFFFF">若我的回答改變了切入角度，就再問一次——不要用猜的。</text>
+    <rect x="758" y="1090" width="230" height="34" rx="5" fill="#8F3E2E"/>
+    <text x="770" y="1115" fill="#FFFFFF">目標：一篇週二發佈、</text>
+    <rect x="128" y="1128" width="740" height="34" rx="5" fill="#8F3E2E"/>
+    <text x="140" y="1153" fill="#FFFFFF">能讓非技術專業人士留言回覆（而不只是按讚）的課程上市貼文。</text>
+    <rect x="128" y="1166" width="330" height="34" rx="5" fill="#DDD3C0"/>
+    <text x="140" y="1191" fill="#33302C">使用 Fable-5，effort High。</text>
+  </g>
+
+  <!-- 底部三區塊 -->
+  <rect x="140" y="1256" width="290" height="52" rx="10" fill="#C75B45"/>
+  <text x="285" y="1291" font-size="26" font-weight="700" fill="#FFFFFF" text-anchor="middle">AskUserQuestion</text>
+  <g font-size="21" fill="#33302C">
+    <text x="86" y="1350">在提示的結尾加上：</text>
+    <text x="86" y="1380" font-style="italic">「開始之前，把你需要知道的一切</text>
+    <text x="86" y="1410" font-style="italic">都先問我，才能把這件事做對。」</text>
+  </g>
+
+  <rect x="470" y="1256" width="140" height="52" rx="10" fill="#8F3E2E"/>
+  <text x="540" y="1291" font-size="26" font-weight="700" fill="#FFFFFF" text-anchor="middle">目標</text>
+  <g font-size="21" fill="#33302C">
+    <text x="466" y="1350">別再派任務，改給目標——你要的</text>
+    <text x="466" y="1380">成果＋你知道的一切。Fable 5 會</text>
+    <text x="466" y="1410">自己規劃，連續工作好幾個小時。</text>
+  </g>
+
+  <rect x="850" y="1256" width="160" height="52" rx="10" fill="#DDD3C0" stroke="#8A8172" stroke-width="2"/>
+  <text x="930" y="1291" font-size="26" font-weight="700" fill="#33302C" text-anchor="middle">投入程度</text>
+  <g font-size="21" fill="#33302C">
+    <text x="846" y="1350">正式工作：Fable 5＋effort High。</text>
+    <text x="846" y="1380">最難的問題：用 Max。</text>
+    <text x="846" y="1410">快速草稿：用 Sonnet。</text>
+  </g>
+
+  <!-- 頁尾 -->
+  <text x="60" y="1492" font-size="17" fill="#6E675E">更多資訊圖請至 how-to-ai.guide</text>
+  <text x="1140" y="1492" font-size="17" fill="#6E675E" text-anchor="end">中文重製版 · 依原圖風格重繪（原作：Ruben Hassid「How to AI」）</text>
+</svg></div><div class="text"><p class="intro">五層金字塔：Project、Skills、AskUserQuestion、Goal、Effort，搭配一段真實範例提示，示範五個要素如何組合成一句高效指令。</p><ul><li>Project：刪掉資料夾改建 Project，跨對話共用檔案＋指示；一個任務一個 Project，可與團隊共享。</li><li>Skills：「關於我」檔案現在就是技能；一個 / 指令勝過存起來的提示，能教會一個人的就能做成 Skill。</li><li>AskUserQuestion：提示結尾加上「開始之前，把你需要知道的一切都先問我」。</li><li>Goal：別再派任務，改給目標——你要的成果＋你知道的一切，Fable 5 會自己規劃並連續工作數小時。</li><li>Effort：正式工作用 Fable 5＋effort High，最難的問題用 Max，快速草稿用 Sonnet。</li></ul></div></div>
+    </section></div></main>
+<footer>中文重製版 · 全部圖形以 SVG 重繪，文字可選取、可縮放。原始素材版權屬各原作者，此為學習用途之中文重製。</footer>
+</body></html>
