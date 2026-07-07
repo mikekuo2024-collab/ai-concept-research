@@ -1,0 +1,149 @@
+<svg viewBox="0 0 1200 1530" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="1200" height="1530" fill="#262321"/>
+
+  <!-- 標題 -->
+  <g>
+    <g transform="translate(58,88)">
+      <g stroke="#D96C4F" stroke-width="7" stroke-linecap="round">
+        <line x1="0" y1="-26" x2="0" y2="26"/>
+        <line x1="-26" y1="0" x2="26" y2="0"/>
+        <line x1="-19" y1="-19" x2="19" y2="19"/>
+        <line x1="-19" y1="19" x2="19" y2="-19"/>
+      </g>
+    </g>
+    <rect x="108" y="42" width="404" height="76" fill="#D96C4F"/>
+    <text x="120" y="99" font-size="54" font-weight="700" fill="#FFFFFF" font-family="'Songti TC','Noto Serif CJK TC','PingFang TC',serif">Claude 5 提示</text>
+    <text x="524" y="99" font-size="54" font-weight="700" fill="#F4EFE9" font-family="'Songti TC','Noto Serif CJK TC','PingFang TC',serif">的解剖結構</text>
+  </g>
+
+  <!-- 左側提示範本面板 -->
+  <rect x="40" y="160" width="820" height="1330" rx="18" fill="#332F2C"/>
+
+  <!-- 段落色條 -->
+  <g>
+    <rect x="72" y="188" width="5" height="98" fill="#E8705F"/>
+    <rect x="72" y="311" width="5" height="98" fill="#6B9BD8"/>
+    <rect x="72" y="434" width="5" height="67" fill="#3FA98E"/>
+    <rect x="72" y="526" width="5" height="67" fill="#E5B94E"/>
+    <rect x="72" y="618" width="5" height="129" fill="#F4C2CE"/>
+    <rect x="72" y="772" width="5" height="129" fill="#A78BDB"/>
+    <rect x="72" y="926" width="5" height="98" fill="#E8705F"/>
+    <rect x="72" y="1049" width="5" height="67" fill="#6B9BD8"/>
+    <rect x="72" y="1141" width="5" height="67" fill="#3FA98E"/>
+    <rect x="72" y="1233" width="5" height="98" fill="#E5B94E"/>
+    <rect x="72" y="1356" width="5" height="98" fill="#F4C2CE"/>
+  </g>
+
+  <!-- 段落文字 -->
+  <g font-size="21" fill="#E9E4DE">
+    <text x="98" y="210">我正在為〔目標對象〕進行〔更大的目標〕。</text>
+    <text x="98" y="241">他們需要〔這份產出能帶來什麼〕。</text>
+    <text x="98" y="272">基於此，請執行：〔任務〕。</text>
+
+    <text x="98" y="333">先完整讀完這些檔案再回應：</text>
+    <text x="98" y="364">〔filename.md〕—〔它包含什麼〕</text>
+    <text x="98" y="395">〔filename.md〕—〔它包含什麼〕</text>
+
+    <text x="98" y="456">這是我想達成目標的參考範例：</text>
+    <text x="98" y="487">〔上傳 markdown 參考檔，或直接貼在這裡〕</text>
+
+    <text x="98" y="548">這是一個〔例行／困難／最難未解〕的問題。</text>
+    <text x="98" y="579">別低估自己——用你能力範圍的上限來規劃它。</text>
+
+    <text x="98" y="640">當你的資訊足以行動時，就行動。</text>
+    <text x="98" y="671">不要重推已確立的結論、翻案我做過的決定、</text>
+    <text x="98" y="702">或羅列你不會採用的選項。</text>
+    <text x="98" y="733">正在權衡選擇？直接給出建議。</text>
+
+    <text x="98" y="794">做「能良好運作的最簡方案」。</text>
+    <text x="98" y="825">不加多餘功能、重構或抽象化。</text>
+    <text x="98" y="856">不為不可能發生的情境寫錯誤處理。</text>
+    <text x="98" y="887">若我描述的是問題，交付物就是你的評估。</text>
+
+    <text x="98" y="948">把互相獨立的子任務分派給子代理，持續推進。</text>
+    <text x="98" y="979">每隔〔間隔〕用一個全新上下文的子代理，</text>
+    <text x="98" y="1010">對照規格進行驗證。</text>
+
+    <text x="98" y="1071">回報進度前，逐一核對每個宣稱是否有本次</text>
+    <text x="98" y="1102">工具結果佐證。未驗證？直說。測試失敗？附上輸出。</text>
+
+    <text x="98" y="1163">把教訓記錄在〔notes.md〕——一檔一課，附一行摘要。</text>
+    <text x="98" y="1194">更新既有的，不要重複建。刪掉被證明錯誤的。</text>
+
+    <text x="98" y="1255">只在這些情況暫停：破壞性動作、真正的範圍變更、</text>
+    <text x="98" y="1286">或只有我能提供的輸入。否則一路做到底。</text>
+    <text x="98" y="1317">絕不在「承諾要做」的狀態下結束回合。</text>
+
+    <text x="98" y="1378">以結果開場——先給我會主動要的 TLDR。</text>
+    <text x="98" y="1409">完整句子、不用箭頭鏈、不用我沒看過的縮寫。</text>
+    <text x="98" y="1440">清楚勝於簡短。</text>
+  </g>
+
+  <!-- 面板底部輸入列裝飾 -->
+  <text x="80" y="1472" font-size="30" fill="#8A837C">＋</text>
+  <text x="640" y="1468" font-size="19" fill="#8A837C">Fable 5　High ▾</text>
+  <rect x="796" y="1444" width="34" height="34" rx="8" fill="#D96C4F"/>
+  <text x="813" y="1468" font-size="20" fill="#FFFFFF" text-anchor="middle">↑</text>
+
+  <!-- 右側標籤欄 -->
+  <g>
+    <rect x="888" y="190" width="5" height="72" fill="#E8705F"/>
+    <text x="908" y="222" font-size="31" font-weight="700" fill="#FFFFFF">任務 Task</text>
+    <text x="908" y="248" font-size="16" fill="#B9B2AA">目標＋為什麼，</text>
+    <text x="908" y="269" font-size="16" fill="#B9B2AA">而不是步驟</text>
+
+    <rect x="888" y="313" width="5" height="72" fill="#6B9BD8"/>
+    <text x="908" y="345" font-size="31" font-weight="700" fill="#FFFFFF">上下文檔案</text>
+    <text x="908" y="371" font-size="16" fill="#B9B2AA">先讀檔案，</text>
+    <text x="908" y="392" font-size="16" fill="#B9B2AA">絕不用猜的</text>
+
+    <rect x="888" y="436" width="5" height="72" fill="#3FA98E"/>
+    <text x="908" y="468" font-size="31" font-weight="700" fill="#FFFFFF">參考範例</text>
+    <text x="908" y="494" font-size="16" fill="#B9B2AA">讓它看見</text>
+    <text x="908" y="515" font-size="16" fill="#B9B2AA">「好」長什麼樣子</text>
+
+    <rect x="888" y="540" width="5" height="72" fill="#E5B94E"/>
+    <text x="908" y="572" font-size="31" font-weight="700" fill="#FFFFFF">投入程度</text>
+    <text x="908" y="598" font-size="16" fill="#B9B2AA">別讓它</text>
+    <text x="908" y="619" font-size="16" fill="#B9B2AA">低估自己</text>
+
+    <rect x="888" y="644" width="5" height="72" fill="#F4C2CE"/>
+    <text x="908" y="676" font-size="31" font-weight="700" fill="#FFFFFF">立即行動</text>
+    <text x="908" y="702" font-size="16" fill="#B9B2AA">防止它</text>
+    <text x="908" y="723" font-size="16" fill="#B9B2AA">過度規劃</text>
+
+    <rect x="888" y="798" width="5" height="72" fill="#A78BDB"/>
+    <text x="908" y="830" font-size="31" font-weight="700" fill="#FFFFFF">範圍 Scope</text>
+    <text x="908" y="856" font-size="16" fill="#B9B2AA">能運作的</text>
+    <text x="908" y="877" font-size="16" fill="#B9B2AA">最簡方案</text>
+
+    <rect x="888" y="930" width="5" height="72" fill="#E8705F"/>
+    <text x="908" y="962" font-size="31" font-weight="700" fill="#FFFFFF">委派 Delegate</text>
+    <text x="908" y="988" font-size="16" fill="#B9B2AA">枯燥工作</text>
+    <text x="908" y="1009" font-size="16" fill="#B9B2AA">交給子代理</text>
+
+    <rect x="888" y="1053" width="5" height="72" fill="#6B9BD8"/>
+    <text x="908" y="1085" font-size="31" font-weight="700" fill="#FFFFFF">證據 Evidence</text>
+    <text x="908" y="1111" font-size="16" fill="#B9B2AA">先稽核</text>
+    <text x="908" y="1132" font-size="16" fill="#B9B2AA">再回報</text>
+
+    <rect x="888" y="1145" width="5" height="72" fill="#3FA98E"/>
+    <text x="908" y="1177" font-size="31" font-weight="700" fill="#FFFFFF">記憶 Memory</text>
+    <text x="908" y="1203" font-size="16" fill="#B9B2AA">教訓要能</text>
+    <text x="908" y="1224" font-size="16" fill="#B9B2AA">跨越工作階段</text>
+
+    <rect x="888" y="1237" width="5" height="72" fill="#E5B94E"/>
+    <text x="908" y="1269" font-size="31" font-weight="700" fill="#FFFFFF">檢查點</text>
+    <text x="908" y="1295" font-size="16" fill="#B9B2AA">只在必要時</text>
+    <text x="908" y="1316" font-size="16" fill="#B9B2AA">才暫停</text>
+
+    <rect x="888" y="1360" width="5" height="72" fill="#F4C2CE"/>
+    <text x="908" y="1392" font-size="31" font-weight="700" fill="#FFFFFF">回報 Report</text>
+    <text x="908" y="1418" font-size="16" fill="#B9B2AA">TLDR</text>
+    <text x="908" y="1439" font-size="16" fill="#B9B2AA">永遠放最前面</text>
+  </g>
+
+  <!-- 頁尾 -->
+  <text x="40" y="1516" font-size="17" fill="#8A837C">更多資訊圖請至 how-to-ai.guide</text>
+  <text x="1160" y="1516" font-size="17" fill="#8A837C" text-anchor="end">中文重製版 · 依原圖風格重繪（原作：Ruben Hassid「How to AI」）</text>
+</svg>
