@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude 入門檢查清單 × Claude Code 建站七步驟 · 中文圖解</title>
+<style>
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header.hero{background:linear-gradient(135deg,#1a1a2e,#2b3a67);color:#fff;padding:54px 0 46px}
+.hero .wrap{display:flex;flex-direction:column;gap:14px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;width:fit-content}
+.hero h1{margin:0;font-size:34px;letter-spacing:.5px}
+.hero p{margin:0;color:#c8d0e0;max-width:760px}
+nav.toc{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+nav.toc .wrap{display:flex;gap:8px;overflow-x:auto;padding:12px 20px}
+nav.toc a{flex:0 0 auto;font-size:12.5px;color:#374151;text-decoration:none;background:#f1f3f6;padding:7px 12px;border-radius:8px;white-space:nowrap;transition:.15s}
+nav.toc a:hover{background:var(--blue);color:#fff}
+nav.toc a b{color:var(--acc)} nav.toc a:hover b{color:#fff}
+main{padding:30px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin:22px 0;box-shadow:0 4px 18px rgba(20,20,40,.05)}
+.card-head{display:flex;gap:16px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:18px}
+.num{flex:0 0 auto;width:46px;height:46px;background:var(--ink);color:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800}
+.cat{display:inline-block;font-size:12px;font-weight:700;color:var(--acc);background:#fff2ec;padding:2px 10px;border-radius:999px;margin-bottom:6px}
+.card-head h2{margin:2px 0;font-size:21px}
+.card-head .en{margin:0;color:var(--mut);font-size:13px;font-style:italic}
+.card-body{display:grid;grid-template-columns:1.35fr 1fr;gap:24px;align-items:start}
+.figure{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+.figure svg{width:100%;height:auto;display:block}
+.text .intro{font-size:15px;font-weight:600;color:#222;margin:2px 0 14px;padding-left:12px;border-left:3px solid var(--acc)}
+.text ul{margin:0;padding-left:20px} .text li{margin-bottom:11px;font-size:14px;color:#333}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 0 50px}
+@media(max-width:860px){.card-body{grid-template-columns:1fr}.hero h1{font-size:26px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="badge">中文圖解</span>
+  <h1>Claude 入門檢查清單 × Claude Code 建站七步驟</h1>
+  <p>兩張英文 AI 資訊圖的中文重繪：72 項 Claude 設定與使用檢查清單（9 大面向），以及用 Claude Code 建立網站的七步驟工作流。</p>
+</div></header>
+<nav class="toc"><div class="wrap"><a href="#s1"><b>01</b> Claude 入門檢查清單</a><a href="#s2"><b>02</b> 用 Claude Code 建立網站的 7 個步驟</a></div></nav>
+<main><div class="wrap">
+    <section class="card" id="s1">
+      <div class="card-head">
+        <span class="num">01</span>
+        <div><span class="cat">入門指南</span><h2>Claude 入門檢查清單</h2><p class="en">Claude Checklist</p></div>
+      </div>
+      <div class="card-body"><div class="figure"><svg viewBox="0 0 1240 1360" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <g id="flower">
+      <g fill="#c96f3b">
+        <ellipse cx="0" cy="-26" rx="9" ry="20"/>
+        <ellipse cx="0" cy="26" rx="9" ry="20"/>
+        <ellipse cx="-26" cy="0" rx="20" ry="9"/>
+        <ellipse cx="26" cy="0" rx="20" ry="9"/>
+        <ellipse cx="-19" cy="-19" rx="9" ry="18" transform="rotate(-45)"/>
+        <ellipse cx="19" cy="19" rx="9" ry="18" transform="rotate(-45)"/>
+        <ellipse cx="-19" cy="19" rx="18" ry="9" transform="rotate(-45)"/>
+        <ellipse cx="19" cy="-19" rx="18" ry="9" transform="rotate(-45)"/>
+      </g>
+      <circle r="10" fill="#8a4a2a"/>
+    </g>
+  </defs>
+  <rect width="1240" height="1360" fill="#8a5a3b"/>
+  <rect x="14" y="14" width="1212" height="1332" rx="10" fill="#f2e7d5"/>
+  <use href="#flower" x="90" y="80"/>
+  <use href="#flower" x="1150" y="80"/>
+  <use href="#flower" x="60" y="150" opacity="0.55"/>
+  <use href="#flower" x="1180" y="155" opacity="0.55"/>
+  <rect x="250" y="42" width="740" height="88" rx="20" fill="#571f18" stroke="#3c130e" stroke-width="3"/>
+  <text x="620" y="100" text-anchor="middle" font-size="52" font-weight="700" fill="#f6ead2" font-family="'Songti TC','Noto Serif CJK TC','PingFang TC','Noto Sans TC',serif">Claude 入門檢查清單</text>
+  <text x="620" y="152" text-anchor="middle" font-size="16" fill="#6b4a33">Claude Checklist — 9 大面向 72 項設定與使用要點</text>
+
+  <!-- ================= Row 1 ================= -->
+  <!-- Setup -->
+  <g>
+    <rect x="40" y="180" width="360" height="330" rx="12" fill="#fbf6ec" stroke="#d9c6ab" stroke-width="1.5"/>
+    <rect x="52" y="192" width="336" height="36" rx="18" fill="#6d2f28"/>
+    <circle cx="74" cy="210" r="13" fill="#f2e7d5" stroke="#a8794f" stroke-width="2"/><text x="74" y="215" text-anchor="middle" font-size="12">⚙️</text>
+    <text x="228" y="216" text-anchor="middle" font-size="17" font-weight="700" fill="#fdf6e8">基礎設定 Setup</text>
+    <g font-size="12.5" fill="#3d2b22">
+      <rect x="58" y="244" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="255">訂閱 Pro 方案（每月 20 美元）</text>
+      <rect x="58" y="277" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="288">下載 Claude 桌面版應用程式</text>
+      <rect x="58" y="310" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="321">設定 Opus 4.7 並開啟延伸思考</text>
+      <rect x="58" y="343" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="354">在設定中開啟電腦操作 Computer Use</text>
+      <rect x="58" y="376" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="387">將 Dispatch 連接到你的手機</text>
+      <rect x="58" y="409" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="420">從增益集商店安裝 Claude in Excel</text>
+      <rect x="58" y="442" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="453">安裝 Wispr Flow.ai 做語音輸入</text>
+      <rect x="58" y="475" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="486">安裝 Obsidian 並開啟 Cowork 資料夾</text>
+    </g>
+  </g>
+  <!-- Context Folder -->
+  <g>
+    <rect x="440" y="180" width="360" height="330" rx="12" fill="#fbf6ec" stroke="#d9c6ab" stroke-width="1.5"/>
+    <rect x="452" y="192" width="336" height="36" rx="18" fill="#a8794f"/>
+    <circle cx="474" cy="210" r="13" fill="#f2e7d5" stroke="#6d2f28" stroke-width="2"/><text x="474" y="215" text-anchor="middle" font-size="12">📁</text>
+    <text x="628" y="216" text-anchor="middle" font-size="17" font-weight="700" fill="#fdf6e8">情境資料夾 Context Folder</text>
+    <g font-size="12.5" fill="#3d2b22">
+      <rect x="458" y="244" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="255">在電腦建立 Claude Cowork 資料夾</text>
+      <rect x="458" y="277" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="288">建 ABOUT ME、OUTPUTS、TEMPLATES 子夾</text>
+      <rect x="458" y="310" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="321">撰寫 about-me.md（2,000 字以內）</text>
+      <rect x="458" y="343" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="354">用 anti-ai-writing-style.md 列禁用詞</text>
+      <rect x="458" y="376" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="387">把全域指令貼進設定的 Cowork 區</text>
+      <rect x="458" y="409" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="420">要求 Cowork 每次任務前先讀 ABOUT ME</text>
+      <rect x="458" y="442" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="453">要求它永不讀 OUTPUTS 與 TEMPLATES</text>
+      <rect x="458" y="475" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="486">交付成果存進 OUTPUTS 的專案子夾</text>
+    </g>
+  </g>
+  <!-- Prompting -->
+  <g>
+    <rect x="840" y="180" width="360" height="330" rx="12" fill="#fbf6ec" stroke="#d9c6ab" stroke-width="1.5"/>
+    <rect x="852" y="192" width="336" height="36" rx="18" fill="#6d2f28"/>
+    <circle cx="874" cy="210" r="13" fill="#f2e7d5" stroke="#a8794f" stroke-width="2"/><text x="874" y="215" text-anchor="middle" font-size="12">✏️</text>
+    <text x="1028" y="216" text-anchor="middle" font-size="17" font-weight="700" fill="#fdf6e8">提示技巧 Prompting</text>
+    <g font-size="12.5" fill="#3d2b22">
+      <rect x="858" y="244" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="255">先說你要什麼、成功長什麼樣子</text>
+      <rect x="858" y="277" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="288">每個提示加「先用 AskUserQuestion」</text>
+      <rect x="858" y="310" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="321">給一個好輸出範例，勝過空口描述</text>
+      <rect x="858" y="343" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="354">情境複雜時用 Wispr Flow 口述提示</text>
+      <rect x="858" y="376" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="387">用「編輯訊息」取代追加追問</text>
+      <rect x="858" y="409" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="420">把三個任務打包成一則訊息</text>
+      <rect x="858" y="442" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="453">說要做什麼，而不是要避免什麼</text>
+      <rect x="858" y="475" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="486">話題改變就開新對話</text>
+    </g>
+  </g>
+
+  <!-- ================= Row 2 ================= -->
+  <!-- Connectors -->
+  <g>
+    <rect x="40" y="534" width="360" height="330" rx="12" fill="#fbf6ec" stroke="#d9c6ab" stroke-width="1.5"/>
+    <rect x="52" y="546" width="336" height="36" rx="18" fill="#a8794f"/>
+    <circle cx="74" cy="564" r="13" fill="#f2e7d5" stroke="#6d2f28" stroke-width="2"/><text x="74" y="569" text-anchor="middle" font-size="12">🔌</text>
+    <text x="228" y="570" text-anchor="middle" font-size="17" font-weight="700" fill="#fdf6e8">連接器 Connectors</text>
+    <g font-size="12.5" fill="#3d2b22">
+      <rect x="58" y="598" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="609">連接 Gmail：撰寫與讀取郵件</text>
+      <rect x="58" y="631" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="642">連接 Gamma：製作簡報</text>
+      <rect x="58" y="664" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="675">連接 Google Drive：存取文件</text>
+      <rect x="58" y="697" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="708">連接 Notion：工作區頁面</text>
+      <rect x="58" y="730" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="741">連接 Granola：會議逐字稿</text>
+      <rect x="58" y="763" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="774">連接 Calendar：行程排程</text>
+      <rect x="58" y="796" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="807">連接 GitHub：程式專案</text>
+      <rect x="58" y="829" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="840">任務用不到的連接器先關閉</text>
+    </g>
+  </g>
+  <!-- Skills -->
+  <g>
+    <rect x="440" y="534" width="360" height="330" rx="12" fill="#fbf6ec" stroke="#d9c6ab" stroke-width="1.5"/>
+    <rect x="452" y="546" width="336" height="36" rx="18" fill="#a8794f"/>
+    <circle cx="474" cy="564" r="13" fill="#f2e7d5" stroke="#6d2f28" stroke-width="2"/><text x="474" y="569" text-anchor="middle" font-size="12">🧩</text>
+    <text x="628" y="570" text-anchor="middle" font-size="17" font-weight="700" fill="#fdf6e8">技能 Skills</text>
+    <g font-size="12.5" fill="#3d2b22">
+      <rect x="458" y="598" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="609">打開 Cowork 呼叫 skill-creator</text>
+      <rect x="458" y="631" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="642">具體明確地回答它的訪談式問題</text>
+      <rect x="458" y="664" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="675">儲存前先跑 Claude 產生的評測</text>
+      <rect x="458" y="697" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="708">把技能存到設定 → Capabilities</text>
+      <rect x="458" y="730" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="741">用五種不同說法測試技能</text>
+      <rect x="458" y="763" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="774">每個技能描述加「不要用於…」一行</text>
+      <rect x="458" y="796" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="807">用右鍵選項從過往對話建立技能</text>
+      <rect x="458" y="829" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="840">瀏覽 Anthropic 外掛庫的現成技能</text>
+    </g>
+  </g>
+  <!-- Projects -->
+  <g>
+    <rect x="840" y="534" width="360" height="330" rx="12" fill="#fbf6ec" stroke="#d9c6ab" stroke-width="1.5"/>
+    <rect x="852" y="546" width="336" height="36" rx="18" fill="#6d2f28"/>
+    <circle cx="874" cy="564" r="13" fill="#f2e7d5" stroke="#a8794f" stroke-width="2"/><text x="874" y="569" text-anchor="middle" font-size="12">🗂️</text>
+    <text x="1028" y="570" text-anchor="middle" font-size="17" font-weight="700" fill="#fdf6e8">專案 Projects</text>
+    <g font-size="12.5" fill="#3d2b22">
+      <rect x="858" y="598" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="609">每個重複性交付物建一個 Project</text>
+      <rect x="858" y="631" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="642">把舊瀏覽器 Projects 匯入 Cowork</text>
+      <rect x="858" y="664" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="675">每個 Project 上傳一份黃金範例</text>
+      <rect x="858" y="697" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="708">Project 指令控制在 8 行以內</text>
+      <rect x="858" y="730" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="741">每週例行工作設定排程任務</text>
+      <rect x="858" y="763" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="774">讓桌面 App 常駐以觸發排程任務</text>
+      <rect x="858" y="796" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="807">首句先下「讀完這資料夾所有內容」</text>
+      <rect x="858" y="829" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="840">把優勝輸出存成 TEMPLATES 範本</text>
+    </g>
+  </g>
+
+  <!-- ================= Row 3 ================= -->
+  <!-- Design & Code -->
+  <g>
+    <rect x="40" y="888" width="360" height="330" rx="12" fill="#fbf6ec" stroke="#d9c6ab" stroke-width="1.5"/>
+    <rect x="52" y="900" width="336" height="36" rx="18" fill="#6d2f28"/>
+    <circle cx="74" cy="918" r="13" fill="#f2e7d5" stroke="#a8794f" stroke-width="2"/><text x="74" y="923" text-anchor="middle" font-size="12">🎨</text>
+    <text x="228" y="924" text-anchor="middle" font-size="17" font-weight="700" fill="#fdf6e8">設計與程式 Design &amp; Code</text>
+    <g font-size="12.5" fill="#3d2b22">
+      <rect x="58" y="952" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="963">打開 claude.ai/design 做登陸頁</text>
+      <rect x="58" y="985" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="996">上傳 DESIGN.md 品牌檔</text>
+      <rect x="58" y="1018" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="1029">點 Tweaks 產生版面變化</text>
+      <rect x="58" y="1051" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="1062">在畫布上點 Edit 做像素級修改</text>
+      <rect x="58" y="1084" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="1095">完整網站改用 Claude Code</text>
+      <rect x="58" y="1117" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="1128">連接免費 GitHub 帳號即時部署</text>
+      <rect x="58" y="1150" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="1161">裝 VS Code＋Skip Permissions 加速</text>
+      <rect x="58" y="1183" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="80" y="1194">每個程式專案都建 CLAUDE.md</text>
+    </g>
+  </g>
+  <!-- Research & Search -->
+  <g>
+    <rect x="440" y="888" width="360" height="330" rx="12" fill="#fbf6ec" stroke="#d9c6ab" stroke-width="1.5"/>
+    <rect x="452" y="900" width="336" height="36" rx="18" fill="#a8794f"/>
+    <circle cx="474" cy="918" r="13" fill="#f2e7d5" stroke="#6d2f28" stroke-width="2"/><text x="474" y="923" text-anchor="middle" font-size="12">🔍</text>
+    <text x="628" y="924" text-anchor="middle" font-size="17" font-weight="700" fill="#fdf6e8">研究與搜尋 Research &amp; Search</text>
+    <g font-size="12.5" fill="#3d2b22">
+      <rect x="458" y="952" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="963">在提示列開啟 Web Search</text>
+      <rect x="458" y="985" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="996">深度多來源報告用 Research 模式</text>
+      <rect x="458" y="1018" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="1029">要 Claude 做五次搜尋並找出缺口</text>
+      <rect x="458" y="1051" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="1062">把發現存成 research-brief.md</text>
+      <rect x="458" y="1084" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="1095">用 Grok 補 Claude 漏掉的即時新聞</text>
+      <rect x="458" y="1117" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="1128">用 ChatGPT 做深度研究</text>
+      <rect x="458" y="1150" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="1161">請 Claude 標記來源互相矛盾之處</text>
+      <rect x="458" y="1183" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="480" y="1194">研究提示優先採 2025–2026 來源</text>
+    </g>
+  </g>
+  <!-- Token Economy -->
+  <g>
+    <rect x="840" y="888" width="360" height="330" rx="12" fill="#fbf6ec" stroke="#d9c6ab" stroke-width="1.5"/>
+    <rect x="852" y="900" width="336" height="36" rx="18" fill="#6d2f28"/>
+    <circle cx="874" cy="918" r="13" fill="#f2e7d5" stroke="#a8794f" stroke-width="2"/><text x="874" y="923" text-anchor="middle" font-size="12">🪙</text>
+    <text x="1028" y="924" text-anchor="middle" font-size="17" font-weight="700" fill="#fdf6e8">代幣經濟 Token Economy</text>
+    <g font-size="12.5" fill="#3d2b22">
+      <rect x="858" y="952" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="963">先在聊天規劃，再到 Cowork 建置</text>
+      <rect x="858" y="985" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="996">PDF 與截圖先轉 Markdown 再上傳</text>
+      <rect x="858" y="1018" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="1029">每 20 則訊息就重開對話</text>
+      <rect x="858" y="1051" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="1062">文法修改與簡答改用 Sonnet</text>
+      <rect x="858" y="1084" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="1095">簡單任務關閉延伸思考</text>
+      <rect x="858" y="1117" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="1128">不需檔案的任務選擇零資料夾</text>
+      <rect x="858" y="1150" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="1161">重複工作用排程任務取代手動提示</text>
+      <rect x="858" y="1183" width="12" height="12" rx="2" fill="none" stroke="#7a5c49" stroke-width="1.4"/><text x="880" y="1194">使用時段分散到早、午、晚</text>
+    </g>
+  </g>
+
+  <text x="620" y="1305" text-anchor="middle" font-size="13" fill="#8a6a50">中文重製版 · 依原圖風格重繪（原作：Poornachandra Kongara）</text>
+</svg></div>
+      <div class="text"><p class="intro">一張表把 Claude 從訂閱、設定到日常使用的 72 個要點分成 9 大面向，逐項打勾即可完成專業級配置（原作：Poornachandra Kongara）。</p><ul><li>基礎設定與連接器：從 Pro 訂閱、桌面版、Computer Use 到 Gmail／Drive／GitHub 等七大連接器，先把工作環境接好線；任務用不到的連接器記得關閉。</li><li>情境資料夾與 Projects：用 ABOUT ME／OUTPUTS／TEMPLATES 三個子資料夾管理個人脈絡，每個重複性交付物建一個 Project 並上傳黃金範例、指令控制在 8 行以內。</li><li>提示技巧：先講目標與成功標準、給一個好範例勝過空口描述、一次打包三個任務、話題改變就開新對話。</li><li>技能與研究：用 skill-creator 建技能並以五種說法測試、描述加上「不要用於…」；研究時要求五次搜尋找缺口、標記來源矛盾、優先 2025–2026 來源。</li><li>代幣經濟：先聊天規劃再到 Cowork 建置、PDF 與截圖先轉 Markdown、每 20 則訊息重開對話、簡單任務關閉延伸思考，把用量花在刀口上。</li></ul></div></div>
+    </section>
+    <section class="card" id="s2">
+      <div class="card-head">
+        <span class="num">02</span>
+        <div><span class="cat">Claude Code 實戰</span><h2>用 Claude Code 建立網站的 7 個步驟</h2><p class="en">7 Steps to Create a Website with Claude Code</p></div>
+      </div>
+      <div class="card-body"><div class="figure"><svg viewBox="0 0 1000 1400" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="1000" height="1400" fill="#f6efe1"/>
+
+  <!-- 標題區 -->
+  <g>
+    <rect x="40" y="42" width="90" height="70" rx="8" fill="#fffdf6" stroke="#2b2320" stroke-width="3"/>
+    <circle cx="56" cy="56" r="3.5" fill="#d96a3b"/><circle cx="68" cy="56" r="3.5" fill="#d96a3b"/><circle cx="80" cy="56" r="3.5" fill="#d96a3b"/>
+    <rect x="52" y="66" width="30" height="22" rx="3" fill="#e8b48f"/>
+    <rect x="88" y="66" width="30" height="5" rx="2" fill="#c9b8a5"/>
+    <rect x="88" y="76" width="30" height="5" rx="2" fill="#c9b8a5"/>
+    <rect x="52" y="94" width="66" height="5" rx="2" fill="#c9b8a5"/>
+    <path d="M900 55 q28 -18 46 4 q14 18 -2 40 q-10 16 -8 30 l-30 0 q-4 -14 -14 -26 q-14 -22 8 -48z" fill="#f3ddc4" stroke="#2b2320" stroke-width="3"/>
+    <g stroke="#d96a3b" stroke-width="3" stroke-linecap="round">
+      <path d="M920 85 l0 -22"/><path d="M920 85 l0 22"/><path d="M920 85 l-19 -11"/><path d="M920 85 l19 11"/><path d="M920 85 l19 -11"/><path d="M920 85 l-19 11"/>
+    </g>
+    <text x="205" y="90" font-size="44" font-weight="800" fill="#22201d">用</text>
+    <text x="262" y="90" font-size="44" font-weight="800" fill="#b23325">CLAUDE CODE</text>
+    <text x="612" y="90" font-size="44" font-weight="800" fill="#22201d">建立網站</text>
+    <text x="500" y="140" text-anchor="middle" font-size="40" font-weight="800" fill="#22201d">的 7 個步驟</text>
+    <text x="500" y="178" text-anchor="middle" font-size="16" fill="#5c5348">一套更聰明的網站規劃、建置與上線工作流</text>
+  </g>
+
+  <!-- 左側虛線 -->
+  <line x1="62" y1="270" x2="62" y2="1180" stroke="#b8a58d" stroke-width="2" stroke-dasharray="4 6"/>
+
+  <!-- ============ 步驟 1 ============ -->
+  <g>
+    <circle cx="62" cy="285" r="24" fill="#fdf8ee" stroke="#2b2320" stroke-width="3"/><text x="62" y="295" text-anchor="middle" font-size="26" font-weight="800" fill="#2b2320">1</text>
+    <rect x="105" y="222" width="860" height="128" rx="12" fill="#fffdf6" stroke="#e3d5c0" stroke-width="1.5"/>
+    <rect x="120" y="238" width="96" height="96" rx="10" fill="#e58a5a"/>
+    <circle cx="168" cy="286" r="32" fill="#fdf3e6"/><circle cx="168" cy="286" r="21" fill="#d96a3b"/><circle cx="168" cy="286" r="10" fill="#fdf3e6"/><circle cx="168" cy="286" r="3.5" fill="#8c3d1e"/>
+    <line x1="168" y1="286" x2="196" y2="258" stroke="#8c3d1e" stroke-width="3"/><path d="M196 258 l10 -2 -2 10 -8 -8z" fill="#8c3d1e"/>
+    <text x="238" y="262" font-size="19" font-weight="700" fill="#22201d">1. 從明確的目標開始</text>
+    <g font-size="13" fill="#4a4238">
+      <text x="248" y="288">• 這個事業是做什麼的？</text><text x="248" y="310">• 網站是給誰看的？</text>
+      <text x="470" y="288">• 網站的主要目標是什麼？</text><text x="470" y="310">• 訪客應該採取什麼行動？</text>
+    </g>
+    <text x="238" y="338" font-size="13.5" font-weight="700" fill="#c1502e">✳ 清晰的目標指引每一個決策。</text>
+    <g>
+      <rect x="740" y="240" width="200" height="92" rx="8" fill="#2e2a26"/>
+      <circle cx="756" cy="254" r="3" fill="#e58a5a"/><circle cx="768" cy="254" r="3" fill="#cbb9a2"/><circle cx="780" cy="254" r="3" fill="#cbb9a2"/>
+      <rect x="752" y="266" width="80" height="7" rx="2" fill="#efe4d2"/><rect x="752" y="280" width="120" height="5" rx="2" fill="#8f8574"/><rect x="752" y="291" width="120" height="5" rx="2" fill="#8f8574"/>
+      <rect x="752" y="306" width="112" height="18" rx="4" fill="#d96a3b"/><text x="808" y="319" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">行動呼籲 CTA</text>
+    </g>
+  </g>
+
+  <!-- ============ 步驟 2 ============ -->
+  <g>
+    <circle cx="62" cy="433" r="24" fill="#fdf8ee" stroke="#2b2320" stroke-width="3"/><text x="62" y="443" text-anchor="middle" font-size="26" font-weight="800" fill="#2b2320">2</text>
+    <rect x="105" y="370" width="860" height="128" rx="12" fill="#fffdf6" stroke="#e3d5c0" stroke-width="1.5"/>
+    <rect x="120" y="386" width="96" height="96" rx="10" fill="#f0c9a2"/>
+    <rect x="146" y="400" width="44" height="62" rx="5" fill="#fdf8ee" stroke="#8c6a45" stroke-width="2.5"/>
+    <rect x="158" y="394" width="20" height="10" rx="3" fill="#8c6a45"/>
+    <g stroke="#c1502e" stroke-width="2.5" fill="none"><path d="M152 416 l4 4 7 -8"/><path d="M152 432 l4 4 7 -8"/><path d="M152 448 l4 4 7 -8"/></g>
+    <g fill="#c9b8a5"><rect x="168" y="414" width="16" height="4" rx="2"/><rect x="168" y="430" width="16" height="4" rx="2"/><rect x="168" y="446" width="16" height="4" rx="2"/></g>
+    <text x="238" y="410" font-size="19" font-weight="700" fill="#22201d">2. 撰寫詳細的需求簡報</text>
+    <g font-size="13" fill="#4a4238">
+      <text x="248" y="436">• 事業概述</text><text x="388" y="436">• 目標受眾</text><text x="528" y="436">• 品牌個性</text>
+      <text x="248" y="458">• 必要頁面</text><text x="388" y="458">• 關鍵功能</text><text x="528" y="458">• 主要 CTA</text>
+    </g>
+    <text x="238" y="486" font-size="13.5" font-weight="700" fill="#c1502e">📄 給的脈絡愈多＝來回修改愈少。</text>
+    <g>
+      <rect x="740" y="392" width="95" height="84" rx="6" fill="#f4ece0" stroke="#d9c9b2"/><rect x="748" y="400" width="35" height="26" rx="3" fill="#cbb9a2"/><rect x="790" y="400" width="37" height="5" rx="2" fill="#a89681"/><rect x="790" y="410" width="37" height="5" rx="2" fill="#a89681"/><rect x="748" y="436" width="79" height="5" rx="2" fill="#a89681"/><rect x="748" y="448" width="79" height="5" rx="2" fill="#a89681"/><circle cx="812" cy="462" r="8" fill="#d96a3b"/>
+      <rect x="845" y="392" width="95" height="84" rx="6" fill="#f4ece0" stroke="#d9c9b2"/><rect x="853" y="400" width="79" height="20" rx="3" fill="#cbb9a2"/><rect x="853" y="428" width="79" height="5" rx="2" fill="#a89681"/><rect x="853" y="440" width="60" height="5" rx="2" fill="#a89681"/><rect x="853" y="456" width="40" height="14" rx="3" fill="#d96a3b"/>
+    </g>
+  </g>
+
+  <!-- ============ 步驟 3 ============ -->
+  <g>
+    <circle cx="62" cy="581" r="24" fill="#fdf8ee" stroke="#2b2320" stroke-width="3"/><text x="62" y="591" text-anchor="middle" font-size="26" font-weight="800" fill="#2b2320">3</text>
+    <rect x="105" y="518" width="860" height="128" rx="12" fill="#fffdf6" stroke="#e3d5c0" stroke-width="1.5"/>
+    <rect x="120" y="534" width="96" height="96" rx="10" fill="#e8b48f"/>
+    <rect x="136" y="552" width="40" height="32" rx="3" fill="#fdf8ee" stroke="#8c6a45" stroke-width="2" transform="rotate(-6 156 568)"/>
+    <rect x="162" y="566" width="40" height="32" rx="3" fill="#fdf8ee" stroke="#8c6a45" stroke-width="2" transform="rotate(5 182 582)"/>
+    <circle cx="150" cy="564" r="5" fill="#d96a3b"/><path d="M140 578 l10 -8 10 8" stroke="#8c6a45" stroke-width="2" fill="none"/>
+    <circle cx="176" cy="578" r="5" fill="#d96a3b"/><path d="M166 592 l10 -8 12 9" stroke="#8c6a45" stroke-width="2" fill="none"/>
+    <text x="238" y="558" font-size="19" font-weight="700" fill="#22201d">3. 提供參考網站</text>
+    <g font-size="13" fill="#4a4238">
+      <text x="248" y="584">• 版面配置</text><text x="388" y="584">• 字體排印</text><text x="528" y="584">• 配色方案</text>
+      <text x="248" y="606">• 間距節奏</text><text x="388" y="606">• 導覽方式</text><text x="528" y="606">• 動態效果</text>
+    </g>
+    <text x="238" y="634" font-size="13.5" font-weight="700" fill="#c1502e">🎯 給明確方向，別讓它瞎猜。</text>
+    <g>
+      <rect x="740" y="540" width="60" height="84" rx="5" fill="#f4ece0" stroke="#d9c9b2"/><rect x="746" y="546" width="48" height="30" rx="3" fill="#cbb9a2"/><rect x="746" y="582" width="48" height="4" rx="2" fill="#a89681"/><rect x="746" y="592" width="34" height="4" rx="2" fill="#a89681"/>
+      <rect x="808" y="540" width="60" height="84" rx="5" fill="#f4ece0" stroke="#d9c9b2"/><rect x="814" y="546" width="48" height="30" rx="3" fill="#cbb9a2"/><rect x="814" y="582" width="48" height="4" rx="2" fill="#a89681"/><rect x="814" y="592" width="34" height="4" rx="2" fill="#a89681"/>
+      <rect x="876" y="540" width="60" height="84" rx="5" fill="#f4ece0" stroke="#d9c9b2"/><rect x="882" y="546" width="48" height="30" rx="3" fill="#cbb9a2"/><rect x="882" y="582" width="48" height="4" rx="2" fill="#a89681"/><rect x="882" y="592" width="34" height="4" rx="2" fill="#a89681"/>
+    </g>
+  </g>
+
+  <!-- ============ 步驟 4 ============ -->
+  <g>
+    <circle cx="62" cy="729" r="24" fill="#fdf8ee" stroke="#2b2320" stroke-width="3"/><text x="62" y="739" text-anchor="middle" font-size="26" font-weight="800" fill="#2b2320">4</text>
+    <rect x="105" y="666" width="860" height="128" rx="12" fill="#fffdf6" stroke="#e3d5c0" stroke-width="1.5"/>
+    <rect x="120" y="682" width="96" height="96" rx="10" fill="#e58a5a"/>
+    <rect x="152" y="694" width="32" height="18" rx="3" fill="#fdf3e6" stroke="#8c3d1e" stroke-width="2"/>
+    <g stroke="#8c3d1e" stroke-width="2" fill="none"><path d="M168 712 v10"/><path d="M140 734 h56"/><path d="M140 734 v8"/><path d="M168 722 v20"/><path d="M196 734 v8"/></g>
+    <rect x="128" y="742" width="26" height="16" rx="3" fill="#fdf3e6" stroke="#8c3d1e" stroke-width="2"/>
+    <rect x="155" y="742" width="26" height="16" rx="3" fill="#fdf3e6" stroke="#8c3d1e" stroke-width="2"/>
+    <rect x="182" y="742" width="26" height="16" rx="3" fill="#fdf3e6" stroke="#8c3d1e" stroke-width="2"/>
+    <text x="238" y="706" font-size="19" font-weight="700" fill="#22201d">4. 動工前先規劃</text>
+    <g font-size="13" fill="#4a4238">
+      <text x="248" y="732">• 網站架構</text><text x="368" y="732">• 頁面層級</text><text x="488" y="732">• 導覽結構</text>
+      <text x="248" y="754">• 響應式版面</text><text x="368" y="754">• 元件清單</text><text x="488" y="754">• 實作路線圖</text>
+    </g>
+    <text x="238" y="782" font-size="13.5" font-weight="700" fill="#c1502e">📊 事前規劃勝過事後除錯。</text>
+    <g>
+      <rect x="800" y="676" width="150" height="108" rx="8" fill="#2e2a26"/>
+      <g font-size="12" fill="#efe4d2">
+        <circle cx="818" cy="696" r="7" fill="#efe4d2"/><text x="814" y="700" font-size="10" fill="#2e2a26">N</text><text x="832" y="700">Next.js</text>
+        <circle cx="818" cy="720" r="7" fill="#5bb8d4"/><text x="832" y="724">Tailwind CSS</text>
+        <circle cx="818" cy="744" r="7" fill="#4a7cc4"/><text x="813" y="748" font-size="9" fill="#fff">TS</text><text x="832" y="748">TypeScript</text>
+        <circle cx="818" cy="768" r="7" fill="#6a9ac4"/><text x="832" y="772">PostgreSQL</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ============ 步驟 5 ============ -->
+  <g>
+    <circle cx="62" cy="877" r="24" fill="#fdf8ee" stroke="#2b2320" stroke-width="3"/><text x="62" y="887" text-anchor="middle" font-size="26" font-weight="800" fill="#2b2320">5</text>
+    <rect x="105" y="814" width="860" height="128" rx="12" fill="#fffdf6" stroke="#e3d5c0" stroke-width="1.5"/>
+    <rect x="120" y="830" width="96" height="96" rx="10" fill="#3a332c"/>
+    <text x="168" y="888" text-anchor="middle" font-size="34" font-weight="800" fill="#e58a5a">&lt;/&gt;</text>
+    <rect x="132" y="900" width="72" height="5" rx="2" fill="#8f8574"/><rect x="132" y="910" width="50" height="5" rx="2" fill="#8f8574"/>
+    <text x="238" y="854" font-size="19" font-weight="700" fill="#22201d">5. 建置、測試與改進</text>
+    <g font-size="13" fill="#4a4238">
+      <text x="248" y="880">• 響應式版面</text><text x="388" y="880">• 可重用元件</text><text x="528" y="880">• 表單</text><text x="628" y="880">• 身分驗證</text>
+      <text x="248" y="902">• API 串接</text><text x="388" y="902">• SEO</text><text x="528" y="902">• 無障礙設計</text>
+    </g>
+    <text x="238" y="930" font-size="13.5" font-weight="700" fill="#c1502e">🔁 以小步迭代的方式建置。</text>
+    <g>
+      <rect x="740" y="836" width="80" height="60" rx="5" fill="#f4ece0" stroke="#d9c9b2"/><rect x="746" y="842" width="68" height="8" rx="2" fill="#cbb9a2"/><rect x="746" y="856" width="68" height="32" rx="2" fill="#e8dcc8"/>
+      <rect x="828" y="836" width="34" height="60" rx="6" fill="#f4ece0" stroke="#d9c9b2"/><rect x="834" y="844" width="22" height="38" rx="2" fill="#e8dcc8"/><circle cx="845" cy="889" r="3" fill="#a89681"/>
+      <rect x="870" y="836" width="76" height="60" rx="5" fill="#2e2a26"/><circle cx="908" cy="860" r="12" fill="#d96a3b"/><path d="M902 860 l4 4 8 -8" stroke="#fff" stroke-width="2.5" fill="none"/><rect x="882" y="878" width="52" height="4" rx="2" fill="#8f8574"/><rect x="882" y="886" width="38" height="4" rx="2" fill="#8f8574"/>
+    </g>
+  </g>
+
+  <!-- ============ 步驟 6 ============ -->
+  <g>
+    <circle cx="62" cy="1025" r="24" fill="#fdf8ee" stroke="#2b2320" stroke-width="3"/><text x="62" y="1035" text-anchor="middle" font-size="26" font-weight="800" fill="#2b2320">6</text>
+    <rect x="105" y="962" width="860" height="128" rx="12" fill="#fffdf6" stroke="#e3d5c0" stroke-width="1.5"/>
+    <rect x="120" y="978" width="96" height="96" rx="10" fill="#f0c9a2"/>
+    <path d="M168 990 q16 14 16 40 l-8 14 -16 0 -8 -14 q0 -26 16 -40z" fill="#fdf8ee" stroke="#8c6a45" stroke-width="2.5"/>
+    <circle cx="168" cy="1022" r="7" fill="#5bb8d4" stroke="#8c6a45" stroke-width="1.5"/>
+    <path d="M152 1044 l-10 14 14 -4z" fill="#d96a3b"/><path d="M184 1044 l10 14 -14 -4z" fill="#d96a3b"/>
+    <path d="M162 1048 q6 14 12 0 l-2 14 -8 0z" fill="#e58a5a"/>
+    <text x="238" y="1002" font-size="19" font-weight="700" fill="#22201d">6. 像專業人士一樣部署</text>
+    <g font-size="13" fill="#4a4238">
+      <text x="248" y="1028">• 行動裝置相容</text><text x="398" y="1028">• 頁面速度</text><text x="518" y="1028">• 表單檢測</text><text x="638" y="1028">• 失效連結</text>
+      <text x="248" y="1050">• SEO 中繼資料</text><text x="398" y="1050">• 無障礙</text><text x="518" y="1050">• 內容正確性</text>
+    </g>
+    <text x="238" y="1078" font-size="13.5" font-weight="700" fill="#c1502e">🚀 上線、收集回饋、持續改進。</text>
+    <g>
+      <circle cx="800" cy="1026" r="34" fill="none" stroke="#eadbc4" stroke-width="8"/>
+      <path d="M800 992 a34 34 0 1 1 -30 51" fill="none" stroke="#d96a3b" stroke-width="8" stroke-linecap="round"/>
+      <text x="800" y="1034" text-anchor="middle" font-size="24" font-weight="800" fill="#22201d">95</text>
+      <text x="800" y="1074" text-anchor="middle" font-size="11" fill="#5c5348">頁面速度</text>
+      <g font-size="11" fill="#4a4238">
+        <circle cx="856" cy="1000" r="6" fill="#d96a3b"/><path d="M853 1000 l2 2 4 -4" stroke="#fff" stroke-width="1.6" fill="none"/><text x="868" y="1004">行動裝置友善</text>
+        <circle cx="856" cy="1022" r="6" fill="#d96a3b"/><path d="M853 1022 l2 2 4 -4" stroke="#fff" stroke-width="1.6" fill="none"/><text x="868" y="1026">無失效連結</text>
+        <circle cx="856" cy="1044" r="6" fill="#d96a3b"/><path d="M853 1044 l2 2 4 -4" stroke="#fff" stroke-width="1.6" fill="none"/><text x="868" y="1048">SEO 最佳化</text>
+        <circle cx="856" cy="1066" r="6" fill="#d96a3b"/><path d="M853 1066 l2 2 4 -4" stroke="#fff" stroke-width="1.6" fill="none"/><text x="868" y="1070">內容正確</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ============ 步驟 7 ============ -->
+  <g>
+    <circle cx="62" cy="1173" r="24" fill="#fdf8ee" stroke="#2b2320" stroke-width="3"/><text x="62" y="1183" text-anchor="middle" font-size="26" font-weight="800" fill="#2b2320">7</text>
+    <rect x="105" y="1110" width="860" height="128" rx="12" fill="#fffdf6" stroke="#e3d5c0" stroke-width="1.5"/>
+    <rect x="120" y="1126" width="96" height="96" rx="10" fill="#f5d9a8"/>
+    <circle cx="168" cy="1164" r="20" fill="#fdf3c2" stroke="#c19a3d" stroke-width="2.5"/>
+    <rect x="160" y="1184" width="16" height="10" rx="2" fill="#c19a3d"/><rect x="162" y="1196" width="12" height="4" rx="2" fill="#8c6a45"/>
+    <g stroke="#d96a3b" stroke-width="2.5" stroke-linecap="round"><path d="M168 1132 v-8"/><path d="M144 1140 l-6 -6"/><path d="M192 1140 l6 -6"/><path d="M138 1164 h-8"/><path d="M198 1164 h8"/></g>
+    <text x="238" y="1150" font-size="19" font-weight="700" fill="#22201d">7. 最重要的一課</text>
+    <g font-size="13" fill="#4a4238">
+      <g fill="#d96a3b"><circle cx="254" cy="1172" r="6"/><circle cx="404" cy="1172" r="6"/><circle cx="554" cy="1172" r="6"/><circle cx="254" cy="1194" r="6"/><circle cx="404" cy="1194" r="6"/></g>
+      <g stroke="#fff" stroke-width="1.6" fill="none"><path d="M251 1172 l2 2 4 -4"/><path d="M401 1172 l2 2 4 -4"/><path d="M551 1172 l2 2 4 -4"/><path d="M251 1194 l2 2 4 -4"/><path d="M401 1194 l2 2 4 -4"/></g>
+      <text x="268" y="1176">明確的目標</text><text x="418" y="1176">詳細的需求</text><text x="568" y="1176">參考設計</text>
+      <text x="268" y="1198">扎實的架構</text><text x="418" y="1198">迭代式改進</text>
+    </g>
+    <text x="238" y="1226" font-size="13.5" font-weight="700" fill="#c1502e">💡 Claude 負責寫程式，你負責提供願景。</text>
+    <g>
+      <rect x="740" y="1122" width="200" height="100" rx="8" fill="#2e2a26"/>
+      <rect x="752" y="1136" width="90" height="5" rx="2" fill="#8f8574"/><rect x="752" y="1148" width="120" height="5" rx="2" fill="#e58a5a"/><rect x="752" y="1160" width="70" height="5" rx="2" fill="#8f8574"/><rect x="752" y="1172" width="110" height="5" rx="2" fill="#8f8574"/><rect x="752" y="1184" width="86" height="5" rx="2" fill="#e58a5a"/><rect x="752" y="1196" width="60" height="5" rx="2" fill="#8f8574"/>
+      <circle cx="908" cy="1188" r="24" fill="#d96a3b"/><path d="M896 1188 l8 8 16 -18" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- 底部橫幅 -->
+  <g>
+    <path d="M470 1282 l14 -8 M470 1292 l14 0 M470 1302 l14 8" stroke="#d96a3b" stroke-width="2.5" fill="none" transform="translate(-320 0)"/>
+    <rect x="190" y="1258" width="620" height="68" rx="10" fill="#fdf8ee" stroke="#d96a3b" stroke-width="2.5"/>
+    <text x="500" y="1286" text-anchor="middle" font-size="21" font-weight="800" fill="#22201d">想免費學 AI 嗎？</text>
+    <text x="392" y="1314" font-size="18" font-weight="700" fill="#22201d">造訪：</text>
+    <text x="448" y="1314" font-size="18" font-weight="700" fill="#c1502e">AIPlanetX.com</text>
+    <path d="M836 1282 l-14 -8 M836 1292 l-14 0 M836 1302 l-14 8" stroke="#d96a3b" stroke-width="2.5" fill="none"/>
+  </g>
+  <text x="500" y="1368" text-anchor="middle" font-size="13" fill="#8a7a62">中文重製版 · 依原圖風格重繪（原作：AIPlanetX.com）</text>
+</svg></div>
+      <div class="text"><p class="intro">一套「先規劃、再建置、專業部署」的建站工作流：目標 → 簡報 → 參考 → 規劃 → 迭代建置 → 部署 → 心法（原作：AIPlanetX.com）。</p><ul><li>步驟 1–3 定方向：先回答事業是什麼、網站給誰看、要訪客採取什麼行動；寫出含受眾、必要頁面、關鍵功能與主要 CTA 的詳細簡報；再提供參考網站的版面、字體、配色與動效——給方向，不要讓它瞎猜。</li><li>步驟 4 先規劃：確定網站架構、頁面層級、導覽、響應式版面、元件清單與技術棧（Next.js、Tailwind CSS、TypeScript、PostgreSQL）——事前規劃勝過事後除錯。</li><li>步驟 5–6 建置與部署：以小步迭代建置可重用元件、表單、身分驗證、API、SEO 與無障礙；部署前檢查行動裝置相容、頁面速度、失效連結、SEO 中繼資料與內容正確性，上線後收集回饋持續改進。</li><li>步驟 7 最大的一課：明確目標＋詳細需求＋參考設計＋扎實架構＋迭代改進——Claude 負責寫程式，你負責提供願景。</li></ul></div></div>
+    </section>
+</div></main>
+<footer>AI 概念研究 · 中文重製版（依原圖風格重繪） · 2026-07-09<br>原作：Poornachandra Kongara / AIPlanetX.com · <a href="index.html">回到索引</a></footer>
+</body>
+</html>
