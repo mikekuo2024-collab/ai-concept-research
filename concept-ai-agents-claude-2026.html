@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>如何用 Claude 打造 AI 代理（2026 實戰藍圖） · 中文圖解</title>
+<style>
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header.hero{background:linear-gradient(135deg,#1a1a2e,#2b3a67);color:#fff;padding:54px 0 46px}
+.hero .wrap{display:flex;flex-direction:column;gap:14px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;width:fit-content}
+.hero h1{margin:0;font-size:34px;letter-spacing:.5px}
+.hero p{margin:0;color:#c8d0e0;max-width:760px}
+nav.toc{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+nav.toc .wrap{display:flex;gap:8px;overflow-x:auto;padding:12px 20px}
+nav.toc a{flex:0 0 auto;font-size:12.5px;color:#374151;text-decoration:none;background:#f1f3f6;padding:7px 12px;border-radius:8px;white-space:nowrap;transition:.15s}
+nav.toc a:hover{background:var(--blue);color:#fff}
+nav.toc a b{color:var(--acc)} nav.toc a:hover b{color:#fff}
+main{padding:30px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin:22px 0;box-shadow:0 4px 18px rgba(20,20,40,.05)}
+.card-head{display:flex;gap:16px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:18px}
+.num{flex:0 0 auto;width:46px;height:46px;background:var(--ink);color:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800}
+.cat{display:inline-block;font-size:12px;font-weight:700;color:var(--acc);background:#fff2ec;padding:2px 10px;border-radius:999px;margin-bottom:6px}
+.card-head h2{margin:2px 0;font-size:21px}
+.card-head .en{margin:0;color:var(--mut);font-size:13px;font-style:italic}
+.card-body{display:grid;grid-template-columns:1.35fr 1fr;gap:24px;align-items:start}
+.figure{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+.figure svg{width:100%;height:auto;display:block}
+.text .intro{font-size:15px;font-weight:600;color:#222;margin:2px 0 14px;padding-left:12px;border-left:3px solid var(--acc)}
+.text ul{margin:0;padding-left:20px} .text li{margin-bottom:11px;font-size:14px;color:#333}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 0 50px}
+@media(max-width:860px){.card-body{grid-template-columns:1fr}.hero h1{font-size:26px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="badge">中文圖解</span>
+  <h1>如何用 Claude 打造 AI 代理（2026 實戰藍圖）</h1>
+  <p>英文 AI 資訊圖的中文重繪：從 Claude 代理智慧引擎、工作流設計到正式環境部署的三階段完整藍圖，外加跨平台代理策略（開發框架、就緒檢查清單、每週稽核與每月優化循環）。</p>
+</div></header>
+<nav class="toc"><div class="wrap"><a href="#s1"><b>01</b> 如何用 Claude 打造 AI 代理（2026）</a></div></nav>
+<main><div class="wrap">
+    <section class="card" id="s1">
+      <div class="card-head">
+        <span class="num">01</span>
+        <div><span class="cat">AI 代理實戰</span><h2>如何用 Claude 打造 AI 代理（2026 實戰藍圖）</h2><p class="en">How to Create AI Agents Using Claude (2026)</p></div>
+      </div>
+      <div class="card-body"><div class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1458 1682" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+<rect width="1458" height="1682" fill="#faf6ef"/>
+<g>
+<g transform="translate(105,72)">
+  <g stroke="#e8481f" stroke-width="13" stroke-linecap="round">
+    <line x1="-38" y1="0" x2="38" y2="0"/><line x1="0" y1="-38" x2="0" y2="38"/>
+    <line x1="-27" y1="-27" x2="27" y2="27"/><line x1="-27" y1="27" x2="27" y2="-27"/>
+  </g><circle r="9" fill="#e8481f"/>
+</g>
+<text x="185" y="58" font-size="46" font-weight="800" fill="#1a1a1a">如何用</text>
+<text x="335" y="58" font-size="46" font-weight="800" fill="#d63c3c">Claude</text>
+<text x="510" y="58" font-size="46" font-weight="800" fill="#1a1a1a">打造</text>
+<text x="618" y="58" font-size="46" font-weight="800" fill="#d63c3c">AI 代理</text>
+<text x="185" y="112" font-size="46" font-weight="800" fill="#1a1a1a">（2026 實戰藍圖）</text>
+</g>
+<g>
+<rect x="27" y="150" width="452" height="1173" rx="14" fill="#ffffff" stroke="#e0d2c0" stroke-width="1.5"/>
+<rect x="27" y="150" width="452" height="48" rx="12" fill="#f9b17a"/>
+<text x="253.0" y="182" text-anchor="middle" font-size="23" font-weight="800" fill="#7a2e0e">Claude</text>
+<rect x="37" y="208" width="432" height="36" rx="8" fill="#ffffff" stroke="#d9c9b6"/>
+<text x="253.0" y="232" text-anchor="middle" font-size="16.5" font-weight="600" fill="#4a3b2e">代理智慧引擎</text>
+<text x="43" y="276" font-size="17.5" font-weight="800" fill="#b91c1c">基礎技術堆疊</text>
+<line x1="43" y1="285" x2="463" y2="285" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="47" y="304" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="304" font-size="15" fill="#333333">Claude 4 負責推理＋執行</text>
+<text x="47" y="329" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="329" font-size="15" fill="#333333">MCP 伺服器連接外部工具</text>
+<text x="47" y="354" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="354" font-size="15" fill="#333333">長上下文記憶支撐工作流</text>
+<text x="47" y="379" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="379" font-size="15" fill="#333333">Skills＋提示＋子代理</text>
+<text x="43" y="432" font-size="17.5" font-weight="800" fill="#b91c1c">核心代理元件</text>
+<line x1="43" y1="441" x2="463" y2="441" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="47" y="460" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="460" font-size="15" fill="#333333">推理引擎</text>
+<text x="47" y="485" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="485" font-size="15" fill="#333333">工具庫（API＋系統）</text>
+<text x="47" y="510" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="510" font-size="15" fill="#333333">工作流編排管線</text>
+<text x="47" y="535" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="535" font-size="15" fill="#333333">人工核可檢查點</text>
+<text x="47" y="560" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="560" font-size="15" fill="#333333">記憶層維持任務連續性</text>
+<text x="43" y="613" font-size="17.5" font-weight="800" fill="#b91c1c">代理架構</text>
+<line x1="43" y1="622" x2="463" y2="622" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="47" y="641" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="641" font-size="15" fill="#333333">釐清 → 規劃 → 執行迴圈</text>
+<text x="47" y="666" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="666" font-size="15" fill="#333333">多代理協作系統</text>
+<text x="47" y="691" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="691" font-size="15" fill="#333333">專注的專家子代理</text>
+<text x="47" y="716" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="716" font-size="15" fill="#333333">事件驅動自動化</text>
+<text x="47" y="741" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="741" font-size="15" fill="#333333">檢索＋知識管線</text>
+<text x="43" y="794" font-size="17.5" font-weight="800" fill="#b91c1c">MCP 工具系統</text>
+<line x1="43" y1="803" x2="463" y2="803" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="47" y="822" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="822" font-size="15" fill="#333333">檔案系統整合</text>
+<text x="47" y="847" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="847" font-size="15" fill="#333333">GitHub 儲存庫存取</text>
+<text x="47" y="872" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="872" font-size="15" fill="#333333">CRM＋工單工作流</text>
+<text x="47" y="897" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="897" font-size="15" fill="#333333">網頁搜尋＋瀏覽器工具</text>
+<text x="47" y="922" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="922" font-size="15" fill="#333333">企業 API＋資料庫</text>
+<text x="43" y="975" font-size="17.5" font-weight="800" fill="#b91c1c">建置最佳實務</text>
+<line x1="43" y1="984" x2="463" y2="984" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="47" y="1003" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="1003" font-size="15" fill="#333333">只用專注的子代理</text>
+<text x="47" y="1028" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="1028" font-size="15" fill="#333333">保持工作流可觀測</text>
+<text x="47" y="1053" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="1053" font-size="15" fill="#333333">儲存可重用的工作流記憶</text>
+<text x="47" y="1078" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="1078" font-size="15" fill="#333333">減少不必要的工具呼叫</text>
+<text x="47" y="1103" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="1103" font-size="15" fill="#333333">沙盒與正式環境分離</text>
+<text x="43" y="1156" font-size="17.5" font-weight="800" fill="#b91c1c">常見代理應用</text>
+<line x1="43" y1="1165" x2="463" y2="1165" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="47" y="1184" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="1184" font-size="15" fill="#333333">自主編碼助手</text>
+<text x="47" y="1209" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="1209" font-size="15" fill="#333333">研究自動化系統</text>
+<text x="47" y="1234" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="1234" font-size="15" fill="#333333">客服副駕駛</text>
+<text x="47" y="1259" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="1259" font-size="15" fill="#333333">內部工作流自動化</text>
+<text x="47" y="1284" font-size="15" fill="#c0392b">▸</text>
+<text x="67" y="1284" font-size="15" fill="#333333">知識管理代理</text>
+</g>
+<g>
+<rect x="504" y="150" width="452" height="1198" rx="14" fill="#ffffff" stroke="#e0d2c0" stroke-width="1.5"/>
+<rect x="504" y="150" width="452" height="48" rx="12" fill="#f28fa4"/>
+<text x="730.0" y="182" text-anchor="middle" font-size="23" font-weight="800" fill="#7a1030">工作流設計</text>
+<rect x="514" y="208" width="432" height="36" rx="8" fill="#ffffff" stroke="#d9c9b6"/>
+<text x="730.0" y="232" text-anchor="middle" font-size="16.5" font-weight="600" fill="#4a3b2e">可靠自動化層</text>
+<text x="520" y="276" font-size="17.5" font-weight="800" fill="#b91c1c">執行工作流</text>
+<line x1="520" y1="285" x2="940" y2="285" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="524" y="304" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="304" font-size="15" fill="#333333">使用者提交任務請求</text>
+<text x="524" y="329" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="329" font-size="15" fill="#333333">代理釐清缺漏的脈絡</text>
+<text x="524" y="354" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="354" font-size="15" fill="#333333">產生有界的行動計畫</text>
+<text x="524" y="379" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="379" font-size="15" fill="#333333">逐步、安全地使用工具</text>
+<text x="524" y="404" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="404" font-size="15" fill="#333333">交付前先驗證產出</text>
+<text x="520" y="457" font-size="17.5" font-weight="800" fill="#b91c1c">高效能流程</text>
+<line x1="520" y1="466" x2="940" y2="466" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="524" y="485" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="485" font-size="15" fill="#333333">先規劃、後執行系統</text>
+<text x="524" y="510" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="510" font-size="15" fill="#333333">重試＋復原管線</text>
+<text x="524" y="535" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="535" font-size="15" fill="#333333">上下文摘要迴圈</text>
+<text x="524" y="560" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="560" font-size="15" fill="#333333">多階段驗證檢查</text>
+<text x="524" y="585" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="585" font-size="15" fill="#333333">目標導向任務分解</text>
+<text x="520" y="638" font-size="17.5" font-weight="800" fill="#b91c1c">上下文管理</text>
+<line x1="520" y1="647" x2="940" y2="647" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="524" y="666" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="666" font-size="15" fill="#333333">提示永遠保持輕量</text>
+<text x="524" y="691" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="691" font-size="15" fill="#333333">長對話要做摘要</text>
+<text x="524" y="716" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="716" font-size="15" fill="#333333">只載入需要的工具</text>
+<text x="524" y="741" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="741" font-size="15" fill="#333333">減少上下文視窗過載</text>
+<text x="524" y="766" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="766" font-size="15" fill="#333333">可重用指示存放於外部</text>
+<text x="520" y="819" font-size="17.5" font-weight="800" fill="#b91c1c">可觀測性系統</text>
+<line x1="520" y1="828" x2="940" y2="828" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="524" y="847" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="847" font-size="15" fill="#333333">記錄每一次工具呼叫</text>
+<text x="524" y="872" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="872" font-size="15" fill="#333333">監控重試與失敗</text>
+<text x="524" y="897" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="897" font-size="15" fill="#333333">追蹤代幣＋成本用量</text>
+<text x="524" y="922" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="922" font-size="15" fill="#333333">稽核代理決策品質</text>
+<text x="524" y="947" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="947" font-size="15" fill="#333333">重放工作流以便除錯</text>
+<text x="520" y="1000" font-size="17.5" font-weight="800" fill="#b91c1c">擴展策略</text>
+<line x1="520" y1="1009" x2="940" y2="1009" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="524" y="1028" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="1028" font-size="15" fill="#333333">使用較小的專注代理</text>
+<text x="524" y="1053" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="1053" font-size="15" fill="#333333">規劃與執行分離</text>
+<text x="524" y="1078" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="1078" font-size="15" fill="#333333">共享可重用工作流技能</text>
+<text x="524" y="1103" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="1103" font-size="15" fill="#333333">標準化 MCP 整合</text>
+<text x="524" y="1128" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="1128" font-size="15" fill="#333333">重用測試過的工作流範本</text>
+<text x="520" y="1181" font-size="17.5" font-weight="800" fill="#b91c1c">失敗預防</text>
+<line x1="520" y1="1190" x2="940" y2="1190" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="524" y="1209" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="1209" font-size="15" fill="#333333">防止幻覺行動</text>
+<text x="524" y="1234" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="1234" font-size="15" fill="#333333">高風險步驟需經核可</text>
+<text x="524" y="1259" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="1259" font-size="15" fill="#333333">加入結構化錯誤處理</text>
+<text x="524" y="1284" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="1284" font-size="15" fill="#333333">設定逾時＋重試額度</text>
+<text x="524" y="1309" font-size="15" fill="#c0392b">▸</text>
+<text x="544" y="1309" font-size="15" fill="#333333">限制危險權限</text>
+</g>
+<g>
+<rect x="981" y="150" width="452" height="1198" rx="14" fill="#ffffff" stroke="#e0d2c0" stroke-width="1.5"/>
+<rect x="981" y="150" width="452" height="48" rx="12" fill="#d63c3c"/>
+<text x="1207.0" y="182" text-anchor="middle" font-size="23" font-weight="800" fill="#ffffff">正式環境 AI 代理</text>
+<rect x="991" y="208" width="432" height="36" rx="8" fill="#ffffff" stroke="#d9c9b6"/>
+<text x="1207.0" y="232" text-anchor="middle" font-size="16.5" font-weight="600" fill="#4a3b2e">企業自動化引擎</text>
+<text x="997" y="276" font-size="17.5" font-weight="800" fill="#b91c1c">正式環境需求</text>
+<line x1="997" y1="285" x2="1417" y2="285" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="1001" y="304" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="304" font-size="15" fill="#333333">安全的身分驗證系統</text>
+<text x="1001" y="329" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="329" font-size="15" fill="#333333">身分感知的工具權限</text>
+<text x="1001" y="354" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="354" font-size="15" fill="#333333">執行期政策強制</text>
+<text x="1001" y="379" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="379" font-size="15" fill="#333333">人在迴路治理</text>
+<text x="1001" y="404" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="404" font-size="15" fill="#333333">結構化稽核日誌層</text>
+<text x="997" y="457" font-size="17.5" font-weight="800" fill="#b91c1c">安全架構</text>
+<line x1="997" y1="466" x2="1417" y2="466" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="1001" y="485" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="485" font-size="15" fill="#333333">能力型存取控制</text>
+<text x="1001" y="510" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="510" font-size="15" fill="#333333">經驗證的 MCP 伺服器</text>
+<text x="1001" y="535" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="535" font-size="15" fill="#333333">沙盒化執行環境</text>
+<text x="1001" y="560" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="560" font-size="15" fill="#333333">執行期監控防護</text>
+<text x="1001" y="585" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="585" font-size="15" fill="#333333">資訊流追蹤系統</text>
+<text x="997" y="638" font-size="17.5" font-weight="800" fill="#b91c1c">團隊協作</text>
+<line x1="997" y1="647" x2="1417" y2="647" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="1001" y="666" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="666" font-size="15" fill="#333333">共享代理技能庫</text>
+<text x="1001" y="691" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="691" font-size="15" fill="#333333">可重用提示架構</text>
+<text x="1001" y="716" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="716" font-size="15" fill="#333333">標準化工作流系統</text>
+<text x="1001" y="741" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="741" font-size="15" fill="#333333">版本控制的自動化邏輯</text>
+<text x="1001" y="766" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="766" font-size="15" fill="#333333">集中式監控儀表板</text>
+<text x="997" y="819" font-size="17.5" font-weight="800" fill="#b91c1c">企業連接</text>
+<line x1="997" y1="828" x2="1417" y2="828" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="1001" y="847" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="847" font-size="15" fill="#333333">Slack＋Microsoft Teams</text>
+<text x="1001" y="872" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="872" font-size="15" fill="#333333">GitHub＋CI/CD 工作流</text>
+<text x="1001" y="897" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="897" font-size="15" fill="#333333">Salesforce＋HubSpot</text>
+<text x="1001" y="922" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="922" font-size="15" fill="#333333">Notion＋Confluence 知識庫</text>
+<text x="1001" y="947" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="947" font-size="15" fill="#333333">內部 API＋雲端服務</text>
+<text x="997" y="1000" font-size="17.5" font-weight="800" fill="#b91c1c">效能優化</text>
+<line x1="997" y1="1009" x2="1417" y2="1009" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="1001" y="1028" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="1028" font-size="15" fill="#333333">減少不必要的上下文載入</text>
+<text x="1001" y="1053" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="1053" font-size="15" fill="#333333">提升工具呼叫效率</text>
+<text x="1001" y="1078" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="1078" font-size="15" fill="#333333">快取可重用工作流輸出</text>
+<text x="1001" y="1103" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="1103" font-size="15" fill="#333333">將任務路由給子代理</text>
+<text x="1001" y="1128" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="1128" font-size="15" fill="#333333">優化延遲＋代幣用量</text>
+<text x="997" y="1181" font-size="17.5" font-weight="800" fill="#b91c1c">代理的未來（2026）</text>
+<line x1="997" y1="1190" x2="1417" y2="1190" stroke="#eadbc8" stroke-width="1.5"/>
+<text x="1001" y="1209" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="1209" font-size="15" fill="#333333">自我改進的「做夢」代理</text>
+<text x="1001" y="1234" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="1234" font-size="15" fill="#333333">代理間協作迴圈</text>
+<text x="1001" y="1259" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="1259" font-size="15" fill="#333333">龐大 MCP 生態系興起</text>
+<text x="1001" y="1284" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="1284" font-size="15" fill="#333333">自主研究工作流</text>
+<text x="1001" y="1309" font-size="15" fill="#c0392b">▸</text>
+<text x="1021" y="1309" font-size="15" fill="#333333">持久長期記憶系統</text>
+</g>
+<g>
+<rect x="27" y="1366" width="1404" height="46" rx="10" fill="#c62828"/>
+<text x="729.0" y="1397" text-anchor="middle" font-size="22" font-weight="800" fill="#ffffff">跨平台 AI 代理策略</text>
+</g>
+<g>
+<rect x="27.0" y="1426" width="337.5" height="200" rx="12" fill="#fdebd8" stroke="#e8a05c" stroke-width="1.5"/>
+<rect x="27.0" y="1426" width="337.5" height="36" rx="12" fill="#fdebd8"/>
+<rect x="27.0" y="1448" width="337.5" height="14" fill="#fdebd8"/>
+<text x="195.75" y="1450" text-anchor="middle" font-size="16.5" font-weight="800" fill="#7a2e0e">代理開發框架</text>
+<text x="41.0" y="1484" font-size="13.5" fill="#c0392b">✓</text>
+<text x="59.0" y="1484" font-size="13.5" fill="#3a3a3a">Claude 負責推理＋規劃</text>
+<text x="41.0" y="1508" font-size="13.5" fill="#c0392b">✓</text>
+<text x="59.0" y="1508" font-size="13.5" fill="#3a3a3a">MCP 連接工具＋系統</text>
+<text x="41.0" y="1532" font-size="13.5" fill="#c0392b">✓</text>
+<text x="59.0" y="1532" font-size="13.5" fill="#3a3a3a">工作流提升可靠性</text>
+<text x="41.0" y="1556" font-size="13.5" fill="#c0392b">✓</text>
+<text x="59.0" y="1556" font-size="13.5" fill="#3a3a3a">人類監督高風險行動</text>
+</g>
+<g>
+<rect x="382.5" y="1426" width="337.5" height="200" rx="12" fill="#fff5f0" stroke="#d63c3c" stroke-width="1.5"/>
+<rect x="382.5" y="1426" width="337.5" height="36" rx="12" fill="#d63c3c"/>
+<rect x="382.5" y="1448" width="337.5" height="14" fill="#d63c3c"/>
+<text x="551.25" y="1450" text-anchor="middle" font-size="16.5" font-weight="800" fill="#ffffff">AI 代理就緒檢查清單</text>
+<text x="396.5" y="1484" font-size="13.5" fill="#c0392b">✓</text>
+<text x="414.5" y="1484" font-size="13.5" fill="#3a3a3a">模組化工作流架構</text>
+<text x="396.5" y="1508" font-size="13.5" fill="#c0392b">✓</text>
+<text x="414.5" y="1508" font-size="13.5" fill="#3a3a3a">明確定義工具權限</text>
+<text x="396.5" y="1532" font-size="13.5" fill="#c0392b">✓</text>
+<text x="414.5" y="1532" font-size="13.5" fill="#3a3a3a">實作上下文管理</text>
+<text x="396.5" y="1556" font-size="13.5" fill="#c0392b">✓</text>
+<text x="414.5" y="1556" font-size="13.5" fill="#3a3a3a">啟用日誌＋可觀測性</text>
+<text x="396.5" y="1580" font-size="13.5" fill="#c0392b">✓</text>
+<text x="414.5" y="1580" font-size="13.5" fill="#3a3a3a">加入人工核可檢查點</text>
+<text x="396.5" y="1604" font-size="13.5" fill="#c0392b">✓</text>
+<text x="414.5" y="1604" font-size="13.5" fill="#3a3a3a">記錄安全邊界</text>
+</g>
+<g>
+<rect x="738.0" y="1426" width="337.5" height="200" rx="12" fill="#fbdde4" stroke="#e07a95" stroke-width="1.5"/>
+<rect x="738.0" y="1426" width="337.5" height="36" rx="12" fill="#fbdde4"/>
+<rect x="738.0" y="1448" width="337.5" height="14" fill="#fbdde4"/>
+<text x="906.75" y="1450" text-anchor="middle" font-size="16.5" font-weight="800" fill="#7a2e0e">每週代理稽核</text>
+<text x="752.0" y="1484" font-size="13.5" fill="#c0392b">✓</text>
+<text x="770.0" y="1484" font-size="13.5" fill="#3a3a3a">定期測試工具可靠性</text>
+<text x="752.0" y="1508" font-size="13.5" fill="#c0392b">✓</text>
+<text x="770.0" y="1508" font-size="13.5" fill="#3a3a3a">監控幻覺行為</text>
+<text x="752.0" y="1532" font-size="13.5" fill="#c0392b">✓</text>
+<text x="770.0" y="1532" font-size="13.5" fill="#3a3a3a">檢視失敗的工作流執行</text>
+<text x="752.0" y="1556" font-size="13.5" fill="#c0392b">✓</text>
+<text x="770.0" y="1556" font-size="13.5" fill="#3a3a3a">優化代幣效率</text>
+<text x="752.0" y="1580" font-size="13.5" fill="#c0392b">✓</text>
+<text x="770.0" y="1580" font-size="13.5" fill="#3a3a3a">移除未使用的整合</text>
+</g>
+<g>
+<rect x="1093.5" y="1426" width="337.5" height="200" rx="12" fill="#fde8e8" stroke="#d66a6a" stroke-width="1.5"/>
+<rect x="1093.5" y="1426" width="337.5" height="36" rx="12" fill="#fde8e8"/>
+<rect x="1093.5" y="1448" width="337.5" height="14" fill="#fde8e8"/>
+<text x="1262.25" y="1450" text-anchor="middle" font-size="16.5" font-weight="800" fill="#7a2e0e">每月優化循環</text>
+<text x="1107.5" y="1484" font-size="13.5" fill="#c0392b">✓</text>
+<text x="1125.5" y="1484" font-size="13.5" fill="#3a3a3a">新增 MCP 整合</text>
+<text x="1107.5" y="1508" font-size="13.5" fill="#c0392b">✓</text>
+<text x="1125.5" y="1508" font-size="13.5" fill="#3a3a3a">改進工作流範本</text>
+<text x="1107.5" y="1532" font-size="13.5" fill="#c0392b">✓</text>
+<text x="1125.5" y="1532" font-size="13.5" fill="#3a3a3a">擴充持久記憶系統</text>
+<text x="1107.5" y="1556" font-size="13.5" fill="#c0392b">✓</text>
+<text x="1125.5" y="1556" font-size="13.5" fill="#3a3a3a">基準測試工作流效能</text>
+<text x="1107.5" y="1580" font-size="13.5" fill="#c0392b">✓</text>
+<text x="1125.5" y="1580" font-size="13.5" fill="#3a3a3a">精煉子代理專業分工</text>
+</g>
+<text x="729.0" y="1660" text-anchor="middle" font-size="13.5" fill="#9a8a78">中文重製版 · 依原圖風格重繪（原作：How to Create AI Agents Using Claude, 2026）</text>
+</svg></div>
+      <div class="text"><p class="intro">一張圖把「用 Claude 建 AI 代理」拆成三個成熟度階段：先用 Claude 打好代理地基，再用工作流設計確保可靠，最後以企業級要求上線正式環境。</p><ul><li>Claude ＝ 代理智慧引擎：Claude 4 負責推理與執行、MCP 連接外部工具、長上下文記憶支撐工作流；架構核心是「釐清 → 規劃 → 執行」迴圈，搭配專注的專家子代理與事件驅動自動化。</li><li>工作流設計 ＝ 可靠自動化層：先規劃後執行、重試與復原管線、多階段驗證；上下文管理講究輕量提示、長對話摘要、只載入需要的工具；可觀測性要求記錄每次工具呼叫、追蹤代幣成本、可重放除錯。</li><li>正式環境 ＝ 企業自動化引擎：身分感知權限、能力型存取控制、沙盒化執行、人在迴路治理與稽核日誌；透過共享技能庫、版本控制的自動化邏輯與集中式監控達成團隊協作。</li><li>失敗預防五件套：防止幻覺行動、高風險步驟需核可、結構化錯誤處理、逾時與重試額度、限制危險權限——搭配每週代理稽核與每月優化循環持續改進。</li><li>2026 代理趨勢：自我改進的「做夢」代理、代理間協作迴圈、龐大 MCP 生態系、自主研究工作流與持久長期記憶系統。</li></ul></div></div>
+    </section>
+</div></main>
+<footer>AI 概念研究 · 中文重製版（依原圖風格重繪） · 2026-07-10<br>原作：How to Create AI Agents Using Claude (2026) · <a href="index.html">回到索引</a></footer>
+</body>
+</html>
