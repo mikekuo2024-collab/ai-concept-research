@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fable 5 使用心法 × 第一個 Claude 自動化 · 中文圖解</title>
+<meta name="description" content="兩張英文 AI 資訊圖的中文重繪：如何真正用好 Fable 5（四層自我改進架構）與打造你的第一個 Claude 自動化（五步路線圖）。">
+<style>
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+header.hero{background:linear-gradient(135deg,#1a1a2e,#2b3a67);color:#fff;padding:54px 0 40px}
+.hero .wrap{display:flex;flex-direction:column;gap:12px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;width:fit-content}
+.hero h1{margin:0;font-size:34px;letter-spacing:.5px}
+.hero p{margin:0;color:#c8d0e0;font-size:15px;max-width:680px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;font-size:13px;color:#aeb8cf}
+.home{color:#ffd9c6;text-decoration:none;font-size:13.5px;font-weight:600}
+main{padding:26px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin:22px 0;box-shadow:0 4px 18px rgba(20,20,40,.05)}
+.card-head{display:flex;align-items:center;justify-content:space-between}
+.cat{font-size:12.5px;font-weight:700;color:var(--blue);background:#eaf1f9;padding:4px 11px;border-radius:999px}
+.idx{font-size:12.5px;color:var(--mut);font-weight:700}
+.card h2{margin:14px 0 2px;font-size:23px}
+.en{margin:0;color:var(--mut);font-size:13.5px;font-style:italic}
+.lead{margin:12px 0 6px;font-size:15px;color:#333}
+.points{margin:6px 0 16px;padding-left:20px}
+.points li{margin:5px 0;font-size:14.5px;color:#222}
+.figure{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+.figure svg{width:100%;height:auto;display:block}
+.src{margin:12px 0 0;font-size:12px;color:#9aa3af}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:24px 0 50px}
+@media(max-width:600px){.hero h1{font-size:26px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="badge">AI 概念研究</span>
+  <h1>Fable 5 使用心法 × 第一個 Claude 自動化 · 中文圖解</h1>
+  <p>兩張英文 AI 資訊圖的中文重繪：先看「如何真正用好 Fable 5」——大多數人與高手的差別就在記憶與自我改進兩層；再照著「打造你的第一個 Claude 自動化」五步路線圖，把每週的重複工作變成可重用的技能。</p>
+  <div class="meta"><span>產生日期：2026-07-14</span><span>共 2 張圖</span><span>格式：單頁式 HTML</span></div>
+  <a class="home" href="index.html">← 回索引入口</a>
+</div></header>
+<main><div class="wrap">
+
+  <section class="card">
+    <div class="card-head">
+      <span class="cat">AI 代理 · 使用心法</span>
+      <span class="idx">01 / 02</span>
+    </div>
+    <h2>如何真正用好 Fable 5：四層自我改進架構</h2>
+    <p class="en">Mythos-Tier Model. Sonnet-Tier Habits. — How to Actually Use Fable 5</p>
+    <p class="lead">頂級模型配上普通習慣，只會得到普通結果。這張圖解釋大多數人用 Fable 5 的方式（下提示→拿答案→明天從頭再來）與高手做法（執行→記錄→蒸餾→重複）的差異，核心是四層架構：基礎原語、協作編排、記憶、自我改進。</p>
+    <ul class="points">
+      <li>大多數人止步於「基礎原語」層：只用模型與原始工具，沒有記憶、沒有學習、沒有複利。</li>
+      <li>記憶層＝代理在每次工作階段結束前寫入、下次開始時讀取的狀態檔：已驗證的事實、蒸餾出的規則、有效做法與下一步。</li>
+      <li>黃金法則：產出者 ≠ 驗證者——由獨立的驗證代理依評分標準檢查產出，而不是同一個代理自己批改自己的作業。</li>
+      <li>自我學習（模型更新自身權重）目前沒有任何公開模型做得到；自我改進（模型不變、周邊系統持續變好）今天就能做。</li>
+      <li>自我改進迴圈：執行 → 產出 → 獨立審查 → 學到教訓 → 下次執行（更好），讓明天的執行繼承今天磨利的系統。</li>
+    </ul>
+    <div class="figure">
+<svg viewBox="0 0 1080 1420" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect width="1080" height="1420" fill="#FFFFFF"/>
+
+  <!-- 裝飾星芒 -->
+  <g stroke="#F9D5CE" stroke-width="3" stroke-linecap="round">
+    <path d="M40 40 l22 10 M46 62 l20 -4 M38 22 l14 18"/>
+    <path d="M1040 40 l-22 10 M1034 62 l-20 -4 M1042 22 l-14 18"/>
+  </g>
+
+  <!-- 標題 -->
+  <text x="540" y="58" text-anchor="middle" font-size="26" font-weight="700" fill="#1A1A1A">
+    <tspan fill="#2563EB">Mythos 級模型</tspan>，<tspan fill="#2563EB">Sonnet 級習慣</tspan>。
+  </text>
+  <text x="540" y="104" text-anchor="middle" font-size="40" font-weight="800" fill="#1A1A1A">如何真正用好 <tspan fill="#2563EB">Fable 5</tspan></text>
+  <rect x="500" y="120" width="80" height="4" rx="2" fill="#1A1A1A"/>
+
+  <!-- 左上卡：大多數人 -->
+  <g>
+    <rect x="30" y="150" width="500" height="170" rx="14" fill="#FCE7E7" stroke="#E11D48" stroke-width="1.5"/>
+    <rect x="110" y="136" width="340" height="32" rx="16" fill="#E11D48"/>
+    <text x="280" y="158" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">大多數人這樣用 Fable 5</text>
+    <!-- 流程 -->
+    <g font-size="15" font-weight="600" fill="#1A1A1A" text-anchor="middle">
+      <circle cx="60" cy="228" r="4" fill="#E11D48"/>
+      <text x="128" y="233">更用力地下提示</text>
+      <path d="M198 228 h34" stroke="#1A1A1A" stroke-width="1.5"/><path d="M232 228 l-8 -5 v10 z" fill="#1A1A1A"/>
+      <text x="298" y="233">得到更好的答案</text>
+      <path d="M368 228 h34" stroke="#1A1A1A" stroke-width="1.5"/><path d="M402 228 l-8 -5 v10 z" fill="#1A1A1A"/>
+      <text x="462" y="233">明天從頭再來</text>
+    </g>
+    <rect x="90" y="270" width="380" height="32" rx="4" fill="#F9A8B4"/>
+    <text x="280" y="292" text-anchor="middle" font-size="16" font-weight="700" fill="#1A1A1A">沒有記憶。沒有學習。沒有複利。</text>
+  </g>
+
+  <!-- 右上卡：Mythos 高手 -->
+  <g>
+    <rect x="550" y="150" width="500" height="170" rx="14" fill="#F4FBEA" stroke="#4D7C0F" stroke-width="1.5"/>
+    <rect x="640" y="136" width="320" height="32" rx="16" fill="#4D7C0F"/>
+    <text x="800" y="158" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">真正的 Mythos 高手這樣做</text>
+    <g font-size="15" font-weight="600" fill="#1A1A1A" text-anchor="middle">
+      <text x="618" y="233">執行</text>
+      <circle cx="655" cy="228" r="4" fill="#4D7C0F"/>
+      <path d="M662 228 h22" stroke="#1A1A1A" stroke-width="1.5"/><path d="M684 228 l-8 -5 v10 z" fill="#1A1A1A"/>
+      <text x="716" y="233">記錄</text>
+      <circle cx="753" cy="228" r="4" fill="#4D7C0F"/>
+      <path d="M760 228 h22" stroke="#1A1A1A" stroke-width="1.5"/><path d="M782 228 l-8 -5 v10 z" fill="#1A1A1A"/>
+      <text x="814" y="233">蒸餾</text>
+      <circle cx="851" cy="228" r="4" fill="#4D7C0F"/>
+      <path d="M858 228 h22" stroke="#1A1A1A" stroke-width="1.5"/><path d="M880 228 l-8 -5 v10 z" fill="#1A1A1A"/>
+      <text x="912" y="233">重複</text>
+    </g>
+    <rect x="610" y="270" width="380" height="32" rx="4" fill="#BEF264"/>
+    <text x="800" y="292" text-anchor="middle" font-size="16" font-weight="700" fill="#1A1A1A">記憶累積、系統精進、成果複利。</text>
+  </g>
+
+  <!-- 四層架構橫幅 -->
+  <g>
+    <line x1="60" y1="366" x2="380" y2="366" stroke="#1A1A1A" stroke-width="1.5"/><circle cx="60" cy="366" r="4" fill="#1A1A1A"/>
+    <line x1="700" y1="366" x2="1020" y2="366" stroke="#1A1A1A" stroke-width="1.5"/><circle cx="1020" cy="366" r="4" fill="#1A1A1A"/>
+    <rect x="390" y="348" width="300" height="38" rx="19" fill="#E8590C"/>
+    <text x="540" y="374" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">四層架構</text>
+  </g>
+
+  <!-- 金字塔 -->
+  <g text-anchor="middle" font-weight="700">
+    <polygon points="450,416 630,416 660,468 420,468" fill="#C2410C"/>
+    <text x="540" y="448" font-size="17" fill="#FFFFFF">④ 自我改進</text>
+    <polygon points="415,478 665,478 695,530 385,530" fill="#F97316"/>
+    <text x="540" y="510" font-size="17" fill="#FFFFFF">③ 記憶</text>
+    <polygon points="380,540 700,540 730,592 350,592" fill="#F2EDE4"/>
+    <text x="540" y="572" font-size="17" fill="#1A1A1A">② 協作編排</text>
+    <polygon points="345,602 735,602 765,654 315,654" fill="#F2EDE4"/>
+    <text x="540" y="634" font-size="17" fill="#1A1A1A">① 基礎原語</text>
+    <rect x="290" y="664" width="500" height="54" rx="6" fill="#1A1A1A"/>
+    <text x="540" y="698" font-size="20" fill="#FFFFFF">Fable 5</text>
+  </g>
+
+  <!-- 左註解：記憶 -->
+  <g font-size="13.5" fill="#1A1A1A">
+    <line x1="300" y1="470" x2="400" y2="500" stroke="#F97316" stroke-width="1.5"/><circle cx="400" cy="500" r="4" fill="#F97316"/>
+    <text x="36" y="428"><tspan x="36" dy="0" font-weight="700" font-size="14.5">記憶：</tspan>代理在每次工作階段結束前寫入、</text>
+    <text x="36" y="448">下次開始時讀取的狀態檔。已驗證的事實、</text>
+    <text x="36" y="468">蒸餾出的規則、哪些有效、下一步是什麼。</text>
+    <rect x="34" y="480" width="252" height="26" rx="4" fill="#FDBA74"/>
+    <text x="44" y="498" font-weight="700">跳過這步，每次都從零重來。</text>
+  </g>
+  <!-- 左註解：基礎原語 -->
+  <g font-size="13.5" fill="#1A1A1A">
+    <line x1="300" y1="616" x2="340" y2="628" stroke="#F97316" stroke-width="1.5"/><circle cx="340" cy="628" r="4" fill="#F97316"/>
+    <text x="36" y="586"><tspan font-weight="700" font-size="14.5">基礎原語：</tspan>Fable 5、子代理，</text>
+    <text x="36" y="606">以及它能呼叫的原始工具。</text>
+    <rect x="34" y="618" width="180" height="26" rx="4" fill="#FDBA74"/>
+    <text x="44" y="636" font-weight="700">大多數人止步於此。</text>
+  </g>
+  <!-- 右註解：自我改進 -->
+  <g font-size="13.5" fill="#1A1A1A">
+    <line x1="780" y1="470" x2="662" y2="442" stroke="#F97316" stroke-width="1.5"/><circle cx="662" cy="442" r="4" fill="#F97316"/>
+    <text x="784" y="428"><tspan font-weight="700" font-size="14.5">自我改進：</tspan>代理檢查自己的產出</text>
+    <text x="784" y="448">（包括視覺化評分），並把學到的</text>
+    <text x="784" y="468">教訓寫回記憶。</text>
+    <rect x="782" y="480" width="262" height="26" rx="4" fill="#FDBA74"/>
+    <text x="792" y="498" font-weight="700">明天的執行繼承今天磨利的系統。</text>
+  </g>
+  <!-- 右註解：協作編排 -->
+  <g font-size="13.5" fill="#1A1A1A">
+    <line x1="780" y1="600" x2="720" y2="566" stroke="#F97316" stroke-width="1.5"/><circle cx="720" cy="566" r="4" fill="#F97316"/>
+    <text x="784" y="556"><tspan font-weight="700" font-size="14.5">協作編排：</tspan>目標驅動的迴圈，配上</text>
+    <text x="784" y="576">獨立的評分者，而不是同一個代理</text>
+    <text x="784" y="596">自己批改自己的作業。</text>
+    <rect x="782" y="608" width="262" height="42" rx="4" fill="#FDBA74"/>
+    <text x="792" y="625" font-weight="700">由另一個代理依評分標準檢查</text>
+    <text x="792" y="643" font-weight="700">產出，直到真正通過。</text>
+  </g>
+
+  <!-- 黃金法則卡 -->
+  <g>
+    <rect x="30" y="760" width="1020" height="250" rx="16" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1.5"/>
+    <rect x="360" y="744" width="360" height="34" rx="17" fill="#A855F7"/>
+    <text x="540" y="767" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">黃金法則：產出者 ≠ 驗證者</text>
+
+    <!-- 壞例（左） -->
+    <g font-size="13.5" text-anchor="middle" fill="#1A1A1A">
+      <circle cx="95" cy="850" r="22" fill="#F3E8FF" stroke="#A855F7" stroke-width="1.5"/>
+      <text x="95" y="856" font-size="16">🤖</text>
+      <text x="95" y="892" font-weight="700">代理（產出者）</text>
+      <path d="M130 850 h30" stroke="#1A1A1A" stroke-width="1.5"/><path d="M160 850 l-8 -5 v10 z" fill="#1A1A1A"/>
+      <rect x="168" y="832" width="96" height="36" rx="8" fill="#FFFFFF" stroke="#9CA3AF"/>
+      <text x="216" y="855">產出結果</text>
+      <path d="M268 845 h30 M268 855 h30" stroke="#A855F7" stroke-width="1.5"/><path d="M298 850 l-8 -5 v10 z" fill="#A855F7"/>
+      <circle cx="340" cy="850" r="22" fill="#F3E8FF" stroke="#A855F7" stroke-width="1.5"/>
+      <text x="340" y="856" font-size="16">🤖</text>
+      <text x="340" y="892" font-weight="700">同一代理自己評分</text>
+      <path d="M375 850 h28" stroke="#1A1A1A" stroke-width="1.5"/><path d="M403 850 l-8 -5 v10 z" fill="#1A1A1A"/>
+      <rect x="410" y="832" width="130" height="36" rx="8" fill="#FFFFFF" stroke="#9CA3AF"/>
+      <text x="475" y="855">看起來不錯，上線！</text>
+      <circle cx="80" cy="950" r="12" fill="none" stroke="#E11D48" stroke-width="2"/>
+      <path d="M74 944 l12 12 M86 944 l-12 12" stroke="#E11D48" stroke-width="2"/>
+      <text x="105" y="956" text-anchor="start" font-weight="700" fill="#E11D48">錯誤：代理自己給自己打分</text>
+    </g>
+
+    <!-- 好例（右） -->
+    <g font-size="13.5" text-anchor="middle" fill="#1A1A1A">
+      <circle cx="600" cy="850" r="22" fill="#F3E8FF" stroke="#A855F7" stroke-width="1.5"/>
+      <text x="600" y="856" font-size="16">🤖</text>
+      <text x="600" y="892" font-weight="700">代理（產出者）</text>
+      <path d="M635 850 h24" stroke="#1A1A1A" stroke-width="1.5"/><path d="M659 850 l-8 -5 v10 z" fill="#1A1A1A"/>
+      <rect x="666" y="832" width="90" height="36" rx="8" fill="#FFFFFF" stroke="#9CA3AF"/>
+      <text x="711" y="855">產出結果</text>
+      <path d="M760 850 h24" stroke="#1A1A1A" stroke-width="1.5"/><path d="M784 850 l-8 -5 v10 z" fill="#1A1A1A"/>
+      <circle cx="822" cy="850" r="22" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5"/>
+      <text x="822" y="856" font-size="16">🔍</text>
+      <text x="822" y="892" font-weight="700">驗證代理</text>
+      <path d="M857 850 h24" stroke="#1A1A1A" stroke-width="1.5"/><path d="M881 850 l-8 -5 v10 z" fill="#1A1A1A"/>
+      <rect x="888" y="832" width="130" height="36" rx="8" fill="#FFFFFF" stroke="#9CA3AF"/>
+      <text x="953" y="855">通過？是 / 否</text>
+      <circle cx="590" cy="950" r="12" fill="none" stroke="#16A34A" stroke-width="2"/>
+      <path d="M584 950 l5 6 l9 -12" stroke="#16A34A" stroke-width="2" fill="none"/>
+      <text x="615" y="956" text-anchor="start" font-weight="700" fill="#16A34A">正確：獨立驗證者迴圈</text>
+    </g>
+  </g>
+
+  <!-- 左下卡：真正重要的區別 -->
+  <g>
+    <rect x="30" y="1050" width="500" height="240" rx="14" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
+    <rect x="120" y="1036" width="320" height="32" rx="16" fill="#2563EB"/>
+    <text x="280" y="1058" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">真正重要的區別</text>
+    <g font-size="14" fill="#1A1A1A">
+      <text x="60" y="1110" font-weight="800" font-size="16" fill="#2563EB">🧠 自我學習 Self-learning</text>
+      <text x="60" y="1136">＝模型根據經驗更新自身權重。</text>
+      <text x="60" y="1158">目前沒有任何公開模型做得到，</text>
+      <text x="60" y="1180">Fable 5 也不例外。</text>
+      <text x="300" y="1110" font-weight="800" font-size="16" fill="#16A34A">📈 自我改進 Self-improving</text>
+      <text x="300" y="1136">＝整個系統隨時間變好。</text>
+      <text x="300" y="1158">模型本身不變；圍繞它的環境</text>
+      <text x="300" y="1180">持續改善。</text>
+    </g>
+    <line x1="285" y1="1090" x2="285" y2="1190" stroke="#E5E7EB" stroke-width="1.5"/>
+  </g>
+
+  <!-- 右下卡：自我改進迴圈 -->
+  <g>
+    <rect x="550" y="1050" width="500" height="240" rx="14" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
+    <rect x="650" y="1036" width="300" height="32" rx="16" fill="#2563EB"/>
+    <text x="800" y="1058" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">自我改進迴圈</text>
+    <g font-size="14" font-weight="700" fill="#1A1A1A" text-anchor="middle">
+      <circle cx="800" cy="1175" r="62" fill="none" stroke="#93C5FD" stroke-width="2" stroke-dasharray="4 4"/>
+      <circle cx="800" cy="1113" r="6" fill="#2563EB"/><text x="800" y="1098">執行</text>
+      <circle cx="859" cy="1156" r="6" fill="#2563EB"/><text x="920" y="1152">產出</text>
+      <circle cx="838" cy="1227" r="6" fill="#2563EB"/><text x="905" y="1250">獨立審查</text>
+      <circle cx="762" cy="1227" r="6" fill="#2563EB"/><text x="700" y="1250">學到教訓</text>
+      <circle cx="741" cy="1156" r="6" fill="#2563EB"/><text x="668" y="1152">下次執行（更好）</text>
+      <path d="M806 1110 a62 62 0 0 1 50 40" fill="none" stroke="#2563EB" stroke-width="1.5"/>
+      <path d="M856 1150 l2 8 l-9 -2 z" fill="#2563EB"/>
+    </g>
+  </g>
+
+  <!-- 頁尾 -->
+  <rect x="30" y="1330" width="1020" height="48" rx="24" fill="#1E3A8A"/>
+  <text x="540" y="1360" text-anchor="middle" font-size="15" fill="#FFFFFF">中文重製版 · 依原圖風格重繪（原作：@rakeshgohel01 · rakeshgohel.substack.com）</text>
+</svg>
+    </div>
+    <p class="src">原作：@rakeshgohel01（rakeshgohel.substack.com）· 中文重製版，依原圖風格重繪</p>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <span class="cat">Claude 自動化 · 實戰路線圖</span>
+      <span class="idx">02 / 02</span>
+    </div>
+    <h2>打造你的第一個 Claude 自動化：五步路線圖</h2>
+    <p class="en">Build Your First Claude Automation — from repeat task to reusable system</p>
+    <p class="lead">從重複任務到可重用系統的五步實戰路線圖：找出重複、任務分流、繪製工作流、打造技能、選擇執行環境。第一個自動化要挑熟悉、小巧、容易檢查的每週例行工作。</p>
+    <ul class="points">
+      <li>① 找出重複：寫下五項重複任務，圈選輸入條件清楚的那一項——別自動化混亂，要自動化「重複」。</li>
+      <li>② 任務分流（四道閘門）：刪除低價值工作、把可重複步驟交給 Claude 自動化、把需要判斷的委派給人、其餘用 AI 加速。</li>
+      <li>③ 繪製工作流：標出觸發（什麼啟動執行）、動作（接下來發生什麼）、審核（你在哪一步核准）——清楚的地圖讓提示變成系統。</li>
+      <li>④ 打造技能：把地圖變成可重用的操作檔，內含目標（角色與步驟）、佐證（範例與驗收檢查）、工具（檔案、應用程式與指令）。</li>
+      <li>⑤ 選擇執行環境：同一個技能可在聊天中手動執行、在 Cowork 排程執行、或移往雲端自主執行——同一技能，不同引擎。</li>
+    </ul>
+    <div class="figure">
+<svg viewBox="0 0 1216 1620" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0 H0 V28" fill="none" stroke="#EFEFEA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1216" height="1620" fill="#FAFAF8"/>
+  <rect width="1216" height="1620" fill="url(#grid)"/>
+
+  <!-- 頁首 -->
+  <g stroke="#D9603B" stroke-width="2.5" stroke-linecap="round">
+    <path d="M60 46 l0 -18 M60 46 l14 -12 M60 46 l18 0 M60 46 l-14 -12 M60 46 l-18 0"/>
+  </g>
+  <text x="96" y="58" font-size="36" font-weight="800" fill="#1F2937">打造你的<tspan fill="#D9603B">第一個</tspan> Claude 自動化</text>
+  <text x="96" y="90" font-size="17" font-weight="600" fill="#4B5563">從重複任務到可重用系統的實戰路線圖。</text>
+  <text x="96" y="118" font-size="13" letter-spacing="2" fill="#1F2937" font-weight="700">RICKY WATERS <tspan fill="#9CA3AF" letter-spacing="0">· @therickywaters</tspan></text>
+
+  <!-- 時間軸 -->
+  <line x1="56" y1="180" x2="56" y2="1500" stroke="#E5E7EB" stroke-width="2"/>
+
+  <!-- ===== 步驟 01 ===== -->
+  <circle cx="56" cy="200" r="18" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>
+  <text x="56" y="205" text-anchor="middle" font-size="13" font-weight="800" fill="#64748B">01</text>
+  <g>
+    <text x="92" y="212" font-size="34" font-weight="800" fill="#64748B">01</text>
+    <rect x="150" y="188" width="96" height="26" rx="13" fill="#EEF2F7"/>
+    <text x="198" y="206" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="1" fill="#64748B">找出重複</text>
+    <text x="92" y="248" font-size="21" font-weight="800" fill="#1F2937">從無聊的例行工作開始</text>
+    <rect x="92" y="262" width="460" height="46" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="106" y="281" font-size="13.5" fill="#374151">挑你每週都在做的工作。最好的第一個自動化是</text>
+    <text x="106" y="300" font-size="13.5" fill="#374151">熟悉、小巧、容易檢查的。</text>
+    <g font-size="13.5" fill="#374151">
+      <rect x="92" y="318" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="332" r="9" fill="#EEF2F7"/><text x="110" y="336" text-anchor="middle" font-size="11" font-weight="700" fill="#64748B">1</text>
+      <text x="126" y="337"><tspan font-weight="700" fill="#64748B">列出</tspan>——寫下五項重複性任務。</text>
+      <rect x="92" y="352" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="366" r="9" fill="#EEF2F7"/><text x="110" y="370" text-anchor="middle" font-size="11" font-weight="700" fill="#64748B">2</text>
+      <text x="126" y="371"><tspan font-weight="700" fill="#64748B">圈選</tspan>——選出輸入條件清楚的那一項。</text>
+      <rect x="92" y="386" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="400" r="9" fill="#EEF2F7"/><text x="110" y="404" text-anchor="middle" font-size="11" font-weight="700" fill="#64748B">3</text>
+      <text x="126" y="405"><tspan font-weight="700" fill="#64748B">挑定</tspan>——從你能快速說清楚的任務開始。</text>
+    </g>
+    <text x="92" y="438" font-size="13.5" font-weight="700" fill="#1F2937">✔ 別自動化混亂，要自動化「重複」。</text>
+  </g>
+  <!-- 01 右卡 -->
+  <g>
+    <rect x="600" y="185" width="560" height="265" rx="16" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5"/>
+    <rect x="620" y="200" width="130" height="24" rx="12" fill="#EEF2F7"/>
+    <text x="685" y="217" text-anchor="middle" font-size="11.5" font-weight="700" letter-spacing="1" fill="#64748B">重複任務清單</text>
+    <g font-size="13" fill="#374151">
+      <rect x="620" y="238" width="240" height="30" rx="8" fill="#F8FAFC" stroke="#E5E7EB"/><text x="634" y="258">📥 收件匣分類 <tspan fill="#9CA3AF">（每日）</tspan></text>
+      <rect x="620" y="274" width="240" height="30" rx="8" fill="#F8FAFC" stroke="#E5E7EB"/><text x="634" y="294">📄 客戶簡報 <tspan fill="#9CA3AF">（每週 2 次）</tspan></text>
+      <rect x="620" y="310" width="240" height="30" rx="8" fill="#FBEEE4" stroke="#D9603B"/><text x="634" y="330">📊 週報 <tspan fill="#C77B2E">（週五）★</tspan></text>
+      <rect x="620" y="346" width="240" height="30" rx="8" fill="#F8FAFC" stroke="#E5E7EB"/><text x="634" y="366">💬 後續追蹤 <tspan fill="#9CA3AF">（每日）</tspan></text>
+      <rect x="620" y="382" width="240" height="30" rx="8" fill="#F8FAFC" stroke="#E5E7EB"/><text x="634" y="402">🔍 資料蒐集 <tspan fill="#9CA3AF">（每週）</tspan></text>
+    </g>
+    <path d="M862 325 h60" stroke="#D9603B" stroke-width="1.5"/><path d="M922 325 l-8 -5 v10 z" fill="#D9603B"/>
+    <rect x="930" y="290" width="200" height="72" rx="12" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5"/>
+    <circle cx="1112" cy="298" r="10" fill="#E4F3F0"/><path d="M1107 298 l4 4 l7 -9" stroke="#2F9E8F" stroke-width="2" fill="none"/>
+    <text x="946" y="316" font-size="13.5" font-weight="800" fill="#1F2937">第一個技能</text>
+    <text x="946" y="336" font-size="13" fill="#374151">週報草稿</text>
+    <rect x="946" y="344" width="120" height="5" rx="2.5" fill="#E5E7EB"/>
+  </g>
+
+  <!-- ===== 步驟 02 ===== -->
+  <circle cx="56" cy="490" r="20" fill="#FBEEE4" stroke="#D9603B" stroke-width="2.5"/>
+  <text x="56" y="495" text-anchor="middle" font-size="13" font-weight="800" fill="#D9603B">02</text>
+  <g>
+    <text x="92" y="502" font-size="34" font-weight="800" fill="#D9603B">02</text>
+    <rect x="150" y="478" width="96" height="26" rx="13" fill="#FBEEE4"/>
+    <text x="198" y="496" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="1" fill="#C77B2E">任務分流</text>
+    <text x="92" y="538" font-size="21" font-weight="800" fill="#1F2937">用四道閘門過濾</text>
+    <rect x="92" y="552" width="460" height="46" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="106" y="571" font-size="13.5" fill="#374151">動手打造之前，先決定哪些工作該消失、哪些該</text>
+    <text x="106" y="590" font-size="13.5" fill="#374151">自動執行、哪些仍然需要人。</text>
+    <g font-size="13.5" fill="#374151">
+      <rect x="92" y="608" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="622" r="9" fill="#FBEEE4"/><text x="110" y="626" text-anchor="middle" font-size="11" font-weight="700" fill="#C77B2E">1</text>
+      <text x="126" y="627"><tspan font-weight="700" fill="#C77B2E">刪除</tspan>——先移除低價值的工作。</text>
+      <rect x="92" y="642" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="656" r="9" fill="#FBEEE4"/><text x="110" y="660" text-anchor="middle" font-size="11" font-weight="700" fill="#C77B2E">2</text>
+      <text x="126" y="661"><tspan font-weight="700" fill="#C77B2E">自動化</tspan>——把可重複的步驟交給 Claude。</text>
+      <rect x="92" y="676" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="690" r="9" fill="#FBEEE4"/><text x="110" y="694" text-anchor="middle" font-size="11" font-weight="700" fill="#C77B2E">3</text>
+      <text x="126" y="695"><tspan font-weight="700" fill="#C77B2E">委派</tspan>——把需要判斷的部分留給人。</text>
+    </g>
+    <text x="92" y="728" font-size="13.5" font-weight="700" fill="#1F2937">➜ 只自動化通過篩選的工作。</text>
+  </g>
+  <!-- 02 右卡：決策看板 -->
+  <g>
+    <rect x="600" y="475" width="560" height="265" rx="16" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5"/>
+    <rect x="620" y="490" width="110" height="24" rx="12" fill="#FBEEE4"/>
+    <text x="675" y="507" text-anchor="middle" font-size="11.5" font-weight="700" letter-spacing="1" fill="#C77B2E">決策看板</text>
+    <rect x="820" y="490" width="120" height="30" rx="8" fill="#F8FAFC" stroke="#E5E7EB"/>
+    <text x="880" y="510" text-anchor="middle" font-size="13" font-weight="700" fill="#1F2937">這項任務</text>
+    <path d="M880 520 v14 M700 534 h420 M700 534 v14 M840 534 v14 M980 534 v14 M1120 534 v14" stroke="#D9603B" stroke-width="1.2" fill="none"/>
+    <g font-size="12.5">
+      <rect x="628" y="556" width="150" height="66" rx="10" fill="#F8FAFC" stroke="#E5E7EB"/>
+      <text x="642" y="578" font-weight="800" fill="#1F2937">🗑 刪除</text>
+      <text x="642" y="597" fill="#6B7280">不值得做</text>
+      <rect x="642" y="604" width="60" height="14" rx="7" fill="#EEF2F7"/><text x="672" y="615" text-anchor="middle" font-size="9.5" font-weight="700" fill="#64748B">低價值</text>
+      <rect x="768" y="556" width="150" height="66" rx="10" fill="#FBEEE4" stroke="#D9603B" stroke-width="2"/>
+      <text x="782" y="578" font-weight="800" fill="#1F2937">⚙️ 自動化</text>
+      <text x="782" y="597" fill="#6B7280">每次步驟相同</text>
+      <rect x="782" y="604" width="66" height="14" rx="7" fill="#D9603B"/><text x="815" y="615" text-anchor="middle" font-size="9.5" font-weight="700" fill="#FFFFFF">最佳選擇</text>
+      <rect x="908" y="556" width="150" height="66" rx="10" fill="#F8FAFC" stroke="#E5E7EB"/>
+      <text x="922" y="578" font-weight="800" fill="#1F2937">🤝 委派</text>
+      <text x="922" y="597" fill="#6B7280">需要人的判斷</text>
+      <rect x="922" y="604" width="52" height="14" rx="7" fill="#EEECFA"/><text x="948" y="615" text-anchor="middle" font-size="9.5" font-weight="700" fill="#7C6FD0">人工</text>
+      <rect x="628" y="640" width="150" height="66" rx="10" fill="#F8FAFC" stroke="#E5E7EB"/>
+      <text x="642" y="662" font-weight="800" fill="#1F2937">🚀 加速</text>
+      <text x="642" y="681" fill="#6B7280">加快研究速度</text>
+      <rect x="642" y="688" width="52" height="14" rx="7" fill="#E4F3F0"/><text x="668" y="699" text-anchor="middle" font-size="9.5" font-weight="700" fill="#2F9E8F">輔助</text>
+    </g>
+    <text x="820" y="690" font-size="12.5" fill="#9CA3AF">通過四道閘門，只留下值得自動化的工作</text>
+  </g>
+
+  <!-- ===== 步驟 03 ===== -->
+  <circle cx="56" cy="780" r="18" fill="#FFFFFF" stroke="#7C6FD0" stroke-width="2"/>
+  <text x="56" y="785" text-anchor="middle" font-size="13" font-weight="800" fill="#7C6FD0">03</text>
+  <g>
+    <text x="92" y="792" font-size="34" font-weight="800" fill="#7C6FD0">03</text>
+    <rect x="150" y="768" width="110" height="26" rx="13" fill="#EEECFA"/>
+    <text x="205" y="786" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="1" fill="#7C6FD0">繪製工作流</text>
+    <text x="92" y="828" font-size="21" font-weight="800" fill="#1F2937">先把路徑畫出來</text>
+    <rect x="92" y="842" width="460" height="46" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="106" y="861" font-size="13.5" fill="#374151">工作流地圖讓自動化落地：標出 Claude 從哪裡開始、</text>
+    <text x="106" y="880" font-size="13.5" fill="#374151">做什麼、在哪裡等待、把結果存到哪裡。</text>
+    <g font-size="13.5" fill="#374151">
+      <rect x="92" y="898" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="912" r="9" fill="#EEECFA"/><text x="110" y="916" text-anchor="middle" font-size="11" font-weight="700" fill="#7C6FD0">1</text>
+      <text x="126" y="917"><tspan font-weight="700" fill="#7C6FD0">觸發</tspan>——什麼啟動這次執行？</text>
+      <rect x="92" y="932" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="946" r="9" fill="#EEECFA"/><text x="110" y="950" text-anchor="middle" font-size="11" font-weight="700" fill="#7C6FD0">2</text>
+      <text x="126" y="951"><tspan font-weight="700" fill="#7C6FD0">動作</tspan>——接下來發生什麼？</text>
+      <rect x="92" y="966" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="980" r="9" fill="#EEECFA"/><text x="110" y="984" text-anchor="middle" font-size="11" font-weight="700" fill="#7C6FD0">3</text>
+      <text x="126" y="985"><tspan font-weight="700" fill="#7C6FD0">審核</tspan>——你在哪一步核准？</text>
+    </g>
+    <text x="92" y="1018" font-size="13.5" font-weight="700" fill="#1F2937">⏱ 清楚的地圖，讓提示變成系統。</text>
+  </g>
+  <!-- 03 右卡：路線圖 -->
+  <g>
+    <rect x="600" y="765" width="560" height="265" rx="16" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5"/>
+    <rect x="620" y="780" width="90" height="24" rx="12" fill="#EEECFA"/>
+    <text x="665" y="797" text-anchor="middle" font-size="11.5" font-weight="700" letter-spacing="1" fill="#7C6FD0">路線圖</text>
+    <g font-size="13" fill="#374151" text-anchor="middle">
+      <rect x="630" y="840" width="140" height="60" rx="12" fill="#F8FAFC" stroke="#E5E7EB" stroke-width="1.5"/>
+      <text x="700" y="866" font-size="16">▶️</text><text x="700" y="888" font-weight="700">開始／觸發</text>
+      <path d="M770 870 h40" stroke="#7C6FD0" stroke-width="1.5"/><circle cx="790" cy="870" r="3.5" fill="#7C6FD0"/><path d="M810 870 l-8 -5 v10 z" fill="#7C6FD0"/>
+      <rect x="818" y="840" width="140" height="60" rx="12" fill="#F8FAFC" stroke="#E5E7EB" stroke-width="1.5"/>
+      <text x="888" y="866" font-size="16">📋</text><text x="888" y="888" font-weight="700">執行／步驟</text>
+      <path d="M958 870 h40" stroke="#7C6FD0" stroke-width="1.5"/><circle cx="978" cy="870" r="3.5" fill="#7C6FD0"/><path d="M998 870 l-8 -5 v10 z" fill="#7C6FD0"/>
+      <rect x="1006" y="840" width="140" height="60" rx="12" fill="#F8FAFC" stroke="#E5E7EB" stroke-width="1.5"/>
+      <text x="1076" y="866" font-size="16">✅</text><text x="1076" y="888" font-weight="700">等待／審核</text>
+      <path d="M1076 900 v40 h-238" stroke="#7C6FD0" stroke-width="1.5" fill="none"/><path d="M838 940 l8 -5 v10 z" fill="#7C6FD0"/>
+      <rect x="690" y="910" width="140" height="60" rx="12" fill="#F8FAFC" stroke="#E5E7EB" stroke-width="1.5"/>
+      <text x="760" y="936" font-size="16">💾</text><text x="760" y="958" font-weight="700">儲存／輸出</text>
+    </g>
+    <text x="880" y="1005" font-size="12.5" fill="#9CA3AF" text-anchor="middle">開始 → 執行 → 等待審核 → 儲存輸出</text>
+  </g>
+
+  <!-- ===== 步驟 04 ===== -->
+  <circle cx="56" cy="1070" r="18" fill="#FFFFFF" stroke="#D9603B" stroke-width="2"/>
+  <text x="56" y="1075" text-anchor="middle" font-size="13" font-weight="800" fill="#D9603B">04</text>
+  <g>
+    <text x="92" y="1082" font-size="34" font-weight="800" fill="#D9603B">04</text>
+    <rect x="150" y="1058" width="96" height="26" rx="13" fill="#FBEEE4"/>
+    <text x="198" y="1076" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="1" fill="#D9603B">打造技能</text>
+    <text x="92" y="1118" font-size="21" font-weight="800" fill="#1F2937">把指令打包起來</text>
+    <rect x="92" y="1132" width="460" height="46" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="106" y="1151" font-size="13.5" fill="#374151">把地圖變成可重用的操作檔。給 Claude 目標、</text>
+    <text x="106" y="1170" font-size="13.5" fill="#374151">檢查標準與工具。</text>
+    <g font-size="13.5" fill="#374151">
+      <rect x="92" y="1188" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="1202" r="9" fill="#FBEEE4"/><text x="110" y="1206" text-anchor="middle" font-size="11" font-weight="700" fill="#D9603B">1</text>
+      <text x="126" y="1207"><tspan font-weight="700" fill="#D9603B">計畫</tspan>——角色、目標與步驟。</text>
+      <rect x="92" y="1222" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="1236" r="9" fill="#FBEEE4"/><text x="110" y="1240" text-anchor="middle" font-size="11" font-weight="700" fill="#D9603B">2</text>
+      <text x="126" y="1241"><tspan font-weight="700" fill="#D9603B">佐證</tspan>——範例與驗收檢查。</text>
+      <rect x="92" y="1256" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="1270" r="9" fill="#FBEEE4"/><text x="110" y="1274" text-anchor="middle" font-size="11" font-weight="700" fill="#D9603B">3</text>
+      <text x="126" y="1275"><tspan font-weight="700" fill="#D9603B">工具</tspan>——檔案、應用程式與指令。</text>
+    </g>
+    <text x="92" y="1308" font-size="13.5" font-weight="700" fill="#1F2937">＋ 技能成為一份可重用的操作檔。</text>
+  </g>
+  <!-- 04 右卡：技能配方卡 -->
+  <g>
+    <rect x="600" y="1055" width="560" height="265" rx="16" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5"/>
+    <rect x="620" y="1070" width="120" height="24" rx="12" fill="#FBEEE4"/>
+    <text x="680" y="1087" text-anchor="middle" font-size="11.5" font-weight="700" letter-spacing="1" fill="#D9603B">技能配方卡</text>
+    <rect x="660" y="1110" width="440" height="180" rx="14" fill="#F8FAFC" stroke="#E5E7EB" stroke-width="1.5"/>
+    <text x="690" y="1142" font-size="16" font-weight="800" fill="#1F2937">📦 可重用技能</text>
+    <g font-size="14">
+      <rect x="690" y="1156" width="380" height="34" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <text x="704" y="1179" font-weight="700" fill="#D9603B">🎯 目標</text><rect x="790" y="1170" width="200" height="6" rx="3" fill="#E5E7EB"/>
+      <circle cx="1046" cy="1173" r="9" fill="#E4F3F0"/><path d="M1042 1173 l3 4 l7 -8" stroke="#2F9E8F" stroke-width="2" fill="none"/>
+      <rect x="690" y="1196" width="380" height="34" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <text x="704" y="1219" font-weight="700" fill="#D9603B">✅ 檢查</text><rect x="790" y="1210" width="200" height="6" rx="3" fill="#E5E7EB"/>
+      <circle cx="1046" cy="1213" r="9" fill="#E4F3F0"/><path d="M1042 1213 l3 4 l7 -8" stroke="#2F9E8F" stroke-width="2" fill="none"/>
+      <rect x="690" y="1236" width="380" height="34" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <text x="704" y="1259" font-weight="700" fill="#D9603B">🔧 工具</text><rect x="790" y="1250" width="200" height="6" rx="3" fill="#E5E7EB"/>
+      <circle cx="1046" cy="1253" r="9" fill="#E4F3F0"/><path d="M1042 1253 l3 4 l7 -8" stroke="#2F9E8F" stroke-width="2" fill="none"/>
+    </g>
+  </g>
+
+  <!-- ===== 步驟 05 ===== -->
+  <circle cx="56" cy="1360" r="18" fill="#FFFFFF" stroke="#2F9E8F" stroke-width="2"/>
+  <text x="56" y="1365" text-anchor="middle" font-size="13" font-weight="800" fill="#2F9E8F">05</text>
+  <g>
+    <text x="92" y="1372" font-size="34" font-weight="800" fill="#2F9E8F">05</text>
+    <rect x="150" y="1348" width="124" height="26" rx="13" fill="#E4F3F0"/>
+    <text x="212" y="1366" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="1" fill="#2F9E8F">選擇執行環境</text>
+    <text x="92" y="1408" font-size="21" font-weight="800" fill="#1F2937">把技能放到對的家</text>
+    <rect x="92" y="1422" width="460" height="46" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="106" y="1441" font-size="13.5" fill="#374151">同一個技能可以手動啟動、排程執行，或在驗證成熟後</text>
+    <text x="106" y="1460" font-size="13.5" fill="#374151">移往雲端執行器。</text>
+    <g font-size="13.5" fill="#374151">
+      <rect x="92" y="1478" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="1492" r="9" fill="#E4F3F0"/><text x="110" y="1496" text-anchor="middle" font-size="11" font-weight="700" fill="#2F9E8F">1</text>
+      <text x="126" y="1497"><tspan font-weight="700" fill="#2F9E8F">聊天</tspan>——需要時手動執行。</text>
+      <rect x="92" y="1512" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="1526" r="9" fill="#E4F3F0"/><text x="110" y="1530" text-anchor="middle" font-size="11" font-weight="700" fill="#2F9E8F">2</text>
+      <text x="126" y="1531"><tspan font-weight="700" fill="#2F9E8F">Cowork</tspan>——排程定期執行。</text>
+      <rect x="92" y="1546" width="460" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <circle cx="110" cy="1560" r="9" fill="#E4F3F0"/><text x="110" y="1564" text-anchor="middle" font-size="11" font-weight="700" fill="#2F9E8F">3</text>
+      <text x="126" y="1565"><tspan font-weight="700" fill="#2F9E8F">雲端</tspan>——不開筆電也能執行。</text>
+    </g>
+    <text x="92" y="1598" font-size="13.5" font-weight="700" fill="#1F2937">● 同一個技能，不同的引擎。</text>
+  </g>
+  <!-- 05 右卡：三種歸宿 -->
+  <g>
+    <rect x="600" y="1345" width="560" height="230" rx="16" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5"/>
+    <rect x="620" y="1360" width="100" height="24" rx="12" fill="#E4F3F0"/>
+    <text x="670" y="1377" text-anchor="middle" font-size="11.5" font-weight="700" letter-spacing="1" fill="#2F9E8F">三種歸宿</text>
+    <rect x="630" y="1420" width="170" height="76" rx="12" fill="#F8FAFC" stroke="#E5E7EB" stroke-width="1.5"/>
+    <text x="715" y="1452" text-anchor="middle" font-size="15" font-weight="800" fill="#1F2937">📦 同一個技能</text>
+    <text x="715" y="1474" text-anchor="middle" font-size="12.5" fill="#6B7280">一份可重用的檔案</text>
+    <g stroke="#2F9E8F" stroke-width="1.5" fill="none">
+      <path d="M800 1458 C 840 1458 850 1402 890 1402"/>
+      <path d="M800 1458 h90"/>
+      <path d="M800 1458 C 840 1458 850 1514 890 1514"/>
+    </g>
+    <circle cx="890" cy="1402" r="4" fill="#FFFFFF" stroke="#2F9E8F" stroke-width="1.5"/>
+    <circle cx="890" cy="1458" r="4" fill="#FFFFFF" stroke="#2F9E8F" stroke-width="1.5"/>
+    <circle cx="890" cy="1514" r="4" fill="#FFFFFF" stroke="#2F9E8F" stroke-width="1.5"/>
+    <g font-size="13">
+      <rect x="904" y="1382" width="230" height="42" rx="10" fill="#F8FAFC" stroke="#E5E7EB"/>
+      <text x="920" y="1409">💬 <tspan font-weight="800" fill="#1F2937">聊天</tspan> <tspan fill="#2F9E8F" font-weight="700">立即執行</tspan></text>
+      <rect x="904" y="1438" width="230" height="42" rx="10" fill="#F8FAFC" stroke="#E5E7EB"/>
+      <text x="920" y="1465">📅 <tspan font-weight="800" fill="#1F2937">Cowork</tspan> <tspan fill="#2F9E8F" font-weight="700">排程執行</tspan></text>
+      <rect x="904" y="1494" width="230" height="42" rx="10" fill="#F8FAFC" stroke="#E5E7EB"/>
+      <text x="920" y="1521">☁️ <tspan font-weight="800" fill="#1F2937">雲端</tspan> <tspan fill="#2F9E8F" font-weight="700">自主執行</tspan></text>
+    </g>
+  </g>
+
+  <!-- 出處 -->
+  <text x="608" y="1610" text-anchor="middle" font-size="12" fill="#9CA3AF">中文重製版 · 依原圖風格重繪（原作：Ricky Waters @therickywaters）</text>
+</svg>
+    </div>
+    <p class="src">原作：Ricky Waters（@therickywaters）· 中文重製版，依原圖風格重繪</p>
+  </section>
+
+</div></main>
+<footer>AI 概念研究 · 中文重製圖解 · 2026-07-14 · <a href="index.html" style="color:inherit">回索引入口</a></footer>
+</body>
+</html>
