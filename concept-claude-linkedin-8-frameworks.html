@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8 個 Claude 提示框架玩轉 LinkedIn · 中文圖解</title>
+<meta name="description" content="英文資訊圖「8 Claude Prompt Frameworks to Master LinkedIn」的中文重繪：P-O-S-T、B-R-I-E-F、H-I-R-E、S-T-O-R-Y、P-R-O-O-F、G-R-O-W、L-E-A-D、T-E-S-T 八套框架，每套附逐字母拆解與完整範例。">
+<style>
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+header.hero{background:linear-gradient(135deg,#1a1a2e,#2b3a67);color:#fff;padding:54px 0 40px}
+.hero .wrap{display:flex;flex-direction:column;gap:12px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;width:fit-content}
+.hero h1{margin:0;font-size:32px;letter-spacing:.5px}
+.hero p{margin:0;color:#c8d0e0;font-size:15px;max-width:760px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;font-size:13px;color:#aeb8cf}
+.home{color:#ffd9c6;text-decoration:none;font-size:13.5px;font-weight:600}
+main{padding:26px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin:22px 0;box-shadow:0 4px 18px rgba(20,20,40,.05)}
+.card-head{display:flex;align-items:center;justify-content:space-between}
+.cat{font-size:12.5px;font-weight:700;color:var(--blue);background:#eaf1f9;padding:4px 11px;border-radius:999px}
+.idx{font-size:12.5px;color:var(--mut);font-weight:700}
+.card h2{margin:14px 0 2px;font-size:23px}
+.en{margin:0;color:var(--mut);font-size:13.5px;font-style:italic}
+.lead{margin:12px 0 6px;font-size:15px;color:#333}
+.points{margin:6px 0 16px;padding-left:20px}
+.points li{margin:5px 0;font-size:14.5px;color:#222}
+.figure{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+.figure svg{width:100%;height:auto;display:block}
+.src{margin:12px 0 0;font-size:12px;color:#9aa3af}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:24px 0 50px}
+@media(max-width:600px){.hero h1{font-size:25px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="badge">AI 概念研究</span>
+  <h1>8 個 Claude 提示框架玩轉 LinkedIn · 中文圖解</h1>
+  <p>英文資訊圖的中文重繪：八套可直接套用的 Claude 提示框架——從把想法變貼文（P-O-S-T）、對 AI 下指令（B-R-I-E-F）、調校 AI 口吻（H-I-R-E）、說故事（S-T-O-R-Y）、寫客戶案例（P-R-O-O-F）、建立週更系統（G-R-O-W）、把貼文變自來客（L-E-A-D），到發文前壓力測試（T-E-S-T），每套都附逐字母拆解與完整實例。</p>
+  <div class="meta"><span>產生日期：2026-07-18</span><span>共 1 張圖</span><span>格式：單頁式 HTML</span></div>
+  <a class="home" href="index.html">← 回索引入口</a>
+</div></header>
+<main><div class="wrap">
+
+  <section class="card">
+    <div class="card-head">
+      <span class="cat">提示工程 · LinkedIn 內容經營</span>
+      <span class="idx">01 / 01</span>
+    </div>
+    <h2>8 個 Claude 提示框架：玩轉 LinkedIn</h2>
+    <p class="en">8 Claude Prompt Frameworks to Master LinkedIn</p>
+    <p class="lead">給用 LinkedIn 經營個人品牌的創辦人與行銷人：八套「首字母縮寫」提示框架，覆蓋從單篇貼文到整套內容系統的完整流程，每套框架都附一組真實範例，可直接抄進 Claude 使用。</p>
+    <ul class="points">
+      <li><b>單篇產出</b>：P-O-S-T（觀點／目標／結構／對象，把一個想法變成貼文）、S-T-O-R-Y（處境／張力／結果／領悟／與你，把人生歷程變成內容）、P-R-O-O-F（問題／成果／運作／主事者／頻率，寫出能成交的客戶案例）。</li>
+      <li><b>調校 AI</b>：B-R-I-E-F（背景／成果／素材／範例／回饋，像對團隊簡報一樣對 AI 下指令）、H-I-R-E（歷史／身分／規則／專業，讓 AI 聽起來像你而不是機器人）。</li>
+      <li><b>系統與轉換</b>：G-R-O-W（目標／節奏／產出／流程，建立每週自動運轉的內容系統）、L-E-A-D（名單／入口／切角／去向，把貼文變成自來客）、T-E-S-T（類型／預期／標準／微調，發文前為草稿做壓力測試）。</li>
+      <li>心法：框架的本質是「把你腦中的隱性判斷，變成 AI 可以執行的顯性規格」——先給脈絡與範例，再要求產出，最後用回饋迭代。</li>
+    </ul>
+    <figure class="figure">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1748" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+<rect width="1440" height="1748" fill="#F3EFE4"/>
+<text x="44" y="104" font-size="96" font-weight="900" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">8</text>
+<text x="146" y="70" font-size="40" font-weight="900" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">個 Claude 提示框架</text>
+<rect x="142" y="86" width="277.20000000000005" height="50" rx="6" fill="#F9E88A"/>
+<text x="152" y="123" font-size="40" font-weight="900" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">玩轉 LinkedIn</text>
+<path d="M 463.20000000000005 110 L 485.20000000000005 110.0 M 463.20000000000005 110 L 478.7563491861041 125.55634918610404 M 463.20000000000005 110 L 463.20000000000005 132.0 M 463.20000000000005 110 L 447.643650813896 125.55634918610404 M 463.20000000000005 110 L 441.20000000000005 110.0 M 463.20000000000005 110 L 447.643650813896 94.44365081389596 M 463.20000000000005 110 L 463.20000000000005 88.0 M 463.20000000000005 110 L 478.7563491861041 94.44365081389596" stroke="#D6452E" stroke-width="6" stroke-linecap="round" fill="none"/>
+<g transform="translate(36,150)">
+<rect x="0" y="0" width="671" height="341" rx="14" fill="#FFFFFF" stroke="#2B2B27" stroke-width="1.6"/>
+<circle cx="38" cy="36" r="15" fill="#3D9B6A"/>
+<text x="38" y="41.5" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">1</text>
+<text x="64" y="43" font-size="25" font-weight="800" fill="#1E1E1A" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">P-O-S-T</text>
+<rect x="22" y="54" width="176.0" height="22" rx="4" fill="#FBEFB4"/>
+<text x="29" y="70" font-size="13.5" font-weight="600" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">用途：把一個想法變成貼文</text>
+<rect x="22" y="78" width="30" height="30" rx="7" fill="#3D9B6A"/>
+<text x="37.0" y="99.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">P</text>
+<text x="64" y="93" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">觀點 Perspective：</text>
+<text x="202.99499999999995" y="93" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">只有你能給出的獨</text>
+<text x="64" y="113" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">到見解</text>
+<rect x="22" y="132" width="30" height="30" rx="7" fill="#3D9B6A"/>
+<text x="37.0" y="153.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">O</text>
+<text x="64" y="147" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">目標 Objective：</text>
+<text x="183.70999999999998" y="147" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">這篇貼文要達成什麼</text>
+<text x="64" y="167" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">（觸及、信任或名單）</text>
+<rect x="22" y="186" width="30" height="30" rx="7" fill="#3D9B6A"/>
+<text x="37.0" y="207.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">S</text>
+<text x="64" y="201" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">結構 Structure：</text>
+<text x="190.37999999999997" y="201" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">鉤子、主體、收尾</text>
+<rect x="22" y="230" width="30" height="30" rx="7" fill="#3D9B6A"/>
+<text x="37.0" y="251.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">T</text>
+<text x="64" y="245" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">對象 Target：</text>
+<text x="166.45499999999998" y="245" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">你寫給的那一位特定創</text>
+<text x="64" y="265" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">辦人</text>
+<rect x="348" y="68" width="301" height="241" rx="8" fill="#FDFCF7" stroke="#8A8878" stroke-width="1.1"/>
+<rect x="358" y="57" width="86" height="24" rx="4" fill="#1F4D3A"/>
+<text x="401" y="74" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">EXAMPLE</text>
+<text x="440" y="115" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">觀點 →</text>
+<text x="452" y="115" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">把個人品牌視為基礎建設的</text>
+<text x="452" y="134" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">創辦人</text>
+<text x="440" y="162" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">目標 →</text>
+<text x="452" y="162" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">讓創辦人把內容當成系統經</text>
+<text x="452" y="181" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">營，並收藏這篇貼文</text>
+<text x="440" y="209" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">結構 →</text>
+<text x="452" y="209" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">一行鉤子、5 個短要點、輕柔</text>
+<text x="452" y="228" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">收尾</text>
+<text x="440" y="256" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">對象 →</text>
+<text x="452" y="256" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">每週發文卻毫無成效的創辦</text>
+<text x="452" y="275" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">人</text>
+</g>
+<g transform="translate(733,150)">
+<rect x="0" y="0" width="671" height="388" rx="14" fill="#FFFFFF" stroke="#2B2B27" stroke-width="1.6"/>
+<circle cx="38" cy="36" r="15" fill="#3B7FC4"/>
+<text x="38" y="41.5" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">2</text>
+<text x="64" y="43" font-size="25" font-weight="800" fill="#1E1E1A" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">B-R-I-E-F</text>
+<rect x="22" y="54" width="239.17999999999998" height="22" rx="4" fill="#FBEFB4"/>
+<text x="29" y="70" font-size="13.5" font-weight="600" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">用途：像對團隊簡報一樣對 AI 下指令</text>
+<rect x="22" y="78" width="30" height="30" rx="7" fill="#3B7FC4"/>
+<text x="37.0" y="99.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">B</text>
+<text x="64" y="93" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">背景 Background：</text>
+<text x="198.35499999999996" y="93" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">脈絡，以及此刻重</text>
+<text x="64" y="113" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">要的原因</text>
+<rect x="22" y="132" width="30" height="30" rx="7" fill="#3B7FC4"/>
+<text x="37.0" y="153.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">R</text>
+<text x="64" y="147" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">成果 Result：</text>
+<text x="163.12" y="147" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">你要的確切結果</text>
+<rect x="22" y="176" width="30" height="30" rx="7" fill="#3B7FC4"/>
+<text x="37.0" y="197.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">I</text>
+<text x="64" y="191" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">素材 Inputs：</text>
+<text x="160.655" y="191" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">你的原始材料（筆記、逐</text>
+<text x="64" y="211" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">字稿、數據）</text>
+<rect x="22" y="230" width="30" height="30" rx="7" fill="#3B7FC4"/>
+<text x="37.0" y="251.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">E</text>
+<text x="64" y="245" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">範例 Examples：</text>
+<text x="179.07" y="245" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">符合目標風格的貼文</text>
+<rect x="22" y="274" width="30" height="30" rx="7" fill="#3B7FC4"/>
+<text x="37.0" y="295.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">F</text>
+<text x="64" y="289" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">回饋 Feedback：</text>
+<text x="182.40499999999997" y="289" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">下一版要修正什麼</text>
+<rect x="348" y="68" width="301" height="288" rx="8" fill="#FDFCF7" stroke="#8A8878" stroke-width="1.1"/>
+<rect x="358" y="57" width="86" height="24" rx="4" fill="#1F4D3A"/>
+<text x="401" y="74" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">EXAMPLE</text>
+<text x="440" y="115" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">背景 →</text>
+<text x="452" y="115" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">在 LinkedIn 為 B2B 創辦人</text>
+<text x="452" y="134" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">打造品牌</text>
+<text x="440" y="162" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">成果 →</text>
+<text x="452" y="162" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">一份能賺到收藏與私訊的</text>
+<text x="452" y="181" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">MOF 輪播圖</text>
+<text x="440" y="209" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">素材 →</text>
+<text x="452" y="209" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">我的語音筆記、3 個客戶成果</text>
+<text x="452" y="228" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">、這份通話逐字稿</text>
+<text x="440" y="256" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">範例 →</text>
+<text x="452" y="256" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">這是我的 3 篇貼文，比照這</text>
+<text x="452" y="275" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">個節奏</text>
+<text x="440" y="303" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">回饋 →</text>
+<text x="452" y="303" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">太過修飾——刪掉廢話，寫得</text>
+<text x="452" y="322" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">更直白</text>
+</g>
+<g transform="translate(36,564)">
+<rect x="0" y="0" width="671" height="322" rx="14" fill="#FFFFFF" stroke="#2B2B27" stroke-width="1.6"/>
+<circle cx="38" cy="36" r="15" fill="#D65A4A"/>
+<text x="38" y="41.5" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">3</text>
+<text x="64" y="43" font-size="25" font-weight="800" fill="#1E1E1A" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">H-I-R-E</text>
+<rect x="22" y="54" width="252.67999999999998" height="22" rx="4" fill="#FBEFB4"/>
+<text x="29" y="70" font-size="13.5" font-weight="600" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">用途：讓 AI 聽起來像你，而不是機器人</text>
+<rect x="22" y="78" width="30" height="30" rx="7" fill="#D65A4A"/>
+<text x="37.0" y="99.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">H</text>
+<text x="64" y="93" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">歷史 History：</text>
+<text x="171.09499999999997" y="93" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">關於你與你事業的一切</text>
+<rect x="22" y="122" width="30" height="30" rx="7" fill="#D65A4A"/>
+<text x="37.0" y="143.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">I</text>
+<text x="64" y="137" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">身分 Identity：</text>
+<text x="173.26999999999998" y="137" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">它扮演的角色（你的代</text>
+<text x="64" y="157" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">筆人，不是聊天機器人）</text>
+<rect x="22" y="176" width="30" height="30" rx="7" fill="#D65A4A"/>
+<text x="37.0" y="197.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">R</text>
+<text x="64" y="191" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">規則 Rules：</text>
+<text x="155.14499999999998" y="191" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">它絕對不能寫的內容</text>
+<rect x="22" y="220" width="30" height="30" rx="7" fill="#D65A4A"/>
+<text x="37.0" y="241.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">E</text>
+<text x="64" y="235" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">專業 Expertise：</text>
+<text x="187.04499999999996" y="235" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">它應該引用的知識領</text>
+<text x="64" y="255" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">域</text>
+<rect x="348" y="68" width="301" height="222" rx="8" fill="#FDFCF7" stroke="#8A8878" stroke-width="1.1"/>
+<rect x="358" y="57" width="86" height="24" rx="4" fill="#1F4D3A"/>
+<text x="401" y="74" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">EXAMPLE</text>
+<text x="440" y="115" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">歷史 →</text>
+<text x="452" y="115" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">個人品牌代理商創辦人，企</text>
+<text x="452" y="134" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">業界出身</text>
+<text x="440" y="162" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">身分 →</text>
+<text x="452" y="162" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">「你是我的資深代筆人」</text>
+<text x="440" y="190" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">規則 →</text>
+<text x="452" y="190" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">不用破折號、不用 hashtag</text>
+<text x="452" y="209" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">、不說「遊戲規則改變者」</text>
+<text x="440" y="237" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">專業 →</text>
+<text x="452" y="237" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">LinkedIn 鉤子、創辦人心理</text>
+<text x="452" y="256" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">學、名單開發結構</text>
+</g>
+<g transform="translate(733,564)">
+<rect x="0" y="0" width="671" height="369" rx="14" fill="#FFFFFF" stroke="#2B2B27" stroke-width="1.6"/>
+<circle cx="38" cy="36" r="15" fill="#2E9E93"/>
+<text x="38" y="41.5" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">4</text>
+<text x="64" y="43" font-size="25" font-weight="800" fill="#1E1E1A" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">S-T-O-R-Y</text>
+<rect x="22" y="54" width="203.0" height="22" rx="4" fill="#FBEFB4"/>
+<text x="29" y="70" font-size="13.5" font-weight="600" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">用途：把你的人生歷程變成內容</text>
+<rect x="22" y="78" width="30" height="30" rx="7" fill="#2E9E93"/>
+<text x="37.0" y="99.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">S</text>
+<text x="64" y="93" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">處境 Situation：</text>
+<text x="183.70999999999998" y="93" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">你之前身在何處</text>
+<rect x="22" y="122" width="30" height="30" rx="7" fill="#2E9E93"/>
+<text x="37.0" y="143.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">T</text>
+<text x="64" y="137" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">張力 Tension：</text>
+<text x="171.09499999999997" y="137" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">遇到的問題或衝突</text>
+<rect x="22" y="166" width="30" height="30" rx="7" fill="#2E9E93"/>
+<text x="37.0" y="187.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">O</text>
+<text x="64" y="181" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">結果 Outcome：</text>
+<text x="174.42999999999998" y="181" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">改變了什麼</text>
+<rect x="22" y="210" width="30" height="30" rx="7" fill="#2E9E93"/>
+<text x="37.0" y="231.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">R</text>
+<text x="64" y="225" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">領悟 Realisation：</text>
+<text x="196.325" y="225" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">學到的教訓</text>
+<rect x="22" y="254" width="30" height="30" rx="7" fill="#2E9E93"/>
+<text x="37.0" y="275.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">Y</text>
+<text x="64" y="269" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">與你 You：</text>
+<text x="142.53" y="269" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">為何與你的受眾有關</text>
+<rect x="348" y="68" width="301" height="269" rx="8" fill="#FDFCF7" stroke="#8A8878" stroke-width="1.1"/>
+<rect x="358" y="57" width="86" height="24" rx="4" fill="#1F4D3A"/>
+<text x="401" y="74" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">EXAMPLE</text>
+<text x="440" y="115" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">處境 →</text>
+<text x="452" y="115" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">在企業界 5 年，工作再努力</text>
+<text x="452" y="134" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">也沒人看見</text>
+<text x="440" y="162" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">張力 →</text>
+<text x="452" y="162" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">缺少關注，再好的才華也會</text>
+<text x="452" y="181" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">被埋沒</text>
+<text x="440" y="209" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">結果 →</text>
+<text x="452" y="209" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">離職，憑一個信念創立</text>
+<text x="452" y="228" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">LeverBrands</text>
+<text x="440" y="256" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">領悟 →</text>
+<text x="452" y="256" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">一切成果都是注意力的下游</text>
+<text x="440" y="284" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">與你 →</text>
+<text x="452" y="284" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">這就是我教創辦人「在需要</text>
+<text x="452" y="303" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">之前先建立品牌」的原因</text>
+</g>
+<g transform="translate(36,959)">
+<rect x="0" y="0" width="671" height="369" rx="14" fill="#FFFFFF" stroke="#2B2B27" stroke-width="1.6"/>
+<circle cx="38" cy="36" r="15" fill="#C99A2E"/>
+<text x="38" y="41.5" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">5</text>
+<text x="64" y="43" font-size="25" font-weight="800" fill="#1E1E1A" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">P-R-O-O-F</text>
+<rect x="22" y="54" width="189.5" height="22" rx="4" fill="#FBEFB4"/>
+<text x="29" y="70" font-size="13.5" font-weight="600" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">用途：寫出能成交的客戶案例</text>
+<rect x="22" y="78" width="30" height="30" rx="7" fill="#C99A2E"/>
+<text x="37.0" y="99.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">P</text>
+<text x="64" y="93" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">問題 Problem：</text>
+<text x="171.09499999999997" y="93" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">客戶的起點在哪裡</text>
+<rect x="22" y="122" width="30" height="30" rx="7" fill="#C99A2E"/>
+<text x="37.0" y="143.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">R</text>
+<text x="64" y="137" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">成果 Result：</text>
+<text x="163.12" y="137" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">最終結果，數字優先</text>
+<rect x="22" y="166" width="30" height="30" rx="7" fill="#C99A2E"/>
+<text x="37.0" y="187.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">O</text>
+<text x="64" y="181" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">運作 Operation：</text>
+<text x="187.04499999999996" y="181" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">你執行的那套系統</text>
+<rect x="22" y="210" width="30" height="30" rx="7" fill="#C99A2E"/>
+<text x="37.0" y="231.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">O</text>
+<text x="64" y="225" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">主事者 Owner：</text>
+<text x="172.97999999999996" y="225" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">實際執行的那個人</text>
+<rect x="22" y="254" width="30" height="30" rx="7" fill="#C99A2E"/>
+<text x="37.0" y="275.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">F</text>
+<text x="64" y="269" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">頻率 Frequency：</text>
+<text x="190.37999999999997" y="269" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">為什麼能持續奏效</text>
+<rect x="348" y="68" width="301" height="269" rx="8" fill="#FDFCF7" stroke="#8A8878" stroke-width="1.1"/>
+<rect x="358" y="57" width="86" height="24" rx="4" fill="#1F4D3A"/>
+<text x="401" y="74" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">EXAMPLE</text>
+<text x="440" y="115" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">問題 →</text>
+<text x="452" y="115" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">創辦人每天發文，自來客卻</text>
+<text x="452" y="134" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">是零</text>
+<text x="440" y="162" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">成果 →</text>
+<text x="452" y="162" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">6 個月 4 萬粉絲、1,000 萬+</text>
+<text x="452" y="181" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">瀏覽</text>
+<text x="440" y="209" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">運作 →</text>
+<text x="452" y="209" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">每週的「刺拳／直拳」系統</text>
+<text x="440" y="237" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">主事者 →</text>
+<text x="452" y="237" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">創辦人提供素材，團隊負責</text>
+<text x="452" y="256" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">執行</text>
+<text x="440" y="284" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">頻率 →</text>
+<text x="452" y="284" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">同一套系統，每週執行，持</text>
+<text x="452" y="303" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">續 6 個月</text>
+</g>
+<g transform="translate(733,959)">
+<rect x="0" y="0" width="671" height="322" rx="14" fill="#FFFFFF" stroke="#2B2B27" stroke-width="1.6"/>
+<circle cx="38" cy="36" r="15" fill="#4E9E4E"/>
+<text x="38" y="41.5" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">6</text>
+<text x="64" y="43" font-size="25" font-weight="800" fill="#1E1E1A" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">G-R-O-W</text>
+<rect x="22" y="54" width="203.0" height="22" rx="4" fill="#FBEFB4"/>
+<text x="29" y="70" font-size="13.5" font-weight="600" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">用途：建立每週自動運轉的系統</text>
+<rect x="22" y="78" width="30" height="30" rx="7" fill="#4E9E4E"/>
+<text x="37.0" y="99.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">G</text>
+<text x="64" y="93" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">目標 Goal：</text>
+<text x="147.17000000000002" y="93" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">你正在累積的商業成果</text>
+<rect x="22" y="122" width="30" height="30" rx="7" fill="#4E9E4E"/>
+<text x="37.0" y="143.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">R</text>
+<text x="64" y="137" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">節奏 Rhythm：</text>
+<text x="166.45499999999998" y="137" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">發文頻率與內容組合</text>
+<rect x="22" y="166" width="30" height="30" rx="7" fill="#4E9E4E"/>
+<text x="37.0" y="187.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">O</text>
+<text x="64" y="181" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">產出 Output：</text>
+<text x="166.45499999999998" y="181" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">每次工作應產出什麼</text>
+<rect x="22" y="210" width="30" height="30" rx="7" fill="#4E9E4E"/>
+<text x="37.0" y="231.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">W</text>
+<text x="64" y="225" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">流程 Workflow：</text>
+<text x="179.07" y="225" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">這套系統落腳在哪裡</text>
+<rect x="348" y="68" width="301" height="222" rx="8" fill="#FDFCF7" stroke="#8A8878" stroke-width="1.1"/>
+<rect x="358" y="57" width="86" height="24" rx="4" fill="#1F4D3A"/>
+<text x="401" y="74" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">EXAMPLE</text>
+<text x="440" y="115" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">目標 →</text>
+<text x="452" y="115" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">每週 5 則合格的自來私訊</text>
+<text x="440" y="143" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">節奏 →</text>
+<text x="452" y="143" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">70% 刺拳衝觸及、30% 直拳</text>
+<text x="452" y="162" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">建信任，每週 5 篇</text>
+<text x="440" y="190" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">產出 →</text>
+<text x="452" y="190" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">一份 4 週內容日曆，每個時</text>
+<text x="452" y="209" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">段附一份簡報</text>
+<text x="440" y="237" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">流程 →</text>
+<text x="452" y="237" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">在 Claude 發想、在 Notion</text>
+<text x="452" y="256" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">編輯、由團隊發佈</text>
+</g>
+<g transform="translate(36,1354)">
+<rect x="0" y="0" width="671" height="322" rx="14" fill="#FFFFFF" stroke="#2B2B27" stroke-width="1.6"/>
+<circle cx="38" cy="36" r="15" fill="#C97B2E"/>
+<text x="38" y="41.5" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">7</text>
+<text x="64" y="43" font-size="25" font-weight="800" fill="#1E1E1A" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">L-E-A-D</text>
+<rect x="22" y="54" width="162.5" height="22" rx="4" fill="#FBEFB4"/>
+<text x="29" y="70" font-size="13.5" font-weight="600" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">用途：把貼文變成自來客</text>
+<rect x="22" y="78" width="30" height="30" rx="7" fill="#C97B2E"/>
+<text x="37.0" y="99.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">L</text>
+<text x="64" y="93" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">名單 List：</text>
+<text x="147.17000000000002" y="93" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">你鎖定的目標受眾</text>
+<rect x="22" y="122" width="30" height="30" rx="7" fill="#C97B2E"/>
+<text x="37.0" y="143.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">E</text>
+<text x="64" y="137" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">入口 Entry point：</text>
+<text x="199.65999999999997" y="137" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">他們第一次發現你</text>
+<text x="64" y="157" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">的地方</text>
+<rect x="22" y="176" width="30" height="30" rx="7" fill="#C97B2E"/>
+<text x="37.0" y="197.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">A</text>
+<text x="64" y="191" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">切角 Angle：</text>
+<text x="155.14499999999998" y="191" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">你解決的那個特定痛點</text>
+<rect x="22" y="220" width="30" height="30" rx="7" fill="#C97B2E"/>
+<text x="37.0" y="241.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">D</text>
+<text x="64" y="235" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">去向 Destination：</text>
+<text x="199.65999999999997" y="235" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">接下來把他們送往</text>
+<text x="64" y="255" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">哪裡</text>
+<rect x="348" y="68" width="301" height="222" rx="8" fill="#FDFCF7" stroke="#8A8878" stroke-width="1.1"/>
+<rect x="358" y="57" width="86" height="24" rx="4" fill="#1F4D3A"/>
+<text x="401" y="74" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">EXAMPLE</text>
+<text x="440" y="115" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">名單 →</text>
+<text x="452" y="115" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">粉絲數低於 1 萬的 B2B 創辦</text>
+<text x="452" y="134" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">人</text>
+<text x="440" y="162" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">入口 →</text>
+<text x="452" y="162" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">一篇談「你的內容為何不轉</text>
+<text x="452" y="181" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">換」的貼文</text>
+<text x="440" y="209" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">切角 →</text>
+<text x="452" y="209" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">你沒有內容問題，你有的是</text>
+<text x="452" y="228" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">系統問題</text>
+<text x="440" y="256" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">去向 →</text>
+<text x="452" y="256" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">留言「LEVER」領取速查表</text>
+</g>
+<g transform="translate(733,1354)">
+<rect x="0" y="0" width="671" height="303" rx="14" fill="#FFFFFF" stroke="#2B2B27" stroke-width="1.6"/>
+<circle cx="38" cy="36" r="15" fill="#D6772E"/>
+<text x="38" y="41.5" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">8</text>
+<text x="64" y="43" font-size="25" font-weight="800" fill="#1E1E1A" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">T-E-S-T</text>
+<rect x="22" y="54" width="203.0" height="22" rx="4" fill="#FBEFB4"/>
+<text x="29" y="70" font-size="13.5" font-weight="600" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">用途：發文前為草稿做壓力測試</text>
+<rect x="22" y="78" width="30" height="30" rx="7" fill="#D6772E"/>
+<text x="37.0" y="99.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">T</text>
+<text x="64" y="93" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">類型 Type：</text>
+<text x="150.505" y="93" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">你正在審查的內容</text>
+<rect x="22" y="122" width="30" height="30" rx="7" fill="#D6772E"/>
+<text x="37.0" y="143.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">E</text>
+<text x="64" y="137" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">預期 Expected outcome：</text>
+<text x="242.86999999999995" y="137" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">它被設計來</text>
+<text x="64" y="157" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">達成什麼</text>
+<rect x="22" y="176" width="30" height="30" rx="7" fill="#D6772E"/>
+<text x="37.0" y="197.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">S</text>
+<text x="64" y="191" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">標準 Standards：</text>
+<text x="190.37999999999997" y="191" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">必須跨過的品質門檻</text>
+<rect x="22" y="220" width="30" height="30" rx="7" fill="#D6772E"/>
+<text x="37.0" y="241.0" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">T</text>
+<text x="64" y="235" font-size="14.5" font-weight="700" fill="#1E1E1A" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">微調 Tweak：</text>
+<text x="158.48" y="235" font-size="14.5" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">你要的那個確切修改</text>
+<rect x="348" y="68" width="301" height="203" rx="8" fill="#FDFCF7" stroke="#8A8878" stroke-width="1.1"/>
+<rect x="358" y="57" width="86" height="24" rx="4" fill="#1F4D3A"/>
+<text x="401" y="74" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">EXAMPLE</text>
+<text x="440" y="115" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">類型 →</text>
+<text x="452" y="115" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">一份談內容系統的 MOF 輪播</text>
+<text x="452" y="134" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">圖</text>
+<text x="440" y="162" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">預期 →</text>
+<text x="452" y="162" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">收藏數與個人檔案造訪</text>
+<text x="440" y="190" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">標準 →</text>
+<text x="452" y="190" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">每一行都讓人想讀下一行，</text>
+<text x="452" y="209" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">鉤子讓人點開</text>
+<text x="440" y="237" font-size="14" font-weight="700" fill="#1E1E1A" text-anchor="end" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">微調 →</text>
+<text x="452" y="237" font-size="14" fill="#3A3A32" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">重寫最弱的 3 行，強化 CTA</text>
+</g>
+<text x="720.0" y="1730" font-size="14" fill="#8A8878" text-anchor="middle" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">中文重製版 · 依原圖風格重繪（原作：8 Claude Prompt Frameworks to Master LinkedIn）</text>
+</svg>
+    </figure>
+    <p class="src">來源：8 Claude Prompt Frameworks to Master LinkedIn（英文原圖） · 中文重製版依原圖風格重繪</p>
+  </section>
+
+</div></main>
+<footer>AI 概念研究 · 概念圖解系列 · 2026-07-18</footer>
+</body>
+</html>
