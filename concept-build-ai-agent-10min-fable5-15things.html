@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10 分鐘打造 AI 代理 × Fable 5 的 15 件驚人用途 · 中文圖解</title>
+<meta name="description" content="兩張英文 AI 資訊圖的中文重繪：10 分鐘六步驟零程式碼打造 AI 代理（含每步可直接複製的提示），以及 Claude Fable 5 能做的 15 件驚人之事全景圖。">
+<style>
+:root{color-scheme:light;--bg:#f4f5f7;--ink:#1a1a2e;--mut:#6b7280;--acc:#F25C26;--blue:#2b6cb0;--card:#fff;--line:#e6e8ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+header.hero{background:linear-gradient(135deg,#1a1a2e,#2b3a67);color:#fff;padding:54px 0 40px}
+.hero .wrap{display:flex;flex-direction:column;gap:12px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;width:fit-content}
+.hero h1{margin:0;font-size:34px;letter-spacing:.5px}
+.hero p{margin:0;color:#c8d0e0;font-size:15px;max-width:680px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;font-size:13px;color:#aeb8cf}
+.home{color:#ffd9c6;text-decoration:none;font-size:13.5px;font-weight:600}
+main{padding:26px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin:22px 0;box-shadow:0 4px 18px rgba(20,20,40,.05)}
+.card-head{display:flex;align-items:center;justify-content:space-between}
+.cat{font-size:12.5px;font-weight:700;color:var(--blue);background:#eaf1f9;padding:4px 11px;border-radius:999px}
+.idx{font-size:12.5px;color:var(--mut);font-weight:700}
+.card h2{margin:14px 0 2px;font-size:23px}
+.en{margin:0;color:var(--mut);font-size:13.5px;font-style:italic}
+.lead{margin:12px 0 6px;font-size:15px;color:#333}
+.points{margin:6px 0 16px;padding-left:20px}
+.points li{margin:5px 0;font-size:14.5px;color:#222}
+.figure{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+.figure svg{width:100%;height:auto;display:block}
+.src{margin:12px 0 0;font-size:12px;color:#9aa3af}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:24px 0 50px}
+@media(max-width:600px){.hero h1{font-size:26px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="badge">AI 概念研究</span>
+  <h1>10 分鐘打造 AI 代理 × Fable 5 的 15 件驚人用途 · 中文圖解</h1>
+  <p>兩張英文 AI 資訊圖的中文重繪：先照「10 分鐘打造一個 AI 代理」的六步驟——安裝 Claude Code、建立上下文、記憶、技能、代理團隊、再到雲端自動駕駛，每一步都附可直接複製的提示；再用「Claude Fable 5 能做的 15 件驚人之事」放射全景圖，看看這套系統到底能幫你完成哪些工作。</p>
+  <div class="meta"><span>產生日期：2026-07-21</span><span>共 2 張圖</span><span>格式：單頁式 HTML</span></div>
+  <a class="home" href="index.html">← 回索引入口</a>
+</div></header>
+<main><div class="wrap">
+
+  <section class="card">
+    <div class="card-head">
+      <span class="cat">AI 代理 · 實作教學</span>
+      <span class="idx">01 / 02</span>
+    </div>
+    <h2>10 分鐘打造一個 AI 代理：六步驟，零程式碼</h2>
+    <p class="en">Build an AI Agent in 10 Minutes — Six steps. No code. Every prompt to copy and paste.</p>
+    <p class="lead">從安裝到全自動運行的完整路線：六個步驟層層疊加，每一步都附上可直接貼給 Claude 的提示，不用寫任何程式碼，就能把一次性的對話升級成會記憶、會分工、會自動執行的代理系統。</p>
+    <ul class="points">
+      <li>① 安裝 Claude Code：終端機（npm i -g）、桌面應用程式或 VS Code 擴充功能，挑最合你工作流的介面，一分鐘裝好。</li>
+      <li>② 建立上下文：~/CLAUDE.md 是 Claude 每次對話前必讀的入職文件——角色、語氣、禁用詞、預設值，寫一次每個工作階段都自動載入。</li>
+      <li>③ 建立記憶：每次糾正都存成獨立 .md 檔（feedback_、user_、project_、reference_ 前綴）並在 MEMORY.md 建索引，同樣的錯誤不再犯第二次。</li>
+      <li>④ 建立技能：把 200 字的工作流濃縮成一個 /指令，接上 Notion、Gmail、Drive 等 MCP 連接器，任何對話一鍵觸發。</li>
+      <li>⑤ 建立代理團隊：一個代理一個檔案一項職責——分析型用 Opus、執行型用 Sonnet，加一道 95/100 的 QA 關卡把關品質。</li>
+      <li>⑥ 自動駕駛運行：用 Claude Routines 把代理團隊變成 Anthropic 雲端上的排程任務，每天或每週自動執行、產出直接送進 Notion。</li>
+    </ul>
+    <div class="figure">
+<svg viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <g id="burst">
+      <g stroke="#ff7a45" stroke-width="7" stroke-linecap="round">
+        <line x1="0" y1="-26" x2="0" y2="-10"/><line x1="0" y1="10" x2="0" y2="26"/>
+        <line x1="-26" y1="0" x2="-10" y2="0"/><line x1="10" y1="0" x2="26" y2="0"/>
+        <line x1="-18" y1="-18" x2="-7" y2="-7"/><line x1="7" y1="7" x2="18" y2="18"/>
+        <line x1="-18" y1="18" x2="-7" y2="7"/><line x1="7" y1="-7" x2="18" y2="-18"/>
+      </g>
+    </g>
+  </defs>
+  <rect width="1080" height="1350" fill="#0c1120"/>
+
+  <!-- 標題 -->
+  <use xlink:href="#burst" transform="translate(118,88)"/>
+  <text x="168" y="102" font-size="46" font-weight="800" fill="#ff9f43">10 分鐘</text>
+  <text x="336" y="102" font-size="46" font-weight="800" fill="#ffffff">打造一個 AI 代理</text>
+  <text x="540" y="150" text-anchor="middle" font-size="22" font-weight="700" fill="#ff7a45">六個步驟・零程式碼・每段提示都能直接複製貼上</text>
+
+  <!-- ① 安裝 Claude Code -->
+  <g>
+    <rect x="30" y="180" width="500" height="360" rx="16" fill="#121a30" stroke="#26325a"/>
+    <circle cx="70" cy="222" r="18" fill="#3b82f6"/>
+    <text x="70" y="229" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">1</text>
+    <text x="98" y="231" font-size="26" font-weight="800" fill="#eaf1ff">安裝 Claude Code</text>
+    <text x="55" y="266" font-size="15" fill="#b9c3dd">一切的基礎。挑一個最合你工作流的介面，一分鐘</text>
+    <text x="55" y="288" font-size="15" fill="#b9c3dd">內裝好，後面的每一步都在它之上疊加。</text>
+    <g>
+      <rect x="55" y="308" width="450" height="60" rx="10" fill="#1a2342" stroke="#2b3763"/>
+      <rect x="68" y="322" width="32" height="32" rx="7" fill="#0b0f1c" stroke="#3b82f6"/>
+      <text x="84" y="344" text-anchor="middle" font-size="14" fill="#7ee787">&gt;_</text>
+      <text x="112" y="333" font-size="16" font-weight="700" fill="#fff">終端機</text>
+      <text x="112" y="355" font-size="12" fill="#93a0c2">macOS、Linux、WSL — 最原始的版本</text>
+      <rect x="398" y="322" width="92" height="32" rx="8" fill="none" stroke="#3b82f6"/>
+      <text x="444" y="343" text-anchor="middle" font-size="14" fill="#7fb3ff">npm i -g</text>
+    </g>
+    <g>
+      <rect x="55" y="378" width="450" height="60" rx="10" fill="#1a2342" stroke="#2b3763"/>
+      <use xlink:href="#burst" transform="translate(84,408) scale(0.55)"/>
+      <text x="112" y="403" font-size="16" font-weight="700" fill="#fff">桌面應用程式</text>
+      <text x="112" y="425" font-size="12" fill="#93a0c2">原生 Mac 與 Windows 視窗</text>
+      <rect x="398" y="392" width="92" height="32" rx="8" fill="none" stroke="#3b82f6"/>
+      <text x="444" y="413" text-anchor="middle" font-size="14" fill="#7fb3ff">下載</text>
+    </g>
+    <g>
+      <rect x="55" y="448" width="450" height="60" rx="10" fill="#1a2342" stroke="#2b3763"/>
+      <rect x="68" y="462" width="32" height="32" rx="7" fill="#0b6ecf"/>
+      <text x="84" y="485" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">V</text>
+      <text x="112" y="473" font-size="16" font-weight="700" fill="#fff">VS Code</text>
+      <text x="112" y="495" font-size="12" fill="#93a0c2">編輯器內的側邊面板</text>
+      <rect x="398" y="462" width="92" height="32" rx="8" fill="none" stroke="#3b82f6"/>
+      <text x="444" y="483" text-anchor="middle" font-size="14" fill="#7fb3ff">擴充功能</text>
+    </g>
+  </g>
+
+  <!-- ② 建立上下文 -->
+  <g>
+    <rect x="550" y="180" width="500" height="360" rx="16" fill="#121a30" stroke="#26325a"/>
+    <circle cx="590" cy="222" r="18" fill="#f59e0b"/>
+    <text x="590" y="229" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">2</text>
+    <text x="618" y="231" font-size="26" font-weight="800" fill="#ffd166">建立上下文</text>
+    <text x="575" y="266" font-size="15" fill="#b9c3dd">~/CLAUDE.md 是 Claude 每次對話前必讀的入職</text>
+    <text x="575" y="288" font-size="15" fill="#b9c3dd">文件。寫一次，之後每個工作階段都自動載入。</text>
+    <g>
+      <rect x="575" y="304" width="450" height="66" rx="10" fill="#0d1526" stroke="#2b3763"/>
+      <circle cx="593" cy="320" r="5" fill="#ff5f57"/><circle cx="609" cy="320" r="5" fill="#febc2e"/><circle cx="625" cy="320" r="5" fill="#28c840"/>
+      <text x="1012" y="325" text-anchor="end" font-size="12" fill="#ffb020">~/CLAUDE.md</text>
+      <text x="593" y="355" font-size="14" font-weight="700" fill="#ff8a65">## 角色&#160;&#160;&#160;## 語氣&#160;&#160;&#160;## 禁用詞&#160;&#160;&#160;## 預設值</text>
+    </g>
+    <text x="575" y="398" font-size="14" font-weight="800" fill="#ff9f43">▶ 直接貼上</text>
+    <rect x="575" y="408" width="450" height="116" rx="10" fill="#0c1e16" stroke="#1f4030"/>
+    <text x="593" y="434" font-size="14" fill="#7ee787">幫我從零打造我的 CLAUDE.md。以 Boris Cherny</text>
+    <text x="593" y="456" font-size="14" fill="#7ee787">的 CLAUDE.md 為起始範本，詢問我的業務、語氣、</text>
+    <text x="593" y="478" font-size="14" fill="#7ee787">禁用詞、輸出預設值，以及我希望你的工作方式，</text>
+    <text x="593" y="500" font-size="14" fill="#7ee787">最後把檔案存到 ~/CLAUDE.md。</text>
+  </g>
+
+  <!-- ③ 建立記憶 -->
+  <g>
+    <rect x="30" y="560" width="500" height="360" rx="16" fill="#121a30" stroke="#26325a"/>
+    <circle cx="70" cy="602" r="18" fill="#a855f7"/>
+    <text x="70" y="609" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">3</text>
+    <text x="98" y="611" font-size="26" font-weight="800" fill="#d7a6ff">建立記憶</text>
+    <text x="55" y="646" font-size="15" fill="#b9c3dd">每一次糾正都變成一個獨立的 .md 檔，</text>
+    <text x="55" y="668" font-size="15" fill="#b9c3dd">同樣的錯誤不會再犯第二次。</text>
+    <g font-size="13" fill="#dbe4f8" text-anchor="middle">
+      <rect x="55" y="688" width="128" height="58" rx="10" fill="#1a2342" stroke="#a855f7"/>
+      <text x="119" y="712" font-size="16">✍️</text><text x="119" y="734">你糾正</text>
+      <text x="199" y="722" font-size="18" fill="#a855f7">→</text>
+      <rect x="216" y="688" width="128" height="58" rx="10" fill="#1a2342" stroke="#a855f7"/>
+      <text x="280" y="712" font-size="16">📄</text><text x="280" y="734">Claude 存成 .md</text>
+      <text x="360" y="722" font-size="18" fill="#a855f7">→</text>
+      <rect x="377" y="688" width="128" height="58" rx="10" fill="#1a2342" stroke="#a855f7"/>
+      <text x="441" y="712" font-size="16">🔁</text><text x="441" y="734">下次自動載入</text>
+    </g>
+    <text x="55" y="778" font-size="14" font-weight="800" fill="#ff9f43">▶ 直接貼上</text>
+    <rect x="55" y="788" width="450" height="116" rx="10" fill="#0c1e16" stroke="#1f4030"/>
+    <text x="73" y="812" font-size="13.5" fill="#7ee787">從現在起，每當我糾正你，就把它存成獨立的 .md 檔，</text>
+    <text x="73" y="833" font-size="13.5" fill="#7ee787">放在 ~/.claude/projects/{project}/memory/，檔名以</text>
+    <text x="73" y="854" font-size="13.5" fill="#7ee787">feedback_、user_、project_ 或 reference_ 開頭，</text>
+    <text x="73" y="875" font-size="13.5" fill="#7ee787">並在 MEMORY.md 為所有記憶建立索引。</text>
+  </g>
+
+  <!-- ④ 建立技能 -->
+  <g>
+    <rect x="550" y="560" width="500" height="360" rx="16" fill="#121a30" stroke="#26325a"/>
+    <circle cx="590" cy="602" r="18" fill="#22c55e"/>
+    <text x="590" y="609" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">4</text>
+    <text x="618" y="611" font-size="26" font-weight="800" fill="#6ee7a0">建立技能</text>
+    <text x="575" y="646" font-size="15" fill="#b9c3dd">一個指令觸發跨多個工具的完整工作流，</text>
+    <text x="575" y="668" font-size="15" fill="#b9c3dd">不必每次重打 200 字的提示。</text>
+    <g text-anchor="middle">
+      <rect x="575" y="688" width="130" height="46" rx="10" fill="#0d1526" stroke="#22c55e"/>
+      <text x="640" y="717" font-size="15" fill="#7ee787">/your-skill</text>
+      <text x="722" y="716" font-size="18" fill="#22c55e">→</text>
+      <rect x="740" y="688" width="120" height="46" rx="10" fill="#1a2342" stroke="#2b3763"/>
+      <text x="800" y="718" font-size="17">📝 ✉️ 📁</text>
+      <text x="877" y="716" font-size="18" fill="#22c55e">→</text>
+      <rect x="895" y="688" width="110" height="46" rx="10" fill="#173a26" stroke="#22c55e"/>
+      <text x="950" y="717" font-size="15" font-weight="700" fill="#a7f3c8">輸出</text>
+    </g>
+    <text x="575" y="778" font-size="14" font-weight="800" fill="#ff9f43">▶ 直接貼上</text>
+    <rect x="575" y="788" width="450" height="116" rx="10" fill="#0c1e16" stroke="#1f4030"/>
+    <text x="593" y="812" font-size="13.5" fill="#7ee787">把這個工作流變成 /{name} 技能：[描述觸發器、輸入、</text>
+    <text x="593" y="833" font-size="13.5" fill="#7ee787">輸出]。建立 ~/.claude/skills/{name}/SKILL.md，接上</text>
+    <text x="593" y="854" font-size="13.5" fill="#7ee787">我需要的 MCP 連接器（Notion、Gmail、Drive 等），</text>
+    <text x="593" y="875" font-size="13.5" fill="#7ee787">讓它能在任何對話中一鍵觸發。</text>
+  </g>
+
+  <!-- ⑤ 建立代理 -->
+  <g>
+    <rect x="30" y="940" width="500" height="330" rx="16" fill="#121a30" stroke="#26325a"/>
+    <circle cx="70" cy="982" r="18" fill="#f97316"/>
+    <text x="70" y="989" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">5</text>
+    <text x="98" y="991" font-size="26" font-weight="800" fill="#ffab7a">建立代理</text>
+    <text x="55" y="1026" font-size="15" fill="#b9c3dd">每個代理一個檔案、一項職責。分析型用 Opus、</text>
+    <text x="55" y="1048" font-size="15" fill="#b9c3dd">執行型用 Sonnet，再加一道 95/100 的 QA 關卡。</text>
+    <g text-anchor="middle">
+      <rect x="55" y="1066" width="128" height="50" rx="10" fill="#3b2a63" stroke="#a855f7"/>
+      <text x="119" y="1087" font-size="14" font-weight="800" fill="#fff">策略師</text>
+      <text x="119" y="1106" font-size="11" fill="#d7a6ff">Opus</text>
+      <text x="199" y="1096" font-size="18" fill="#f97316">→</text>
+      <rect x="216" y="1066" width="128" height="50" rx="10" fill="#1c3a63" stroke="#3b82f6"/>
+      <text x="280" y="1087" font-size="14" font-weight="800" fill="#fff">建造者</text>
+      <text x="280" y="1106" font-size="11" fill="#9ecbff">Sonnet</text>
+      <text x="360" y="1096" font-size="18" fill="#f97316">→</text>
+      <rect x="377" y="1066" width="128" height="50" rx="10" fill="#5a3413" stroke="#f97316"/>
+      <text x="441" y="1087" font-size="14" font-weight="800" fill="#fff">QA 關卡</text>
+      <text x="441" y="1106" font-size="11" fill="#ffcf9e">95/100</text>
+    </g>
+    <text x="55" y="1148" font-size="14" font-weight="800" fill="#ff9f43">▶ 直接貼上</text>
+    <rect x="55" y="1158" width="450" height="96" rx="10" fill="#0c1e16" stroke="#1f4030"/>
+    <text x="73" y="1182" font-size="13.5" fill="#7ee787">為 [流程] 建立一個代理團隊。在 ~/.claude/agents/</text>
+    <text x="73" y="1203" font-size="13.5" fill="#7ee787">為每位專家建立一個 .md 檔。分析型用 Opus、執行型</text>
+    <text x="73" y="1224" font-size="13.5" fill="#7ee787">用 Sonnet，並加上 95/100 的 QA 關卡，未達標的</text>
+    <text x="73" y="1245" font-size="13.5" fill="#7ee787">工作一律退回。</text>
+  </g>
+
+  <!-- ⑥ 自動駕駛運行 -->
+  <g>
+    <rect x="550" y="940" width="500" height="330" rx="16" fill="#121a30" stroke="#26325a"/>
+    <circle cx="590" cy="982" r="18" fill="#14b8a6"/>
+    <text x="590" y="989" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">6</text>
+    <text x="618" y="991" font-size="26" font-weight="800" fill="#5eead4">自動駕駛運行</text>
+    <text x="575" y="1026" font-size="15" fill="#b9c3dd">Claude Routines 把你的代理團隊變成 Anthropic</text>
+    <text x="575" y="1048" font-size="15" fill="#b9c3dd">雲端上的排程任務，設定一次就能放手。</text>
+    <g>
+      <rect x="575" y="1066" width="450" height="28" rx="7" fill="#0d2a26" stroke="#14b8a6"/>
+      <circle cx="595" cy="1080" r="6" fill="none" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="612" y="1085" font-size="13" fill="#c8fff4">每天 8am（英國時間）</text>
+      <text x="1008" y="1085" text-anchor="end" font-size="13" fill="#5eead4">在雲端執行</text>
+      <rect x="575" y="1102" width="450" height="28" rx="7" fill="#0d2a26" stroke="#14b8a6"/>
+      <circle cx="595" cy="1116" r="6" fill="none" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="612" y="1121" font-size="13" fill="#c8fff4">每週一</text>
+      <text x="1008" y="1121" text-anchor="end" font-size="13" fill="#5eead4">產出送進 Notion</text>
+    </g>
+    <text x="575" y="1158" font-size="14" font-weight="800" fill="#ff9f43">▶ 直接貼上</text>
+    <rect x="575" y="1168" width="450" height="96" rx="10" fill="#0c1e16" stroke="#1f4030"/>
+    <text x="593" y="1192" font-size="13.5" fill="#7ee787">建立一個 Claude Routine，每 [排程] 執行我的 [代理</text>
+    <text x="593" y="1213" font-size="13.5" fill="#7ee787">或技能]。在 Anthropic 的雲端執行，不要在我的筆電。</text>
+    <text x="593" y="1234" font-size="13.5" fill="#7ee787">把產出放到 [資料夾、Notion 頁面或工具]。</text>
+  </g>
+
+  <text x="540" y="1306" text-anchor="middle" font-size="15" font-weight="700" fill="#e8edf8">原作：Adrees AI Automation ｜ 追蹤以獲得每日 AI 內容</text>
+  <text x="540" y="1332" text-anchor="middle" font-size="13" fill="#8a94b5">中文重製版 · 依原圖風格重繪</text>
+</svg>
+    </div>
+    <p class="src">原作：Adrees AI Automation ｜ 中文重製版 · 依原圖風格重繪</p>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <span class="cat">Claude Fable 5 · 應用全景</span>
+      <span class="idx">02 / 02</span>
+    </div>
+    <h2>你可以用 Claude Fable 5 做的 15 件驚人之事</h2>
+    <p class="en">15 Insane Things You Can Do With Claude Fable 5</p>
+    <p class="lead">一張放射狀全景圖收錄 Fable 5 的 15 種高價值用法：從打造完整應用程式、建立並運行 AI 代理，到分析大型 PDF、財務數據與法律文件——涵蓋開發、分析、內容與營運四大場景，是評估「這套模型能幫我做什麼」的速查地圖。</p>
+    <ul class="points">
+      <li>開發向：打造完整 App、建立頂級網站、審查與修復程式碼、撰寫軟體測試、設計稿直接變前端程式碼、打造儀表板與資料管線。</li>
+      <li>代理向：建立並運行會規劃、執行任務、交付成果的 AI 代理；執行多階段專案，把大目標拆成階段推進到最終產出。</li>
+      <li>分析向：分析大型 PDF 萃取重點與風險、濃縮長篇研究成清晰摘要、檢視預算預測與財務報表、審閱合約條款標記風險。</li>
+      <li>內容與營運向：準備商業計畫與競爭分析、製作課程與入職教材，甚至在 Claude Code 內用 HyperFrames 剪輯影片。</li>
+    </ul>
+    <div class="figure">
+<svg viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <pattern id="grid" width="45" height="45" patternUnits="userSpaceOnUse">
+      <path d="M 45 0 L 0 0 0 45" fill="none" stroke="#e9e9f4" stroke-width="1"/>
+    </pattern>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L7,4 L0,8 z" fill="#6366f1"/>
+    </marker>
+  </defs>
+  <rect width="1080" height="1350" fill="#fbfbfe"/>
+  <rect x="0" y="160" width="1080" height="1140" fill="url(#grid)"/>
+
+  <!-- 標題橫幅 -->
+  <rect x="0" y="0" width="1080" height="160" fill="#5b5bd6"/>
+  <text x="540" y="68" text-anchor="middle" font-size="44" font-weight="900" fill="#ffffff" letter-spacing="1">你可以用 CLAUDE FABLE 5</text>
+  <text x="540" y="126" text-anchor="middle" font-size="44" font-weight="900" fill="#ffffff" letter-spacing="1">做的 15 件驚人之事</text>
+  <line x1="668" y1="80" x2="884" y2="80" stroke="#ffffff" stroke-width="4"/>
+
+  <!-- 中心到各編號的連線 -->
+  <g stroke="#8a8ce0" stroke-width="1.5" opacity="0.7">
+    <line x1="539" y1="789" x2="539" y2="519"/><line x1="539" y1="789" x2="646" y2="543"/>
+    <line x1="539" y1="789" x2="736" y2="606"/><line x1="539" y1="789" x2="787" y2="700"/>
+    <line x1="539" y1="789" x2="799" y2="807"/><line x1="539" y1="789" x2="765" y2="913"/>
+    <line x1="539" y1="789" x2="694" y2="996"/><line x1="539" y1="789" x2="592" y2="1038"/>
+    <line x1="539" y1="789" x2="485" y2="1038"/><line x1="539" y1="789" x2="384" y2="994"/>
+    <line x1="539" y1="789" x2="312" y2="913"/><line x1="539" y1="789" x2="278" y2="809"/>
+    <line x1="539" y1="789" x2="290" y2="702"/><line x1="539" y1="789" x2="344" y2="606"/>
+    <line x1="539" y1="789" x2="433" y2="543"/>
+  </g>
+
+  <!-- 編號到卡片的虛線箭頭 -->
+  <g stroke="#6366f1" stroke-width="1.6" stroke-dasharray="6 5" fill="none" marker-end="url(#arr)">
+    <line x1="539" y1="495" x2="539" y2="302"/>
+    <line x1="665" y1="522" x2="860" y2="302"/>
+    <line x1="755" y1="590" x2="870" y2="458"/>
+    <line x1="805" y1="687" x2="862" y2="642"/>
+    <line x1="818" y1="800" x2="856" y2="786"/>
+    <line x1="783" y1="919" x2="850" y2="938"/>
+    <line x1="712" y1="1004" x2="856" y2="1088"/>
+    <line x1="600" y1="1055" x2="646" y2="1148"/>
+    <line x1="478" y1="1055" x2="442" y2="1148"/>
+    <line x1="366" y1="1002" x2="224" y2="1088"/>
+    <line x1="294" y1="919" x2="230" y2="940"/>
+    <line x1="259" y1="802" x2="224" y2="786"/>
+    <line x1="272" y1="690" x2="216" y2="646"/>
+    <line x1="325" y1="590" x2="212" y2="458"/>
+    <line x1="414" y1="522" x2="216" y2="302"/>
+  </g>
+
+  <!-- 中央 Fable 5 圓 -->
+  <circle cx="539" cy="789" r="143" fill="#ffffff" stroke="#ececf6" stroke-width="3"/>
+  <g transform="translate(539,752)" stroke="#dd7a55" stroke-width="10" stroke-linecap="round">
+    <line x1="0" y1="-40" x2="0" y2="-14"/><line x1="0" y1="14" x2="0" y2="40"/>
+    <line x1="-40" y1="0" x2="-14" y2="0"/><line x1="14" y1="0" x2="40" y2="0"/>
+    <line x1="-28" y1="-28" x2="-10" y2="-10"/><line x1="10" y1="10" x2="28" y2="28"/>
+    <line x1="-28" y1="28" x2="-10" y2="10"/><line x1="10" y1="-10" x2="28" y2="-28"/>
+    <line x1="-15" y1="-37" x2="-5" y2="-13" stroke-width="8"/><line x1="5" y1="13" x2="15" y2="37" stroke-width="8"/>
+    <line x1="-37" y1="15" x2="-13" y2="5" stroke-width="8"/><line x1="13" y1="-5" x2="37" y2="-15" stroke-width="8"/>
+  </g>
+  <text x="539" y="866" text-anchor="middle" font-size="46" fill="#1a1a2e" font-family="Georgia,'Times New Roman',serif">Fable 5</text>
+
+  <!-- 編號圓圈 -->
+  <g font-size="14" font-weight="700" fill="#1a1a2e" text-anchor="middle">
+    <circle cx="539" cy="519" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="539" y="524">01</text>
+    <circle cx="646" cy="543" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="646" y="548">02</text>
+    <circle cx="736" cy="606" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="736" y="611">03</text>
+    <circle cx="787" cy="700" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="787" y="705">04</text>
+    <circle cx="799" cy="807" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="799" y="812">05</text>
+    <circle cx="765" cy="913" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="765" y="918">06</text>
+    <circle cx="694" cy="996" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="694" y="1001">07</text>
+    <circle cx="592" cy="1038" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="592" y="1043">08</text>
+    <circle cx="485" cy="1038" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="485" y="1043">09</text>
+    <circle cx="384" cy="994" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="384" y="999">10</text>
+    <circle cx="312" cy="913" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="312" y="918">11</text>
+    <circle cx="278" cy="809" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="278" y="814">12</text>
+    <circle cx="290" cy="702" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="290" y="707">13</text>
+    <circle cx="344" cy="606" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="344" y="611">14</text>
+    <circle cx="433" cy="543" r="17" fill="#fff" stroke="#1a1a2e" stroke-width="1.6"/><text x="433" y="548">15</text>
+  </g>
+
+  <!-- 15 張功能卡片 -->
+  <g>
+    <!-- 01 上方 -->
+    <rect x="424" y="196" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="539" y="222" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">打造完整應用程式</text>
+    <text x="539" y="256" text-anchor="middle" font-size="13" fill="#555">規劃、設計、寫碼、測試，</text>
+    <text x="539" y="274" text-anchor="middle" font-size="13" fill="#555">交付一個完整的 App。</text>
+    <!-- 02 右欄 -->
+    <rect x="831" y="211" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="946" y="237" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">建立頂級網站</text>
+    <text x="946" y="271" text-anchor="middle" font-size="13" fill="#555">結合 ChatGPT 圖像、Seedance</text>
+    <text x="946" y="289" text-anchor="middle" font-size="13" fill="#555">與 Claude Code 打造網站。</text>
+    <!-- 03 -->
+    <rect x="831" y="388" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="946" y="414" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">建立並運行 AI 代理</text>
+    <text x="946" y="448" text-anchor="middle" font-size="13" fill="#555">會規劃、執行任務</text>
+    <text x="946" y="466" text-anchor="middle" font-size="13" fill="#555">並交付成果的代理。</text>
+    <!-- 04 -->
+    <rect x="831" y="563" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="946" y="589" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">審查與修復程式碼</text>
+    <text x="946" y="623" text-anchor="middle" font-size="13" fill="#555">找出錯誤、建議修法、</text>
+    <text x="946" y="641" text-anchor="middle" font-size="13" fill="#555">重構混亂的程式碼。</text>
+    <!-- 05 -->
+    <rect x="831" y="741" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="946" y="767" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">撰寫軟體測試</text>
+    <text x="946" y="801" text-anchor="middle" font-size="13" fill="#555">快速生成單元、整合</text>
+    <text x="946" y="819" text-anchor="middle" font-size="13" fill="#555">與邊界案例測試。</text>
+    <!-- 06 -->
+    <rect x="831" y="918" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="946" y="944" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">設計稿變可用程式碼</text>
+    <text x="946" y="978" text-anchor="middle" font-size="13" fill="#555">上傳一張截圖，取得乾淨</text>
+    <text x="946" y="996" text-anchor="middle" font-size="13" fill="#555">可用的前端程式碼。</text>
+    <!-- 07 -->
+    <rect x="831" y="1093" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="946" y="1119" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">分析大型 PDF</text>
+    <text x="946" y="1153" text-anchor="middle" font-size="13" fill="#555">萃取重點、數字、</text>
+    <text x="946" y="1171" text-anchor="middle" font-size="13" fill="#555">風險與行動項目。</text>
+    <!-- 08 下方右 -->
+    <rect x="553" y="1159" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="668" y="1185" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">濃縮長篇研究</text>
+    <text x="668" y="1219" text-anchor="middle" font-size="13" fill="#555">比對多個來源，</text>
+    <text x="668" y="1237" text-anchor="middle" font-size="13" fill="#555">整理成清晰摘要。</text>
+    <!-- 09 下方左 -->
+    <rect x="312" y="1159" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="427" y="1185" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">準備策略文件</text>
+    <text x="427" y="1219" text-anchor="middle" font-size="13" fill="#555">撰寫商業計畫、市場</text>
+    <text x="427" y="1237" text-anchor="middle" font-size="13" fill="#555">策略與競爭分析。</text>
+    <!-- 10 左欄 -->
+    <rect x="18" y="1093" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="133" y="1119" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">分析財務數據</text>
+    <text x="133" y="1153" text-anchor="middle" font-size="13" fill="#555">檢視預算、預測、KPI</text>
+    <text x="133" y="1171" text-anchor="middle" font-size="13" fill="#555">與財務報表。</text>
+    <!-- 11 -->
+    <rect x="18" y="926" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="133" y="952" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">在 Claude Code 剪輯影片</text>
+    <text x="133" y="986" text-anchor="middle" font-size="13" fill="#555">用 HyperFrames 加上動態</text>
+    <text x="133" y="1004" text-anchor="middle" font-size="13" fill="#555">圖形、轉場與潤飾。</text>
+    <!-- 12 -->
+    <rect x="18" y="749" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="133" y="775" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">優化法律文件</text>
+    <text x="133" y="809" text-anchor="middle" font-size="13" fill="#555">審閱條款、比對版本、</text>
+    <text x="133" y="827" text-anchor="middle" font-size="13" fill="#555">標記合約風險。</text>
+    <!-- 13 -->
+    <rect x="18" y="572" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="133" y="598" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">打造儀表板與分析</text>
+    <text x="133" y="632" text-anchor="middle" font-size="13" fill="#555">為資料管線撰寫 SQL、</text>
+    <text x="133" y="650" text-anchor="middle" font-size="13" fill="#555">Python 與 KPI 邏輯。</text>
+    <!-- 14 -->
+    <rect x="18" y="395" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="133" y="421" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">製作培訓教材</text>
+    <text x="133" y="455" text-anchor="middle" font-size="13" fill="#555">建立課程大綱、入職</text>
+    <text x="133" y="473" text-anchor="middle" font-size="13" fill="#555">指南與教案。</text>
+    <!-- 15 -->
+    <rect x="18" y="211" width="230" height="40" rx="8" fill="#5b5bd6"/>
+    <text x="133" y="237" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">執行多階段專案</text>
+    <text x="133" y="271" text-anchor="middle" font-size="13" fill="#555">把大目標拆成階段</text>
+    <text x="133" y="289" text-anchor="middle" font-size="13" fill="#555">並交付最終成果。</text>
+  </g>
+
+  <!-- 頁尾橫幅 -->
+  <rect x="0" y="1302" width="1080" height="48" fill="#5b5bd6"/>
+  <text x="540" y="1332" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">原作：Adrees AI Automation ｜ 中文重製版 · 依原圖風格重繪</text>
+</svg>
+    </div>
+    <p class="src">原作：Adrees AI Automation ｜ 中文重製版 · 依原圖風格重繪</p>
+  </section>
+
+</div></main>
+<footer>AI 概念研究 · 中文圖解系列 ｜ 本頁為單一自包含 HTML，SVG 已內嵌，可離線開啟</footer>
+</body>
+</html>
