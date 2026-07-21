@@ -1,0 +1,466 @@
+{
+  "site_title": "AI 概念研究",
+  "site_subtitle": "AI 技術與應用核心概念 · 中文圖解／專有名詞深度研究索引",
+  "site_intro": "本站收錄兩大類研究成果：「概念圖解」為英文 AI 資訊圖的中文重繪單頁集；「專有名詞深度研究」為系統性深度研究報告，每個名詞涵蓋 6–10 篇多元來源。點擊任意卡片即可開啟完整頁面。",
+  "base_url": "https://mikekuo2024-collab.github.io/ai-concept-research/",
+  "entries": [
+    {
+      "date": "2026-07-22",
+      "topic": "Google 的 AI 生態系全景圖 · 中文圖解",
+      "desc": "英文資訊圖「Google's AI Ecosystem」的中文重繪：一張放射狀心智圖總覽 Google 的 30 項 AI 產品，分為六大板塊——影音與動態（Veo 3.1、Flow、Lumiere、VideoFX、Google Vids）、建構與程式（Gemini Code Assist、AI Studio、Jules、Opal、Antigravity）、圖像創作（ImageFX、Whisk、Stitch、Imagen 3、Nano Banana）、助理與商務（Gemini 應用、語音助理、Gemini Live、NotebookLM、Gemini 行銷）、模型陣容（Gemini 3 Pro／Flash／Flash-Lite、Gemma、Gemini 3）與延伸生態系（Firebase、Vertex AI、Responsible AI、Gemini Nano、SGE），一張圖掌握 Google 在生成式 AI 各戰線的完整佈局。",
+      "url": "concept-google-ai-ecosystem.html",
+      "tags": [
+        "Google AI",
+        "生態系",
+        "Gemini 3",
+        "Veo",
+        "Imagen",
+        "NotebookLM",
+        "Vertex AI",
+        "AI Studio",
+        "全景圖"
+      ],
+      "count": 1
+    },
+    {
+      "date": "2026-07-21",
+      "topic": "10 分鐘打造 AI 代理 × Fable 5 的 15 件驚人用途 · 中文圖解",
+      "desc": "兩張英文 AI 資訊圖的中文重繪：(1)「Build an AI Agent in 10 Minutes」——六步驟零程式碼打造 AI 代理：安裝 Claude Code、建立上下文（~/CLAUDE.md）、建立記憶（糾正存成 .md 並索引）、建立技能（/指令觸發跨工具工作流）、建立代理團隊（Opus 分析 × Sonnet 執行 × 95/100 QA 關卡）、自動駕駛運行（Claude Routines 雲端排程），每步附可直接複製的提示；(2)「15 Insane Things You Can Do With Claude Fable 5」——放射狀全景圖收錄 15 種高價值用法：打造完整 App、建立頂級網站、運行 AI 代理、審查程式碼、寫測試、設計稿變程式碼、分析大型 PDF、濃縮研究、策略文件、財務分析、剪輯影片、法律文件、儀表板、培訓教材、多階段專案。",
+      "url": "concept-build-ai-agent-10min-fable5-15things.html",
+      "tags": [
+        "AI 代理",
+        "10 分鐘",
+        "CLAUDE.md",
+        "記憶",
+        "Skills",
+        "Claude Routines",
+        "QA 關卡",
+        "Fable 5",
+        "15 大用途",
+        "零程式碼"
+      ],
+      "count": 2
+    },
+    {
+      "date": "2026-07-18",
+      "topic": "8 個 Claude 提示框架玩轉 LinkedIn · 中文圖解",
+      "desc": "英文 AI 資訊圖「8 Claude Prompt Frameworks to Master LinkedIn」的中文重繪：八套首字母縮寫提示框架，覆蓋 LinkedIn 內容經營全流程——P-O-S-T 把想法變貼文、B-R-I-E-F 像對團隊簡報一樣對 AI 下指令、H-I-R-E 讓 AI 聽起來像你、S-T-O-R-Y 把人生歷程變內容、P-R-O-O-F 寫能成交的客戶案例、G-R-O-W 建立每週自動運轉的系統、L-E-A-D 把貼文變自來客、T-E-S-T 發文前壓力測試；每套框架附逐字母拆解與完整範例，可直接抄進 Claude 使用。",
+      "url": "concept-claude-linkedin-8-frameworks.html",
+      "tags": [
+        "提示框架",
+        "提示工程",
+        "LinkedIn",
+        "個人品牌",
+        "內容系統",
+        "P-O-S-T",
+        "B-R-I-E-F",
+        "自來客",
+        "壓力測試"
+      ],
+      "count": 1
+    },
+    {
+      "date": "2026-07-16",
+      "topic": "Claude 的 12 項超能力 × 用 Claude 打造 AI 內容團隊（35 技能） · 中文圖解",
+      "desc": "兩張英文 AI 資訊圖的中文重繪：(1)「Claude's 12 Superpowers」——Claude 比多數 AI 模型做得更好的 12 件事（長文件分析、深度研究、專業寫作、提示工程、程式理解、策略思考、工作流設計、資料解讀、學習加速器、決策支援、內容再利用、知識組織），每項附最適場景與可直接套用的範例提示，底部整理 12 種最佳使用情境與「依任務挑模型」心法；(2)「Build Your AI Content Team With Claude」——把 Claude 當內容作業系統 CEO，依 7 大部門（研究與發想、腳本與鉤子、視覺製作、內容分發、互動經營、數據分析、品牌合作）編組 35 個技能崗位，一人團隊也能有完整編制。",
+      "url": "concept-claude-12-superpowers-ai-content-team.html",
+      "tags": [
+        "Claude 超能力",
+        "長文件分析",
+        "深度研究",
+        "提示工程",
+        "內容再利用",
+        "AI 內容團隊",
+        "內容作業系統",
+        "35 技能",
+        "內容行銷",
+        "知識組織"
+      ],
+      "count": 2
+    },
+    {
+      "date": "2026-07-14",
+      "topic": "Fable 5 使用心法 × 第一個 Claude 自動化 · 中文圖解",
+      "desc": "兩張英文 AI 資訊圖的中文重繪：(1)「如何真正用好 Fable 5」——大多數人（下提示→拿答案→從頭再來）與 Mythos 高手（執行→記錄→蒸餾→重複）的差別；四層架構：基礎原語、協作編排、記憶、自我改進；黃金法則「產出者 ≠ 驗證者」與自我改進迴圈；(2)「打造你的第一個 Claude 自動化」——五步路線圖：找出重複、任務分流（刪除／自動化／委派／加速四道閘門）、繪製工作流（觸發→動作→審核）、打造技能（目標／佐證／工具）、選擇執行環境（聊天／Cowork 排程／雲端）。",
+      "url": "concept-fable5-habits-first-automation.html",
+      "tags": [
+        "Fable 5",
+        "自我改進",
+        "AI 代理",
+        "記憶",
+        "驗證者",
+        "Claude 自動化",
+        "技能",
+        "工作流"
+      ],
+      "count": 2
+    },
+    {
+      "date": "2026-07-10",
+      "topic": "如何用 Claude 打造 AI 代理（2026 實戰藍圖） · 中文圖解",
+      "desc": "英文 AI 資訊圖「How to Create AI Agents Using Claude (2026)」的中文重繪：三欄式成熟度藍圖——(1) Claude 代理智慧引擎（基礎技術堆疊、核心元件、釐清→規劃→執行迴圈、MCP 工具系統、建置最佳實務、常見應用）；(2) 工作流設計可靠自動化層（執行工作流、高效能流程、上下文管理、可觀測性、擴展策略、失敗預防）；(3) 正式環境企業自動化引擎（安全架構、團隊協作、企業連接、效能優化、2026 代理趨勢）；底部附跨平台代理策略：開發框架、就緒檢查清單、每週稽核、每月優化循環。",
+      "url": "concept-ai-agents-claude-2026.html",
+      "tags": [
+        "AI 代理",
+        "Claude 4",
+        "MCP",
+        "子代理",
+        "工作流設計",
+        "可觀測性",
+        "失敗預防",
+        "企業部署",
+        "安全架構",
+        "代理稽核"
+      ],
+      "count": 1
+    },
+    {
+      "date": "2026-07-09",
+      "topic": "Claude 入門檢查清單 × 用 Claude Code 建立網站七步驟 · 中文圖解",
+      "desc": "兩張英文 AI 資訊圖的中文重繪：(1) Claude Checklist——9 大面向 72 項設定與使用要點（基礎設定、情境資料夾、提示技巧、連接器、技能、專案、設計與程式、研究與搜尋、代幣經濟），逐項打勾即可完成專業級 Claude 配置（原作：Poornachandra Kongara）；(2) 7 Steps to Create a Website with Claude Code——先規劃再建置的建站工作流：明確目標、詳細簡報、參考網站、事前規劃、迭代建置、專業部署、最大心法——Claude 寫程式，你提供願景（原作：AIPlanetX.com）。",
+      "url": "concept-claude-checklist-website-7steps.html",
+      "tags": [
+        "Claude Checklist",
+        "入門設定",
+        "情境資料夾",
+        "連接器",
+        "Skills",
+        "Projects",
+        "代幣經濟",
+        "Claude Code",
+        "建站七步驟",
+        "部署檢查"
+      ],
+      "count": 2
+    },
+    {
+      "date": "2026-07-08",
+      "topic": "Claude 5 提示的解剖結構 × 如何對 Claude-5 下提示 · 中文圖解",
+      "desc": "兩張英文 AI 資訊圖的中文重繪：(1) The Anatomy of a Claude 5 prompt——一份完整 Claude 5 提示的 11 個組成部位（任務、上下文檔案、參考範例、投入程度、立即行動、範圍、委派、證據、記憶、檢查點、回報），附可直接套用的提示範本；(2) How to Prompt Claude-5——五層金字塔（Project、Skills、AskUserQuestion、Goal、Effort）搭配真實範例提示，示範五個要素如何組合成一句高效指令（原作：Ruben Hassid「How to AI」）。",
+      "url": "concept-claude5-prompt-anatomy.html",
+      "tags": [
+        "Claude 5",
+        "提示解剖",
+        "提示範本",
+        "子代理委派",
+        "證據稽核",
+        "Projects",
+        "Skills",
+        "AskUserQuestion",
+        "目標導向提示",
+        "Effort 設定"
+      ],
+      "count": 2
+    },
+    {
+      "date": "2026-07-06",
+      "topic": "Claude 五大 MCP 連接 × AI 治理八大面向 × Claude Projects 十大用法 · 中文圖解",
+      "desc": "三張英文 AI 資訊圖的中文重繪：(1) 5 Powerful MCP Connections for Claude——GitHub、Google Drive、Slack、Notion、Airtable 五大 MCP 連接的功能與效益（連接·自動化·完成更多）；(2) 8 Ways to Build AI Governance——資料目錄、資料血緣、資料品質檢查、資料安全、存取控制、中繼資料管理、合規追蹤、稽核日誌八大 AI 治理支柱；(3) 10 Powerful Ways to Use Claude Projects——內容創作、商業規劃、程式專案、研究摘要、行銷品牌、專案管理、學習教育、創意發想、郵件溝通、自動化整合十大用法。",
+      "url": "concept-mcp-governance-claude-projects.html",
+      "tags": [
+        "MCP 連接",
+        "GitHub MCP",
+        "Slack MCP",
+        "AI 治理",
+        "資料血緣",
+        "存取控制",
+        "稽核日誌",
+        "Claude Projects",
+        "長期記憶",
+        "自動化整合"
+      ],
+      "count": 3
+    },
+    {
+      "date": "2026-07-05",
+      "topic": "Claude 四檔案設定法 × 讓 Claude 一步一步教會你 · 中文圖解",
+      "desc": "兩張英文 AI 資訊圖的中文重繪：(1) How to (actually) setup Claude——把 4 小時任務變成一句指令的四層檔案架構（規則層 Context ~/CLAUDE.md、教訓層 Memory 永久記憶、行動層 Skills 一行指令工作流、團隊層 Agents 管線交棒，Opus 評審 × Sonnet 執行）；(2) How to Get Claude to Teach You Step by Step——把 Claude 當教練的九個原則（先說清楚目標、先要完整路線圖、一次只走一步、動手的是你、done 才前進、不懂就重講、以完全獨立為目標、保持白話、你才是建造者）。",
+      "url": "concept-claude-setup-teach-stepbystep.html",
+      "tags": [
+        "CLAUDE.md",
+        "Memory",
+        "Skills",
+        "Agents",
+        "四檔案設定",
+        "子代理管線",
+        "Step by Step",
+        "逐步學習法",
+        "AI 教練",
+        "獨立學習"
+      ],
+      "count": 2
+    },
+    {
+      "date": "2026-07-04",
+      "topic": "AI 工程師完整路線圖 × Claude 連接器八大應用 · 中文圖解",
+      "desc": "兩張英文 AI 資訊圖的中文重繪：(1) Complete AI Engineer Roadmap——從程式設計基礎、AI 數學、資料分析、機器學習、深度學習、電腦視覺、NLP、生成式 AI、框架工具、MLOps 到專案實作與進階主題的 12 階段完整學習路徑（含各階段建議時程與最終目標流程）；(2) Claude Connectors——Ruben Hassid 每週實際使用的 8 個 Claude 連接器實戰情境（Granola 會議摘要、Gmail 三分類草稿、Slack 重點萃取、Canva 輪播設計、Google Drive 試算表、Notion 內容日曆、Google Calendar 找空檔砍會議、Gamma 簡報）。",
+      "url": "concept-ai-engineer-roadmap-claude-connectors.html",
+      "tags": [
+        "AI 工程師",
+        "學習路線圖",
+        "機器學習",
+        "深度學習",
+        "生成式 AI",
+        "MLOps",
+        "Claude 連接器",
+        "MCP",
+        "Granola",
+        "Gamma"
+      ],
+      "count": 2
+    },
+    {
+      "date": "2026-07-01",
+      "topic": "Claude Code 建站七步驟 × Skills 建立指南 × 10 個強大指令 · 中文圖解",
+      "desc": "三張英文 AI 資訊圖的中文重繪：(1) 用 Claude Code 建立第一個網站的七步驟實戰流程（從截圖起點、design.md 樣板、魔法提示詞，到繞過確認、逐頁推進、截圖修正、Netlify 上線）；(2) 建立真正有效 Claude Skills 完整指南（什麼是 Skill、完美描述公式、六步驟建立流程、避免 Skill 失敗的關鍵）；(3) 聰明工作的 10 個 Claude 斜槓指令（/ghost、/matrix、/brief、/challenge、/systemize、/roast、/steal、/focus、/expand 與黃金組合技）。",
+      "url": "concept-claude-code-skills-commands.html",
+      "tags": [
+        "Claude Code",
+        "網站建立",
+        "SKILL.md",
+        "Skills 設計",
+        "觸發器",
+        "斜槓指令",
+        "/ghost",
+        "/matrix",
+        "/challenge",
+        "工作流程"
+      ],
+      "count": 3
+    },
+    {
+      "date": "2026-06-30",
+      "topic": "Claude 運作原理 × 七層架構 × 十二必學技巧 · 中文圖解",
+      "desc": "三張英文 AI 資訊圖的中文重繪：30 個 Claude 運作原理知識點（Transformer 架構、Constitutional AI、RLHF、RLAIF、推理機制、Tool Use、Extended Thinking）、Claude 七層能力架構全貌（從 Chat 到 Autonomous Systems），以及 12 個立即可用的 Claude 必學技巧（免寫程式建網站、AI 操控電腦、Skills /指令、排程自動化、MCP 連接器等）。",
+      "url": "concept-claude-architecture-layers-plays.html",
+      "tags": [
+        "Claude架構",
+        "Transformer",
+        "Constitutional AI",
+        "RLHF",
+        "RLAIF",
+        "七層架構",
+        "MCP",
+        "Claude Code",
+        "Skills",
+        "實戰技巧"
+      ],
+      "count": 3
+    },
+    {
+      "date": "2026-06-28",
+      "topic": "Claude Cowork 精通三步驟 × 設定路線圖 × 技能九大秘技 · 中文圖解",
+      "desc": "三張 Claude 最佳實踐資訊圖的中文重繪：精通 Cowork 的設定/建立/工作三步驟（Poonam Soni）、九維度 Claude 設定路線圖（@Saema Al Lab）、Claude Skills 九大秘技含觸發器設計與漸進揭露原則（Eric Melillo）。",
+      "url": "concept-cowork-skills-setup.html",
+      "tags": [
+        "Claude Cowork",
+        "設定路線圖",
+        "Claude技能",
+        "SKILL-CREATOR",
+        "觸發器",
+        "漸進揭露",
+        "Opus 4.8"
+      ],
+      "count": 3
+    },
+    {
+      "date": "2026-06-26",
+      "topic": "Claude AI 工作流系統 · 中文圖解",
+      "desc": "英文資訊圖「Stop Treating Claude Like Just a Chatbot」的中文重繪：五大步驟把 Claude 從聊天工具升級為完整工作流系統——正確設定、接入工作流、善用優勢、提示框架（角色/任務/情境/格式/目標），以及打造系統而非一次性對話的核心思維轉變。",
+      "url": "concept-claude-workflow-system.html",
+      "tags": [
+        "Claude",
+        "工作流系統",
+        "提示框架",
+        "AI生產力",
+        "思維轉變"
+      ],
+      "count": 1
+    },
+    {
+      "date": "2026-06-25",
+      "topic": "MCP 模型上下文協議 · 中文圖解",
+      "desc": "Model Context Protocol（MCP）的中文圖解：四大核心優勢（通用連接性、無縫整合、開發者友善、安全可靠）、有無 MCP 的差異對比，以及 AI 與外部工具溝通的六步驟完整運作流程。",
+      "url": "concept-mcp-model-context-protocol.html",
+      "tags": [
+        "MCP",
+        "模型上下文協議",
+        "AI架構",
+        "開放標準",
+        "AI工具整合"
+      ],
+      "count": 1
+    },
+    {
+      "date": "2026-06-23",
+      "topic": "CRISP × C.R.I.S.P.E. 提示框架 · 中文圖解",
+      "desc": "兩套系統化 AI 提示框架：CRISP 五式（清晰、相關、指引、結構化、禮貌）與 C.R.I.S.P.E. 六步驟（情境、角色、指示、參數、風格、評估），幫助每次都寫出更好的 AI 提示。",
+      "url": "concept-crisp-crispe-prompt-framework.html",
+      "tags": [
+        "提示工程",
+        "CRISP",
+        "C.R.I.S.P.E.",
+        "AI提示框架"
+      ],
+      "count": 2
+    },
+    {
+      "date": "2026-06-21",
+      "topic": "AI 詞彙 × 模型選型 × RAG × 提示分級 · 中文圖解",
+      "desc": "四張英文 AI 資訊圖的中文重繪：20 個團隊必懂 AI 詞彙、RAG 與 Agentic RAG 的差別、八大 AI 模型（ChatGPT/Claude/Gemini 等）選型、提示的六個層次。",
+      "url": "concept-ai-models-and-prompting.html",
+      "tags": [
+        "AI 詞彙",
+        "模型選型",
+        "RAG",
+        "提示工程"
+      ],
+      "count": 4
+    },
+    {
+      "date": "2026-06-21",
+      "topic": "駕馭工程 Harness Engineering · 中文圖解",
+      "desc": "兩張英文 AI 架構概念的中文重繪：Harness Engineering 五大核心維度（指令、工具箱／MCP、狀態、驗證迴路、防爆護欄），以及用 Bug 修復情境對比提示詞／上下文／駕馭工程三者。",
+      "url": "concept-harness-engineering.html",
+      "tags": [
+        "駕馭工程",
+        "AI 代理",
+        "Harness",
+        "上下文工程"
+      ],
+      "count": 2
+    },
+    {
+      "date": "2026-06-20",
+      "topic": "Claude 提示框架九步驟 · 中文圖解",
+      "desc": "The Claude Prompt Framework（原作 Redgate）的中文重繪：從核心提示公式、餵參考檔案、對齊語氣節奏，到執行前列規則與對齊共識的九步驟提示法。",
+      "url": "concept-claude-prompt-framework.html",
+      "tags": [
+        "提示工程",
+        "Claude",
+        "提示框架",
+        "工作流"
+      ],
+      "count": 1
+    },
+    {
+      "date": "2026-06-20",
+      "topic": "AI 工具與代理結構 · 中文圖解",
+      "desc": "三張英文 AI 概念資訊圖的中文重繪：常用提示框架（TAG／CARE／RACE／RISE）、Claude Code／Cursor／Codex 比較、AI 代理的解剖結構。",
+      "url": "concept-ai-tools-anatomy.html",
+      "tags": [
+        "提示框架",
+        "AI 編碼工具",
+        "AI 代理",
+        "護城河"
+      ],
+      "count": 3
+    },
+    {
+      "date": "2026-06-18",
+      "topic": "AI 核心概念 · 中文圖解單頁集",
+      "desc": "11 張英文 AI 概念資訊圖的中文重繪，涵蓋提示工程、Claude 技能、代理迴圈、向量資料庫等主題。",
+      "url": "concept-ai-core-concepts.html",
+      "tags": [
+        "提示工程",
+        "Claude 技能",
+        "向量資料庫",
+        "迴圈工程"
+      ],
+      "count": 11
+    }
+  ],
+  "research_entries": [
+    {
+      "date": "2026-06-21",
+      "topic": "AI概念研究專有名詞索引",
+      "desc": "收錄所有專有名詞深度研究報告的總索引頁，支援即時關鍵字搜尋，可快速導覽至各研究報告。",
+      "url": "AI概念研究專有名詞索引.html",
+      "tags": [
+        "索引頁",
+        "專有名詞",
+        "深度研究"
+      ],
+      "is_index": true,
+      "sources": 6
+    },
+    {
+      "date": "2026-06-21",
+      "topic": "Agentic AI",
+      "desc": "自主規劃、分解任務並連續執行的 AI 代理系統。涵蓋核心架構設計、企業應用案例、風險治理框架，以及與傳統 AI 的本質差異。",
+      "url": "Agentic AI參考資料/Agentic_AI_摘要報告.html",
+      "tags": [
+        "代理系統",
+        "自主執行",
+        "任務規劃",
+        "企業應用"
+      ],
+      "sources": 8
+    },
+    {
+      "date": "2026-06-21",
+      "topic": "Context Engineering",
+      "desc": "系統性設計與管理 AI 工作流程中的上下文資訊，超越單次提示詞優化，涵蓋記憶架構、RAG 整合、Agent 記憶管理及與提示工程的本質差異。",
+      "url": "Context Engineering參考資料/Context_Engineering_摘要報告.html",
+      "tags": [
+        "上下文管理",
+        "提示工程",
+        "RAG",
+        "記憶架構"
+      ],
+      "sources": 10
+    },
+    {
+      "date": "2026-06-21",
+      "topic": "Loop Engineering",
+      "desc": "AI 代理自主執行的迴圈設計模式，涵蓋 perceive-plan-act 循環、人機互動審核點設計、防止無限迴圈的護欄機制。",
+      "url": "Loop engineering參考資料/Loop_Engineering_摘要報告.html",
+      "tags": [
+        "迴圈設計",
+        "代理模式",
+        "自主循環",
+        "工作流程"
+      ],
+      "sources": 6
+    },
+    {
+      "date": "2026-06-21",
+      "topic": "MCP（Model Context Protocol）",
+      "desc": "Anthropic 制定的開放標準協定，讓 AI 模型安全、標準化地連接外部工具、資料庫與服務，涵蓋架構設計、安全風險分析及各大平台支援現況。",
+      "url": "MCP參考資料/MCP_摘要報告.html",
+      "tags": [
+        "協定標準",
+        "工具連接",
+        "Anthropic",
+        "安全架構"
+      ],
+      "sources": 9
+    },
+    {
+      "date": "2026-06-21",
+      "topic": "ReAct（Reasoning + Acting）",
+      "desc": "交替推理與行動的代理框架，讓 LLM 在思考過程中動態調用工具，涵蓋論文原理、與 CoT 的比較、LangChain 實作及現代 Agent 框架演進。",
+      "url": "ReAct參考資料/ReAct_摘要報告.html",
+      "tags": [
+        "推理行動",
+        "代理框架",
+        "LangChain",
+        "思考鏈"
+      ],
+      "sources": 8
+    },
+    {
+      "date": "2026-06-21",
+      "topic": "Vibe Coding",
+      "desc": "Andrej Karpathy 提出的 AI 輔助程式設計新典範：以自然語言描述意圖、AI 生成程式碼、人工審核邏輯，涵蓋工具比較、安全風險及產業現況。",
+      "url": "Vibe Coding參考資料/Vibe_Coding_摘要報告.html",
+      "tags": [
+        "自然語言程式設計",
+        "AI 工具",
+        "Karpathy",
+        "生產力"
+      ],
+      "sources": 10
+    }
+  ]
+}
